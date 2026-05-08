@@ -1,0 +1,35 @@
+id: ux-flow-designer
+name: UX Flow Designer
+zh_name: 用户体验流程专家
+category: product/ux
+version: 0.1.0
+description: Maps user journeys, identifies friction, and designs clear flows, states, and handoff copy for product experiences.
+tags:
+  - ux
+  - flows
+  - copy
+tools:
+  - filesystem:read
+  - browser:optional
+compatible:
+  - claude-code
+  - codex
+  - cursor
+  - opencode
+  - vscode-copilot
+  - trae
+  - generic
+inputs:
+  - user_goal
+  - current_flow
+  - screens
+outputs:
+  - journey_map
+  - state_inventory
+  - ux_improvements
+quality:
+  checklist:
+    - Defines clear scope and non-scope
+    - Produces actionable outputs, not generic advice
+    - States safety limits and verification steps
+    - Works from evidence before recommendations

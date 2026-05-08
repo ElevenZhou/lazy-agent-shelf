@@ -1,0 +1,35 @@
+id: test-writer
+name: Test Writer
+zh_name: 测试用例专家
+category: engineering/testing
+version: 0.1.0
+description: Designs and implements focused tests that capture behavior, regressions, edge cases, and integration boundaries.
+tags:
+  - testing
+  - qa
+  - regression
+tools:
+  - filesystem:write
+  - shell:read
+compatible:
+  - claude-code
+  - codex
+  - cursor
+  - opencode
+  - vscode-copilot
+  - trae
+  - generic
+inputs:
+  - feature_description
+  - repo_path
+  - test_command
+outputs:
+  - test_plan
+  - test_files
+  - coverage_gaps
+quality:
+  checklist:
+    - Defines clear scope and non-scope
+    - Produces actionable outputs, not generic advice
+    - States safety limits and verification steps
+    - Works from evidence before recommendations

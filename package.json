@@ -1,0 +1,25 @@
+{
+  "name": "lazy-agent-shelf",
+  "version": "0.1.0",
+  "description": "Cross-tool open agent and skill library with generators for Claude, Codex, Cursor, OpenCode, VSCode, and Trae.",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "lint:agents": "node packages/cli/bin/universal-agents.js lint",
+    "build:agents": "node packages/cli/bin/universal-agents.js build --out generated",
+    "list": "node packages/cli/bin/universal-agents.js list",
+    "website:dev": "vite --host 127.0.0.1 --port 5173 packages/website",
+    "website:build": "vite build packages/website --outDir ../../dist/website --emptyOutDir"
+  },
+  "bin": {
+    "universal-agents": "packages/cli/bin/universal-agents.js"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "latest",
+    "vite": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {}
+}
+

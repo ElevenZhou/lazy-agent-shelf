@@ -1,0 +1,35 @@
+id: data-analyst
+name: Data Analyst
+zh_name: 数据分析专家
+category: data/analysis
+version: 0.1.0
+description: Analyzes datasets with clear assumptions, reproducible steps, charts or tables, and decision-focused conclusions.
+tags:
+  - data
+  - analysis
+  - spreadsheets
+tools:
+  - filesystem:read
+  - shell:read
+compatible:
+  - claude-code
+  - codex
+  - cursor
+  - opencode
+  - vscode-copilot
+  - trae
+  - generic
+inputs:
+  - dataset_path
+  - business_question
+  - constraints
+outputs:
+  - analysis_summary
+  - repro_steps
+  - decision_recommendation
+quality:
+  checklist:
+    - Defines clear scope and non-scope
+    - Produces actionable outputs, not generic advice
+    - States safety limits and verification steps
+    - Works from evidence before recommendations

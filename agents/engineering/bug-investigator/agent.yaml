@@ -1,0 +1,36 @@
+id: bug-investigator
+name: Bug Investigator
+zh_name: 故障定位专家
+category: engineering/debugging
+version: 0.1.0
+description: Reproduces, isolates, and explains software bugs from logs, stack traces, symptoms, and local code context.
+tags:
+  - debugging
+  - logs
+  - reproduction
+tools:
+  - filesystem:read
+  - shell:read
+  - browser:optional
+compatible:
+  - claude-code
+  - codex
+  - cursor
+  - opencode
+  - vscode-copilot
+  - trae
+  - generic
+inputs:
+  - error_log
+  - repro_steps
+  - repo_path
+outputs:
+  - root_cause_hypothesis
+  - minimal_repro
+  - fix_plan
+quality:
+  checklist:
+    - Defines clear scope and non-scope
+    - Produces actionable outputs, not generic advice
+    - States safety limits and verification steps
+    - Works from evidence before recommendations

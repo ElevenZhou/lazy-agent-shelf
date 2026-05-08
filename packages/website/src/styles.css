@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Serif:wght@400;600&display=swap');
+
+:root {
+  --ink: #17130d;
+  --paper: #f7ead3;
+  --rust: #b64020;
+  --acid: #d7ff37;
+  --blue: #193f7a;
+  --muted: #6d6253;
+  --line: rgba(23, 19, 13, 0.2);
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: 'IBM Plex Serif', Georgia, serif;
+  background:
+    radial-gradient(circle at 8% 15%, rgba(215,255,55,.55), transparent 20rem),
+    radial-gradient(circle at 88% 8%, rgba(182,64,32,.35), transparent 22rem),
+    linear-gradient(135deg, rgba(25,63,122,.12) 0 25%, transparent 25% 50%, rgba(25,63,122,.08) 50% 75%, transparent 75%),
+    var(--paper);
+  background-size: auto, auto, 36px 36px, auto;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(rgba(23,19,13,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(23,19,13,.04) 1px, transparent 1px);
+  background-size: 18px 18px;
+  mix-blend-mode: multiply;
+}
+
+main { width: min(1180px, calc(100% - 32px)); margin: 0 auto; padding: 42px 0 80px; }
+.hero {
+  min-height: 430px;
+  display: grid;
+  align-content: center;
+  position: relative;
+  border: 2px solid var(--ink);
+  padding: clamp(28px, 7vw, 76px);
+  background: rgba(247,234,211,.72);
+  box-shadow: 12px 12px 0 var(--ink);
+  overflow: hidden;
+}
+.hero::after {
+  content: 'AGENTS';
+  position: absolute;
+  right: -20px;
+  bottom: -50px;
+  font-family: 'Bebas Neue', Impact, sans-serif;
+  font-size: clamp(110px, 20vw, 260px);
+  color: rgba(182,64,32,.14);
+  letter-spacing: .02em;
+}
+.signal { text-transform: uppercase; letter-spacing: .18em; color: var(--rust); font-weight: 600; font-size: 13px; }
+h1 { font-family: 'Bebas Neue', Impact, sans-serif; font-size: clamp(58px, 10vw, 130px); line-height: .84; margin: 18px 0; max-width: 920px; letter-spacing: .01em; }
+.hero p { max-width: 690px; font-size: 20px; line-height: 1.55; color: #372e23; }
+.terminal { width: fit-content; max-width: 100%; overflow: auto; margin-top: 26px; padding: 16px 18px; background: var(--ink); color: var(--acid); border-radius: 2px; font-family: Consolas, monospace; }
+.toolbar { display: grid; gap: 18px; margin: 54px 0 28px; }
+input { border: 2px solid var(--ink); background: rgba(255,255,255,.38); padding: 18px 20px; font: inherit; font-size: 18px; box-shadow: 6px 6px 0 rgba(23,19,13,.18); }
+.chips { display: flex; gap: 10px; flex-wrap: wrap; }
+button { border: 1px solid var(--ink); background: transparent; color: var(--ink); padding: 10px 14px; cursor: pointer; font-weight: 700; }
+button.active, button:hover { background: var(--ink); color: var(--paper); }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.card { animation: rise .6s ease both; animation-delay: var(--delay); min-height: 286px; padding: 20px; border: 2px solid var(--ink); background: rgba(247,234,211,.84); box-shadow: 7px 7px 0 rgba(23,19,13,.86); display: flex; flex-direction: column; gap: 12px; }
+.card:nth-child(4n+2) { transform: rotate(-.4deg); background: rgba(255,255,255,.58); }
+.card:nth-child(4n+3) { transform: rotate(.35deg); }
+.card-top { display: flex; justify-content: space-between; gap: 12px; font-size: 12px; text-transform: uppercase; color: var(--muted); }
+.card h2 { font-family: 'Bebas Neue', Impact, sans-serif; font-size: 38px; margin: 0; line-height: .95; }
+.card p { margin: 0; line-height: 1.45; color: #4e4437; flex: 1; }
+.targets { display: flex; flex-wrap: wrap; gap: 6px; }
+em { font-style: normal; font-size: 12px; border: 1px solid var(--blue); color: var(--blue); padding: 3px 6px; background: rgba(25,63,122,.08); }
+pre { margin: 0; white-space: pre-wrap; font-family: Consolas, monospace; font-size: 12px; background: rgba(23,19,13,.08); padding: 10px; }
+.stacks { margin-top: 72px; display: grid; grid-template-columns: 1.2fr repeat(3, 1fr); gap: 18px; align-items: stretch; }
+.stacks h2 { font-family: 'Bebas Neue', Impact, sans-serif; font-size: 52px; line-height: .95; margin: 14px 0 0; }
+.stack { border-left: 6px solid var(--rust); background: rgba(255,255,255,.42); padding: 20px; }
+.stack h3 { margin-top: 0; font-size: 22px; }
+.stack code { line-height: 1.7; }
+@keyframes rise { from { opacity: 0; transform: translateY(18px) rotate(.8deg); } to { opacity: 1; } }
+@media (max-width: 900px) { .grid, .stacks { grid-template-columns: 1fr; } .hero { box-shadow: 7px 7px 0 var(--ink); } }

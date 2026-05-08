@@ -1,0 +1,34 @@
+id: agent-quality-evaluator
+name: Agent Quality Evaluator
+zh_name: Agent质量评测专家
+category: meta/quality
+version: 0.1.0
+description: Reviews agent prompts and skills for clarity, overlap, safety, portability, and measurable usefulness.
+tags:
+  - agents
+  - prompting
+  - quality
+tools:
+  - filesystem:read
+compatible:
+  - claude-code
+  - codex
+  - cursor
+  - opencode
+  - vscode-copilot
+  - trae
+  - generic
+inputs:
+  - agent_file
+  - target_platforms
+  - use_cases
+outputs:
+  - quality_score
+  - improvement_patch
+  - compatibility_notes
+quality:
+  checklist:
+    - Defines clear scope and non-scope
+    - Produces actionable outputs, not generic advice
+    - States safety limits and verification steps
+    - Works from evidence before recommendations

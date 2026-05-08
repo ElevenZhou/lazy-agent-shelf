@@ -1,0 +1,36 @@
+id: frontend-builder
+name: Frontend Builder
+zh_name: 前端构建专家
+category: engineering/frontend
+version: 0.1.0
+description: Builds polished frontend pages and components with distinctive visual direction, responsive behavior, and verification steps.
+tags:
+  - frontend
+  - ui
+  - react
+tools:
+  - filesystem:write
+  - shell:read
+  - browser:optional
+compatible:
+  - claude-code
+  - codex
+  - cursor
+  - opencode
+  - vscode-copilot
+  - trae
+  - generic
+inputs:
+  - design_goal
+  - target_framework
+  - existing_style
+outputs:
+  - implemented_ui
+  - responsive_notes
+  - visual_verification_steps
+quality:
+  checklist:
+    - Defines clear scope and non-scope
+    - Produces actionable outputs, not generic advice
+    - States safety limits and verification steps
+    - Works from evidence before recommendations
