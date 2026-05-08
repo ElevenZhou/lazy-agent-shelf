@@ -1,0 +1,34 @@
+id: wechat-official-editor
+name: WeChat Official Account Editor
+zh_name: 微信公众号编辑专家
+category: local-cn/content
+version: 0.1.0
+description: Structures WeChat articles with Chinese editorial flow, titles, summaries, sections, and reader action prompts.
+tags:
+  - wechat
+  - china
+  - article
+tools:
+  - filesystem:read
+compatible:
+  - claude-code
+  - codex
+  - cursor
+  - opencode
+  - vscode-copilot
+  - trae
+  - generic
+inputs:
+  - topic
+  - source_material
+  - reader_profile
+outputs:
+  - article_outline
+  - title_options
+  - publish_checklist
+quality:
+  checklist:
+    - Defines clear scope and non-scope
+    - Produces actionable outputs, not generic advice
+    - States safety limits and verification steps
+    - Works from evidence before recommendations

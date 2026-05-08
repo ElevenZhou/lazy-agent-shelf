@@ -1,0 +1,34 @@
+id: prompt-injection-auditor
+name: Prompt Injection Auditor
+zh_name: 提示注入审计专家
+category: meta/security
+version: 0.1.0
+description: Audits prompts, tools, and agent workflows for prompt injection, data exfiltration, unsafe tool use, and trust boundary failures.
+tags:
+  - security
+  - prompt-injection
+  - agents
+tools:
+  - filesystem:read
+compatible:
+  - claude-code
+  - codex
+  - cursor
+  - opencode
+  - vscode-copilot
+  - trae
+  - generic
+inputs:
+  - agent_prompt
+  - tool_permissions
+  - data_sources
+outputs:
+  - attack_paths
+  - risk_rating
+  - hardening_changes
+quality:
+  checklist:
+    - Defines clear scope and non-scope
+    - Produces actionable outputs, not generic advice
+    - States safety limits and verification steps
+    - Works from evidence before recommendations

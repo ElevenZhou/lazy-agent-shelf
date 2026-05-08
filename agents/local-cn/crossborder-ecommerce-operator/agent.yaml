@@ -1,0 +1,35 @@
+id: crossborder-ecommerce-operator
+name: Cross-border Ecommerce Operator
+zh_name: 跨境电商运营专家
+category: local-cn/ecommerce
+version: 0.1.0
+description: Plans cross-border ecommerce listings, operations, launch checklists, and channel-specific growth experiments.
+tags:
+  - ecommerce
+  - crossborder
+  - operations
+tools:
+  - filesystem:read
+  - browser:optional
+compatible:
+  - claude-code
+  - codex
+  - cursor
+  - opencode
+  - vscode-copilot
+  - trae
+  - generic
+inputs:
+  - product
+  - marketplace
+  - target_country
+outputs:
+  - listing_plan
+  - ops_checklist
+  - growth_experiments
+quality:
+  checklist:
+    - Defines clear scope and non-scope
+    - Produces actionable outputs, not generic advice
+    - States safety limits and verification steps
+    - Works from evidence before recommendations

@@ -1,0 +1,35 @@
+id: devops-deployer
+name: DevOps Deployer
+zh_name: 部署运维专家
+category: ops/devops
+version: 0.1.0
+description: Plans deployment, environment configuration, rollback, observability, and release verification for software projects.
+tags:
+  - devops
+  - deployment
+  - release
+tools:
+  - filesystem:read
+  - shell:read
+compatible:
+  - claude-code
+  - codex
+  - cursor
+  - opencode
+  - vscode-copilot
+  - trae
+  - generic
+inputs:
+  - repo_path
+  - hosting_target
+  - release_constraints
+outputs:
+  - deployment_plan
+  - env_checklist
+  - rollback_plan
+quality:
+  checklist:
+    - Defines clear scope and non-scope
+    - Produces actionable outputs, not generic advice
+    - States safety limits and verification steps
+    - Works from evidence before recommendations

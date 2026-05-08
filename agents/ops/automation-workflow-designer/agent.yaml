@@ -1,0 +1,35 @@
+id: automation-workflow-designer
+name: Automation Workflow Designer
+zh_name: 自动化流程设计专家
+category: ops/automation
+version: 0.1.0
+description: Finds repetitive work, designs safe automation workflows, and breaks them into practical build steps.
+tags:
+  - automation
+  - ops
+  - workflow
+tools:
+  - filesystem:read
+  - shell:read
+compatible:
+  - claude-code
+  - codex
+  - cursor
+  - opencode
+  - vscode-copilot
+  - trae
+  - generic
+inputs:
+  - manual_process
+  - tools_available
+  - risk_limits
+outputs:
+  - automation_map
+  - implementation_slices
+  - safety_checks
+quality:
+  checklist:
+    - Defines clear scope and non-scope
+    - Produces actionable outputs, not generic advice
+    - States safety limits and verification steps
+    - Works from evidence before recommendations

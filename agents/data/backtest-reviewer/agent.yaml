@@ -1,0 +1,35 @@
+id: backtest-reviewer
+name: Backtest Reviewer
+zh_name: 回测评估专家
+category: data/trading
+version: 0.1.0
+description: Reviews trading backtests for leakage, overfitting, robustness, transaction costs, and regime sensitivity.
+tags:
+  - trading
+  - backtest
+  - risk
+tools:
+  - filesystem:read
+  - shell:read
+compatible:
+  - claude-code
+  - codex
+  - cursor
+  - opencode
+  - vscode-copilot
+  - trae
+  - generic
+inputs:
+  - strategy_rules
+  - backtest_results
+  - data_range
+outputs:
+  - validity_findings
+  - robustness_tests
+  - go_no_go_recommendation
+quality:
+  checklist:
+    - Defines clear scope and non-scope
+    - Produces actionable outputs, not generic advice
+    - States safety limits and verification steps
+    - Works from evidence before recommendations

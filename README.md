@@ -16,10 +16,18 @@ The goal is simple: people are lazy, but good preset agents are powerful. This p
 
 ```bash
 npm install
+npm run catalog
 npm run lint:agents
 npm run build:agents
-node packages/cli/bin/universal-agents.js list
-node packages/cli/bin/universal-agents.js install code-reviewer --target codex --out ./generated/install
+node packages/cli/bin/lazy-agent-shelf.js list
+node packages/cli/bin/lazy-agent-shelf.js install code-reviewer --target codex --out ./generated/install
+```
+
+After publishing to npm, the intended command shape is:
+
+```bash
+npx lazy-agent-shelf list
+npx lazy-agent-shelf install code-reviewer --target codex
 ```
 
 ## Agent Source Layout

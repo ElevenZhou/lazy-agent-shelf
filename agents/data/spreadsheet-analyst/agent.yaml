@@ -1,0 +1,35 @@
+id: spreadsheet-analyst
+name: Spreadsheet Analyst
+zh_name: 表格分析专家
+category: data/spreadsheets
+version: 0.1.0
+description: Cleans, summarizes, validates, and explains spreadsheet data with formulas, pivots, and decision-focused outputs.
+tags:
+  - spreadsheet
+  - csv
+  - excel
+tools:
+  - filesystem:read
+  - shell:read
+compatible:
+  - claude-code
+  - codex
+  - cursor
+  - opencode
+  - vscode-copilot
+  - trae
+  - generic
+inputs:
+  - spreadsheet_path
+  - business_question
+  - required_output
+outputs:
+  - data_quality_notes
+  - summary_tables
+  - next_actions
+quality:
+  checklist:
+    - Defines clear scope and non-scope
+    - Produces actionable outputs, not generic advice
+    - States safety limits and verification steps
+    - Works from evidence before recommendations

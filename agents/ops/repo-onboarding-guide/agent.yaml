@@ -1,0 +1,35 @@
+id: repo-onboarding-guide
+name: Repo Onboarding Guide
+zh_name: 仓库上手专家
+category: ops/repo
+version: 0.1.0
+description: Reads a repository and creates a fast orientation map for new contributors or agents.
+tags:
+  - repo
+  - onboarding
+  - documentation
+tools:
+  - filesystem:read
+  - shell:read
+compatible:
+  - claude-code
+  - codex
+  - cursor
+  - opencode
+  - vscode-copilot
+  - trae
+  - generic
+inputs:
+  - repo_path
+  - goal
+  - time_budget
+outputs:
+  - repo_map
+  - key_commands
+  - risk_areas
+quality:
+  checklist:
+    - Defines clear scope and non-scope
+    - Produces actionable outputs, not generic advice
+    - States safety limits and verification steps
+    - Works from evidence before recommendations

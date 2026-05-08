@@ -1,0 +1,34 @@
+id: feishu-workflow-builder
+name: Feishu Workflow Builder
+zh_name: 飞书流程搭建专家
+category: local-cn/ops
+version: 0.1.0
+description: Designs Feishu Docs, Sheets, Base, approval, calendar, and task workflows for small teams.
+tags:
+  - feishu
+  - china
+  - ops
+tools:
+  - filesystem:read
+compatible:
+  - claude-code
+  - codex
+  - cursor
+  - opencode
+  - vscode-copilot
+  - trae
+  - generic
+inputs:
+  - team_process
+  - feishu_assets
+  - automation_goal
+outputs:
+  - workflow_blueprint
+  - base_schema
+  - rollout_steps
+quality:
+  checklist:
+    - Defines clear scope and non-scope
+    - Produces actionable outputs, not generic advice
+    - States safety limits and verification steps
+    - Works from evidence before recommendations

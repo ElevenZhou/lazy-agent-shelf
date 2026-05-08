@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -184,6 +185,33 @@ function build(args) {
   console.log(`Built ${agents.length} agents for ${targets.join(', ')} into ${outRoot}`);
 }
 
+function catalog(args) {
+  const outFile = path.resolve(args.out || 'packages/website/src/catalog.json');
+  const agents = loadAgents().map(agent => ({
+    id: agent.meta.id,
+    name: agent.meta.name,
+    zh_name: agent.meta.zh_name || '',
+    category: agent.meta.category,
+    version: agent.meta.version,
+    description: agent.meta.description,
+    tags: agent.meta.tags || [],
+    tools: agent.meta.tools || [],
+    compatible: agent.meta.compatible || [],
+    inputs: agent.meta.inputs || [],
+    outputs: agent.meta.outputs || [],
+    path: path.relative(ROOT, agent.dir).replace(/\\/g, '/')
+  }));
+  const categories = [...new Set(agents.map(agent => agent.category.split('/')[0]))].sort();
+  const data = {
+    schema_version: 1,
+    agent_count: agents.length,
+    categories,
+    agents
+  };
+  writeFile(outFile, `${JSON.stringify(data, null, 2)}\n`);
+  console.log(`Wrote catalog for ${agents.length} agents to ${outFile}`);
+}
+
 function install(args) {
   const id = args._[1];
   if (!id) throw new Error('Usage: install <agent-id> --target <target> --out <directory>');
@@ -198,7 +226,7 @@ function install(args) {
 }
 
 function help() {
-  console.log(`Universal Agents CLI\n\nCommands:\n  list\n  lint\n  build --target <all|claude,codex,cursor,opencode,vscode,trae,generic> --out <dir>\n  install <agent-id> --target <target> --out <dir>\n`);
+  console.log(`Lazy Agent Shelf CLI\n\nCommands:\n  list\n  lint\n  catalog --out <file>\n  build --target <all|claude,codex,cursor,opencode,vscode,trae,generic> --out <dir>\n  install <agent-id> --target <target> --out <dir>\n`);
 }
 
 const args = parseArgs(process.argv.slice(2));
@@ -206,6 +234,7 @@ const cmd = args._[0] || 'help';
 try {
   if (cmd === 'list') list();
   else if (cmd === 'lint') lint();
+  else if (cmd === 'catalog') catalog(args);
   else if (cmd === 'build') build(args);
   else if (cmd === 'install') install(args);
   else help();

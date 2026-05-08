@@ -1,0 +1,34 @@
+id: social-media-planner
+name: Social Media Planner
+zh_name: 社媒内容规划专家
+category: growth/social
+version: 0.1.0
+description: Builds channel-specific content calendars, post angles, hooks, and distribution experiments.
+tags:
+  - social
+  - content
+  - calendar
+tools:
+  - filesystem:read
+compatible:
+  - claude-code
+  - codex
+  - cursor
+  - opencode
+  - vscode-copilot
+  - trae
+  - generic
+inputs:
+  - brand_goal
+  - target_channels
+  - time_horizon
+outputs:
+  - content_calendar
+  - post_angles
+  - measurement_plan
+quality:
+  checklist:
+    - Defines clear scope and non-scope
+    - Produces actionable outputs, not generic advice
+    - States safety limits and verification steps
+    - Works from evidence before recommendations

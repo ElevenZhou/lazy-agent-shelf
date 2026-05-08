@@ -1,0 +1,898 @@
+{
+  "schema_version": 1,
+  "agent_count": 24,
+  "categories": [
+    "data",
+    "engineering",
+    "growth",
+    "local-cn",
+    "meta",
+    "ops",
+    "product"
+  ],
+  "agents": [
+    {
+      "id": "backtest-reviewer",
+      "name": "Backtest Reviewer",
+      "zh_name": "回测评估专家",
+      "category": "data/trading",
+      "version": "0.1.0",
+      "description": "Reviews trading backtests for leakage, overfitting, robustness, transaction costs, and regime sensitivity.",
+      "tags": [
+        "trading",
+        "backtest",
+        "risk"
+      ],
+      "tools": [
+        "filesystem:read",
+        "shell:read"
+      ],
+      "compatible": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "vscode-copilot",
+        "trae",
+        "generic"
+      ],
+      "inputs": [
+        "strategy_rules",
+        "backtest_results",
+        "data_range"
+      ],
+      "outputs": [
+        "validity_findings",
+        "robustness_tests",
+        "go_no_go_recommendation"
+      ],
+      "path": "agents/data/backtest-reviewer"
+    },
+    {
+      "id": "data-analyst",
+      "name": "Data Analyst",
+      "zh_name": "数据分析专家",
+      "category": "data/analysis",
+      "version": "0.1.0",
+      "description": "Analyzes datasets with clear assumptions, reproducible steps, charts or tables, and decision-focused conclusions.",
+      "tags": [
+        "data",
+        "analysis",
+        "spreadsheets"
+      ],
+      "tools": [
+        "filesystem:read",
+        "shell:read"
+      ],
+      "compatible": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "vscode-copilot",
+        "trae",
+        "generic"
+      ],
+      "inputs": [
+        "dataset_path",
+        "business_question",
+        "constraints"
+      ],
+      "outputs": [
+        "analysis_summary",
+        "repro_steps",
+        "decision_recommendation"
+      ],
+      "path": "agents/data/data-analyst"
+    },
+    {
+      "id": "spreadsheet-analyst",
+      "name": "Spreadsheet Analyst",
+      "zh_name": "表格分析专家",
+      "category": "data/spreadsheets",
+      "version": "0.1.0",
+      "description": "Cleans, summarizes, validates, and explains spreadsheet data with formulas, pivots, and decision-focused outputs.",
+      "tags": [
+        "spreadsheet",
+        "csv",
+        "excel"
+      ],
+      "tools": [
+        "filesystem:read",
+        "shell:read"
+      ],
+      "compatible": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "vscode-copilot",
+        "trae",
+        "generic"
+      ],
+      "inputs": [
+        "spreadsheet_path",
+        "business_question",
+        "required_output"
+      ],
+      "outputs": [
+        "data_quality_notes",
+        "summary_tables",
+        "next_actions"
+      ],
+      "path": "agents/data/spreadsheet-analyst"
+    },
+    {
+      "id": "backend-api-architect",
+      "name": "Backend API Architect",
+      "zh_name": "后端接口架构专家",
+      "category": "engineering/backend",
+      "version": "0.1.0",
+      "description": "Designs robust backend APIs with clear contracts, data flow, validation, errors, observability, and migration strategy.",
+      "tags": [
+        "api",
+        "backend",
+        "architecture"
+      ],
+      "tools": [
+        "filesystem:read",
+        "shell:read"
+      ],
+      "compatible": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "vscode-copilot",
+        "trae",
+        "generic"
+      ],
+      "inputs": [
+        "product_requirements",
+        "existing_schema",
+        "traffic_constraints"
+      ],
+      "outputs": [
+        "api_contract",
+        "data_model_notes",
+        "implementation_plan"
+      ],
+      "path": "agents/engineering/backend-api-architect"
+    },
+    {
+      "id": "bug-investigator",
+      "name": "Bug Investigator",
+      "zh_name": "故障定位专家",
+      "category": "engineering/debugging",
+      "version": "0.1.0",
+      "description": "Reproduces, isolates, and explains software bugs from logs, stack traces, symptoms, and local code context.",
+      "tags": [
+        "debugging",
+        "logs",
+        "reproduction"
+      ],
+      "tools": [
+        "filesystem:read",
+        "shell:read",
+        "browser:optional"
+      ],
+      "compatible": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "vscode-copilot",
+        "trae",
+        "generic"
+      ],
+      "inputs": [
+        "error_log",
+        "repro_steps",
+        "repo_path"
+      ],
+      "outputs": [
+        "root_cause_hypothesis",
+        "minimal_repro",
+        "fix_plan"
+      ],
+      "path": "agents/engineering/bug-investigator"
+    },
+    {
+      "id": "code-reviewer",
+      "name": "Code Reviewer",
+      "zh_name": "代码审查专家",
+      "category": "engineering/code",
+      "version": "0.1.0",
+      "description": "Finds correctness, maintainability, security, and testability issues in code changes before merge.",
+      "tags": [
+        "review",
+        "quality",
+        "engineering"
+      ],
+      "tools": [
+        "filesystem:read",
+        "shell:read"
+      ],
+      "compatible": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "vscode-copilot",
+        "trae",
+        "generic"
+      ],
+      "inputs": [
+        "diff",
+        "repo_path",
+        "requirements"
+      ],
+      "outputs": [
+        "prioritized_findings",
+        "file_line_comments",
+        "verification_gaps"
+      ],
+      "path": "agents/engineering/code-reviewer"
+    },
+    {
+      "id": "frontend-builder",
+      "name": "Frontend Builder",
+      "zh_name": "前端构建专家",
+      "category": "engineering/frontend",
+      "version": "0.1.0",
+      "description": "Builds polished frontend pages and components with distinctive visual direction, responsive behavior, and verification steps.",
+      "tags": [
+        "frontend",
+        "ui",
+        "react"
+      ],
+      "tools": [
+        "filesystem:write",
+        "shell:read",
+        "browser:optional"
+      ],
+      "compatible": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "vscode-copilot",
+        "trae",
+        "generic"
+      ],
+      "inputs": [
+        "design_goal",
+        "target_framework",
+        "existing_style"
+      ],
+      "outputs": [
+        "implemented_ui",
+        "responsive_notes",
+        "visual_verification_steps"
+      ],
+      "path": "agents/engineering/frontend-builder"
+    },
+    {
+      "id": "security-auditor",
+      "name": "Security Auditor",
+      "zh_name": "安全审计专家",
+      "category": "engineering/security",
+      "version": "0.1.0",
+      "description": "Audits code and configurations for practical security risks, unsafe defaults, secrets exposure, and abuse cases.",
+      "tags": [
+        "security",
+        "owasp",
+        "audit"
+      ],
+      "tools": [
+        "filesystem:read",
+        "shell:read"
+      ],
+      "compatible": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "vscode-copilot",
+        "trae",
+        "generic"
+      ],
+      "inputs": [
+        "repo_path",
+        "threat_model",
+        "changed_files"
+      ],
+      "outputs": [
+        "risk_findings",
+        "exploit_scenarios",
+        "mitigations"
+      ],
+      "path": "agents/engineering/security-auditor"
+    },
+    {
+      "id": "test-writer",
+      "name": "Test Writer",
+      "zh_name": "测试用例专家",
+      "category": "engineering/testing",
+      "version": "0.1.0",
+      "description": "Designs and implements focused tests that capture behavior, regressions, edge cases, and integration boundaries.",
+      "tags": [
+        "testing",
+        "qa",
+        "regression"
+      ],
+      "tools": [
+        "filesystem:write",
+        "shell:read"
+      ],
+      "compatible": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "vscode-copilot",
+        "trae",
+        "generic"
+      ],
+      "inputs": [
+        "feature_description",
+        "repo_path",
+        "test_command"
+      ],
+      "outputs": [
+        "test_plan",
+        "test_files",
+        "coverage_gaps"
+      ],
+      "path": "agents/engineering/test-writer"
+    },
+    {
+      "id": "landing-page-copywriter",
+      "name": "Landing Page Copywriter",
+      "zh_name": "落地页文案专家",
+      "category": "growth/copywriting",
+      "version": "0.1.0",
+      "description": "Writes high-converting landing page copy with audience positioning, objection handling, and CTA strategy.",
+      "tags": [
+        "copywriting",
+        "landing-page",
+        "conversion"
+      ],
+      "tools": [
+        "filesystem:read"
+      ],
+      "compatible": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "vscode-copilot",
+        "trae",
+        "generic"
+      ],
+      "inputs": [
+        "offer",
+        "audience",
+        "proof_points"
+      ],
+      "outputs": [
+        "headline_options",
+        "page_copy",
+        "cta_variants"
+      ],
+      "path": "agents/growth/landing-page-copywriter"
+    },
+    {
+      "id": "market-researcher",
+      "name": "Market Researcher",
+      "zh_name": "市场调研专家",
+      "category": "growth/research",
+      "version": "0.1.0",
+      "description": "Sizes markets, maps competitors, identifies user segments, and turns fuzzy opportunities into evidence-backed decisions.",
+      "tags": [
+        "market",
+        "competitors",
+        "strategy"
+      ],
+      "tools": [
+        "browser:optional",
+        "filesystem:read"
+      ],
+      "compatible": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "vscode-copilot",
+        "trae",
+        "generic"
+      ],
+      "inputs": [
+        "market_question",
+        "target_region",
+        "known_competitors"
+      ],
+      "outputs": [
+        "market_snapshot",
+        "competitor_matrix",
+        "opportunity_risks"
+      ],
+      "path": "agents/growth/market-researcher"
+    },
+    {
+      "id": "seo-strategist",
+      "name": "SEO Strategist",
+      "zh_name": "SEO增长专家",
+      "category": "growth/seo",
+      "version": "0.1.0",
+      "description": "Plans search-oriented content, technical SEO fixes, keyword clusters, and measurable growth experiments.",
+      "tags": [
+        "seo",
+        "growth",
+        "content"
+      ],
+      "tools": [
+        "browser:optional",
+        "filesystem:read"
+      ],
+      "compatible": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "vscode-copilot",
+        "trae",
+        "generic"
+      ],
+      "inputs": [
+        "site_url",
+        "niche",
+        "competitors"
+      ],
+      "outputs": [
+        "keyword_clusters",
+        "content_plan",
+        "technical_seo_findings"
+      ],
+      "path": "agents/growth/seo-strategist"
+    },
+    {
+      "id": "social-media-planner",
+      "name": "Social Media Planner",
+      "zh_name": "社媒内容规划专家",
+      "category": "growth/social",
+      "version": "0.1.0",
+      "description": "Builds channel-specific content calendars, post angles, hooks, and distribution experiments.",
+      "tags": [
+        "social",
+        "content",
+        "calendar"
+      ],
+      "tools": [
+        "filesystem:read"
+      ],
+      "compatible": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "vscode-copilot",
+        "trae",
+        "generic"
+      ],
+      "inputs": [
+        "brand_goal",
+        "target_channels",
+        "time_horizon"
+      ],
+      "outputs": [
+        "content_calendar",
+        "post_angles",
+        "measurement_plan"
+      ],
+      "path": "agents/growth/social-media-planner"
+    },
+    {
+      "id": "crossborder-ecommerce-operator",
+      "name": "Cross-border Ecommerce Operator",
+      "zh_name": "跨境电商运营专家",
+      "category": "local-cn/ecommerce",
+      "version": "0.1.0",
+      "description": "Plans cross-border ecommerce listings, operations, launch checklists, and channel-specific growth experiments.",
+      "tags": [
+        "ecommerce",
+        "crossborder",
+        "operations"
+      ],
+      "tools": [
+        "filesystem:read",
+        "browser:optional"
+      ],
+      "compatible": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "vscode-copilot",
+        "trae",
+        "generic"
+      ],
+      "inputs": [
+        "product",
+        "marketplace",
+        "target_country"
+      ],
+      "outputs": [
+        "listing_plan",
+        "ops_checklist",
+        "growth_experiments"
+      ],
+      "path": "agents/local-cn/crossborder-ecommerce-operator"
+    },
+    {
+      "id": "feishu-workflow-builder",
+      "name": "Feishu Workflow Builder",
+      "zh_name": "飞书流程搭建专家",
+      "category": "local-cn/ops",
+      "version": "0.1.0",
+      "description": "Designs Feishu Docs, Sheets, Base, approval, calendar, and task workflows for small teams.",
+      "tags": [
+        "feishu",
+        "china",
+        "ops"
+      ],
+      "tools": [
+        "filesystem:read"
+      ],
+      "compatible": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "vscode-copilot",
+        "trae",
+        "generic"
+      ],
+      "inputs": [
+        "team_process",
+        "feishu_assets",
+        "automation_goal"
+      ],
+      "outputs": [
+        "workflow_blueprint",
+        "base_schema",
+        "rollout_steps"
+      ],
+      "path": "agents/local-cn/feishu-workflow-builder"
+    },
+    {
+      "id": "wechat-official-editor",
+      "name": "WeChat Official Account Editor",
+      "zh_name": "微信公众号编辑专家",
+      "category": "local-cn/content",
+      "version": "0.1.0",
+      "description": "Structures WeChat articles with Chinese editorial flow, titles, summaries, sections, and reader action prompts.",
+      "tags": [
+        "wechat",
+        "china",
+        "article"
+      ],
+      "tools": [
+        "filesystem:read"
+      ],
+      "compatible": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "vscode-copilot",
+        "trae",
+        "generic"
+      ],
+      "inputs": [
+        "topic",
+        "source_material",
+        "reader_profile"
+      ],
+      "outputs": [
+        "article_outline",
+        "title_options",
+        "publish_checklist"
+      ],
+      "path": "agents/local-cn/wechat-official-editor"
+    },
+    {
+      "id": "xiaohongshu-content-planner",
+      "name": "Xiaohongshu Content Planner",
+      "zh_name": "小红书内容策划专家",
+      "category": "local-cn/content",
+      "version": "0.1.0",
+      "description": "Plans Xiaohongshu notes with hooks, titles, cover copy, comment bait, and conversion paths for Chinese audiences.",
+      "tags": [
+        "xiaohongshu",
+        "china",
+        "content"
+      ],
+      "tools": [
+        "browser:optional",
+        "filesystem:read"
+      ],
+      "compatible": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "vscode-copilot",
+        "trae",
+        "generic"
+      ],
+      "inputs": [
+        "product_or_topic",
+        "audience",
+        "conversion_goal"
+      ],
+      "outputs": [
+        "note_angles",
+        "title_bank",
+        "publishing_plan"
+      ],
+      "path": "agents/local-cn/xiaohongshu-content-planner"
+    },
+    {
+      "id": "agent-quality-evaluator",
+      "name": "Agent Quality Evaluator",
+      "zh_name": "Agent质量评测专家",
+      "category": "meta/quality",
+      "version": "0.1.0",
+      "description": "Reviews agent prompts and skills for clarity, overlap, safety, portability, and measurable usefulness.",
+      "tags": [
+        "agents",
+        "prompting",
+        "quality"
+      ],
+      "tools": [
+        "filesystem:read"
+      ],
+      "compatible": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "vscode-copilot",
+        "trae",
+        "generic"
+      ],
+      "inputs": [
+        "agent_file",
+        "target_platforms",
+        "use_cases"
+      ],
+      "outputs": [
+        "quality_score",
+        "improvement_patch",
+        "compatibility_notes"
+      ],
+      "path": "agents/meta/agent-quality-evaluator"
+    },
+    {
+      "id": "prompt-injection-auditor",
+      "name": "Prompt Injection Auditor",
+      "zh_name": "提示注入审计专家",
+      "category": "meta/security",
+      "version": "0.1.0",
+      "description": "Audits prompts, tools, and agent workflows for prompt injection, data exfiltration, unsafe tool use, and trust boundary failures.",
+      "tags": [
+        "security",
+        "prompt-injection",
+        "agents"
+      ],
+      "tools": [
+        "filesystem:read"
+      ],
+      "compatible": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "vscode-copilot",
+        "trae",
+        "generic"
+      ],
+      "inputs": [
+        "agent_prompt",
+        "tool_permissions",
+        "data_sources"
+      ],
+      "outputs": [
+        "attack_paths",
+        "risk_rating",
+        "hardening_changes"
+      ],
+      "path": "agents/meta/prompt-injection-auditor"
+    },
+    {
+      "id": "automation-workflow-designer",
+      "name": "Automation Workflow Designer",
+      "zh_name": "自动化流程设计专家",
+      "category": "ops/automation",
+      "version": "0.1.0",
+      "description": "Finds repetitive work, designs safe automation workflows, and breaks them into practical build steps.",
+      "tags": [
+        "automation",
+        "ops",
+        "workflow"
+      ],
+      "tools": [
+        "filesystem:read",
+        "shell:read"
+      ],
+      "compatible": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "vscode-copilot",
+        "trae",
+        "generic"
+      ],
+      "inputs": [
+        "manual_process",
+        "tools_available",
+        "risk_limits"
+      ],
+      "outputs": [
+        "automation_map",
+        "implementation_slices",
+        "safety_checks"
+      ],
+      "path": "agents/ops/automation-workflow-designer"
+    },
+    {
+      "id": "devops-deployer",
+      "name": "DevOps Deployer",
+      "zh_name": "部署运维专家",
+      "category": "ops/devops",
+      "version": "0.1.0",
+      "description": "Plans deployment, environment configuration, rollback, observability, and release verification for software projects.",
+      "tags": [
+        "devops",
+        "deployment",
+        "release"
+      ],
+      "tools": [
+        "filesystem:read",
+        "shell:read"
+      ],
+      "compatible": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "vscode-copilot",
+        "trae",
+        "generic"
+      ],
+      "inputs": [
+        "repo_path",
+        "hosting_target",
+        "release_constraints"
+      ],
+      "outputs": [
+        "deployment_plan",
+        "env_checklist",
+        "rollback_plan"
+      ],
+      "path": "agents/ops/devops-deployer"
+    },
+    {
+      "id": "repo-onboarding-guide",
+      "name": "Repo Onboarding Guide",
+      "zh_name": "仓库上手专家",
+      "category": "ops/repo",
+      "version": "0.1.0",
+      "description": "Reads a repository and creates a fast orientation map for new contributors or agents.",
+      "tags": [
+        "repo",
+        "onboarding",
+        "documentation"
+      ],
+      "tools": [
+        "filesystem:read",
+        "shell:read"
+      ],
+      "compatible": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "vscode-copilot",
+        "trae",
+        "generic"
+      ],
+      "inputs": [
+        "repo_path",
+        "goal",
+        "time_budget"
+      ],
+      "outputs": [
+        "repo_map",
+        "key_commands",
+        "risk_areas"
+      ],
+      "path": "agents/ops/repo-onboarding-guide"
+    },
+    {
+      "id": "product-manager",
+      "name": "Product Manager",
+      "zh_name": "产品经理专家",
+      "category": "product/strategy",
+      "version": "0.1.0",
+      "description": "Turns ambiguous product ideas into scoped requirements, user stories, success metrics, and release slices.",
+      "tags": [
+        "product",
+        "requirements",
+        "roadmap"
+      ],
+      "tools": [
+        "filesystem:read"
+      ],
+      "compatible": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "vscode-copilot",
+        "trae",
+        "generic"
+      ],
+      "inputs": [
+        "idea",
+        "target_user",
+        "constraints"
+      ],
+      "outputs": [
+        "prd_outline",
+        "prioritized_scope",
+        "success_metrics"
+      ],
+      "path": "agents/product/product-manager"
+    },
+    {
+      "id": "ux-flow-designer",
+      "name": "UX Flow Designer",
+      "zh_name": "用户体验流程专家",
+      "category": "product/ux",
+      "version": "0.1.0",
+      "description": "Maps user journeys, identifies friction, and designs clear flows, states, and handoff copy for product experiences.",
+      "tags": [
+        "ux",
+        "flows",
+        "copy"
+      ],
+      "tools": [
+        "filesystem:read",
+        "browser:optional"
+      ],
+      "compatible": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "vscode-copilot",
+        "trae",
+        "generic"
+      ],
+      "inputs": [
+        "user_goal",
+        "current_flow",
+        "screens"
+      ],
+      "outputs": [
+        "journey_map",
+        "state_inventory",
+        "ux_improvements"
+      ],
+      "path": "agents/product/ux-flow-designer"
+    }
+  ]
+}

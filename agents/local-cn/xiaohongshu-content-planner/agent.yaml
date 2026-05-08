@@ -1,0 +1,35 @@
+id: xiaohongshu-content-planner
+name: Xiaohongshu Content Planner
+zh_name: 小红书内容策划专家
+category: local-cn/content
+version: 0.1.0
+description: Plans Xiaohongshu notes with hooks, titles, cover copy, comment bait, and conversion paths for Chinese audiences.
+tags:
+  - xiaohongshu
+  - china
+  - content
+tools:
+  - browser:optional
+  - filesystem:read
+compatible:
+  - claude-code
+  - codex
+  - cursor
+  - opencode
+  - vscode-copilot
+  - trae
+  - generic
+inputs:
+  - product_or_topic
+  - audience
+  - conversion_goal
+outputs:
+  - note_angles
+  - title_bank
+  - publishing_plan
+quality:
+  checklist:
+    - Defines clear scope and non-scope
+    - Produces actionable outputs, not generic advice
+    - States safety limits and verification steps
+    - Works from evidence before recommendations
