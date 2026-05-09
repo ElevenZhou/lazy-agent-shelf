@@ -64,6 +64,8 @@ input { border: 2px solid var(--ink); background: rgba(255,255,255,.38); padding
 .chips { display: flex; gap: 10px; flex-wrap: wrap; }
 button { border: 1px solid var(--ink); background: transparent; color: var(--ink); padding: 10px 14px; cursor: pointer; font-weight: 700; }
 button.active, button:hover { background: var(--ink); color: var(--paper); }
+.target-picker { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; padding: 12px; border: 1px dashed var(--ink); background: rgba(215,255,55,.13); }
+.target-picker span { text-transform: uppercase; letter-spacing: .12em; color: var(--rust); font-weight: 700; font-size: 12px; }
 .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 .card { animation: rise .6s ease both; animation-delay: var(--delay); min-height: 286px; padding: 20px; border: 2px solid var(--ink); background: rgba(247,234,211,.84); box-shadow: 7px 7px 0 rgba(23,19,13,.86); display: flex; flex-direction: column; gap: 12px; }
 .card:nth-child(4n+2) { transform: rotate(-.4deg); background: rgba(255,255,255,.58); }
@@ -74,10 +76,20 @@ button.active, button:hover { background: var(--ink); color: var(--paper); }
 .targets { display: flex; flex-wrap: wrap; gap: 6px; }
 em { font-style: normal; font-size: 12px; border: 1px solid var(--blue); color: var(--blue); padding: 3px 6px; background: rgba(25,63,122,.08); }
 pre { margin: 0; white-space: pre-wrap; font-family: Consolas, monospace; font-size: 12px; background: rgba(23,19,13,.08); padding: 10px; }
-.stacks { margin-top: 72px; display: grid; grid-template-columns: 1.2fr repeat(3, 1fr); gap: 18px; align-items: stretch; }
+.stacks { margin-top: 72px; display: grid; grid-template-columns: 1.2fr repeat(3, 1fr); gap: 18px; align-items: start; }
 .stacks h2 { font-family: 'Bebas Neue', Impact, sans-serif; font-size: 52px; line-height: .95; margin: 14px 0 0; }
 .stack { border-left: 6px solid var(--rust); background: rgba(255,255,255,.42); padding: 20px; }
+.stack-toggle { width: 100%; display: flex; justify-content: space-between; align-items: start; gap: 12px; border: 0; padding: 0; text-align: left; font: inherit; }
+.stack-toggle:hover { background: transparent; color: var(--ink); }
+.stack-toggle span { border: 1px solid var(--ink); padding: 4px 7px; font-size: 11px; text-transform: uppercase; letter-spacing: .1em; }
 .stack h3 { margin-top: 0; font-size: 22px; }
 .stack code { line-height: 1.7; }
+.stack-detail { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line); animation: rise .35s ease both; }
+.stack-detail strong { display: block; margin-bottom: 10px; color: var(--rust); }
+.stack-detail ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.stack-detail li { display: grid; gap: 3px; padding: 8px; background: rgba(247,234,211,.68); border: 1px solid rgba(23,19,13,.14); }
+.stack-detail li span { font-weight: 700; }
+.use-cases { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+.use-cases em { border-color: var(--rust); color: var(--rust); background: rgba(182,64,32,.08); }
 @keyframes rise { from { opacity: 0; transform: translateY(18px) rotate(.8deg); } to { opacity: 1; } }
 @media (max-width: 900px) { .grid, .stacks { grid-template-columns: 1fr; } .hero { box-shadow: 7px 7px 0 var(--ink); } }

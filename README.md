@@ -22,6 +22,7 @@ npm run build:agents
 node packages/cli/bin/lazy-agent-shelf.js list
 node packages/cli/bin/lazy-agent-shelf.js install code-reviewer --target codex --out ./generated/install
 node packages/cli/bin/lazy-agent-shelf.js install-collection solo-founder-pack --target cursor --out ./generated/install
+node packages/cli/bin/lazy-agent-shelf.js install-collection code-quality-pack --target all --out ./generated/all-tools
 ```
 
 After publishing to npm, the intended command shape is:
@@ -30,6 +31,7 @@ After publishing to npm, the intended command shape is:
 npx lazy-agent-shelf list
 npx lazy-agent-shelf install code-reviewer --target codex
 npx lazy-agent-shelf install-collection solo-founder-pack --target cursor
+npx lazy-agent-shelf install-collection code-quality-pack --target all
 ```
 
 ## Agent Source Layout

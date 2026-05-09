@@ -177,6 +177,15 @@ function parseArgs(argv) {
   return args;
 }
 
+function resolveTargets(targetArg) {
+  const raw = targetArg || 'generic';
+  const targets = raw === 'all' ? TARGETS : raw.split(',').map(x => x.trim()).filter(Boolean);
+  for (const target of targets) {
+    if (!TARGETS.includes(target)) throw new Error(`Unsupported target ${target}`);
+  }
+  return targets;
+}
+
 function list() {
   const agents = loadAgents();
   for (const a of agents) console.log(`${a.meta.id.padEnd(28)} ${a.meta.category.padEnd(22)} ${a.meta.name}`);
@@ -218,8 +227,7 @@ function lint() {
 
 function build(args) {
   const outRoot = path.resolve(args.out || 'generated');
-  const targetArg = args.target || TARGETS.join(',');
-  const targets = targetArg === 'all' ? TARGETS : targetArg.split(',').map(x => x.trim());
+  const targets = resolveTargets(args.target || TARGETS.join(','));
   const agents = loadAgents();
   for (const target of targets) {
     if (!TARGETS.includes(target)) throw new Error(`Unsupported target ${target}`);
@@ -276,33 +284,35 @@ function catalog(args) {
 function install(args) {
   const id = args._[1];
   if (!id) throw new Error('Usage: install <agent-id> --target <target> --out <directory>');
-  const target = args.target || 'generic';
-  if (!TARGETS.includes(target)) throw new Error(`Unsupported target ${target}`);
+  const targets = resolveTargets(args.target || 'generic');
   const agent = loadAgents().find(a => a.meta.id === id);
   if (!agent) throw new Error(`Agent not found: ${id}`);
   const outRoot = path.resolve(args.out || 'generated/install');
-  const file = outputPath(outRoot, agent, target);
-  writeFile(file, render(agent, target), target === 'generic');
-  console.log(`Installed ${id} for ${target} at ${file}`);
+  for (const target of targets) {
+    const file = outputPath(outRoot, agent, target);
+    writeFile(file, render(agent, target), target === 'generic');
+  }
+  console.log(`Installed ${id} for ${targets.join(', ')} into ${outRoot}`);
 }
 
 function installCollection(args) {
   const id = args._[1];
   if (!id) throw new Error('Usage: install-collection <collection-id> --target <target> --out <directory>');
-  const target = args.target || 'generic';
-  if (!TARGETS.includes(target)) throw new Error(`Unsupported target ${target}`);
+  const targets = resolveTargets(args.target || 'generic');
   const agents = loadAgents();
   const byId = new Map(agents.map(agent => [agent.meta.id, agent]));
   const collection = loadCollections().find(c => c.meta.id === id);
   if (!collection) throw new Error(`Collection not found: ${id}`);
   const outRoot = path.resolve(args.out || 'generated/install');
-  for (const agentId of collection.meta.agents || []) {
-    const agent = byId.get(agentId);
-    if (!agent) throw new Error(`Collection ${id} references missing agent ${agentId}`);
-    const file = outputPath(outRoot, agent, target);
-    writeFile(file, render(agent, target), target === 'generic');
+  for (const target of targets) {
+    for (const agentId of collection.meta.agents || []) {
+      const agent = byId.get(agentId);
+      if (!agent) throw new Error(`Collection ${id} references missing agent ${agentId}`);
+      const file = outputPath(outRoot, agent, target);
+      writeFile(file, render(agent, target), target === 'generic');
+    }
   }
-  console.log(`Installed collection ${id} with ${(collection.meta.agents || []).length} agents for ${target} into ${outRoot}`);
+  console.log(`Installed collection ${id} with ${(collection.meta.agents || []).length} agents for ${targets.join(', ')} into ${outRoot}`);
 }
 
 function help() {
