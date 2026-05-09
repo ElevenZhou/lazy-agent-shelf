@@ -58,6 +58,21 @@ main { width: min(1180px, calc(100% - 32px)); margin: 0 auto; padding: 42px 0 80
 .topbar { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
 .signal { text-transform: uppercase; letter-spacing: .18em; color: var(--rust); font-weight: 600; font-size: 13px; }
 h1 { font-family: 'Bebas Neue', Impact, sans-serif; font-size: clamp(58px, 10vw, 130px); line-height: .84; margin: 18px 0; max-width: 920px; letter-spacing: .01em; }
+.lang-zh h1 {
+  max-width: 980px;
+  font-family: 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC', sans-serif;
+  font-size: clamp(46px, 7.2vw, 92px);
+  line-height: 1.08;
+  letter-spacing: -.06em;
+  font-weight: 900;
+  text-wrap: balance;
+}
+.lang-zh .hero p {
+  max-width: 780px;
+  font-family: 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC', sans-serif;
+  font-size: 18px;
+  line-height: 1.75;
+}
 .hero p { max-width: 690px; font-size: 20px; line-height: 1.55; color: #372e23; }
 .language-switcher { display: inline-flex; align-items: center; gap: 8px; padding: 8px; border: 2px solid var(--ink); background: rgba(255,255,255,.46); box-shadow: 4px 4px 0 rgba(23,19,13,.18); }
 .language-switcher span { color: var(--rust); font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }

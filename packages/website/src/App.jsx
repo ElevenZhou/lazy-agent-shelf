@@ -88,7 +88,7 @@ function App() {
   }), [localizedAgents, query, category]);
   const categories = ['all', ...new Set(agents.map(agent => agent.groupKey))];
 
-  return <main>
+  return <main className={language === 'zh-CN' ? 'lang-zh' : 'lang-en'}>
     <section className="hero">
       <div className="topbar">
         <div className="signal">{text.signal}</div>
