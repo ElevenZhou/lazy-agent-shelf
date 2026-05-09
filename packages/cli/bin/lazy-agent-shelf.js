@@ -250,6 +250,7 @@ function catalog(args) {
     category: agent.meta.category,
     version: agent.meta.version,
     description: agent.meta.description,
+    zh_description: agent.meta.zh_description || '',
     tags: agent.meta.tags || [],
     tools: agent.meta.tools || [],
     compatible: agent.meta.compatible || [],
@@ -263,9 +264,11 @@ function catalog(args) {
     name: collection.meta.name,
     zh_name: collection.meta.zh_name || '',
     description: collection.meta.description,
+    zh_description: collection.meta.zh_description || '',
     tags: collection.meta.tags || [],
     agents: (collection.meta.agents || []).filter(id => agentIds.has(id)),
     use_cases: collection.meta.use_cases || [],
+    zh_use_cases: collection.meta.zh_use_cases || [],
     path: path.relative(ROOT, collection.dir).replace(/\\/g, '/')
   }));
   const categories = [...new Set(agents.map(agent => agent.category.split('/')[0]))].sort();

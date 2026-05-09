@@ -4,6 +4,7 @@ zh_name: 前端构建专家
 category: engineering/frontend
 version: 0.1.0
 description: Builds polished frontend pages and components with distinctive visual direction, responsive behavior, and verification steps.
+zh_description: 构建有明确视觉方向、响应式行为和验证步骤的精致前端页面与组件。
 tags:
   - frontend
   - ui

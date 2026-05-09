@@ -4,6 +4,7 @@ zh_name: 代码审查专家
 category: engineering/code
 version: 0.1.0
 description: Finds correctness, maintainability, security, and testability issues in code changes before merge.
+zh_description: 在合并前发现代码变更中的正确性、可维护性、安全性和可测试性问题。
 tags:
   - review
   - quality

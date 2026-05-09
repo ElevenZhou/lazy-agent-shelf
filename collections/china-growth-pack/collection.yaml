@@ -2,6 +2,7 @@ id: china-growth-pack
 name: China Growth Pack
 zh_name: 中国增长套装
 description: Plan Chinese-market content, operations, and ecommerce workflows across Xiaohongshu, WeChat, Feishu, and cross-border channels.
+zh_description: 面向中国市场规划小红书、公众号、飞书和跨境渠道的内容、运营与电商流程。
 tags:
   - china
   - growth
@@ -18,3 +19,7 @@ use_cases:
   - Build a Chinese content calendar
   - Plan Feishu operating workflows
   - Prepare ecommerce launch assets
+zh_use_cases:
+  - 规划小红书和公众号内容
+  - 搭建飞书团队流程
+  - 准备跨境电商运营动作

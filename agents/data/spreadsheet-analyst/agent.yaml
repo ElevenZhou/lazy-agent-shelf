@@ -4,6 +4,7 @@ zh_name: 表格分析专家
 category: data/spreadsheets
 version: 0.1.0
 description: Cleans, summarizes, validates, and explains spreadsheet data with formulas, pivots, and decision-focused outputs.
+zh_description: 清洗、汇总、校验并解释表格数据，结合公式、透视表和面向决策的输出。
 tags:
   - spreadsheet
   - csv

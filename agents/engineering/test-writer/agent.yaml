@@ -4,6 +4,7 @@ zh_name: 测试用例专家
 category: engineering/testing
 version: 0.1.0
 description: Designs and implements focused tests that capture behavior, regressions, edge cases, and integration boundaries.
+zh_description: 设计并实现聚焦行为、回归、边界情况和集成边界的测试。
 tags:
   - testing
   - qa

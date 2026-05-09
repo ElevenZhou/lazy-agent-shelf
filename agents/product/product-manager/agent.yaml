@@ -4,6 +4,7 @@ zh_name: 产品经理专家
 category: product/strategy
 version: 0.1.0
 description: Turns ambiguous product ideas into scoped requirements, user stories, success metrics, and release slices.
+zh_description: 把模糊产品想法转成明确需求、用户故事、成功指标和发布切片。
 tags:
   - product
   - requirements

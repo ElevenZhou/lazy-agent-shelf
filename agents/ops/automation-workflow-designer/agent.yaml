@@ -4,6 +4,7 @@ zh_name: 自动化流程设计专家
 category: ops/automation
 version: 0.1.0
 description: Finds repetitive work, designs safe automation workflows, and breaks them into practical build steps.
+zh_description: 发现重复劳动，设计安全的自动化流程，并拆解为可落地的构建步骤。
 tags:
   - automation
   - ops

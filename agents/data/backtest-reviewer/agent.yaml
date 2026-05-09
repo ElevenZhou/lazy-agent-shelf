@@ -4,6 +4,7 @@ zh_name: 回测评估专家
 category: data/trading
 version: 0.1.0
 description: Reviews trading backtests for leakage, overfitting, robustness, transaction costs, and regime sensitivity.
+zh_description: 评估交易回测中的数据泄露、过拟合、稳健性、交易成本和行情阶段敏感性。
 tags:
   - trading
   - backtest

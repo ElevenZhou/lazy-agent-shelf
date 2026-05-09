@@ -4,6 +4,7 @@ zh_name: 微信公众号编辑专家
 category: local-cn/content
 version: 0.1.0
 description: Structures WeChat articles with Chinese editorial flow, titles, summaries, sections, and reader action prompts.
+zh_description: 按中文编辑节奏组织公众号文章，包括标题、摘要、章节结构和读者行动引导。
 tags:
   - wechat
   - china

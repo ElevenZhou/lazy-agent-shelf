@@ -2,6 +2,7 @@ id: solo-founder-pack
 name: Solo Founder Pack
 zh_name: 独立开发者套装
 description: Build, ship, explain, and grow a small product without hiring a full team.
+zh_description: 帮助独立开发者在没有完整团队的情况下构建、发布、解释和增长小产品。
 tags:
   - founder
   - product
@@ -19,3 +20,7 @@ use_cases:
   - Turn a fuzzy idea into a scoped MVP
   - Build the first web experience
   - Prepare launch copy and growth experiments
+zh_use_cases:
+  - 把模糊想法拆成可交付的 MVP
+  - 搭建第一版网页体验
+  - 准备发布文案和增长实验

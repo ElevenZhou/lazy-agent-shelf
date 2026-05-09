@@ -4,6 +4,7 @@ zh_name: 提示注入审计专家
 category: meta/security
 version: 0.1.0
 description: Audits prompts, tools, and agent workflows for prompt injection, data exfiltration, unsafe tool use, and trust boundary failures.
+zh_description: 审计提示词、工具和 agent 工作流中的提示注入、数据外泄、不安全工具使用和信任边界问题。
 tags:
   - security
   - prompt-injection

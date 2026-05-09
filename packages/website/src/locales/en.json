@@ -1,0 +1,75 @@
+{
+  "languageLabel": "Language",
+  "languageName": "English",
+  "signal": "open-source agent shelf",
+  "heroTitle": "Preset specialists for people too lazy to configure AI twice.",
+  "heroBody": "Lazy Agent Shelf turns one high-quality agent source into Claude, Codex, Cursor, OpenCode, VSCode, Trae, and generic AGENTS.md outputs.",
+  "tabs": {
+    "browse": "Browse Agents",
+    "usage": "How to Use"
+  },
+  "searchPlaceholder": "Search agents, workflows, use cases...",
+  "targetPlatform": "Target platform",
+  "allCategories": "All",
+  "details": "Details",
+  "copy": "copy",
+  "copied": "copied",
+  "close": "close",
+  "open": "open",
+  "recommendedPacks": "recommended packs",
+  "packsTitle": "Install a working department, not a single prompt.",
+  "agentsIncluded": "agents included",
+  "modal": {
+    "inputs": "Inputs",
+    "outputs": "Outputs",
+    "tags": "Tags",
+    "compatible": "Compatible"
+  },
+  "categories": {
+    "data": "Data",
+    "engineering": "Engineering",
+    "growth": "Growth",
+    "local-cn": "China Local",
+    "meta": "Meta",
+    "ops": "Ops",
+    "product": "Product"
+  },
+  "usage": {
+    "signal": "where these agents run",
+    "title": "These agents are installed into your everyday AI coding tools, not used as a chat box on this website.",
+    "body": "The website helps you browse, filter, and copy install commands. The actual work happens in Codex, Claude Code, Cursor, OpenCode, VSCode Copilot, Trae, and similar tools.",
+    "steps": [
+      { "title": "Choose", "body": "Pick one agent, or install a ready-made pack such as solo-founder-pack." },
+      { "title": "Install", "body": "Copy the generated command and write the files into your current project or tool config directory." },
+      { "title": "Use", "body": "Return to the target tool and describe the task naturally; the generated agent, rule, or skill guides the work." }
+    ],
+    "noteTitle": "One-line mental model",
+    "noteBody": "Lazy Agent Shelf is an agent shelf: the website is for choosing, the CLI is for installing, and your AI tools are where the agents work."
+  },
+  "platformGuides": {
+    "codex": {
+      "where": "Install as Codex skills, then call the specialist by task intent inside Codex.",
+      "notes": ["Best for repo work, code review, debugging, research workflows, and repeatable local tasks.", "Use collections when you want a ready-made working team instead of one specialist."]
+    },
+    "claude": {
+      "where": "Install as Claude Code subagent markdown files under .claude/agents.",
+      "notes": ["Best for subagent-style delegation inside a project.", "Generated files are portable markdown, so you can inspect and edit them."]
+    },
+    "cursor": {
+      "where": "Install as Cursor rule files under .cursor/rules.",
+      "notes": ["Best for project-level behavior presets and repeatable coding rules.", "Use focused agents for review, frontend, backend, product, and naming tasks."]
+    },
+    "opencode": {
+      "where": "Install as OpenCode agent markdown under .opencode/agents.",
+      "notes": ["Best for terminal-native workflows and repository assistants.", "Use --target all if you want to prepare every platform at once."]
+    },
+    "vscode": {
+      "where": "Install as instruction markdown under .github/instructions.",
+      "notes": ["Best for project instructions that travel with the repo.", "Keep sensitive or personal workflow rules out of public repos."]
+    },
+    "trae": {
+      "where": "Install as Trae-compatible prompt markdown under .trae/agents.",
+      "notes": ["Best for product, growth, Chinese-market, and coding assistant workflows.", "The generated prompt remains readable and editable."]
+    }
+  }
+}

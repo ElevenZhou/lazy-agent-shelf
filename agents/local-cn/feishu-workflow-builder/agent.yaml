@@ -4,6 +4,7 @@ zh_name: 飞书流程搭建专家
 category: local-cn/ops
 version: 0.1.0
 description: Designs Feishu Docs, Sheets, Base, approval, calendar, and task workflows for small teams.
+zh_description: 为小团队设计飞书文档、表格、多维表格、审批、日历和任务协作流程。
 tags:
   - feishu
   - china

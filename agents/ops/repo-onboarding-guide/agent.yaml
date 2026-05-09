@@ -4,6 +4,7 @@ zh_name: 仓库上手专家
 category: ops/repo
 version: 0.1.0
 description: Reads a repository and creates a fast orientation map for new contributors or agents.
+zh_description: 阅读仓库并为新贡献者或 agent 创建快速上手地图。
 tags:
   - repo
   - onboarding

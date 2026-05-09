@@ -4,6 +4,7 @@ zh_name: 用户体验流程专家
 category: product/ux
 version: 0.1.0
 description: Maps user journeys, identifies friction, and designs clear flows, states, and handoff copy for product experiences.
+zh_description: 梳理用户旅程，识别摩擦点，并设计清晰的流程、状态和交接文案。
 tags:
   - ux
   - flows

@@ -4,6 +4,7 @@ zh_name: 小红书内容策划专家
 category: local-cn/content
 version: 0.1.0
 description: Plans Xiaohongshu notes with hooks, titles, cover copy, comment bait, and conversion paths for Chinese audiences.
+zh_description: 策划小红书笔记的开头钩子、标题、封面文案、评论引导和转化路径。
 tags:
   - xiaohongshu
   - china

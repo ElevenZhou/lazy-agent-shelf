@@ -4,6 +4,7 @@ zh_name: 社媒内容规划专家
 category: growth/social
 version: 0.1.0
 description: Builds channel-specific content calendars, post angles, hooks, and distribution experiments.
+zh_description: 制定适配不同渠道的内容日历、选题角度、开头钩子和分发实验。
 tags:
   - social
   - content

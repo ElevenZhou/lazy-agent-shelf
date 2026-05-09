@@ -2,6 +2,7 @@ id: agent-maker-pack
 name: Agent Maker Pack
 zh_name: Agent构建套装
 description: Design, evaluate, harden, and package reusable agents for multiple AI coding tools.
+zh_description: 设计、评估、加固并打包可复用 agent，适配多种 AI 编程工具。
 tags:
   - agents
   - quality
@@ -16,3 +17,7 @@ use_cases:
   - Review a new agent submission
   - Detect unsafe prompt/tool boundaries
   - Package an agent into a reusable workflow
+zh_use_cases:
+  - 设计新的专业智能体
+  - 评估提示词质量和边界
+  - 加固提示注入与工具安全

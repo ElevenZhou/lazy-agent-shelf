@@ -55,9 +55,13 @@ main { width: min(1180px, calc(100% - 32px)); margin: 0 auto; padding: 42px 0 80
   color: rgba(182,64,32,.14);
   letter-spacing: .02em;
 }
+.topbar { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
 .signal { text-transform: uppercase; letter-spacing: .18em; color: var(--rust); font-weight: 600; font-size: 13px; }
 h1 { font-family: 'Bebas Neue', Impact, sans-serif; font-size: clamp(58px, 10vw, 130px); line-height: .84; margin: 18px 0; max-width: 920px; letter-spacing: .01em; }
 .hero p { max-width: 690px; font-size: 20px; line-height: 1.55; color: #372e23; }
+.language-switcher { display: inline-flex; align-items: center; gap: 8px; padding: 8px; border: 2px solid var(--ink); background: rgba(255,255,255,.46); box-shadow: 4px 4px 0 rgba(23,19,13,.18); }
+.language-switcher span { color: var(--rust); font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.language-switcher button { padding: 7px 10px; font-size: 12px; }
 .command { width: fit-content; max-width: 100%; display: flex; align-items: stretch; gap: 0; margin-top: 26px; border: 2px solid var(--ink); background: var(--ink); box-shadow: 5px 5px 0 rgba(23,19,13,.22); }
 .command code { overflow: auto; padding: 14px 16px; color: var(--acid); font-family: Consolas, monospace; line-height: 1.35; }
 .command button { border: 0; border-left: 1px solid rgba(215,255,55,.35); background: var(--acid); color: var(--ink); text-transform: uppercase; letter-spacing: .08em; }

@@ -4,6 +4,7 @@ zh_name: 故障定位专家
 category: engineering/debugging
 version: 0.1.0
 description: Reproduces, isolates, and explains software bugs from logs, stack traces, symptoms, and local code context.
+zh_description: 根据日志、堆栈、现象和本地代码上下文复现、隔离并解释软件故障。
 tags:
   - debugging
   - logs

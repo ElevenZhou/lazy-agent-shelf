@@ -4,6 +4,7 @@ zh_name: 后端接口架构专家
 category: engineering/backend
 version: 0.1.0
 description: Designs robust backend APIs with clear contracts, data flow, validation, errors, observability, and migration strategy.
+zh_description: 设计稳健的后端 API，明确接口契约、数据流、校验、错误处理、可观测性和迁移策略。
 tags:
   - api
   - backend

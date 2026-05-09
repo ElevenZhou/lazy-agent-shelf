@@ -4,6 +4,7 @@ zh_name: Agent质量评测专家
 category: meta/quality
 version: 0.1.0
 description: Reviews agent prompts and skills for clarity, overlap, safety, portability, and measurable usefulness.
+zh_description: 评估 agent 提示词和技能的清晰度、重叠度、安全性、可移植性和可衡量价值。
 tags:
   - agents
   - prompting

@@ -4,6 +4,7 @@ zh_name: 数据分析专家
 category: data/analysis
 version: 0.1.0
 description: Analyzes datasets with clear assumptions, reproducible steps, charts or tables, and decision-focused conclusions.
+zh_description: 基于清晰假设和可复现步骤分析数据集，输出图表、表格和面向决策的结论。
 tags:
   - data
   - analysis

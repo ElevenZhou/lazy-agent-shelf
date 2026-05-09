@@ -86,3 +86,7 @@ collections/<collection-id>/
 
 See `docs/roadmap.md`.
 
+## Recent Updates
+
+- 2026-05-10: Added website language switching for English and Chinese, with localized agent and collection summaries in the generated catalog.
+

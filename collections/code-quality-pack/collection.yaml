@@ -2,6 +2,7 @@ id: code-quality-pack
 name: Code Quality Pack
 zh_name: 代码质量套装
 description: Keep a software repo healthy with review, debugging, testing, security, and onboarding support.
+zh_description: 用审查、调试、测试、安全和上手支持保持软件仓库健康。
 tags:
   - engineering
   - review
@@ -17,3 +18,7 @@ use_cases:
   - Review a pull request before merge
   - Diagnose a difficult bug
   - Add regression tests and security checks
+zh_use_cases:
+  - 审查合并前代码风险
+  - 定位线上或本地故障
+  - 补齐测试、安全和上手文档

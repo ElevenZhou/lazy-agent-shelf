@@ -2,6 +2,7 @@ id: data-ops-pack
 name: Data Ops Pack
 zh_name: 数据运营套装
 description: Analyze spreadsheets, datasets, backtests, and operational workflows with reproducible evidence.
+zh_description: 用可复现证据分析表格、数据集、回测和运营流程。
 tags:
   - data
   - analysis
@@ -16,3 +17,7 @@ use_cases:
   - Audit spreadsheet quality
   - Review strategy backtest reliability
   - Convert repeated analysis into automation
+zh_use_cases:
+  - 分析表格和业务数据
+  - 复核交易回测证据
+  - 设计可复现的数据运营流程

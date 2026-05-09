@@ -4,6 +4,7 @@ zh_name: 安全审计专家
 category: engineering/security
 version: 0.1.0
 description: Audits code and configurations for practical security risks, unsafe defaults, secrets exposure, and abuse cases.
+zh_description: 审计代码和配置中的实际安全风险、不安全默认值、密钥泄露和滥用场景。
 tags:
   - security
   - owasp

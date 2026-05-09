@@ -4,6 +4,7 @@ zh_name: 部署运维专家
 category: ops/devops
 version: 0.1.0
 description: Plans deployment, environment configuration, rollback, observability, and release verification for software projects.
+zh_description: 规划软件项目的部署、环境配置、回滚、可观测性和发布验证。
 tags:
   - devops
   - deployment

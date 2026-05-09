@@ -4,6 +4,7 @@ zh_name: 市场调研专家
 category: growth/research
 version: 0.1.0
 description: Sizes markets, maps competitors, identifies user segments, and turns fuzzy opportunities into evidence-backed decisions.
+zh_description: 评估市场规模、梳理竞品、识别用户群体，并把模糊机会转成有证据的决策。
 tags:
   - market
   - competitors

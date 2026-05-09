@@ -19,6 +19,7 @@
       "category": "data/trading",
       "version": "0.1.0",
       "description": "Reviews trading backtests for leakage, overfitting, robustness, transaction costs, and regime sensitivity.",
+      "zh_description": "评估交易回测中的数据泄露、过拟合、稳健性、交易成本和行情阶段敏感性。",
       "tags": [
         "trading",
         "backtest",
@@ -56,6 +57,7 @@
       "category": "data/analysis",
       "version": "0.1.0",
       "description": "Analyzes datasets with clear assumptions, reproducible steps, charts or tables, and decision-focused conclusions.",
+      "zh_description": "基于清晰假设和可复现步骤分析数据集，输出图表、表格和面向决策的结论。",
       "tags": [
         "data",
         "analysis",
@@ -93,6 +95,7 @@
       "category": "data/spreadsheets",
       "version": "0.1.0",
       "description": "Cleans, summarizes, validates, and explains spreadsheet data with formulas, pivots, and decision-focused outputs.",
+      "zh_description": "清洗、汇总、校验并解释表格数据，结合公式、透视表和面向决策的输出。",
       "tags": [
         "spreadsheet",
         "csv",
@@ -130,6 +133,7 @@
       "category": "engineering/backend",
       "version": "0.1.0",
       "description": "Designs robust backend APIs with clear contracts, data flow, validation, errors, observability, and migration strategy.",
+      "zh_description": "设计稳健的后端 API，明确接口契约、数据流、校验、错误处理、可观测性和迁移策略。",
       "tags": [
         "api",
         "backend",
@@ -167,6 +171,7 @@
       "category": "engineering/debugging",
       "version": "0.1.0",
       "description": "Reproduces, isolates, and explains software bugs from logs, stack traces, symptoms, and local code context.",
+      "zh_description": "根据日志、堆栈、现象和本地代码上下文复现、隔离并解释软件故障。",
       "tags": [
         "debugging",
         "logs",
@@ -205,6 +210,7 @@
       "category": "engineering/code",
       "version": "0.1.0",
       "description": "Finds correctness, maintainability, security, and testability issues in code changes before merge.",
+      "zh_description": "在合并前发现代码变更中的正确性、可维护性、安全性和可测试性问题。",
       "tags": [
         "review",
         "quality",
@@ -242,6 +248,7 @@
       "category": "engineering/frontend",
       "version": "0.1.0",
       "description": "Builds polished frontend pages and components with distinctive visual direction, responsive behavior, and verification steps.",
+      "zh_description": "构建有明确视觉方向、响应式行为和验证步骤的精致前端页面与组件。",
       "tags": [
         "frontend",
         "ui",
@@ -280,6 +287,7 @@
       "category": "engineering/security",
       "version": "0.1.0",
       "description": "Audits code and configurations for practical security risks, unsafe defaults, secrets exposure, and abuse cases.",
+      "zh_description": "审计代码和配置中的实际安全风险、不安全默认值、密钥泄露和滥用场景。",
       "tags": [
         "security",
         "owasp",
@@ -317,6 +325,7 @@
       "category": "engineering/testing",
       "version": "0.1.0",
       "description": "Designs and implements focused tests that capture behavior, regressions, edge cases, and integration boundaries.",
+      "zh_description": "设计并实现聚焦行为、回归、边界情况和集成边界的测试。",
       "tags": [
         "testing",
         "qa",
@@ -354,6 +363,7 @@
       "category": "growth/branding",
       "version": "0.1.0",
       "description": "Generates brandable project names, checks domain availability with evidence, ranks candidates, and produces domain or brand recommendation reports.",
+      "zh_description": "生成有品牌感的项目名称，基于证据检查域名可用性，排序候选并输出品牌或域名建议。",
       "tags": [
         "branding",
         "domain",
@@ -406,6 +416,7 @@
       "category": "growth/copywriting",
       "version": "0.1.0",
       "description": "Writes high-converting landing page copy with audience positioning, objection handling, and CTA strategy.",
+      "zh_description": "撰写高转化落地页文案，覆盖受众定位、异议处理和行动按钮策略。",
       "tags": [
         "copywriting",
         "landing-page",
@@ -442,6 +453,7 @@
       "category": "growth/research",
       "version": "0.1.0",
       "description": "Sizes markets, maps competitors, identifies user segments, and turns fuzzy opportunities into evidence-backed decisions.",
+      "zh_description": "评估市场规模、梳理竞品、识别用户群体，并把模糊机会转成有证据的决策。",
       "tags": [
         "market",
         "competitors",
@@ -479,6 +491,7 @@
       "category": "growth/seo",
       "version": "0.1.0",
       "description": "Plans search-oriented content, technical SEO fixes, keyword clusters, and measurable growth experiments.",
+      "zh_description": "规划面向搜索增长的内容、技术 SEO 修复、关键词集群和可衡量增长实验。",
       "tags": [
         "seo",
         "growth",
@@ -516,6 +529,7 @@
       "category": "growth/social",
       "version": "0.1.0",
       "description": "Builds channel-specific content calendars, post angles, hooks, and distribution experiments.",
+      "zh_description": "制定适配不同渠道的内容日历、选题角度、开头钩子和分发实验。",
       "tags": [
         "social",
         "content",
@@ -552,6 +566,7 @@
       "category": "local-cn/ecommerce",
       "version": "0.1.0",
       "description": "Plans cross-border ecommerce listings, operations, launch checklists, and channel-specific growth experiments.",
+      "zh_description": "规划跨境电商 listing、运营动作、上线清单和渠道增长实验。",
       "tags": [
         "ecommerce",
         "crossborder",
@@ -589,6 +604,7 @@
       "category": "local-cn/ops",
       "version": "0.1.0",
       "description": "Designs Feishu Docs, Sheets, Base, approval, calendar, and task workflows for small teams.",
+      "zh_description": "为小团队设计飞书文档、表格、多维表格、审批、日历和任务协作流程。",
       "tags": [
         "feishu",
         "china",
@@ -625,6 +641,7 @@
       "category": "local-cn/content",
       "version": "0.1.0",
       "description": "Structures WeChat articles with Chinese editorial flow, titles, summaries, sections, and reader action prompts.",
+      "zh_description": "按中文编辑节奏组织公众号文章，包括标题、摘要、章节结构和读者行动引导。",
       "tags": [
         "wechat",
         "china",
@@ -661,6 +678,7 @@
       "category": "local-cn/content",
       "version": "0.1.0",
       "description": "Plans Xiaohongshu notes with hooks, titles, cover copy, comment bait, and conversion paths for Chinese audiences.",
+      "zh_description": "策划小红书笔记的开头钩子、标题、封面文案、评论引导和转化路径。",
       "tags": [
         "xiaohongshu",
         "china",
@@ -698,6 +716,7 @@
       "category": "meta/quality",
       "version": "0.1.0",
       "description": "Reviews agent prompts and skills for clarity, overlap, safety, portability, and measurable usefulness.",
+      "zh_description": "评估 agent 提示词和技能的清晰度、重叠度、安全性、可移植性和可衡量价值。",
       "tags": [
         "agents",
         "prompting",
@@ -734,6 +753,7 @@
       "category": "meta/security",
       "version": "0.1.0",
       "description": "Audits prompts, tools, and agent workflows for prompt injection, data exfiltration, unsafe tool use, and trust boundary failures.",
+      "zh_description": "审计提示词、工具和 agent 工作流中的提示注入、数据外泄、不安全工具使用和信任边界问题。",
       "tags": [
         "security",
         "prompt-injection",
@@ -770,6 +790,7 @@
       "category": "ops/automation",
       "version": "0.1.0",
       "description": "Finds repetitive work, designs safe automation workflows, and breaks them into practical build steps.",
+      "zh_description": "发现重复劳动，设计安全的自动化流程，并拆解为可落地的构建步骤。",
       "tags": [
         "automation",
         "ops",
@@ -807,6 +828,7 @@
       "category": "ops/devops",
       "version": "0.1.0",
       "description": "Plans deployment, environment configuration, rollback, observability, and release verification for software projects.",
+      "zh_description": "规划软件项目的部署、环境配置、回滚、可观测性和发布验证。",
       "tags": [
         "devops",
         "deployment",
@@ -844,6 +866,7 @@
       "category": "ops/repo",
       "version": "0.1.0",
       "description": "Reads a repository and creates a fast orientation map for new contributors or agents.",
+      "zh_description": "阅读仓库并为新贡献者或 agent 创建快速上手地图。",
       "tags": [
         "repo",
         "onboarding",
@@ -881,6 +904,7 @@
       "category": "product/strategy",
       "version": "0.1.0",
       "description": "Turns ambiguous product ideas into scoped requirements, user stories, success metrics, and release slices.",
+      "zh_description": "把模糊产品想法转成明确需求、用户故事、成功指标和发布切片。",
       "tags": [
         "product",
         "requirements",
@@ -917,6 +941,7 @@
       "category": "product/ux",
       "version": "0.1.0",
       "description": "Maps user journeys, identifies friction, and designs clear flows, states, and handoff copy for product experiences.",
+      "zh_description": "梳理用户旅程，识别摩擦点，并设计清晰的流程、状态和交接文案。",
       "tags": [
         "ux",
         "flows",
@@ -954,6 +979,7 @@
       "name": "Agent Maker Pack",
       "zh_name": "Agent构建套装",
       "description": "Design, evaluate, harden, and package reusable agents for multiple AI coding tools.",
+      "zh_description": "设计、评估、加固并打包可复用 agent，适配多种 AI 编程工具。",
       "tags": [
         "agents",
         "quality",
@@ -971,6 +997,11 @@
         "Detect unsafe prompt/tool boundaries",
         "Package an agent into a reusable workflow"
       ],
+      "zh_use_cases": [
+        "设计新的专业智能体",
+        "评估提示词质量和边界",
+        "加固提示注入与工具安全"
+      ],
       "path": "collections/agent-maker-pack"
     },
     {
@@ -978,6 +1009,7 @@
       "name": "China Growth Pack",
       "zh_name": "中国增长套装",
       "description": "Plan Chinese-market content, operations, and ecommerce workflows across Xiaohongshu, WeChat, Feishu, and cross-border channels.",
+      "zh_description": "面向中国市场规划小红书、公众号、飞书和跨境渠道的内容、运营与电商流程。",
       "tags": [
         "china",
         "growth",
@@ -997,6 +1029,11 @@
         "Plan Feishu operating workflows",
         "Prepare ecommerce launch assets"
       ],
+      "zh_use_cases": [
+        "规划小红书和公众号内容",
+        "搭建飞书团队流程",
+        "准备跨境电商运营动作"
+      ],
       "path": "collections/china-growth-pack"
     },
     {
@@ -1004,6 +1041,7 @@
       "name": "Code Quality Pack",
       "zh_name": "代码质量套装",
       "description": "Keep a software repo healthy with review, debugging, testing, security, and onboarding support.",
+      "zh_description": "用审查、调试、测试、安全和上手支持保持软件仓库健康。",
       "tags": [
         "engineering",
         "review",
@@ -1022,6 +1060,11 @@
         "Diagnose a difficult bug",
         "Add regression tests and security checks"
       ],
+      "zh_use_cases": [
+        "审查合并前代码风险",
+        "定位线上或本地故障",
+        "补齐测试、安全和上手文档"
+      ],
       "path": "collections/code-quality-pack"
     },
     {
@@ -1029,6 +1072,7 @@
       "name": "Data Ops Pack",
       "zh_name": "数据运营套装",
       "description": "Analyze spreadsheets, datasets, backtests, and operational workflows with reproducible evidence.",
+      "zh_description": "用可复现证据分析表格、数据集、回测和运营流程。",
       "tags": [
         "data",
         "analysis",
@@ -1046,6 +1090,11 @@
         "Review strategy backtest reliability",
         "Convert repeated analysis into automation"
       ],
+      "zh_use_cases": [
+        "分析表格和业务数据",
+        "复核交易回测证据",
+        "设计可复现的数据运营流程"
+      ],
       "path": "collections/data-ops-pack"
     },
     {
@@ -1053,6 +1102,7 @@
       "name": "Solo Founder Pack",
       "zh_name": "独立开发者套装",
       "description": "Build, ship, explain, and grow a small product without hiring a full team.",
+      "zh_description": "帮助独立开发者在没有完整团队的情况下构建、发布、解释和增长小产品。",
       "tags": [
         "founder",
         "product",
@@ -1072,6 +1122,11 @@
         "Turn a fuzzy idea into a scoped MVP",
         "Build the first web experience",
         "Prepare launch copy and growth experiments"
+      ],
+      "zh_use_cases": [
+        "把模糊想法拆成可交付的 MVP",
+        "搭建第一版网页体验",
+        "准备发布文案和增长实验"
       ],
       "path": "collections/solo-founder-pack"
     }

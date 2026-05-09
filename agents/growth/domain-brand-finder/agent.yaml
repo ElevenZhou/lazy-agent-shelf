@@ -4,6 +4,7 @@ zh_name: 域名品牌推荐 Agent
 category: growth/branding
 version: 0.1.0
 description: Generates brandable project names, checks domain availability with evidence, ranks candidates, and produces domain or brand recommendation reports.
+zh_description: 生成有品牌感的项目名称，基于证据检查域名可用性，排序候选并输出品牌或域名建议。
 tags:
   - branding
   - domain

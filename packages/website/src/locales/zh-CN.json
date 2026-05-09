@@ -1,0 +1,75 @@
+{
+  "languageLabel": "语言",
+  "languageName": "中文",
+  "signal": "开源智能体货架",
+  "heroTitle": "给不想重复配置 AI 的人，准备好可直接安装的专业智能体。",
+  "heroBody": "Lazy Agent Shelf 把同一份高质量智能体源文件，生成到 Claude、Codex、Cursor、OpenCode、VSCode、Trae 和通用 AGENTS.md 工作流。",
+  "tabs": {
+    "browse": "浏览智能体",
+    "usage": "使用方式"
+  },
+  "searchPlaceholder": "搜索智能体、工作流、使用场景...",
+  "targetPlatform": "目标平台",
+  "allCategories": "全部",
+  "details": "查看详情",
+  "copy": "复制",
+  "copied": "已复制",
+  "close": "关闭",
+  "open": "展开",
+  "recommendedPacks": "推荐套装",
+  "packsTitle": "安装一组可协作的智能体，而不是只复制一条提示词。",
+  "agentsIncluded": "个智能体",
+  "modal": {
+    "inputs": "输入",
+    "outputs": "输出",
+    "tags": "标签",
+    "compatible": "兼容平台"
+  },
+  "categories": {
+    "data": "数据",
+    "engineering": "工程",
+    "growth": "增长",
+    "local-cn": "中国本地",
+    "meta": "智能体构建",
+    "ops": "运营自动化",
+    "product": "产品"
+  },
+  "usage": {
+    "signal": "这些智能体在哪里运行",
+    "title": "这些智能体不是在网站里聊天用，而是安装到你常用的 AI 编程工具里。",
+    "body": "网站负责浏览、筛选和复制安装命令；真正使用发生在 Codex、Claude Code、Cursor、OpenCode、VSCode Copilot、Trae 等工具中。",
+    "steps": [
+      { "title": "选择", "body": "选择单个智能体，或直接安装 solo-founder-pack 这样的现成套装。" },
+      { "title": "安装", "body": "复制页面生成的命令，把文件输出到当前项目或工具配置目录。" },
+      { "title": "使用", "body": "回到目标工具，用自然语言描述任务，生成的智能体、规则或技能会指导执行。" }
+    ],
+    "noteTitle": "一句话理解",
+    "noteBody": "Lazy Agent Shelf 就是一个智能体货架：网站用来挑选，命令行用来安装，各个 AI 工具才是真正工作的地方。"
+  },
+  "platformGuides": {
+    "codex": {
+      "where": "安装为 Codex 技能，然后在 Codex 里按任务意图调用对应专家。",
+      "notes": ["适合仓库任务、代码审查、故障定位、研究流程和可复用本地任务。", "需要一组现成工作团队时，优先安装套装而不是单个智能体。"]
+    },
+    "claude": {
+      "where": "安装为 Claude Code 的子智能体 Markdown 文件，位置是 .claude/agents。",
+      "notes": ["适合项目内的子智能体委派工作。", "生成文件是可读 Markdown，方便检查和二次编辑。"]
+    },
+    "cursor": {
+      "where": "安装为 Cursor 规则文件，位置是 .cursor/rules。",
+      "notes": ["适合项目级行为预设和可复用编码规则。", "可按审查、前端、后端、产品、命名等任务选择不同智能体。"]
+    },
+    "opencode": {
+      "where": "安装为 OpenCode 智能体 Markdown 文件，位置是 .opencode/agents。",
+      "notes": ["适合终端原生工作流和仓库助手。", "如果想一次准备所有平台，可以使用 --target all。"]
+    },
+    "vscode": {
+      "where": "安装为 GitHub Copilot 指令 Markdown，位置是 .github/instructions。",
+      "notes": ["适合跟随仓库一起保存的项目指令。", "不要把敏感或个人化工作规则放进公开仓库。"]
+    },
+    "trae": {
+      "where": "安装为 Trae 兼容的提示词 Markdown，位置是 .trae/agents。",
+      "notes": ["适合产品、增长、中国市场和编码助手工作流。", "生成后的提示词仍然可读、可编辑。"]
+    }
+  }
+}
