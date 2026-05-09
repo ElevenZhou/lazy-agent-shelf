@@ -64,6 +64,8 @@ h1 { font-family: 'Bebas Neue', Impact, sans-serif; font-size: clamp(58px, 10vw,
 .command.compact { width: 100%; margin-top: 0; box-shadow: none; }
 .command.compact code { flex: 1; font-size: 12px; padding: 10px; }
 .command.compact button { font-size: 11px; padding: 8px; }
+.tabs { display: flex; flex-wrap: wrap; gap: 12px; margin: 36px 0 10px; }
+.tabs button { font-size: 16px; border-width: 2px; background: rgba(255,255,255,.42); box-shadow: 4px 4px 0 rgba(23,19,13,.16); }
 .toolbar { display: grid; gap: 18px; margin: 54px 0 28px; }
 input { border: 2px solid var(--ink); background: rgba(255,255,255,.38); padding: 18px 20px; font: inherit; font-size: 18px; box-shadow: 6px 6px 0 rgba(23,19,13,.18); }
 .chips { display: flex; gap: 10px; flex-wrap: wrap; }
@@ -107,5 +109,22 @@ pre { margin: 0; white-space: pre-wrap; font-family: Consolas, monospace; font-s
 .info-list { border: 1px solid var(--line); background: rgba(255,255,255,.36); padding: 16px; }
 .info-list h3 { margin: 0 0 10px; color: var(--rust); text-transform: uppercase; letter-spacing: .1em; font-size: 13px; }
 .info-list ul { margin: 0; padding-left: 18px; line-height: 1.7; }
+.usage { margin-top: 34px; display: grid; gap: 28px; }
+.usage-intro { border: 2px solid var(--ink); background: rgba(255,255,255,.4); padding: clamp(24px, 5vw, 44px); box-shadow: 8px 8px 0 rgba(23,19,13,.86); }
+.usage-intro h2 { max-width: 900px; margin: 14px 0; font-family: 'Bebas Neue', Impact, sans-serif; font-size: clamp(44px, 7vw, 82px); line-height: .92; }
+.usage-intro p { max-width: 800px; font-size: 19px; line-height: 1.55; color: #372e23; }
+.usage-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.usage-steps article { border: 2px solid var(--ink); background: rgba(247,234,211,.78); padding: 20px; }
+.usage-steps strong { display: inline-grid; place-items: center; width: 38px; height: 38px; background: var(--ink); color: var(--acid); margin-bottom: 12px; }
+.usage-steps h3 { margin: 0 0 8px; font-size: 24px; }
+.usage-steps p { margin: 0; line-height: 1.5; }
+.platform-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.platform-card { padding: 20px; border: 2px solid var(--ink); background: rgba(255,255,255,.48); box-shadow: 6px 6px 0 rgba(23,19,13,.55); }
+.platform-card h3 { font-family: 'Bebas Neue', Impact, sans-serif; font-size: 38px; margin: 12px 0 6px; }
+.platform-card p, .platform-card li { line-height: 1.5; color: #4e4437; }
+.platform-card ul { padding-left: 18px; }
+.usage-note { border-left: 8px solid var(--rust); background: rgba(182,64,32,.08); padding: 20px; }
+.usage-note h3 { margin: 0 0 8px; font-size: 26px; }
+.usage-note p { margin: 0; font-size: 18px; line-height: 1.5; }
 @keyframes rise { from { opacity: 0; transform: translateY(18px) rotate(.8deg); } to { opacity: 1; } }
-@media (max-width: 900px) { .grid, .stacks, .modal-grid { grid-template-columns: 1fr; } .hero, .modal { box-shadow: 7px 7px 0 var(--ink); } .command { width: 100%; } }
+@media (max-width: 900px) { .grid, .stacks, .modal-grid, .usage-steps, .platform-grid { grid-template-columns: 1fr; } .hero, .modal, .usage-intro { box-shadow: 7px 7px 0 var(--ink); } .command { width: 100%; } }

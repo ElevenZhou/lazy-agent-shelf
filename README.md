@@ -18,6 +18,7 @@ The goal is simple: people are lazy, but good preset agents are powerful. This p
 - A CLI prototype to list, lint, build, and install agents.
 - Multi-target generators for Claude Code, Codex skills, Cursor rules, OpenCode agents, VSCode Copilot instructions, Trae-style prompts, and generic AGENTS.md bundles.
 - A website prototype for browsing and recommending agents.
+- A usage guide for where the generated agents actually run: `docs/usage.md`.
 
 ## Quick Start
 
