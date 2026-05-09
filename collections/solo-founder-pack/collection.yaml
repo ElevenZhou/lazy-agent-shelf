@@ -8,6 +8,7 @@ tags:
   - launch
 agents:
   - product-manager
+  - domain-brand-finder
   - ux-flow-designer
   - frontend-builder
   - backend-api-architect

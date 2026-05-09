@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "agent_count": 24,
+  "agent_count": 25,
   "collection_count": 5,
   "categories": [
     "data",
@@ -346,6 +346,58 @@
         "coverage_gaps"
       ],
       "path": "agents/engineering/test-writer"
+    },
+    {
+      "id": "domain-brand-finder",
+      "name": "Domain Brand Finder",
+      "zh_name": "域名品牌推荐 Agent",
+      "category": "growth/branding",
+      "version": "0.1.0",
+      "description": "Generates brandable project names, checks domain availability with evidence, ranks candidates, and produces domain or brand recommendation reports.",
+      "tags": [
+        "branding",
+        "domain",
+        "naming",
+        "rdap",
+        "startup",
+        "china",
+        "seo"
+      ],
+      "tools": [
+        "browser:optional",
+        "network:optional",
+        "filesystem:read"
+      ],
+      "compatible": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "vscode-copilot",
+        "trae",
+        "generic"
+      ],
+      "inputs": [
+        "project_description",
+        "audience",
+        "preferred_tlds",
+        "max_name_length",
+        "required_terms",
+        "banned_terms",
+        "brand_style",
+        "existing_company_name",
+        "regions",
+        "output_language"
+      ],
+      "outputs": [
+        "ranked_domain_recommendations",
+        "checked_domains_table",
+        "naming_rationale",
+        "rejected_options",
+        "brand_memo",
+        "next_steps"
+      ],
+      "path": "agents/growth/domain-brand-finder"
     },
     {
       "id": "landing-page-copywriter",
@@ -932,6 +984,7 @@
         "content"
       ],
       "agents": [
+        "domain-brand-finder",
         "xiaohongshu-content-planner",
         "wechat-official-editor",
         "feishu-workflow-builder",
@@ -1007,6 +1060,7 @@
       ],
       "agents": [
         "product-manager",
+        "domain-brand-finder",
         "ux-flow-designer",
         "frontend-builder",
         "backend-api-architect",

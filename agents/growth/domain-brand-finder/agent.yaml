@@ -1,0 +1,51 @@
+id: domain-brand-finder
+name: Domain Brand Finder
+zh_name: 域名品牌推荐 Agent
+category: growth/branding
+version: 0.1.0
+description: Generates brandable project names, checks domain availability with evidence, ranks candidates, and produces domain or brand recommendation reports.
+tags:
+  - branding
+  - domain
+  - naming
+  - rdap
+  - startup
+  - china
+  - seo
+tools:
+  - browser:optional
+  - network:optional
+  - filesystem:read
+compatible:
+  - claude-code
+  - codex
+  - cursor
+  - opencode
+  - vscode-copilot
+  - trae
+  - generic
+inputs:
+  - project_description
+  - audience
+  - preferred_tlds
+  - max_name_length
+  - required_terms
+  - banned_terms
+  - brand_style
+  - existing_company_name
+  - regions
+  - output_language
+outputs:
+  - ranked_domain_recommendations
+  - checked_domains_table
+  - naming_rationale
+  - rejected_options
+  - brand_memo
+  - next_steps
+quality:
+  checklist:
+    - Defines clear scope and non-scope
+    - Produces actionable outputs, not generic advice
+    - States safety limits and verification steps
+    - Works from evidence before recommendations
+    - Avoids trademark or registrar certainty overclaims
