@@ -1,5 +1,12 @@
 # Lazy Agent Shelf
 
+[![validate](https://github.com/ElevenZhou/lazy-agent-shelf/actions/workflows/validate.yml/badge.svg)](https://github.com/ElevenZhou/lazy-agent-shelf/actions/workflows/validate.yml)
+[![pages](https://github.com/ElevenZhou/lazy-agent-shelf/actions/workflows/pages.yml/badge.svg)](https://github.com/ElevenZhou/lazy-agent-shelf/actions/workflows/pages.yml)
+[![GitHub Pages](https://img.shields.io/badge/site-live-d7ff37?labelColor=17130d)](https://elevenzhou.github.io/lazy-agent-shelf/)
+[![License: MIT](https://img.shields.io/badge/license-MIT-b64020.svg)](LICENSE)
+
+![Lazy Agent Shelf preview](docs/assets/hero-preview.svg)
+
 Lazy Agent Shelf is an open-source cross-tool agent and skill library. It lets users install curated expert agents once and export them to Claude Code, Codex, Cursor, OpenCode, VSCode Copilot, Trae, and generic AGENTS.md workflows.
 
 The goal is simple: people are lazy, but good preset agents are powerful. This project turns agent prompts into versioned, reusable, testable, and portable assets.

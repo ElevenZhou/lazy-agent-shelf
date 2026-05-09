@@ -18,6 +18,17 @@ function App() {
   const [category, setCategory] = useState('All');
   const [target, setTarget] = useState('codex');
   const [openCollection, setOpenCollection] = useState(collections[0]?.id || '');
+  const [selectedAgent, setSelectedAgent] = useState(null);
+  const [copied, setCopied] = useState('');
+  const copyCommand = async command => {
+    try {
+      await navigator.clipboard.writeText(command);
+      setCopied(command);
+      window.setTimeout(() => setCopied(''), 1500);
+    } catch {
+      setCopied('');
+    }
+  };
   const filtered = useMemo(() => agents.filter(agent => {
     const q = query.toLowerCase();
     return (category === 'All' || agent.group === category) && [
@@ -35,7 +46,7 @@ function App() {
       <div className="signal">open-source agent shelf</div>
       <h1>Preset specialists for people too lazy to configure AI twice.</h1>
       <p>Lazy Agent Shelf turns one high-quality agent source into Claude, Codex, Cursor, OpenCode, VSCode, Trae, and generic AGENTS.md outputs.</p>
-      <div className="terminal">npx lazy-agent-shelf install code-reviewer --target {target}</div>
+      <Command text={`npx lazy-agent-shelf install code-reviewer --target ${target}`} copied={copied} onCopy={copyCommand} />
     </section>
 
     <section className="toolbar">
@@ -53,7 +64,10 @@ function App() {
         <h2>{agent.name}</h2>
         <p>{agent.description}</p>
         <div className="targets">{agent.targets.slice(0, 4).map(t => <em key={t}>{t}</em>)}</div>
-        <pre>lazy-agent-shelf install {agent.id} --target {target}</pre>
+        <div className="card-actions">
+          <button onClick={() => setSelectedAgent(agent)}>Details</button>
+          <Command text={`lazy-agent-shelf install ${agent.id} --target ${target}`} copied={copied} onCopy={copyCommand} compact />
+        </div>
       </article>)}
     </section>
 
@@ -68,7 +82,7 @@ function App() {
           <span>{openCollection === collection.id ? 'close' : 'open'}</span>
         </button>
         <p>{collection.description}</p>
-        <code>lazy-agent-shelf install-collection {collection.id} --target {target}</code>
+        <Command text={`lazy-agent-shelf install-collection ${collection.id} --target ${target}`} copied={copied} onCopy={copyCommand} compact />
         {openCollection === collection.id && <div className="stack-detail">
           <strong>{collection.agents.length} agents included</strong>
           <ul>
@@ -83,7 +97,41 @@ function App() {
         </div>}
       </div>)}
     </section>
+    {selectedAgent && <AgentModal agent={selectedAgent} onClose={() => setSelectedAgent(null)} target={target} copied={copied} onCopy={copyCommand} />}
   </main>;
+}
+
+function Command({ text, copied, onCopy, compact = false }) {
+  return <div className={compact ? 'command compact' : 'command'}>
+    <code>{text}</code>
+    <button onClick={() => onCopy(text)}>{copied === text ? 'copied' : 'copy'}</button>
+  </div>;
+}
+
+function AgentModal({ agent, onClose, target, copied, onCopy }) {
+  const command = `lazy-agent-shelf install ${agent.id} --target ${target}`;
+  return <div className="modal-backdrop" onClick={onClose}>
+    <section className="modal" onClick={event => event.stopPropagation()}>
+      <button className="modal-close" onClick={onClose}>close</button>
+      <span className="signal">{agent.category}</span>
+      <h2>{agent.name}</h2>
+      <p>{agent.description}</p>
+      <Command text={command} copied={copied} onCopy={onCopy} />
+      <div className="modal-grid">
+        <InfoList title="Inputs" items={agent.inputs} />
+        <InfoList title="Outputs" items={agent.outputs} />
+        <InfoList title="Tags" items={agent.tags} />
+        <InfoList title="Compatible" items={agent.compatible} />
+      </div>
+    </section>
+  </div>;
+}
+
+function InfoList({ title, items }) {
+  return <div className="info-list">
+    <h3>{title}</h3>
+    <ul>{(items || []).map(item => <li key={item}>{item}</li>)}</ul>
+  </div>;
 }
 
 createRoot(document.getElementById('root')).render(<App />);
