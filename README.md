@@ -88,5 +88,6 @@ See `docs/roadmap.md`.
 
 ## Recent Updates
 
+- 2026-05-10: Bumped package version to `0.1.1` for the multilingual website update.
 - 2026-05-10: Added website language switching for English and Chinese, with localized agent and collection summaries in the generated catalog.
 

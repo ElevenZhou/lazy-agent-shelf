@@ -1,6 +1,6 @@
 {
   "name": "lazy-agent-shelf",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Cross-tool open agent and skill library with generators for Claude, Codex, Cursor, OpenCode, VSCode, and Trae.",
   "license": "MIT",
   "type": "module",
