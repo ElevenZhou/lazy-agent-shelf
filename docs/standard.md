@@ -8,6 +8,23 @@ A universal agent is a portable source package with metadata, instructions, exam
 - `prompt.md`: platform-neutral expert instructions.
 - `examples.md`: example user prompts and expected behavior.
 
+## Collection Files
+
+Collections live in `collections/<collection-id>/collection.yaml`. A collection is an installable pack of related agents for a workflow such as solo-founder launch, code quality, China growth, or data operations.
+
+Required collection fields:
+
+- `id`
+- `name`
+- `description`
+- `agents`
+
+Recommended collection fields:
+
+- `zh_name`
+- `tags`
+- `use_cases`
+
 ## Authoring Rules
 
 - Define when to use the agent and when not to use it.

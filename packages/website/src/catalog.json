@@ -1,6 +1,7 @@
 {
   "schema_version": 1,
   "agent_count": 24,
+  "collection_count": 5,
   "categories": [
     "data",
     "engineering",
@@ -893,6 +894,132 @@
         "ux_improvements"
       ],
       "path": "agents/product/ux-flow-designer"
+    }
+  ],
+  "collections": [
+    {
+      "id": "agent-maker-pack",
+      "name": "Agent Maker Pack",
+      "zh_name": "Agent构建套装",
+      "description": "Design, evaluate, harden, and package reusable agents for multiple AI coding tools.",
+      "tags": [
+        "agents",
+        "quality",
+        "security"
+      ],
+      "agents": [
+        "agent-quality-evaluator",
+        "prompt-injection-auditor",
+        "product-manager",
+        "code-reviewer",
+        "automation-workflow-designer"
+      ],
+      "use_cases": [
+        "Review a new agent submission",
+        "Detect unsafe prompt/tool boundaries",
+        "Package an agent into a reusable workflow"
+      ],
+      "path": "collections/agent-maker-pack"
+    },
+    {
+      "id": "china-growth-pack",
+      "name": "China Growth Pack",
+      "zh_name": "中国增长套装",
+      "description": "Plan Chinese-market content, operations, and ecommerce workflows across Xiaohongshu, WeChat, Feishu, and cross-border channels.",
+      "tags": [
+        "china",
+        "growth",
+        "content"
+      ],
+      "agents": [
+        "xiaohongshu-content-planner",
+        "wechat-official-editor",
+        "feishu-workflow-builder",
+        "crossborder-ecommerce-operator",
+        "market-researcher",
+        "landing-page-copywriter"
+      ],
+      "use_cases": [
+        "Build a Chinese content calendar",
+        "Plan Feishu operating workflows",
+        "Prepare ecommerce launch assets"
+      ],
+      "path": "collections/china-growth-pack"
+    },
+    {
+      "id": "code-quality-pack",
+      "name": "Code Quality Pack",
+      "zh_name": "代码质量套装",
+      "description": "Keep a software repo healthy with review, debugging, testing, security, and onboarding support.",
+      "tags": [
+        "engineering",
+        "review",
+        "quality"
+      ],
+      "agents": [
+        "code-reviewer",
+        "bug-investigator",
+        "test-writer",
+        "security-auditor",
+        "prompt-injection-auditor",
+        "repo-onboarding-guide"
+      ],
+      "use_cases": [
+        "Review a pull request before merge",
+        "Diagnose a difficult bug",
+        "Add regression tests and security checks"
+      ],
+      "path": "collections/code-quality-pack"
+    },
+    {
+      "id": "data-ops-pack",
+      "name": "Data Ops Pack",
+      "zh_name": "数据运营套装",
+      "description": "Analyze spreadsheets, datasets, backtests, and operational workflows with reproducible evidence.",
+      "tags": [
+        "data",
+        "analysis",
+        "ops"
+      ],
+      "agents": [
+        "data-analyst",
+        "spreadsheet-analyst",
+        "backtest-reviewer",
+        "automation-workflow-designer",
+        "repo-onboarding-guide"
+      ],
+      "use_cases": [
+        "Audit spreadsheet quality",
+        "Review strategy backtest reliability",
+        "Convert repeated analysis into automation"
+      ],
+      "path": "collections/data-ops-pack"
+    },
+    {
+      "id": "solo-founder-pack",
+      "name": "Solo Founder Pack",
+      "zh_name": "独立开发者套装",
+      "description": "Build, ship, explain, and grow a small product without hiring a full team.",
+      "tags": [
+        "founder",
+        "product",
+        "launch"
+      ],
+      "agents": [
+        "product-manager",
+        "ux-flow-designer",
+        "frontend-builder",
+        "backend-api-architect",
+        "landing-page-copywriter",
+        "seo-strategist",
+        "social-media-planner"
+      ],
+      "use_cases": [
+        "Turn a fuzzy idea into a scoped MVP",
+        "Build the first web experience",
+        "Prepare launch copy and growth experiments"
+      ],
+      "path": "collections/solo-founder-pack"
     }
   ]
 }

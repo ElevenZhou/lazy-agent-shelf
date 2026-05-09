@@ -1,0 +1,19 @@
+id: china-growth-pack
+name: China Growth Pack
+zh_name: 中国增长套装
+description: Plan Chinese-market content, operations, and ecommerce workflows across Xiaohongshu, WeChat, Feishu, and cross-border channels.
+tags:
+  - china
+  - growth
+  - content
+agents:
+  - xiaohongshu-content-planner
+  - wechat-official-editor
+  - feishu-workflow-builder
+  - crossborder-ecommerce-operator
+  - market-researcher
+  - landing-page-copywriter
+use_cases:
+  - Build a Chinese content calendar
+  - Plan Feishu operating workflows
+  - Prepare ecommerce launch assets

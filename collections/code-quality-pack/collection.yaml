@@ -1,0 +1,19 @@
+id: code-quality-pack
+name: Code Quality Pack
+zh_name: 代码质量套装
+description: Keep a software repo healthy with review, debugging, testing, security, and onboarding support.
+tags:
+  - engineering
+  - review
+  - quality
+agents:
+  - code-reviewer
+  - bug-investigator
+  - test-writer
+  - security-auditor
+  - prompt-injection-auditor
+  - repo-onboarding-guide
+use_cases:
+  - Review a pull request before merge
+  - Diagnose a difficult bug
+  - Add regression tests and security checks

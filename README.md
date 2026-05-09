@@ -21,6 +21,7 @@ npm run lint:agents
 npm run build:agents
 node packages/cli/bin/lazy-agent-shelf.js list
 node packages/cli/bin/lazy-agent-shelf.js install code-reviewer --target codex --out ./generated/install
+node packages/cli/bin/lazy-agent-shelf.js install-collection solo-founder-pack --target cursor --out ./generated/install
 ```
 
 After publishing to npm, the intended command shape is:
@@ -28,6 +29,7 @@ After publishing to npm, the intended command shape is:
 ```bash
 npx lazy-agent-shelf list
 npx lazy-agent-shelf install code-reviewer --target codex
+npx lazy-agent-shelf install-collection solo-founder-pack --target cursor
 ```
 
 ## Agent Source Layout
@@ -37,9 +39,20 @@ agents/<category>/<agent-id>/
   agent.yaml
   prompt.md
   examples.md
+
+collections/<collection-id>/
+  collection.yaml
 ```
 
 `agent.yaml` is the portable source of truth. Generated platform files should not be edited by hand.
+
+## Initial Collections
+
+- `solo-founder-pack`: product, UI, API, copy, SEO, and social launch support.
+- `code-quality-pack`: review, debugging, testing, security, and repo onboarding.
+- `china-growth-pack`: Xiaohongshu, WeChat, Feishu, ecommerce, and market research.
+- `agent-maker-pack`: agent quality, prompt-injection safety, and packaging.
+- `data-ops-pack`: data analysis, spreadsheets, backtests, and automation.
 
 ## Initial Targets
 

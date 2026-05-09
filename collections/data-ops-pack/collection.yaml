@@ -1,0 +1,18 @@
+id: data-ops-pack
+name: Data Ops Pack
+zh_name: 数据运营套装
+description: Analyze spreadsheets, datasets, backtests, and operational workflows with reproducible evidence.
+tags:
+  - data
+  - analysis
+  - ops
+agents:
+  - data-analyst
+  - spreadsheet-analyst
+  - backtest-reviewer
+  - automation-workflow-designer
+  - repo-onboarding-guide
+use_cases:
+  - Audit spreadsheet quality
+  - Review strategy backtest reliability
+  - Convert repeated analysis into automation

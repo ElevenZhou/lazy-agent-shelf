@@ -9,11 +9,7 @@ const agents = catalog.agents.map(agent => ({
   targets: agent.compatible.map(target => target.replace('-code', '').replace('-copilot', ''))
 }));
 
-const stacks = [
-  ['Solo Founder Stack', 'Build, ship, explain, and grow a small product.', ['product-manager', 'frontend-builder', 'backend-api-architect', 'landing-page-copywriter', 'seo-strategist']],
-  ['Code Quality Stack', 'Keep a repo healthy while moving fast.', ['code-reviewer', 'bug-investigator', 'security-auditor', 'test-writer']],
-  ['Agent Maker Stack', 'Design and evaluate reusable AI specialists.', ['agent-quality-evaluator', 'product-manager', 'code-reviewer']]
-];
+const collections = catalog.collections || [];
 
 function App() {
   const [query, setQuery] = useState('');
@@ -58,10 +54,10 @@ function App() {
         <span className="signal">recommended packs</span>
         <h2>Install a working department, not a single prompt.</h2>
       </div>
-      {stacks.map(([name, desc, ids]) => <div className="stack" key={name}>
-        <h3>{name}</h3>
-        <p>{desc}</p>
-        <code>{ids.join(' + ')}</code>
+      {collections.slice(0, 5).map(collection => <div className="stack" key={collection.id}>
+        <h3>{collection.name}</h3>
+        <p>{collection.description}</p>
+        <code>lazy-agent-shelf install-collection {collection.id}</code>
       </div>)}
     </section>
   </main>;

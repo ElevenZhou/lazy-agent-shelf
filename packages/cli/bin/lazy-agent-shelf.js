@@ -4,6 +4,7 @@ import path from 'node:path';
 
 const ROOT = process.cwd();
 const AGENTS_DIR = path.join(ROOT, 'agents');
+const COLLECTIONS_DIR = path.join(ROOT, 'collections');
 const TARGETS = ['claude', 'codex', 'cursor', 'opencode', 'vscode', 'trae', 'generic'];
 
 function readText(file) {
@@ -61,6 +62,15 @@ function findAgentDirs(dir = AGENTS_DIR) {
   return found.sort();
 }
 
+function findCollectionDirs(dir = COLLECTIONS_DIR) {
+  if (!fs.existsSync(dir)) return [];
+  return fs.readdirSync(dir, { withFileTypes: true })
+    .filter(entry => entry.isDirectory())
+    .map(entry => path.join(dir, entry.name))
+    .filter(full => fs.existsSync(path.join(full, 'collection.yaml')))
+    .sort();
+}
+
 function loadAgents() {
   return findAgentDirs().map(dir => {
     const meta = parseAgentYaml(readText(path.join(dir, 'agent.yaml')));
@@ -68,6 +78,13 @@ function loadAgents() {
     const examplesPath = path.join(dir, 'examples.md');
     const examples = fs.existsSync(examplesPath) ? readText(examplesPath) : '';
     return { dir, meta, prompt, examples };
+  });
+}
+
+function loadCollections() {
+  return findCollectionDirs().map(dir => {
+    const meta = parseAgentYaml(readText(path.join(dir, 'collection.yaml')));
+    return { dir, meta };
   });
 }
 
@@ -83,6 +100,19 @@ function validateAgent(agent) {
   if (!meta.quality?.checklist || meta.quality.checklist.length < 3) errors.push('quality.checklist needs at least 3 items');
   for (const heading of ['## Use When', '## Do Not Use When', '## Operating Workflow', '## Safety Boundaries']) {
     if (!prompt.includes(heading)) errors.push(`prompt missing ${heading}`);
+  }
+  return errors;
+}
+
+function validateCollection(collection, agentIds) {
+  const errors = [];
+  const { meta } = collection;
+  for (const key of ['id', 'name', 'description']) {
+    if (!meta[key]) errors.push(`missing ${key}`);
+  }
+  if (!Array.isArray(meta.agents) || meta.agents.length === 0) errors.push('missing list agents');
+  for (const id of meta.agents || []) {
+    if (!agentIds.has(id)) errors.push(`unknown agent ${id}`);
   }
   return errors;
 }
@@ -153,8 +183,18 @@ function list() {
   console.log(`\n${agents.length} agents`);
 }
 
+function listCollections() {
+  const collections = loadCollections();
+  for (const c of collections) {
+    console.log(`${c.meta.id.padEnd(24)} ${(c.meta.agents || []).length.toString().padStart(2)} agents  ${c.meta.name}`);
+  }
+  console.log(`\n${collections.length} collections`);
+}
+
 function lint() {
   const agents = loadAgents();
+  const agentIds = new Set(agents.map(agent => agent.meta.id));
+  const collections = loadCollections();
   let failures = 0;
   for (const agent of agents) {
     const errors = validateAgent(agent);
@@ -164,8 +204,16 @@ function lint() {
       for (const e of errors) console.error(`  - ${e}`);
     } else console.log(`OK   ${agent.meta.id}`);
   }
+  for (const collection of collections) {
+    const errors = validateCollection(collection, agentIds);
+    if (errors.length) {
+      failures += errors.length;
+      console.error(`FAIL ${collection.dir}`);
+      for (const e of errors) console.error(`  - ${e}`);
+    } else console.log(`OK   ${collection.meta.id}`);
+  }
   if (failures) process.exit(1);
-  console.log(`\nLint passed for ${agents.length} agents.`);
+  console.log(`\nLint passed for ${agents.length} agents and ${collections.length} collections.`);
 }
 
 function build(args) {
@@ -201,15 +249,28 @@ function catalog(args) {
     outputs: agent.meta.outputs || [],
     path: path.relative(ROOT, agent.dir).replace(/\\/g, '/')
   }));
+  const agentIds = new Set(agents.map(agent => agent.id));
+  const collections = loadCollections().map(collection => ({
+    id: collection.meta.id,
+    name: collection.meta.name,
+    zh_name: collection.meta.zh_name || '',
+    description: collection.meta.description,
+    tags: collection.meta.tags || [],
+    agents: (collection.meta.agents || []).filter(id => agentIds.has(id)),
+    use_cases: collection.meta.use_cases || [],
+    path: path.relative(ROOT, collection.dir).replace(/\\/g, '/')
+  }));
   const categories = [...new Set(agents.map(agent => agent.category.split('/')[0]))].sort();
   const data = {
     schema_version: 1,
     agent_count: agents.length,
+    collection_count: collections.length,
     categories,
-    agents
+    agents,
+    collections
   };
   writeFile(outFile, `${JSON.stringify(data, null, 2)}\n`);
-  console.log(`Wrote catalog for ${agents.length} agents to ${outFile}`);
+  console.log(`Wrote catalog for ${agents.length} agents and ${collections.length} collections to ${outFile}`);
 }
 
 function install(args) {
@@ -225,18 +286,39 @@ function install(args) {
   console.log(`Installed ${id} for ${target} at ${file}`);
 }
 
+function installCollection(args) {
+  const id = args._[1];
+  if (!id) throw new Error('Usage: install-collection <collection-id> --target <target> --out <directory>');
+  const target = args.target || 'generic';
+  if (!TARGETS.includes(target)) throw new Error(`Unsupported target ${target}`);
+  const agents = loadAgents();
+  const byId = new Map(agents.map(agent => [agent.meta.id, agent]));
+  const collection = loadCollections().find(c => c.meta.id === id);
+  if (!collection) throw new Error(`Collection not found: ${id}`);
+  const outRoot = path.resolve(args.out || 'generated/install');
+  for (const agentId of collection.meta.agents || []) {
+    const agent = byId.get(agentId);
+    if (!agent) throw new Error(`Collection ${id} references missing agent ${agentId}`);
+    const file = outputPath(outRoot, agent, target);
+    writeFile(file, render(agent, target), target === 'generic');
+  }
+  console.log(`Installed collection ${id} with ${(collection.meta.agents || []).length} agents for ${target} into ${outRoot}`);
+}
+
 function help() {
-  console.log(`Lazy Agent Shelf CLI\n\nCommands:\n  list\n  lint\n  catalog --out <file>\n  build --target <all|claude,codex,cursor,opencode,vscode,trae,generic> --out <dir>\n  install <agent-id> --target <target> --out <dir>\n`);
+  console.log(`Lazy Agent Shelf CLI\n\nCommands:\n  list\n  collections\n  lint\n  catalog --out <file>\n  build --target <all|claude,codex,cursor,opencode,vscode,trae,generic> --out <dir>\n  install <agent-id> --target <target> --out <dir>\n  install-collection <collection-id> --target <target> --out <dir>\n`);
 }
 
 const args = parseArgs(process.argv.slice(2));
 const cmd = args._[0] || 'help';
 try {
   if (cmd === 'list') list();
+  else if (cmd === 'collections') listCollections();
   else if (cmd === 'lint') lint();
   else if (cmd === 'catalog') catalog(args);
   else if (cmd === 'build') build(args);
   else if (cmd === 'install') install(args);
+  else if (cmd === 'install-collection') installCollection(args);
   else help();
 } catch (error) {
   console.error(`Error: ${error.message}`);

@@ -1,0 +1,20 @@
+id: solo-founder-pack
+name: Solo Founder Pack
+zh_name: 独立开发者套装
+description: Build, ship, explain, and grow a small product without hiring a full team.
+tags:
+  - founder
+  - product
+  - launch
+agents:
+  - product-manager
+  - ux-flow-designer
+  - frontend-builder
+  - backend-api-architect
+  - landing-page-copywriter
+  - seo-strategist
+  - social-media-planner
+use_cases:
+  - Turn a fuzzy idea into a scoped MVP
+  - Build the first web experience
+  - Prepare launch copy and growth experiments

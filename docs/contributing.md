@@ -8,6 +8,13 @@
 4. Run `npm run build:agents` and inspect generated output for at least one target.
 5. Open a pull request with the agent purpose and example tasks.
 
+## Add a Collection
+
+1. Create `collections/<collection-id>/collection.yaml`.
+2. Reference existing agent ids in the `agents` list.
+3. Add practical `use_cases` so users understand when to install the pack.
+4. Run `npm run lint:agents` to verify every referenced agent exists.
+
 ## Quality Bar
 
 A good agent should make users faster without making them less safe. The agent must have:

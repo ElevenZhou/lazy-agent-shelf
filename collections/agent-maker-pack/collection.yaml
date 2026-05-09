@@ -1,0 +1,18 @@
+id: agent-maker-pack
+name: Agent Maker Pack
+zh_name: Agent构建套装
+description: Design, evaluate, harden, and package reusable agents for multiple AI coding tools.
+tags:
+  - agents
+  - quality
+  - security
+agents:
+  - agent-quality-evaluator
+  - prompt-injection-auditor
+  - product-manager
+  - code-reviewer
+  - automation-workflow-designer
+use_cases:
+  - Review a new agent submission
+  - Detect unsafe prompt/tool boundaries
+  - Package an agent into a reusable workflow

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lazy-agent-shelf.dev/schemas/collection.schema.json",
+  "title": "Lazy Agent Shelf Collection",
+  "type": "object",
+  "required": ["id", "name", "description", "agents"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9]+[a-z0-9-]*$" },
+    "name": { "type": "string", "minLength": 3 },
+    "zh_name": { "type": "string" },
+    "description": { "type": "string", "minLength": 20 },
+    "tags": { "type": "array", "items": { "type": "string" } },
+    "agents": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "use_cases": { "type": "array", "items": { "type": "string" } }
+  }
+}
