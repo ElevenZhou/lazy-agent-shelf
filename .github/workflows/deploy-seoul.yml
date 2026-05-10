@@ -13,8 +13,8 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  BASE_PATH: /lazy-agent-shelf/
-  DEPLOY_PATH: /opt/lazy-agent-shelf/site
+  SUBPATH_DEPLOY_PATH: /opt/lazy-agent-shelf/site
+  AGENTS_DEPLOY_PATH: /opt/lazy-agent-shelf/agents-site
 
 jobs:
   deploy:
@@ -35,8 +35,15 @@ jobs:
       - name: Generate catalog
         run: npm run catalog
 
-      - name: Build website for Seoul path
-        run: npm run website:build
+      - name: Build website for Seoul subpath
+        run: |
+          BASE_PATH=/lazy-agent-shelf/ npm run website:build
+          tar -C dist/website -czf site-subpath.tgz .
+
+      - name: Build website for agents subdomain
+        run: |
+          BASE_PATH=/ npm run website:build
+          tar -C dist/website -czf site-agents.tgz .
 
       - name: Prepare SSH
         run: |
@@ -47,6 +54,6 @@ jobs:
 
       - name: Upload website
         run: |
-          tar -C dist/website -czf site.tgz .
-          scp -i ~/.ssh/seoul.pem site.tgz "${{ secrets.SEOUL_USER }}@${{ secrets.SEOUL_HOST }}:/tmp/lazy-agent-shelf-site.tgz"
-          ssh -i ~/.ssh/seoul.pem "${{ secrets.SEOUL_USER }}@${{ secrets.SEOUL_HOST }}" "sudo mkdir -p '$DEPLOY_PATH' && sudo find '$DEPLOY_PATH' -mindepth 1 -delete && sudo tar -xzf /tmp/lazy-agent-shelf-site.tgz -C '$DEPLOY_PATH' && rm -f /tmp/lazy-agent-shelf-site.tgz"
+          scp -i ~/.ssh/seoul.pem site-subpath.tgz "${{ secrets.SEOUL_USER }}@${{ secrets.SEOUL_HOST }}:/tmp/lazy-agent-shelf-site.tgz"
+          scp -i ~/.ssh/seoul.pem site-agents.tgz "${{ secrets.SEOUL_USER }}@${{ secrets.SEOUL_HOST }}:/tmp/lazy-agent-shelf-agents-site.tgz"
+          ssh -i ~/.ssh/seoul.pem "${{ secrets.SEOUL_USER }}@${{ secrets.SEOUL_HOST }}" "sudo mkdir -p '$SUBPATH_DEPLOY_PATH' '$AGENTS_DEPLOY_PATH' && sudo find '$SUBPATH_DEPLOY_PATH' -mindepth 1 -delete && sudo find '$AGENTS_DEPLOY_PATH' -mindepth 1 -delete && sudo tar -xzf /tmp/lazy-agent-shelf-site.tgz -C '$SUBPATH_DEPLOY_PATH' && sudo tar -xzf /tmp/lazy-agent-shelf-agents-site.tgz -C '$AGENTS_DEPLOY_PATH' && rm -f /tmp/lazy-agent-shelf-site.tgz /tmp/lazy-agent-shelf-agents-site.tgz"
