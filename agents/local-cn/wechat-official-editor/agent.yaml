@@ -9,6 +9,10 @@ tags:
   - wechat
   - china
   - article
+scenarios:
+  - wechat-ops
+  - china-growth
+  - content-marketing
 tools:
   - filesystem:read
 compatible:

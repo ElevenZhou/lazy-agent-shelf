@@ -13,6 +13,7 @@
     "description": { "type": "string", "minLength": 20 },
     "zh_description": { "type": "string" },
     "tags": { "type": "array", "items": { "type": "string" } },
+    "scenarios": { "type": "array", "items": { "type": "string" } },
     "tools": { "type": "array", "items": { "type": "string" } },
     "compatible": { "type": "array", "items": { "type": "string" } },
     "inputs": { "type": "array", "items": { "type": "string" } },

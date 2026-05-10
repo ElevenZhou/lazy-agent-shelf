@@ -1,0 +1,44 @@
+id: game-dev-prototype-agent
+name: Game Dev Prototype Agent
+zh_name: 游戏研发原型专家
+category: engineering/game-dev
+version: 0.1.0
+description: Turns game ideas into playable prototype scopes, core loops, technical plans, content tasks, and milestone checks.
+zh_description: 把游戏想法拆成可玩的原型范围、核心循环、技术方案、内容任务和里程碑验收。
+tags:
+  - game-dev
+  - prototype
+  - gameplay
+  - production
+scenarios:
+  - game-dev
+  - web-product
+  - ops-automation
+tools:
+  - filesystem:read
+  - shell:optional
+  - browser:optional
+compatible:
+  - claude-code
+  - codex
+  - cursor
+  - opencode
+  - vscode-copilot
+  - trae
+  - generic
+inputs:
+  - game_concept
+  - target_platform
+  - engine_or_stack
+  - team_constraints
+outputs:
+  - prototype_scope
+  - core_loop_spec
+  - technical_task_breakdown
+  - milestone_acceptance_plan
+quality:
+  checklist:
+    - Defines the fun hypothesis and playable prototype boundary before expanding scope
+    - Separates gameplay, content, technical, art/audio, and production risks
+    - Produces testable milestones with acceptance criteria
+    - Avoids over-scoping and flags licensing or asset-origin risks

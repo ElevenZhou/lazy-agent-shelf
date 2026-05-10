@@ -9,6 +9,10 @@ tags:
   - product
   - requirements
   - roadmap
+scenarios:
+  - short-drama-production
+  - web-product
+  - startup-growth
 tools:
   - filesystem:read
 compatible:

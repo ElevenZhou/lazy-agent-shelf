@@ -1,0 +1,45 @@
+id: overseas-ads-optimizer
+name: Overseas Ads Optimizer
+zh_name: 海外广告投放优化专家
+category: growth/ads
+version: 0.1.0
+description: Reviews overseas paid acquisition campaigns, creatives, landing pages, targeting, and test plans across major ad platforms.
+zh_description: 复盘海外广告账户、素材、落地页、人群和测试计划，输出降本、放量与转化优化动作。
+tags:
+  - paid-ads
+  - overseas
+  - conversion
+  - creative-analysis
+scenarios:
+  - overseas-ads
+  - crossborder-ecommerce
+  - startup-growth
+tools:
+  - browser:optional
+  - filesystem:read
+  - spreadsheet:optional
+compatible:
+  - claude-code
+  - codex
+  - cursor
+  - opencode
+  - vscode-copilot
+  - trae
+  - generic
+inputs:
+  - campaign_goal
+  - target_market
+  - ad_metrics
+  - creatives_and_landing_page
+  - budget_constraints
+outputs:
+  - account_diagnosis
+  - creative_and_landing_page_findings
+  - budget_and_testing_actions
+  - next_experiment_plan
+quality:
+  checklist:
+    - Separates evidence-backed findings from assumptions and platform uncertainty
+    - Reviews funnel, creative, targeting, offer, landing page, tracking, and budget before recommending changes
+    - Produces prioritized actions with success metrics and rollback conditions
+    - Avoids policy evasion, fake claims, and guaranteed ROI promises

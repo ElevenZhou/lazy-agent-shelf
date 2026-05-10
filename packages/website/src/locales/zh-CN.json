@@ -8,13 +8,26 @@
   "heroBody": "FlaiOS Agents 是面向 AI 工作流的智能体货架：把代码审查、产品设计、增长运营、数据分析等专家能力，打包成可直接安装到 Codex、Claude Code、Cursor、OpenCode、VSCode、Trae 的标准化 Agent。",
   "heroSubline": "不再重复写提示词，不再在工具之间搬运经验；选择一个 Agent 或一组套装，让你的 AI 调用沿着清晰、可控的流程运行。",
   "heroStats": [
-    { "value": "25", "label": "精选 Agent" },
-    { "value": "5", "label": "流程套装" },
-    { "value": "7", "label": "兼容平台" }
+    {
+      "value": "30",
+      "label": "精选 Agent"
+    },
+    {
+      "value": "12+",
+      "label": "场景标签"
+    },
+    {
+      "value": "7",
+      "label": "兼容平台"
+    }
   ],
   "tabs": {
     "browse": "浏览智能体",
-    "usage": "使用方式"
+    "scenes": "常用场景",
+    "aiStarter": "AI使用入门",
+    "usage": "使用方式",
+    "aiTools": "AI工具场景",
+    "models": "顶级大模型"
   },
   "searchPlaceholder": "搜索智能体、工作流、使用场景...",
   "targetPlatform": "目标平台",
@@ -33,7 +46,8 @@
     "inputs": "输入",
     "outputs": "输出",
     "tags": "标签",
-    "compatible": "兼容平台"
+    "compatible": "兼容平台",
+    "scenarios": "场景"
   },
   "categories": {
     "data": "数据",
@@ -49,9 +63,18 @@
     "title": "FlaiOS Agents 不是另一个聊天框，而是你的 AI 工具控制层。",
     "body": "网站负责浏览、筛选和复制安装命令；真正执行发生在 Codex、Claude Code、Cursor、OpenCode、VSCode Copilot、Trae 等工具中。每个 Agent 都是一段可读、可审计、可迁移的工作流配置。",
     "steps": [
-      { "title": "选择", "body": "按任务选择单个专家，或直接安装 solo-founder-pack、code-quality-pack 这样的现成流程套装。" },
-      { "title": "安装", "body": "复制页面生成的命令，把 Agent 输出到当前项目或目标工具的配置目录。" },
-      { "title": "运行", "body": "回到目标 AI 工具，用自然语言发起任务；生成的智能体、规则或技能会约束流程、输出和安全边界。" }
+      {
+        "title": "选择",
+        "body": "按任务选择单个专家，或直接安装 solo-founder-pack、code-quality-pack 这样的现成流程套装。"
+      },
+      {
+        "title": "安装",
+        "body": "复制页面生成的命令，把 Agent 输出到当前项目或目标工具的配置目录。"
+      },
+      {
+        "title": "运行",
+        "body": "回到目标 AI 工具，用自然语言发起任务；生成的智能体、规则或技能会约束流程、输出和安全边界。"
+      }
     ],
     "noteTitle": "老周自用提示",
     "noteBody": "这里的 Agent 都是老周自己日常常用的工作流，会根据真实使用场景随用随更新。你可以直接取用，也可以按自己的工具和项目继续改。"
@@ -59,27 +82,361 @@
   "platformGuides": {
     "codex": {
       "where": "安装为 Codex 技能，然后在 Codex 里按任务意图调用对应专家。",
-      "notes": ["适合仓库任务、代码审查、故障定位、研究流程和可复用本地任务。", "需要一组现成工作团队时，优先安装套装而不是单个智能体。"]
+      "notes": [
+        "适合仓库任务、代码审查、故障定位、研究流程和可复用本地任务。",
+        "需要一组现成工作团队时，优先安装套装而不是单个智能体。"
+      ]
     },
     "claude": {
       "where": "安装为 Claude Code 的子智能体 Markdown 文件，位置是 .claude/agents。",
-      "notes": ["适合项目内的子智能体委派工作。", "生成文件是可读 Markdown，方便检查和二次编辑。"]
+      "notes": [
+        "适合项目内的子智能体委派工作。",
+        "生成文件是可读 Markdown，方便检查和二次编辑。"
+      ]
     },
     "cursor": {
       "where": "安装为 Cursor 规则文件，位置是 .cursor/rules。",
-      "notes": ["适合项目级行为预设和可复用编码规则。", "可按审查、前端、后端、产品、命名等任务选择不同智能体。"]
+      "notes": [
+        "适合项目级行为预设和可复用编码规则。",
+        "可按审查、前端、后端、产品、命名等任务选择不同智能体。"
+      ]
     },
     "opencode": {
       "where": "安装为 OpenCode 智能体 Markdown 文件，位置是 .opencode/agents。",
-      "notes": ["适合终端原生工作流和仓库助手。", "如果想一次准备所有平台，可以使用 --target all。"]
+      "notes": [
+        "适合终端原生工作流和仓库助手。",
+        "如果想一次准备所有平台，可以使用 --target all。"
+      ]
     },
     "vscode": {
       "where": "安装为 GitHub Copilot 指令 Markdown，位置是 .github/instructions。",
-      "notes": ["适合跟随仓库一起保存的项目指令。", "不要把敏感或个人化工作规则放进公开仓库。"]
+      "notes": [
+        "适合跟随仓库一起保存的项目指令。",
+        "不要把敏感或个人化工作规则放进公开仓库。"
+      ]
     },
     "trae": {
       "where": "安装为 Trae 兼容的提示词 Markdown，位置是 .trae/agents。",
-      "notes": ["适合产品、增长、中国市场和编码助手工作流。", "生成后的提示词仍然可读、可编辑。"]
+      "notes": [
+        "适合产品、增长、中国市场和编码助手工作流。",
+        "生成后的提示词仍然可读、可编辑。"
+      ]
     }
+  },
+  "scenePanel": {
+    "signal": "Scenario Nav",
+    "title": "先按真实工作场景找 Agent，再用标签继续筛。",
+    "body": "行业分类适合整理仓库，但用户真正会想“我要做抖音投流、A股T0、短剧制作、海外社媒”。场景视图把这些入口放到前面，保留多维标签做精确检索。",
+    "allTitle": "全部场景",
+    "allBody": "查看完整 Agent 货架，再用分类、搜索和平台筛选。",
+    "agentUnit": "个 Agent",
+    "planned": "规划中",
+    "filteredBy": "当前场景",
+    "clear": "清除",
+    "navTitle": "常用场景，左边选场景，右边看能用什么。",
+    "navBody": "这里不再挤在首页。朋友问“AI到底怎么用”时，可以先从场景进入，再看对应 Agent 和工具。",
+    "plannedTitle": "这个场景正在补齐",
+    "plannedBody": "先保留入口，后续补对应 Agent、工具清单和最小演示流程。"
+  },
+  "scenes": [
+    {
+      "id": "douyin-ops",
+      "label": "抖音运营",
+      "description": "投流诊断、素材迭代、直播间和短视频增长。"
+    },
+    {
+      "id": "xiaohongshu-ops",
+      "label": "小红书运营",
+      "description": "笔记选题、封面标题、评论引导和转化路径。"
+    },
+    {
+      "id": "overseas-ads",
+      "label": "海外广告",
+      "description": "跨境投放、落地页、市场研究和转化文案。"
+    },
+    {
+      "id": "short-drama-production",
+      "label": "短剧制作",
+      "description": "短剧立项、脚本节奏、投放素材和制作流程。"
+    },
+    {
+      "id": "overseas-social",
+      "label": "海外社媒运营",
+      "description": "海外内容日历、SEO、社媒发布和增长复盘。"
+    },
+    {
+      "id": "game-dev",
+      "label": "游戏研发",
+      "description": "玩法原型、前后端实现、体验流程和技术协作。"
+    },
+    {
+      "id": "quant-trading",
+      "label": "量化交易",
+      "description": "数据分析、回测评估、策略复盘和风险检查。"
+    },
+    {
+      "id": "a-share-t0",
+      "label": "A股T0",
+      "description": "A股分钟级策略、T0 回测复盘和交易规则审查。"
+    },
+    {
+      "id": "content-commerce",
+      "label": "内容电商",
+      "description": "内容种草、商品转化、私域承接和运营自动化。"
+    },
+    {
+      "id": "wechat-ops",
+      "label": "公众号运营",
+      "description": "公众号选题、排版、长文编辑和内容复用。"
+    },
+    {
+      "id": "ops-automation",
+      "label": "运营自动化",
+      "description": "把重复运营动作拆成 SOP、脚本和自动化工作流。"
+    },
+    {
+      "id": "web-product",
+      "label": "Web 产品研发",
+      "description": "产品规划、UX、前后端实现和上线协作。"
+    }
+  ],
+  "aiTools": {
+    "signal": "AI Tool Channels",
+    "title": "按真实使用场景选择 AI 原生工具，而不是只看工具名。",
+    "body": "这里整理 AI 原生编辑器、AI IDE、AI 对话工具和工作流工具，重点说明适配场景、使用方法和选择边界，方便用户快速判断该用哪个入口。",
+    "bestFor": "适合场景",
+    "howToUse": "使用方法",
+    "noteTitle": "频道定位",
+    "noteBody": "这个频道先做工具集合与场景分析，不替代 Agent 货架；后续可以把每类工具继续拆成深度测评、安装教程和工作流模板。",
+    "groups": [
+      {
+        "title": "AI 原生编辑器",
+        "fit": "写作 / 知识 / 长文协作",
+        "tools": [
+          "Notion AI",
+          "Craft AI",
+          "Gamma",
+          "Canva AI"
+        ],
+        "body": "适合把 AI 放进文档、知识库、演示文稿和内容生产流程，重点是降低从想法到成稿的摩擦。",
+        "bestFor": [
+          "会议纪要、方案文档、知识库整理",
+          "营销内容、演示稿、对外材料",
+          "需要多人协作和版本沉淀的内容流"
+        ],
+        "howToUse": [
+          "先把目标读者、结构和素材放进同一文档",
+          "用 AI 生成初稿，再人工补充事实和判断",
+          "把成熟模板沉淀为固定页面或团队规范"
+        ]
+      },
+      {
+        "title": "AI IDE 与代码助手",
+        "fit": "研发 / 调试 / 仓库任务",
+        "tools": [
+          "Cursor",
+          "Codex",
+          "Claude Code",
+          "Trae",
+          "VSCode Copilot"
+        ],
+        "body": "适合在真实仓库里做功能开发、代码审查、重构、测试和故障定位，重点是让 AI 能理解文件、运行命令并输出可验证改动。",
+        "bestFor": [
+          "已有代码库的迭代开发",
+          "复杂 bug 定位和测试补齐",
+          "把专家工作流安装为可复用 Agent"
+        ],
+        "howToUse": [
+          "先让工具读取 README、测试和关键模块",
+          "把任务拆成可验证步骤，要求运行 build 或 test",
+          "用 Lazy Agent Shelf 安装对应 Agent 来固定流程"
+        ]
+      },
+      {
+        "title": "AI 对话工具",
+        "fit": "研究 / 问答 / 多模型比较",
+        "tools": [
+          "ChatGPT",
+          "Claude",
+          "Gemini",
+          "Perplexity",
+          "Poe"
+        ],
+        "body": "适合开放式讨论、资料理解、模型对比和快速产出方向判断，重点是提问质量、上下文管理和来源核验。",
+        "bestFor": [
+          "市场研究、策略讨论、资料摘要",
+          "多模型交叉验证",
+          "不需要直接改仓库的脑暴任务"
+        ],
+        "howToUse": [
+          "把背景、目标、约束和输出格式一次说清",
+          "对事实类结论要求来源或可验证路径",
+          "复杂任务先问方案，再交给 IDE/Agent 执行"
+        ]
+      },
+      {
+        "title": "AI 自动化与浏览器代理",
+        "fit": "网页操作 / 数据采集 / 重复任务",
+        "tools": [
+          "Browser Use",
+          "Zapier AI",
+          "Make AI",
+          "n8n",
+          "OpenAI Operator"
+        ],
+        "body": "适合需要跨网页、表单、应用和 API 的重复动作，重点是把流程拆成可观察、可暂停、可回滚的步骤。",
+        "bestFor": [
+          "网页资料整理和表单流转",
+          "跨工具通知、同步、审批",
+          "半自动运营 SOP 和低频重复任务"
+        ],
+        "howToUse": [
+          "先用人工流程跑通一次并记录节点",
+          "把账号、权限和敏感动作留给操作者确认",
+          "从只读采集开始，再逐步加入写入和提交动作"
+        ]
+      }
+    ]
+  },
+  "models": {
+    "signal": "Top Model Watchlist",
+    "title": "顶级大模型只保留前十，帮助快速判断该选谁。",
+    "body": "这个频道按综合能力、生态可用性和实际工作覆盖面做编辑精选，不做长尾模型堆砌；列表需要随榜单和产品发布定期刷新。",
+    "noteTitle": "更新原则",
+    "noteBody": "排序采用编辑精选口径：优先参考公开排行榜、官方发布和真实工作可用性；如果你要严谨榜单版，建议每次发布前用 LMArena、Artificial Analysis 等来源重新核对。",
+    "items": [
+      {
+        "name": "OpenAI GPT-5.5",
+        "body": "综合推理、代码、工具调用和多模态能力的旗舰选择，适合作为复杂工作流默认主模型。",
+        "bestFor": [
+          "复杂推理",
+          "代码工程",
+          "多工具任务"
+        ]
+      },
+      {
+        "name": "Anthropic Claude Opus 4.5",
+        "body": "长上下文、写作、代码审查和代理式执行表现强，适合高质量文档与仓库协作。",
+        "bestFor": [
+          "长文档",
+          "代码审查",
+          "代理执行"
+        ]
+      },
+      {
+        "name": "Google Gemini 3 Pro",
+        "body": "多模态、搜索生态和大上下文能力突出，适合资料理解、视频图像和 Google 生态工作。",
+        "bestFor": [
+          "多模态",
+          "搜索研究",
+          "大上下文"
+        ]
+      },
+      {
+        "name": "xAI Grok 4",
+        "body": "偏实时信息、社交语境和快速推理场景，适合热点分析与对话式探索。",
+        "bestFor": [
+          "实时信息",
+          "热点分析",
+          "快速探索"
+        ]
+      },
+      {
+        "name": "DeepSeek R2",
+        "body": "中文、代码和性价比场景值得重点关注，适合本地化应用和成本敏感工作流。",
+        "bestFor": [
+          "中文任务",
+          "代码",
+          "高性价比"
+        ]
+      },
+      {
+        "name": "Qwen 3 Max",
+        "body": "中文生态、工具调用和企业落地能力强，适合国内业务、内容和研发辅助。",
+        "bestFor": [
+          "中文业务",
+          "企业应用",
+          "工具调用"
+        ]
+      },
+      {
+        "name": "Meta Llama 4",
+        "body": "开源生态核心模型，适合私有化、微调和需要可控部署的团队。",
+        "bestFor": [
+          "开源部署",
+          "微调",
+          "私有化"
+        ]
+      },
+      {
+        "name": "Mistral Large 3",
+        "body": "欧洲生态、低延迟和企业集成友好，适合需要合规与多语言覆盖的应用。",
+        "bestFor": [
+          "多语言",
+          "企业集成",
+          "低延迟"
+        ]
+      },
+      {
+        "name": "Cohere Command R+",
+        "body": "检索增强、企业知识库和引用型回答定位清晰，适合 RAG 与客服知识场景。",
+        "bestFor": [
+          "RAG",
+          "知识库",
+          "企业搜索"
+        ]
+      },
+      {
+        "name": "Perplexity Sonar",
+        "body": "面向联网问答和研究检索的模型入口，适合快速获得带来源的资料线索。",
+        "bestFor": [
+          "联网搜索",
+          "资料核验",
+          "研究入口"
+        ]
+      }
+    ]
+  },
+  "primaryNav": "主导航",
+  "aiStarter": {
+    "signal": "AI Starter",
+    "title": "朋友问“AI怎么用”，先按人群给最小 demo。",
+    "body": "不讲大理论。先判断他是哪类人，再给一个 10 分钟能看到效果的小演示。",
+    "demoLabel": "最小 demo",
+    "personas": [
+      {
+        "label": "懂一点技术 / 看得懂代码",
+        "title": "直接上 AI IDE，最大化释放能力",
+        "body": "这类人不该只停留在聊天框。让 Codex、VSCode Copilot、Cursor、Claude Code 直接读文件、改代码、跑测试，能把电脑、项目和自动化串起来。",
+        "demo": "打开一个小项目，让 Codex 读 README，然后说：帮我加一个页面按钮，并运行构建验证。",
+        "steps": [
+          "准备一个真实文件夹或 Git 仓库",
+          "让 AI 先解释项目结构，不急着改",
+          "下一个小需求，要求它改文件并跑 build/test"
+        ]
+      },
+      {
+        "label": "完全不懂技术 / 只会聊天",
+        "title": "先从“问答循环”升级成“交付物循环”",
+        "body": "他们熟悉聊天，但容易问一句回一句。重点是教会他说背景、目标、素材、输出格式，让 AI 直接给文案、表格、清单、邮件。",
+        "demo": "把一段产品想法丢给 ChatGPT/Claude：请按标题、卖点、朋友圈文案、客户问答四段输出。",
+        "steps": [
+          "不要只问“帮我写一下”，先说目标读者",
+          "让 AI 输出固定格式，而不是散文",
+          "追问“再短一点/更口语/列成表格”"
+        ]
+      },
+      {
+        "label": "业务/运营/管理者",
+        "title": "从重复工作里找 AI 的第一刀",
+        "body": "他们不一定写代码，但有流程、表格、客户沟通和决策材料。最适合从日报、复盘、表格分析、SOP、会议纪要开始。",
+        "demo": "拿一份 Excel 或销售记录，让 AI 总结异常、风险客户、下周跟进动作。",
+        "steps": [
+          "找一个每周重复 2 次以上的任务",
+          "给 AI 一份真实样例和理想输出",
+          "把结果变成固定模板，下次直接套用"
+        ]
+      }
+    ]
   }
 }

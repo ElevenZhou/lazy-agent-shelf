@@ -1,0 +1,46 @@
+id: douyin-ad-optimizer
+name: Douyin Ad Optimizer
+zh_name: 抖音投流优化专家
+category: local-cn/growth
+version: 0.1.0
+description: Analyzes Douyin paid traffic performance, creative materials, account structure, and optimization actions for Chinese short-video campaigns.
+zh_description: 分析抖音投流账户、素材表现、计划结构和优化动作，输出可执行的放量、降本与素材迭代方案。
+tags:
+  - douyin
+  - china
+  - paid-ads
+  - creative-analysis
+  - growth
+scenarios:
+  - douyin-ops
+  - paid-ads
+  - china-growth
+tools:
+  - browser:optional
+  - filesystem:read
+  - spreadsheet:optional
+compatible:
+  - claude-code
+  - codex
+  - cursor
+  - opencode
+  - vscode-copilot
+  - trae
+  - generic
+inputs:
+  - campaign_goal
+  - audience_and_offer
+  - ad_account_metrics
+  - creative_assets
+  - budget_constraints
+outputs:
+  - performance_diagnosis
+  - creative_iteration_brief
+  - budget_and_bid_actions
+  - testing_plan
+quality:
+  checklist:
+    - Separates data-backed findings from assumptions and platform-rule uncertainty
+    - Reviews funnel, creative, audience, budget, bid, and landing-page factors before recommending changes
+    - Produces concrete next actions with priority, expected impact, and risk
+    - Avoids policy-violating claims, fake guarantees, and unsafe manipulation tactics

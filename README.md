@@ -62,7 +62,7 @@ collections/<collection-id>/
 
 - `solo-founder-pack`: product, UI, API, copy, SEO, and social launch support.
 - `code-quality-pack`: review, debugging, testing, security, and repo onboarding.
-- `china-growth-pack`: Xiaohongshu, WeChat, Feishu, ecommerce, and market research.
+- `china-growth-pack`: Douyin ads, Xiaohongshu, WeChat, Feishu, ecommerce, and market research.
 - `agent-maker-pack`: agent quality, prompt-injection safety, and packaging.
 - `data-ops-pack`: data analysis, spreadsheets, backtests, and automation.
 
@@ -90,6 +90,11 @@ See `docs/roadmap.md`.
 
 ## Recent Updates
 
+- 2026-05-10: Moved website navigation into the top logo bar, split common scenarios into an independent tab, and added an `AI使用入门` guide.
+- 2026-05-10: Added website navigation channels for AI tool scene analysis and a top-10 model watchlist.
+- 2026-05-10: Added `douyin-ad-optimizer` and a Douyin ecosystem agent opportunity list.
+- 2026-05-10: Added scenario-first discovery with multidimensional `scenarios` tags for work scenes like Douyin ops, overseas ads, game development, quant trading, and A-share T0.
+- 2026-05-10: Added four scenario agents for overseas ads, short-drama production, game prototype planning, and A-share T0 strategy research.
 - 2026-05-10: Added Seoul server deployment workflow for `https://flaios.com/lazy-agent-shelf/`.
 - 2026-05-10: Prepared root-path Seoul deployment for `https://agents.flaios.com/`.
 - 2026-05-10: Aligned the website title, slogan, default language, and hero copy with the FlaiOS brand system.

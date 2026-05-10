@@ -9,6 +9,9 @@ tags:
   - seo
   - growth
   - content
+scenarios:
+  - overseas-social
+  - content-marketing
 tools:
   - browser:optional
   - filesystem:read

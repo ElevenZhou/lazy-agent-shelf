@@ -1,25 +1,34 @@
 id: china-growth-pack
 name: China Growth Pack
 zh_name: 中国增长套装
-description: Plan Chinese-market content, operations, and ecommerce workflows across Xiaohongshu, WeChat, Feishu, and cross-border channels.
-zh_description: 面向中国市场规划小红书、公众号、飞书和跨境渠道的内容、运营与电商流程。
+description: Plan Chinese-market content, paid growth, operations, and ecommerce workflows across Douyin, Xiaohongshu, WeChat, Feishu, and cross-border channels.
+zh_description: 面向中国市场规划抖音投流、小红书、公众号、飞书和跨境渠道的内容、运营与电商流程。
 tags:
   - china
   - growth
   - content
 agents:
   - domain-brand-finder
+  - douyin-ad-optimizer
+  - short-drama-production-agent
   - xiaohongshu-content-planner
   - wechat-official-editor
   - feishu-workflow-builder
   - crossborder-ecommerce-operator
+  - overseas-ads-optimizer
   - market-researcher
   - landing-page-copywriter
 use_cases:
+  - Diagnose Douyin paid traffic and creative tests
+  - Plan short-drama concepts and paid creative tests
   - Build a Chinese content calendar
+  - Prepare cross-border and overseas ad experiments
   - Plan Feishu operating workflows
   - Prepare ecommerce launch assets
 zh_use_cases:
+  - 诊断抖音投流账户、素材和测试计划
+  - 规划短剧立项、脚本和投流素材测试
   - 规划小红书和公众号内容
+  - 准备跨境出海广告测试
   - 搭建飞书团队流程
   - 准备跨境电商运营动作

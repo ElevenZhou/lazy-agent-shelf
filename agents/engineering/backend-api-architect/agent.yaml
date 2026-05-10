@@ -9,6 +9,9 @@ tags:
   - api
   - backend
   - architecture
+scenarios:
+  - game-dev
+  - web-product
 tools:
   - filesystem:read
   - shell:read

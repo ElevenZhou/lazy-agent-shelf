@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "agent_count": 25,
+  "agent_count": 30,
   "collection_count": 5,
   "categories": [
     "data",
@@ -13,6 +13,55 @@
   ],
   "agents": [
     {
+      "id": "a-share-t0-strategy-agent",
+      "name": "A-share T0 Strategy Agent",
+      "zh_name": "A股T0策略研究专家",
+      "category": "data/trading",
+      "version": "0.1.0",
+      "description": "Designs and reviews A-share intraday T0 research workflows with minute-bar data, benchmark controls, validation gates, and risk limits.",
+      "zh_description": "设计和复核 A股分钟级 T0 策略研究流程，包含基准对照、回测验证、稳健性检查和风控边界。",
+      "tags": [
+        "a-share",
+        "t0",
+        "intraday",
+        "backtest",
+        "risk"
+      ],
+      "scenarios": [
+        "a-share-t0",
+        "quant-trading",
+        "data-analysis"
+      ],
+      "tools": [
+        "filesystem:read",
+        "shell:optional",
+        "spreadsheet:optional"
+      ],
+      "compatible": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "vscode-copilot",
+        "trae",
+        "generic"
+      ],
+      "inputs": [
+        "ticker_or_pool",
+        "minute_data_range",
+        "strategy_hypothesis",
+        "benchmark_rules",
+        "backtest_results"
+      ],
+      "outputs": [
+        "research_plan",
+        "validation_findings",
+        "parameter_test_matrix",
+        "go_no_go_decision"
+      ],
+      "path": "agents/data/a-share-t0-strategy-agent"
+    },
+    {
       "id": "backtest-reviewer",
       "name": "Backtest Reviewer",
       "zh_name": "回测评估专家",
@@ -24,6 +73,10 @@
         "trading",
         "backtest",
         "risk"
+      ],
+      "scenarios": [
+        "quant-trading",
+        "a-share-t0"
       ],
       "tools": [
         "filesystem:read",
@@ -63,6 +116,10 @@
         "analysis",
         "spreadsheets"
       ],
+      "scenarios": [
+        "data-analysis",
+        "quant-trading"
+      ],
       "tools": [
         "filesystem:read",
         "shell:read"
@@ -100,6 +157,10 @@
         "spreadsheet",
         "csv",
         "excel"
+      ],
+      "scenarios": [
+        "data-analysis",
+        "ops-reporting"
       ],
       "tools": [
         "filesystem:read",
@@ -139,6 +200,10 @@
         "backend",
         "architecture"
       ],
+      "scenarios": [
+        "game-dev",
+        "web-product"
+      ],
       "tools": [
         "filesystem:read",
         "shell:read"
@@ -177,6 +242,7 @@
         "logs",
         "reproduction"
       ],
+      "scenarios": [],
       "tools": [
         "filesystem:read",
         "shell:read",
@@ -216,6 +282,7 @@
         "quality",
         "engineering"
       ],
+      "scenarios": [],
       "tools": [
         "filesystem:read",
         "shell:read"
@@ -254,6 +321,10 @@
         "ui",
         "react"
       ],
+      "scenarios": [
+        "game-dev",
+        "web-product"
+      ],
       "tools": [
         "filesystem:write",
         "shell:read",
@@ -281,6 +352,53 @@
       "path": "agents/engineering/frontend-builder"
     },
     {
+      "id": "game-dev-prototype-agent",
+      "name": "Game Dev Prototype Agent",
+      "zh_name": "游戏研发原型专家",
+      "category": "engineering/game-dev",
+      "version": "0.1.0",
+      "description": "Turns game ideas into playable prototype scopes, core loops, technical plans, content tasks, and milestone checks.",
+      "zh_description": "把游戏想法拆成可玩的原型范围、核心循环、技术方案、内容任务和里程碑验收。",
+      "tags": [
+        "game-dev",
+        "prototype",
+        "gameplay",
+        "production"
+      ],
+      "scenarios": [
+        "game-dev",
+        "web-product",
+        "ops-automation"
+      ],
+      "tools": [
+        "filesystem:read",
+        "shell:optional",
+        "browser:optional"
+      ],
+      "compatible": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "vscode-copilot",
+        "trae",
+        "generic"
+      ],
+      "inputs": [
+        "game_concept",
+        "target_platform",
+        "engine_or_stack",
+        "team_constraints"
+      ],
+      "outputs": [
+        "prototype_scope",
+        "core_loop_spec",
+        "technical_task_breakdown",
+        "milestone_acceptance_plan"
+      ],
+      "path": "agents/engineering/game-dev-prototype-agent"
+    },
+    {
       "id": "security-auditor",
       "name": "Security Auditor",
       "zh_name": "安全审计专家",
@@ -293,6 +411,7 @@
         "owasp",
         "audit"
       ],
+      "scenarios": [],
       "tools": [
         "filesystem:read",
         "shell:read"
@@ -331,6 +450,7 @@
         "qa",
         "regression"
       ],
+      "scenarios": [],
       "tools": [
         "filesystem:write",
         "shell:read"
@@ -373,6 +493,7 @@
         "china",
         "seo"
       ],
+      "scenarios": [],
       "tools": [
         "browser:optional",
         "network:optional",
@@ -422,6 +543,11 @@
         "landing-page",
         "conversion"
       ],
+      "scenarios": [
+        "overseas-ads",
+        "conversion-copy",
+        "startup-growth"
+      ],
       "tools": [
         "filesystem:read"
       ],
@@ -459,6 +585,11 @@
         "competitors",
         "strategy"
       ],
+      "scenarios": [
+        "overseas-ads",
+        "market-research",
+        "startup-growth"
+      ],
       "tools": [
         "browser:optional",
         "filesystem:read"
@@ -485,6 +616,54 @@
       "path": "agents/growth/market-researcher"
     },
     {
+      "id": "overseas-ads-optimizer",
+      "name": "Overseas Ads Optimizer",
+      "zh_name": "海外广告投放优化专家",
+      "category": "growth/ads",
+      "version": "0.1.0",
+      "description": "Reviews overseas paid acquisition campaigns, creatives, landing pages, targeting, and test plans across major ad platforms.",
+      "zh_description": "复盘海外广告账户、素材、落地页、人群和测试计划，输出降本、放量与转化优化动作。",
+      "tags": [
+        "paid-ads",
+        "overseas",
+        "conversion",
+        "creative-analysis"
+      ],
+      "scenarios": [
+        "overseas-ads",
+        "crossborder-ecommerce",
+        "startup-growth"
+      ],
+      "tools": [
+        "browser:optional",
+        "filesystem:read",
+        "spreadsheet:optional"
+      ],
+      "compatible": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "vscode-copilot",
+        "trae",
+        "generic"
+      ],
+      "inputs": [
+        "campaign_goal",
+        "target_market",
+        "ad_metrics",
+        "creatives_and_landing_page",
+        "budget_constraints"
+      ],
+      "outputs": [
+        "account_diagnosis",
+        "creative_and_landing_page_findings",
+        "budget_and_testing_actions",
+        "next_experiment_plan"
+      ],
+      "path": "agents/growth/overseas-ads-optimizer"
+    },
+    {
       "id": "seo-strategist",
       "name": "SEO Strategist",
       "zh_name": "SEO增长专家",
@@ -496,6 +675,10 @@
         "seo",
         "growth",
         "content"
+      ],
+      "scenarios": [
+        "overseas-social",
+        "content-marketing"
       ],
       "tools": [
         "browser:optional",
@@ -535,6 +718,10 @@
         "content",
         "calendar"
       ],
+      "scenarios": [
+        "overseas-social",
+        "content-marketing"
+      ],
       "tools": [
         "filesystem:read"
       ],
@@ -572,6 +759,11 @@
         "crossborder",
         "operations"
       ],
+      "scenarios": [
+        "crossborder-ecommerce",
+        "overseas-ads",
+        "china-growth"
+      ],
       "tools": [
         "filesystem:read",
         "browser:optional"
@@ -598,6 +790,55 @@
       "path": "agents/local-cn/crossborder-ecommerce-operator"
     },
     {
+      "id": "douyin-ad-optimizer",
+      "name": "Douyin Ad Optimizer",
+      "zh_name": "抖音投流优化专家",
+      "category": "local-cn/growth",
+      "version": "0.1.0",
+      "description": "Analyzes Douyin paid traffic performance, creative materials, account structure, and optimization actions for Chinese short-video campaigns.",
+      "zh_description": "分析抖音投流账户、素材表现、计划结构和优化动作，输出可执行的放量、降本与素材迭代方案。",
+      "tags": [
+        "douyin",
+        "china",
+        "paid-ads",
+        "creative-analysis",
+        "growth"
+      ],
+      "scenarios": [
+        "douyin-ops",
+        "paid-ads",
+        "china-growth"
+      ],
+      "tools": [
+        "browser:optional",
+        "filesystem:read",
+        "spreadsheet:optional"
+      ],
+      "compatible": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "vscode-copilot",
+        "trae",
+        "generic"
+      ],
+      "inputs": [
+        "campaign_goal",
+        "audience_and_offer",
+        "ad_account_metrics",
+        "creative_assets",
+        "budget_constraints"
+      ],
+      "outputs": [
+        "performance_diagnosis",
+        "creative_iteration_brief",
+        "budget_and_bid_actions",
+        "testing_plan"
+      ],
+      "path": "agents/local-cn/douyin-ad-optimizer"
+    },
+    {
       "id": "feishu-workflow-builder",
       "name": "Feishu Workflow Builder",
       "zh_name": "飞书流程搭建专家",
@@ -610,6 +851,7 @@
         "china",
         "ops"
       ],
+      "scenarios": [],
       "tools": [
         "filesystem:read"
       ],
@@ -635,6 +877,52 @@
       "path": "agents/local-cn/feishu-workflow-builder"
     },
     {
+      "id": "short-drama-production-agent",
+      "name": "Short Drama Production Agent",
+      "zh_name": "短剧制作增长专家",
+      "category": "local-cn/media",
+      "version": "0.1.0",
+      "description": "Plans short-drama concepts, episode hooks, scripts, production schedules, paid creatives, and release experiments.",
+      "zh_description": "规划短剧立项、分集钩子、脚本节奏、拍摄排期、投流素材和上线测试方案。",
+      "tags": [
+        "short-drama",
+        "scriptwriting",
+        "production",
+        "paid-creatives"
+      ],
+      "scenarios": [
+        "short-drama-production",
+        "content-commerce",
+        "douyin-ops"
+      ],
+      "tools": [
+        "filesystem:read",
+        "browser:optional"
+      ],
+      "compatible": [
+        "claude-code",
+        "codex",
+        "cursor",
+        "opencode",
+        "vscode-copilot",
+        "trae",
+        "generic"
+      ],
+      "inputs": [
+        "genre_and_audience",
+        "monetization_goal",
+        "story_seed",
+        "production_constraints"
+      ],
+      "outputs": [
+        "series_concept",
+        "episode_hook_map",
+        "production_plan",
+        "paid_creative_briefs"
+      ],
+      "path": "agents/local-cn/short-drama-production-agent"
+    },
+    {
       "id": "wechat-official-editor",
       "name": "WeChat Official Account Editor",
       "zh_name": "微信公众号编辑专家",
@@ -646,6 +934,11 @@
         "wechat",
         "china",
         "article"
+      ],
+      "scenarios": [
+        "wechat-ops",
+        "china-growth",
+        "content-marketing"
       ],
       "tools": [
         "filesystem:read"
@@ -683,6 +976,11 @@
         "xiaohongshu",
         "china",
         "content"
+      ],
+      "scenarios": [
+        "xiaohongshu-ops",
+        "china-growth",
+        "content-commerce"
       ],
       "tools": [
         "browser:optional",
@@ -722,6 +1020,7 @@
         "prompting",
         "quality"
       ],
+      "scenarios": [],
       "tools": [
         "filesystem:read"
       ],
@@ -759,6 +1058,7 @@
         "prompt-injection",
         "agents"
       ],
+      "scenarios": [],
       "tools": [
         "filesystem:read"
       ],
@@ -795,6 +1095,10 @@
         "automation",
         "ops",
         "workflow"
+      ],
+      "scenarios": [
+        "ops-automation",
+        "content-commerce"
       ],
       "tools": [
         "filesystem:read",
@@ -834,6 +1138,7 @@
         "deployment",
         "release"
       ],
+      "scenarios": [],
       "tools": [
         "filesystem:read",
         "shell:read"
@@ -872,6 +1177,7 @@
         "onboarding",
         "documentation"
       ],
+      "scenarios": [],
       "tools": [
         "filesystem:read",
         "shell:read"
@@ -910,6 +1216,11 @@
         "requirements",
         "roadmap"
       ],
+      "scenarios": [
+        "short-drama-production",
+        "web-product",
+        "startup-growth"
+      ],
       "tools": [
         "filesystem:read"
       ],
@@ -946,6 +1257,10 @@
         "ux",
         "flows",
         "copy"
+      ],
+      "scenarios": [
+        "game-dev",
+        "web-product"
       ],
       "tools": [
         "filesystem:read",
@@ -1008,8 +1323,8 @@
       "id": "china-growth-pack",
       "name": "China Growth Pack",
       "zh_name": "中国增长套装",
-      "description": "Plan Chinese-market content, operations, and ecommerce workflows across Xiaohongshu, WeChat, Feishu, and cross-border channels.",
-      "zh_description": "面向中国市场规划小红书、公众号、飞书和跨境渠道的内容、运营与电商流程。",
+      "description": "Plan Chinese-market content, paid growth, operations, and ecommerce workflows across Douyin, Xiaohongshu, WeChat, Feishu, and cross-border channels.",
+      "zh_description": "面向中国市场规划抖音投流、小红书、公众号、飞书和跨境渠道的内容、运营与电商流程。",
       "tags": [
         "china",
         "growth",
@@ -1017,20 +1332,29 @@
       ],
       "agents": [
         "domain-brand-finder",
+        "douyin-ad-optimizer",
+        "short-drama-production-agent",
         "xiaohongshu-content-planner",
         "wechat-official-editor",
         "feishu-workflow-builder",
         "crossborder-ecommerce-operator",
+        "overseas-ads-optimizer",
         "market-researcher",
         "landing-page-copywriter"
       ],
       "use_cases": [
+        "Diagnose Douyin paid traffic and creative tests",
+        "Plan short-drama concepts and paid creative tests",
         "Build a Chinese content calendar",
+        "Prepare cross-border and overseas ad experiments",
         "Plan Feishu operating workflows",
         "Prepare ecommerce launch assets"
       ],
       "zh_use_cases": [
+        "诊断抖音投流账户、素材和测试计划",
+        "规划短剧立项、脚本和投流素材测试",
         "规划小红书和公众号内容",
+        "准备跨境出海广告测试",
         "搭建飞书团队流程",
         "准备跨境电商运营动作"
       ],
@@ -1082,17 +1406,20 @@
         "data-analyst",
         "spreadsheet-analyst",
         "backtest-reviewer",
+        "a-share-t0-strategy-agent",
         "automation-workflow-designer",
         "repo-onboarding-guide"
       ],
       "use_cases": [
         "Audit spreadsheet quality",
         "Review strategy backtest reliability",
+        "Research A-share intraday T0 strategies",
         "Convert repeated analysis into automation"
       ],
       "zh_use_cases": [
         "分析表格和业务数据",
         "复核交易回测证据",
+        "研究 A股分钟级 T0 策略",
         "设计可复现的数据运营流程"
       ],
       "path": "collections/data-ops-pack"
@@ -1114,18 +1441,22 @@
         "ux-flow-designer",
         "frontend-builder",
         "backend-api-architect",
+        "game-dev-prototype-agent",
         "landing-page-copywriter",
+        "overseas-ads-optimizer",
         "seo-strategist",
         "social-media-planner"
       ],
       "use_cases": [
         "Turn a fuzzy idea into a scoped MVP",
         "Build the first web experience",
+        "Scope a playable game or interactive product prototype",
         "Prepare launch copy and growth experiments"
       ],
       "zh_use_cases": [
         "把模糊想法拆成可交付的 MVP",
         "搭建第一版网页体验",
+        "规划可玩的游戏或互动产品原型",
         "准备发布文案和增长实验"
       ],
       "path": "collections/solo-founder-pack"

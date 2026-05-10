@@ -9,6 +9,9 @@ tags:
   - frontend
   - ui
   - react
+scenarios:
+  - game-dev
+  - web-product
 tools:
   - filesystem:write
   - shell:read

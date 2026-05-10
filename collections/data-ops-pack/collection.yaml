@@ -11,13 +11,16 @@ agents:
   - data-analyst
   - spreadsheet-analyst
   - backtest-reviewer
+  - a-share-t0-strategy-agent
   - automation-workflow-designer
   - repo-onboarding-guide
 use_cases:
   - Audit spreadsheet quality
   - Review strategy backtest reliability
+  - Research A-share intraday T0 strategies
   - Convert repeated analysis into automation
 zh_use_cases:
   - 分析表格和业务数据
   - 复核交易回测证据
+  - 研究 A股分钟级 T0 策略
   - 设计可复现的数据运营流程

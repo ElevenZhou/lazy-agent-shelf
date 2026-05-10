@@ -13,6 +13,7 @@ const languageOptions = [
 
 const agents = catalog.agents.map(agent => ({
   ...agent,
+  scenarios: agent.scenarios || [],
   groupKey: agent.category.split('/')[0],
   targets: agent.compatible.map(target => target.replace('-code', '').replace('-copilot', ''))
 }));
@@ -35,6 +36,13 @@ const platformTitles = {
   vscode: 'VSCode Copilot',
   trae: 'Trae'
 };
+const tabs = ['browse', 'scenes', 'aiStarter', 'usage', 'aiTools', 'models'];
+
+function getInitialTab() {
+  if (typeof window === 'undefined') return 'browse';
+  const requested = new URLSearchParams(window.location.search).get('tab');
+  return tabs.includes(requested) ? requested : 'browse';
+}
 
 function getInitialLanguage() {
   return 'zh-CN';
@@ -54,8 +62,9 @@ function App() {
   const [language, setLanguage] = useState(getInitialLanguage);
   const [query, setQuery] = useState('');
   const [category, setCategory] = useState('all');
+  const [scenario, setScenario] = useState(locales[getInitialLanguage()].scenes[0]?.id || 'web-product');
   const [target, setTarget] = useState('codex');
-  const [activeTab, setActiveTab] = useState('browse');
+  const [activeTab, setActiveTab] = useState(getInitialTab);
   const [openCollection, setOpenCollection] = useState(collections[0]?.id || '');
   const [selectedAgent, setSelectedAgent] = useState(null);
   const [copied, setCopied] = useState('');
@@ -78,19 +87,34 @@ function App() {
 
   const filtered = useMemo(() => localizedAgents.filter(agent => {
     const q = query.toLowerCase();
-    return (category === 'all' || agent.groupKey === category) && [
+    return (category === 'all' || agent.groupKey === category)
+      && [
       agent.id,
       agent.name,
       agent.zh_name,
       agent.description,
       agent.zh_description,
-      agent.tags.join(' ')
+      agent.tags.join(' '),
+      agent.scenarios.join(' ')
     ].join(' ').toLowerCase().includes(q);
   }), [localizedAgents, query, category]);
   const visibleAgents = filtered.slice(0, visibleCount);
   const hasMoreAgents = visibleCount < filtered.length;
   const categories = ['all', ...new Set(agents.map(agent => agent.groupKey))];
+  const sceneOptions = text.scenes.map(scene => ({
+    ...scene,
+    count: agents.filter(agent => agent.scenarios.includes(scene.id)).length
+  }));
+  const activeScene = sceneOptions.find(sceneOption => sceneOption.id === scenario) || sceneOptions[0];
+  const sceneAgents = localizedAgents.filter(agent => agent.scenarios.includes(activeScene?.id));
   const assetBase = import.meta.env.BASE_URL;
+  const changeTab = tab => {
+    setActiveTab(tab);
+    if (typeof window !== 'undefined') {
+      const url = tab === 'browse' ? window.location.pathname : `${window.location.pathname}?tab=${tab}`;
+      window.history.replaceState(null, '', url);
+    }
+  };
 
   useEffect(() => {
     setVisibleCount(12);
@@ -108,37 +132,36 @@ function App() {
   }, [filtered.length, hasMoreAgents]);
 
   return <main className={language === 'zh-CN' ? 'lang-zh' : 'lang-en'}>
-    <section className="hero">
-      <img className="hero-flow" src={`${assetBase}brand/hero-flow.svg`} alt="" aria-hidden="true" />
-      <div className="topbar">
-        <div className="brand-lockup">
-          <img src={`${assetBase}brand/nav-mark.svg`} alt="FlaiOS" />
-          <div>
-            <strong>{text.brandName}</strong>
-            <span>{text.signal}</span>
-          </div>
+    <header className="site-nav">
+      <div className="brand-lockup">
+        <img src={`${assetBase}brand/nav-mark.svg`} alt="FlaiOS" />
+        <div>
+          <strong>{text.brandName}</strong>
+          <span>{text.signal}</span>
         </div>
-        <LanguageSwitcher language={language} onChange={setLanguage} text={text} />
       </div>
-      <span className="eyebrow">{text.eyebrow}</span>
-      <h1>{text.heroTitle}</h1>
-      <p>{text.heroBody}</p>
-      <p className="hero-subline">{text.heroSubline}</p>
-      <div className="hero-stats">
-        {text.heroStats.map(item => <div key={item.label}>
-          <strong>{item.value}</strong>
-          <span>{item.label}</span>
-        </div>)}
-      </div>
-      <Command text={`npx lazy-agent-shelf install code-reviewer --target ${target}`} copied={copied} onCopy={copyCommand} labels={text} />
-    </section>
-
-    <section className="tabs">
-      <button className={activeTab === 'browse' ? 'active' : ''} onClick={() => setActiveTab('browse')}>{text.tabs.browse}</button>
-      <button className={activeTab === 'usage' ? 'active' : ''} onClick={() => setActiveTab('usage')}>{text.tabs.usage}</button>
-    </section>
+      <nav className="tabs" aria-label={text.primaryNav}>
+        {tabs.map(tab => <button className={activeTab === tab ? 'active' : ''} key={tab} onClick={() => changeTab(tab)}>{text.tabs[tab]}</button>)}
+      </nav>
+      <LanguageSwitcher language={language} onChange={setLanguage} text={text} />
+    </header>
 
     {activeTab === 'browse' && <>
+      <section className="hero">
+        <img className="hero-flow" src={`${assetBase}brand/hero-flow.svg`} alt="" aria-hidden="true" />
+        <span className="eyebrow">{text.eyebrow}</span>
+        <h1>{text.heroTitle}</h1>
+        <p>{text.heroBody}</p>
+        <p className="hero-subline">{text.heroSubline}</p>
+        <div className="hero-stats">
+          {text.heroStats.map(item => <div key={item.label}>
+            <strong>{item.value}</strong>
+            <span>{item.label}</span>
+          </div>)}
+        </div>
+        <Command text={`npx lazy-agent-shelf install code-reviewer --target ${target}`} copied={copied} onCopy={copyCommand} labels={text} />
+      </section>
+
       <section className="toolbar">
         <input value={query} onChange={event => setQuery(event.target.value)} placeholder={text.searchPlaceholder} />
         <div className="chips">{categories.map(item => <button className={item === category ? 'active' : ''} key={item} onClick={() => setCategory(item)}>{item === 'all' ? text.allCategories : text.categories[item] || item}</button>)}</div>
@@ -193,7 +216,11 @@ function App() {
       </section>
     </>}
 
+    {activeTab === 'scenes' && <SceneChannel sceneOptions={sceneOptions} activeScene={activeScene} sceneAgents={sceneAgents} scenario={scenario} onScenarioChange={setScenario} onSelectAgent={setSelectedAgent} labels={text} />}
+    {activeTab === 'aiStarter' && <AIStarterChannel labels={text} />}
     {activeTab === 'usage' && <UsageGuide copied={copied} onCopy={copyCommand} labels={text} />}
+    {activeTab === 'aiTools' && <AIToolsChannel labels={text} />}
+    {activeTab === 'models' && <TopModelsChannel labels={text} />}
     {selectedAgent && <AgentModal agent={selectedAgent} onClose={() => setSelectedAgent(null)} target={target} copied={copied} onCopy={copyCommand} labels={text} />}
   </main>;
 }
@@ -224,6 +251,7 @@ function AgentModal({ agent, onClose, target, copied, onCopy, labels }) {
       <div className="modal-grid">
         <InfoList title={labels.modal.inputs} items={agent.inputs} />
         <InfoList title={labels.modal.outputs} items={agent.outputs} />
+        <InfoList title={labels.modal.scenarios} items={agent.scenarios} />
         <InfoList title={labels.modal.tags} items={agent.tags} />
         <InfoList title={labels.modal.compatible} items={agent.compatible} />
       </div>
@@ -266,6 +294,115 @@ function UsageGuide({ copied, onCopy, labels }) {
     <div className="usage-note">
       <h3>{labels.usage.noteTitle}</h3>
       <p>{labels.usage.noteBody}</p>
+    </div>
+  </section>;
+}
+
+function SceneChannel({ sceneOptions, activeScene, sceneAgents, scenario, onScenarioChange, onSelectAgent, labels }) {
+  return <section className="scenario-page">
+    <aside className="scenario-rail">
+      <span className="signal">{labels.scenePanel.signal}</span>
+      <h2>{labels.scenePanel.navTitle}</h2>
+      <p>{labels.scenePanel.navBody}</p>
+      <div className="scenario-list">
+        {sceneOptions.map(item => <button className={item.id === scenario ? 'active' : ''} key={item.id} onClick={() => onScenarioChange(item.id)}>
+          <span>{item.label}</span>
+          <em>{item.count ? `${item.count} ${labels.scenePanel.agentUnit}` : labels.scenePanel.planned}</em>
+        </button>)}
+      </div>
+    </aside>
+    <div className="scenario-detail">
+      <div className="scenario-feature">
+        <span className="signal">{labels.scenePanel.filteredBy}</span>
+        <h2>{activeScene.label}</h2>
+        <p>{activeScene.description}</p>
+      </div>
+      <div className="scenario-agent-grid">
+        {sceneAgents.length ? sceneAgents.map(agent => <article className="scenario-agent" key={agent.id}>
+          <div className="card-top"><span>{labels.categories[agent.groupKey] || agent.category}</span><code>{agent.id}</code></div>
+          <h3>{agent.name}</h3>
+          <p>{agent.description}</p>
+          <button onClick={() => onSelectAgent(agent)}>{labels.details}</button>
+        </article>) : <article className="scenario-empty">
+          <h3>{labels.scenePanel.plannedTitle}</h3>
+          <p>{labels.scenePanel.plannedBody}</p>
+        </article>}
+      </div>
+    </div>
+  </section>;
+}
+
+function AIStarterChannel({ labels }) {
+  return <section className="starter-page">
+    <div className="starter-head">
+      <span className="signal">{labels.aiStarter.signal}</span>
+      <h2>{labels.aiStarter.title}</h2>
+      <p>{labels.aiStarter.body}</p>
+    </div>
+    <div className="starter-grid">
+      {labels.aiStarter.personas.map((persona, index) => <article className="starter-card" key={persona.title}>
+        <strong>{String(index + 1).padStart(2, '0')}</strong>
+        <span>{persona.label}</span>
+        <h3>{persona.title}</h3>
+        <p>{persona.body}</p>
+        <div className="demo-strip">
+          <b>{labels.aiStarter.demoLabel}</b>
+          <p>{persona.demo}</p>
+        </div>
+        <ul>{persona.steps.map(step => <li key={step}>{step}</li>)}</ul>
+      </article>)}
+    </div>
+  </section>;
+}
+
+function AIToolsChannel({ labels }) {
+  return <section className="channel-page">
+    <div className="channel-hero">
+      <span className="signal">{labels.aiTools.signal}</span>
+      <h2>{labels.aiTools.title}</h2>
+      <p>{labels.aiTools.body}</p>
+    </div>
+    <div className="tool-channel-grid">
+      {labels.aiTools.groups.map(group => <article className="tool-channel-card" key={group.title}>
+        <div className="card-top"><span>{group.fit}</span><code>{group.tools.join(' / ')}</code></div>
+        <h3>{group.title}</h3>
+        <p>{group.body}</p>
+        <div className="tool-list">
+          {group.tools.map(tool => <em key={tool}>{tool}</em>)}
+        </div>
+        <InfoList title={labels.aiTools.bestFor} items={group.bestFor} />
+        <InfoList title={labels.aiTools.howToUse} items={group.howToUse} />
+      </article>)}
+    </div>
+    <div className="usage-note">
+      <h3>{labels.aiTools.noteTitle}</h3>
+      <p>{labels.aiTools.noteBody}</p>
+    </div>
+  </section>;
+}
+
+function TopModelsChannel({ labels }) {
+  return <section className="channel-page">
+    <div className="channel-hero models-hero">
+      <span className="signal">{labels.models.signal}</span>
+      <h2>{labels.models.title}</h2>
+      <p>{labels.models.body}</p>
+    </div>
+    <div className="model-list">
+      {labels.models.items.map((model, index) => <article className="model-row" key={model.name}>
+        <strong>{String(index + 1).padStart(2, '0')}</strong>
+        <div>
+          <h3>{model.name}</h3>
+          <p>{model.body}</p>
+          <div className="targets">
+            {model.bestFor.map(item => <em key={item}>{item}</em>)}
+          </div>
+        </div>
+      </article>)}
+    </div>
+    <div className="usage-note">
+      <h3>{labels.models.noteTitle}</h3>
+      <p>{labels.models.noteBody}</p>
     </div>
   </section>;
 }

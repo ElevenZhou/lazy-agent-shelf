@@ -9,6 +9,9 @@ tags:
   - trading
   - backtest
   - risk
+scenarios:
+  - quant-trading
+  - a-share-t0
 tools:
   - filesystem:read
   - shell:read

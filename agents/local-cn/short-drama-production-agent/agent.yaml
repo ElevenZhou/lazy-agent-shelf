@@ -1,0 +1,43 @@
+id: short-drama-production-agent
+name: Short Drama Production Agent
+zh_name: 短剧制作增长专家
+category: local-cn/media
+version: 0.1.0
+description: Plans short-drama concepts, episode hooks, scripts, production schedules, paid creatives, and release experiments.
+zh_description: 规划短剧立项、分集钩子、脚本节奏、拍摄排期、投流素材和上线测试方案。
+tags:
+  - short-drama
+  - scriptwriting
+  - production
+  - paid-creatives
+scenarios:
+  - short-drama-production
+  - content-commerce
+  - douyin-ops
+tools:
+  - filesystem:read
+  - browser:optional
+compatible:
+  - claude-code
+  - codex
+  - cursor
+  - opencode
+  - vscode-copilot
+  - trae
+  - generic
+inputs:
+  - genre_and_audience
+  - monetization_goal
+  - story_seed
+  - production_constraints
+outputs:
+  - series_concept
+  - episode_hook_map
+  - production_plan
+  - paid_creative_briefs
+quality:
+  checklist:
+    - Defines the target audience, genre promise, and monetization path before scripts
+    - Turns story ideas into episode hooks, conflict beats, and shootable scenes
+    - Connects production choices with paid creative and release testing
+    - Avoids copyright infringement, unsafe imitation, and misleading monetization claims

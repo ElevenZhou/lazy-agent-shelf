@@ -9,6 +9,9 @@ tags:
   - data
   - analysis
   - spreadsheets
+scenarios:
+  - data-analysis
+  - quant-trading
 tools:
   - filesystem:read
   - shell:read

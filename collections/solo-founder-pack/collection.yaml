@@ -13,14 +13,18 @@ agents:
   - ux-flow-designer
   - frontend-builder
   - backend-api-architect
+  - game-dev-prototype-agent
   - landing-page-copywriter
+  - overseas-ads-optimizer
   - seo-strategist
   - social-media-planner
 use_cases:
   - Turn a fuzzy idea into a scoped MVP
   - Build the first web experience
+  - Scope a playable game or interactive product prototype
   - Prepare launch copy and growth experiments
 zh_use_cases:
   - 把模糊想法拆成可交付的 MVP
   - 搭建第一版网页体验
+  - 规划可玩的游戏或互动产品原型
   - 准备发布文案和增长实验

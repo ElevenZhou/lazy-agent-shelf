@@ -9,6 +9,9 @@ tags:
   - social
   - content
   - calendar
+scenarios:
+  - overseas-social
+  - content-marketing
 tools:
   - filesystem:read
 compatible:

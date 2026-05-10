@@ -8,13 +8,26 @@
   "heroBody": "FlaiOS Agents is the agent shelf for your AI Flow OS: code review, product design, growth, data, operations, and safety specialists packaged for Codex, Claude Code, Cursor, OpenCode, VSCode, Trae, and portable AGENTS.md workflows.",
   "heroSubline": "Stop rewriting prompts and moving habits by hand. Pick one agent or a flow pack, then let every AI call run through a clearer, controlled workflow.",
   "heroStats": [
-    { "value": "25", "label": "curated agents" },
-    { "value": "5", "label": "flow packs" },
-    { "value": "7", "label": "tool targets" }
+    {
+      "value": "30",
+      "label": "curated agents"
+    },
+    {
+      "value": "12+",
+      "label": "scenario tags"
+    },
+    {
+      "value": "7",
+      "label": "tool targets"
+    }
   ],
   "tabs": {
     "browse": "Browse Agents",
-    "usage": "How to Use"
+    "scenes": "Common Scenes",
+    "aiStarter": "AI Starter",
+    "usage": "How to Use",
+    "aiTools": "AI Tool Scenes",
+    "models": "Top Models"
   },
   "searchPlaceholder": "Search agents, workflows, use cases...",
   "targetPlatform": "Target platform",
@@ -33,7 +46,8 @@
     "inputs": "Inputs",
     "outputs": "Outputs",
     "tags": "Tags",
-    "compatible": "Compatible"
+    "compatible": "Compatible",
+    "scenarios": "Scenarios"
   },
   "categories": {
     "data": "Data",
@@ -49,9 +63,18 @@
     "title": "FlaiOS Agents is not another chat box. It is the control layer for the tools you already use.",
     "body": "The website helps you browse, filter, and copy install commands. The actual work happens in Codex, Claude Code, Cursor, OpenCode, VSCode Copilot, Trae, and similar tools. Each agent is a readable, auditable, portable workflow file.",
     "steps": [
-      { "title": "Choose", "body": "Pick a focused specialist, or install a flow pack such as solo-founder-pack or code-quality-pack." },
-      { "title": "Install", "body": "Copy the generated command and write the agent files into your project or target tool config directory." },
-      { "title": "Run", "body": "Return to the target AI tool and describe the task naturally; the generated agent, rule, or skill constrains the workflow, outputs, and safety boundary." }
+      {
+        "title": "Choose",
+        "body": "Pick a focused specialist, or install a flow pack such as solo-founder-pack or code-quality-pack."
+      },
+      {
+        "title": "Install",
+        "body": "Copy the generated command and write the agent files into your project or target tool config directory."
+      },
+      {
+        "title": "Run",
+        "body": "Return to the target AI tool and describe the task naturally; the generated agent, rule, or skill constrains the workflow, outputs, and safety boundary."
+      }
     ],
     "noteTitle": "From Lao Zhou's own shelf",
     "noteBody": "These agents are Lao Zhou's everyday workflows, updated whenever real work exposes a better pattern. Take what helps, install it directly, and adapt it to your own tools and projects."
@@ -59,27 +82,361 @@
   "platformGuides": {
     "codex": {
       "where": "Install as Codex skills, then call the specialist by task intent inside Codex.",
-      "notes": ["Best for repo work, code review, debugging, research workflows, and repeatable local tasks.", "Use collections when you want a ready-made working team instead of one specialist."]
+      "notes": [
+        "Best for repo work, code review, debugging, research workflows, and repeatable local tasks.",
+        "Use collections when you want a ready-made working team instead of one specialist."
+      ]
     },
     "claude": {
       "where": "Install as Claude Code subagent markdown files under .claude/agents.",
-      "notes": ["Best for subagent-style delegation inside a project.", "Generated files are portable markdown, so you can inspect and edit them."]
+      "notes": [
+        "Best for subagent-style delegation inside a project.",
+        "Generated files are portable markdown, so you can inspect and edit them."
+      ]
     },
     "cursor": {
       "where": "Install as Cursor rule files under .cursor/rules.",
-      "notes": ["Best for project-level behavior presets and repeatable coding rules.", "Use focused agents for review, frontend, backend, product, and naming tasks."]
+      "notes": [
+        "Best for project-level behavior presets and repeatable coding rules.",
+        "Use focused agents for review, frontend, backend, product, and naming tasks."
+      ]
     },
     "opencode": {
       "where": "Install as OpenCode agent markdown under .opencode/agents.",
-      "notes": ["Best for terminal-native workflows and repository assistants.", "Use --target all if you want to prepare every platform at once."]
+      "notes": [
+        "Best for terminal-native workflows and repository assistants.",
+        "Use --target all if you want to prepare every platform at once."
+      ]
     },
     "vscode": {
       "where": "Install as instruction markdown under .github/instructions.",
-      "notes": ["Best for project instructions that travel with the repo.", "Keep sensitive or personal workflow rules out of public repos."]
+      "notes": [
+        "Best for project instructions that travel with the repo.",
+        "Keep sensitive or personal workflow rules out of public repos."
+      ]
     },
     "trae": {
       "where": "Install as Trae-compatible prompt markdown under .trae/agents.",
-      "notes": ["Best for product, growth, Chinese-market, and coding assistant workflows.", "The generated prompt remains readable and editable."]
+      "notes": [
+        "Best for product, growth, Chinese-market, and coding assistant workflows.",
+        "The generated prompt remains readable and editable."
+      ]
     }
+  },
+  "scenePanel": {
+    "signal": "Scenario Nav",
+    "title": "Find agents by real work scenes, then refine with tags.",
+    "body": "Categories organize the repository, but users search by jobs like Douyin ops, A-share T0, short-drama production, overseas social, or game development. Scenario view makes those entry points primary while tags keep discovery precise.",
+    "allTitle": "All scenarios",
+    "allBody": "Browse the full agent shelf, then narrow by category, search, and target platform.",
+    "agentUnit": "agents",
+    "planned": "planned",
+    "filteredBy": "Current scene",
+    "clear": "clear",
+    "navTitle": "Common scenes: pick on the left, inspect on the right.",
+    "navBody": "Scenes no longer crowd the home page. Use this when someone asks how AI fits real work.",
+    "plannedTitle": "This scene is being filled in",
+    "plannedBody": "The entry stays visible while agents, tool lists, and demo flows are added."
+  },
+  "scenes": [
+    {
+      "id": "douyin-ops",
+      "label": "Douyin Ops",
+      "description": "Paid traffic, creative iteration, live rooms, and short-video growth."
+    },
+    {
+      "id": "xiaohongshu-ops",
+      "label": "Xiaohongshu Ops",
+      "description": "Note angles, cover copy, comment bait, and conversion paths."
+    },
+    {
+      "id": "overseas-ads",
+      "label": "Overseas Ads",
+      "description": "Cross-border campaigns, landing pages, market research, and conversion copy."
+    },
+    {
+      "id": "short-drama-production",
+      "label": "Short Drama",
+      "description": "Drama concepts, scripts, paid creatives, and production workflow."
+    },
+    {
+      "id": "overseas-social",
+      "label": "Overseas Social",
+      "description": "Global content calendars, SEO, social publishing, and growth reviews."
+    },
+    {
+      "id": "game-dev",
+      "label": "Game Dev",
+      "description": "Game prototypes, frontend/backend work, UX flows, and team execution."
+    },
+    {
+      "id": "quant-trading",
+      "label": "Quant Trading",
+      "description": "Data analysis, backtest review, strategy reviews, and risk checks."
+    },
+    {
+      "id": "a-share-t0",
+      "label": "A-share T0",
+      "description": "A-share minute strategies, T0 backtests, and trading-rule review."
+    },
+    {
+      "id": "content-commerce",
+      "label": "Content Commerce",
+      "description": "Content seeding, product conversion, private traffic, and ops automation."
+    },
+    {
+      "id": "wechat-ops",
+      "label": "WeChat Ops",
+      "description": "Official-account topics, formatting, editing, and content repurposing."
+    },
+    {
+      "id": "ops-automation",
+      "label": "Ops Automation",
+      "description": "Turn repetitive operations into SOPs, scripts, and automated workflows."
+    },
+    {
+      "id": "web-product",
+      "label": "Web Product",
+      "description": "Product planning, UX, frontend/backend execution, and launches."
+    }
+  ],
+  "aiTools": {
+    "signal": "AI Tool Channels",
+    "title": "Choose AI-native tools by work scene, not just by brand name.",
+    "body": "This channel organizes AI-native editors, AI IDEs, chat tools, and automation tools by fit, operating method, and selection boundary.",
+    "bestFor": "Best for",
+    "howToUse": "How to use",
+    "noteTitle": "Channel scope",
+    "noteBody": "This page is a scene-based tool map, not a replacement for the agent shelf. Later it can grow into reviews, install guides, and workflow templates.",
+    "groups": [
+      {
+        "title": "AI-native editors",
+        "fit": "Writing / knowledge / long-form",
+        "tools": [
+          "Notion AI",
+          "Craft AI",
+          "Gamma",
+          "Canva AI"
+        ],
+        "body": "Best when AI belongs inside docs, knowledge bases, decks, and content workflows.",
+        "bestFor": [
+          "Meeting notes, plans, and knowledge bases",
+          "Marketing content, decks, and public materials",
+          "Collaborative content with reusable templates"
+        ],
+        "howToUse": [
+          "Put audience, structure, and source material in one document",
+          "Generate a draft, then verify facts and add judgment",
+          "Save stable patterns as templates or team standards"
+        ]
+      },
+      {
+        "title": "AI IDEs and coding assistants",
+        "fit": "Engineering / debugging / repo work",
+        "tools": [
+          "Cursor",
+          "Codex",
+          "Claude Code",
+          "Trae",
+          "VSCode Copilot"
+        ],
+        "body": "Best for feature work, review, refactors, tests, and debugging inside real repositories.",
+        "bestFor": [
+          "Iterating on existing codebases",
+          "Complex bug investigation and test coverage",
+          "Installing repeatable expert agents"
+        ],
+        "howToUse": [
+          "Start with README, tests, and key modules",
+          "Break work into verifiable steps and run build or test",
+          "Install Lazy Agent Shelf agents to make the workflow repeatable"
+        ]
+      },
+      {
+        "title": "AI chat tools",
+        "fit": "Research / Q&A / model comparison",
+        "tools": [
+          "ChatGPT",
+          "Claude",
+          "Gemini",
+          "Perplexity",
+          "Poe"
+        ],
+        "body": "Best for open-ended discussion, source understanding, model comparison, and direction setting.",
+        "bestFor": [
+          "Market research, strategy, and summaries",
+          "Cross-checking across models",
+          "Brainstorming before repo execution"
+        ],
+        "howToUse": [
+          "State context, goal, constraints, and output format up front",
+          "Ask for sources or verification paths for factual claims",
+          "Move complex execution into an IDE or agent workflow"
+        ]
+      },
+      {
+        "title": "AI automation and browser agents",
+        "fit": "Web actions / collection / repeatable ops",
+        "tools": [
+          "Browser Use",
+          "Zapier AI",
+          "Make AI",
+          "n8n",
+          "OpenAI Operator"
+        ],
+        "body": "Best for repeatable work that crosses pages, forms, apps, and APIs.",
+        "bestFor": [
+          "Web research and form flows",
+          "Cross-tool notifications, sync, and approval",
+          "Semi-automated operating SOPs"
+        ],
+        "howToUse": [
+          "Run the manual flow once and record every checkpoint",
+          "Keep accounts, permissions, and sensitive actions human-approved",
+          "Start read-only, then add writes and submissions gradually"
+        ]
+      }
+    ]
+  },
+  "models": {
+    "signal": "Top Model Watchlist",
+    "title": "Keep only ten top models so the choice stays usable.",
+    "body": "This editorial list favors broad capability, ecosystem availability, and real workflow coverage instead of long-tail model dumping.",
+    "noteTitle": "Refresh rule",
+    "noteBody": "Ranking is editorial: check public leaderboards, official releases, and hands-on availability before publishing a strict leaderboard version.",
+    "items": [
+      {
+        "name": "OpenAI GPT-5.5",
+        "body": "Flagship general model for complex reasoning, coding, tool use, and multimodal workflows.",
+        "bestFor": [
+          "reasoning",
+          "coding",
+          "tool use"
+        ]
+      },
+      {
+        "name": "Anthropic Claude Opus 4.5",
+        "body": "Strong for long context, writing, code review, and agentic repository work.",
+        "bestFor": [
+          "long context",
+          "review",
+          "agents"
+        ]
+      },
+      {
+        "name": "Google Gemini 3 Pro",
+        "body": "Strong multimodal and large-context option, especially around Google ecosystem work.",
+        "bestFor": [
+          "multimodal",
+          "research",
+          "large context"
+        ]
+      },
+      {
+        "name": "xAI Grok 4",
+        "body": "Useful for real-time context, social signals, and fast exploratory reasoning.",
+        "bestFor": [
+          "real time",
+          "trends",
+          "exploration"
+        ]
+      },
+      {
+        "name": "DeepSeek R2",
+        "body": "Worth tracking for Chinese, coding, and cost-sensitive workflows.",
+        "bestFor": [
+          "Chinese",
+          "coding",
+          "value"
+        ]
+      },
+      {
+        "name": "Qwen 3 Max",
+        "body": "Strong Chinese ecosystem model for business, content, and tool-calling applications.",
+        "bestFor": [
+          "Chinese business",
+          "enterprise",
+          "tools"
+        ]
+      },
+      {
+        "name": "Meta Llama 4",
+        "body": "Core open ecosystem option for private deployment, tuning, and controllable stacks.",
+        "bestFor": [
+          "open source",
+          "fine tuning",
+          "private deploy"
+        ]
+      },
+      {
+        "name": "Mistral Large 3",
+        "body": "Enterprise-friendly European model family for multilingual and low-latency use cases.",
+        "bestFor": [
+          "multilingual",
+          "enterprise",
+          "latency"
+        ]
+      },
+      {
+        "name": "Cohere Command R+",
+        "body": "Clear fit for retrieval-augmented generation, enterprise search, and citation-heavy answers.",
+        "bestFor": [
+          "RAG",
+          "knowledge base",
+          "search"
+        ]
+      },
+      {
+        "name": "Perplexity Sonar",
+        "body": "Research-oriented model entry point for web-grounded answers with source trails.",
+        "bestFor": [
+          "web search",
+          "verification",
+          "research"
+        ]
+      }
+    ]
+  },
+  "primaryNav": "Primary navigation",
+  "aiStarter": {
+    "signal": "AI Starter",
+    "title": "When a friend asks how to use AI, start with their type.",
+    "body": "No long lecture. Pick the person type, then show a demo that produces value in 10 minutes.",
+    "demoLabel": "Minimum demo",
+    "personas": [
+      {
+        "label": "Some technical base / reads code",
+        "title": "Use an AI IDE to unlock the most capability",
+        "body": "Do not keep them in chat. Codex, VSCode Copilot, Cursor, and Claude Code can read files, edit code, run tests, and connect work across the computer.",
+        "demo": "Open a small repo, ask Codex to read the README, add one button, and run the build.",
+        "steps": [
+          "Prepare a real folder or Git repo",
+          "Ask AI to explain the structure first",
+          "Give one small change and require build/test verification"
+        ]
+      },
+      {
+        "label": "No technical base / only chats",
+        "title": "Move from chat loops to deliverable loops",
+        "body": "They know ask-and-reply, but need context, goal, materials, and output format so AI returns copy, tables, checklists, or emails.",
+        "demo": "Paste a product idea into ChatGPT/Claude and ask for title, selling points, social post, and customer Q&A.",
+        "steps": [
+          "State audience before asking",
+          "Request a fixed output format",
+          "Iterate with shorter, more casual, or table format"
+        ]
+      },
+      {
+        "label": "Business / ops / managers",
+        "title": "Find the first AI cut inside repeated work",
+        "body": "They may not code, but they own workflows, spreadsheets, customer messages, and decisions. Start with reports, reviews, spreadsheet analysis, SOPs, or meeting notes.",
+        "demo": "Give AI a sales record and ask for anomalies, risky customers, and next-week follow-ups.",
+        "steps": [
+          "Pick a task repeated more than twice a week",
+          "Provide a real sample and ideal output",
+          "Turn the result into a reusable template"
+        ]
+      }
+    ]
   }
 }

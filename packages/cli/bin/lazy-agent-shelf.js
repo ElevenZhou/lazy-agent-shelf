@@ -252,6 +252,7 @@ function catalog(args) {
     description: agent.meta.description,
     zh_description: agent.meta.zh_description || '',
     tags: agent.meta.tags || [],
+    scenarios: agent.meta.scenarios || [],
     tools: agent.meta.tools || [],
     compatible: agent.meta.compatible || [],
     inputs: agent.meta.inputs || [],

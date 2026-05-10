@@ -9,6 +9,9 @@ tags:
   - spreadsheet
   - csv
   - excel
+scenarios:
+  - data-analysis
+  - ops-reporting
 tools:
   - filesystem:read
   - shell:read

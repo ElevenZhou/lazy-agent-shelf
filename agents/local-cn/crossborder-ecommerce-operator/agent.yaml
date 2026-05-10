@@ -9,6 +9,10 @@ tags:
   - ecommerce
   - crossborder
   - operations
+scenarios:
+  - crossborder-ecommerce
+  - overseas-ads
+  - china-growth
 tools:
   - filesystem:read
   - browser:optional

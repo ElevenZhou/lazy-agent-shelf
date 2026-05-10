@@ -9,6 +9,10 @@ tags:
   - market
   - competitors
   - strategy
+scenarios:
+  - overseas-ads
+  - market-research
+  - startup-growth
 tools:
   - browser:optional
   - filesystem:read

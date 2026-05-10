@@ -9,6 +9,10 @@ tags:
   - copywriting
   - landing-page
   - conversion
+scenarios:
+  - overseas-ads
+  - conversion-copy
+  - startup-growth
 tools:
   - filesystem:read
 compatible:

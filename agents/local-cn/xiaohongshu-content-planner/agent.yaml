@@ -9,6 +9,10 @@ tags:
   - xiaohongshu
   - china
   - content
+scenarios:
+  - xiaohongshu-ops
+  - china-growth
+  - content-commerce
 tools:
   - browser:optional
   - filesystem:read

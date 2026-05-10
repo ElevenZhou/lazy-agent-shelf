@@ -9,6 +9,9 @@ tags:
   - ux
   - flows
   - copy
+scenarios:
+  - game-dev
+  - web-product
 tools:
   - filesystem:read
   - browser:optional
