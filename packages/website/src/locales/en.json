@@ -53,8 +53,8 @@
       { "title": "Install", "body": "Copy the generated command and write the agent files into your project or target tool config directory." },
       { "title": "Run", "body": "Return to the target AI tool and describe the task naturally; the generated agent, rule, or skill constrains the workflow, outputs, and safety boundary." }
     ],
-    "noteTitle": "One-line mental model",
-    "noteBody": "FlaiOS Agents is the agent layer of your AI Flow OS: the website is for choosing, the CLI is for installing, and your AI tools are where the flows run."
+    "noteTitle": "From Lao Zhou's own shelf",
+    "noteBody": "These agents are Lao Zhou's everyday workflows, updated whenever real work exposes a better pattern. Take what helps, install it directly, and adapt it to your own tools and projects."
   },
   "platformGuides": {
     "codex": {
