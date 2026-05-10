@@ -20,6 +20,8 @@
   "targetPlatform": "Target platform",
   "allCategories": "All",
   "details": "Details",
+  "listStatus": "Showing {visible} / {total} agents",
+  "loadMore": "Load more",
   "copy": "copy",
   "copied": "copied",
   "close": "close",

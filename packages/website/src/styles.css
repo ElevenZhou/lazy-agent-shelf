@@ -41,13 +41,13 @@ body::before {
 
 main { position: relative; width: min(1320px, calc(100% - 32px)); margin: 0 auto; padding: 34px 0 80px; }
 .hero {
-  min-height: 600px;
+  min-height: 520px;
   display: grid;
   align-content: center;
   position: relative;
   border: 1px solid rgba(216, 226, 238, .28);
   border-radius: 28px;
-  padding: clamp(30px, 5.6vw, 74px);
+  padding: clamp(28px, 4.8vw, 62px);
   color: var(--white);
   background: var(--gradient-ink);
   box-shadow: var(--shadow);
@@ -56,8 +56,8 @@ main { position: relative; width: min(1320px, calc(100% - 32px)); margin: 0 auto
 .hero-flow {
   position: absolute;
   right: -1%;
-  top: 9%;
-  width: min(50%, 650px);
+  top: 8%;
+  width: min(48%, 610px);
   max-width: none;
   opacity: .72;
   pointer-events: none;
@@ -72,26 +72,26 @@ main { position: relative; width: min(1320px, calc(100% - 32px)); margin: 0 auto
   color: rgba(246, 249, 252, .055);
   letter-spacing: -.08em;
 }
-.topbar { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; margin-bottom: 46px; }
+.topbar { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; margin-bottom: 34px; }
 .brand-lockup { display: flex; align-items: center; gap: 13px; }
 .brand-lockup img { width: 42px; height: 42px; filter: drop-shadow(0 0 18px rgba(47, 230, 255, .28)); }
 .brand-lockup strong { display: block; font-size: 17px; letter-spacing: -.02em; }
 .brand-lockup span { display: block; margin-top: 3px; color: #9fb6ce; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; }
 .signal, .eyebrow { text-transform: uppercase; letter-spacing: .18em; color: var(--flow); font-weight: 800; font-size: 12px; }
 .eyebrow { position: relative; z-index: 1; display: inline-block; width: fit-content; padding: 8px 12px; border: 1px solid rgba(47, 230, 255, .34); border-radius: 999px; background: rgba(47, 230, 255, .08); }
-h1 { position: relative; z-index: 1; max-width: 760px; margin: 22px 0; font-size: clamp(48px, 7vw, 92px); line-height: .96; letter-spacing: -.075em; text-wrap: balance; }
-.lang-zh h1 { max-width: 760px; font-size: clamp(40px, 5.3vw, 74px); line-height: 1.08; letter-spacing: -.07em; font-weight: 900; }
+h1 { position: relative; z-index: 1; max-width: 720px; margin: 18px 0; font-size: clamp(46px, 6.3vw, 84px); line-height: .98; letter-spacing: -.075em; text-wrap: balance; }
+.lang-zh h1 { max-width: 720px; font-size: clamp(38px, 4.8vw, 66px); line-height: 1.08; letter-spacing: -.07em; font-weight: 900; }
 .hero p { position: relative; z-index: 1; max-width: 720px; margin: 0; color: #c8d6e6; font-size: 19px; line-height: 1.68; }
-.lang-zh .hero p { max-width: 720px; font-size: 17px; line-height: 1.82; }
-.hero-subline { margin-top: 16px !important; color: #93a9bf !important; }
+.lang-zh .hero p { max-width: 700px; font-size: 16px; line-height: 1.78; }
+.hero-subline { margin-top: 12px !important; color: #93a9bf !important; }
 .hero-stats { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
-.hero-stats div { min-width: 116px; padding: 12px 14px; border: 1px solid rgba(47,230,255,.24); border-radius: 16px; background: rgba(255,255,255,.07); backdrop-filter: blur(8px); }
-.hero-stats strong { display: block; color: var(--flow); font-size: 24px; line-height: 1; }
+.hero-stats div { min-width: 108px; padding: 10px 13px; border: 1px solid rgba(47,230,255,.24); border-radius: 15px; background: rgba(255,255,255,.07); backdrop-filter: blur(8px); }
+.hero-stats strong { display: block; color: var(--flow); font-size: 22px; line-height: 1; }
 .hero-stats span { display: block; margin-top: 6px; color: #9fb6ce; font-size: 12px; }
 .language-switcher { position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 8px; padding: 7px; border: 1px solid rgba(216, 226, 238, .28); border-radius: 999px; background: rgba(255,255,255,.08); backdrop-filter: blur(8px); }
 .language-switcher span { color: #9fb6ce; font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
 .language-switcher button { padding: 7px 11px; font-size: 12px; border-radius: 999px; color: var(--white); border-color: transparent; }
-.command { position: relative; z-index: 1; width: fit-content; max-width: 100%; display: flex; align-items: stretch; gap: 0; margin-top: 28px; border: 1px solid rgba(47, 230, 255, .36); border-radius: 14px; background: rgba(7, 17, 31, .84); box-shadow: var(--glow); overflow: hidden; }
+.command { position: relative; z-index: 1; width: fit-content; max-width: 100%; display: flex; align-items: stretch; gap: 0; margin-top: 22px; border: 1px solid rgba(47, 230, 255, .36); border-radius: 14px; background: rgba(7, 17, 31, .84); box-shadow: var(--glow); overflow: hidden; }
 .command code { overflow: auto; padding: 14px 16px; color: var(--flow); font-family: Consolas, monospace; line-height: 1.35; }
 .command button { border: 0; border-left: 1px solid rgba(47, 230, 255, .22); background: var(--gradient-flow); color: var(--ink); text-transform: uppercase; letter-spacing: .08em; }
 .command.compact { width: 100%; margin-top: 0; box-shadow: none; border-radius: 10px; }
@@ -118,6 +118,8 @@ em { font-style: normal; font-size: 12px; border: 1px solid rgba(76,141,255,.35)
 pre { margin: 0; white-space: pre-wrap; font-family: Consolas, monospace; font-size: 12px; background: rgba(7,17,31,.06); padding: 10px; }
 .card-actions { display: grid; gap: 10px; }
 .card-actions > button { width: fit-content; background: rgba(47,230,255,.12); }
+.load-more { display: flex; align-items: center; justify-content: center; gap: 12px; margin: 28px 0 0; color: var(--muted); font-size: 14px; }
+.load-more button { border-color: rgba(47,230,255,.34); background: rgba(47,230,255,.1); color: var(--deep); }
 .stacks { margin-top: 72px; display: grid; grid-template-columns: 1.2fr repeat(3, 1fr); gap: 18px; align-items: start; }
 .stacks h2 { font-size: clamp(34px, 5vw, 58px); line-height: 1; margin: 14px 0 0; letter-spacing: -.06em; }
 .stack { border: 1px solid rgba(216,226,238,.9); border-top: 5px solid var(--flow); border-radius: 18px; background: rgba(255,255,255,.72); padding: 20px; box-shadow: 0 14px 38px rgba(7,17,31,.08); }

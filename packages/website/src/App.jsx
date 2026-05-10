@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import catalog from './catalog.json';
 import en from './locales/en.json';
@@ -59,6 +59,8 @@ function App() {
   const [openCollection, setOpenCollection] = useState(collections[0]?.id || '');
   const [selectedAgent, setSelectedAgent] = useState(null);
   const [copied, setCopied] = useState('');
+  const [visibleCount, setVisibleCount] = useState(12);
+  const loadMoreRef = useRef(null);
   const text = locales[language];
   const localizedAgents = useMemo(() => agents.map(agent => localizedEntity(agent, language)), [language]);
   const localizedCollections = useMemo(() => collections.map(collection => localizedEntity(collection, language)), [language]);
@@ -85,8 +87,25 @@ function App() {
       agent.tags.join(' ')
     ].join(' ').toLowerCase().includes(q);
   }), [localizedAgents, query, category]);
+  const visibleAgents = filtered.slice(0, visibleCount);
+  const hasMoreAgents = visibleCount < filtered.length;
   const categories = ['all', ...new Set(agents.map(agent => agent.groupKey))];
   const assetBase = import.meta.env.BASE_URL;
+
+  useEffect(() => {
+    setVisibleCount(12);
+  }, [query, category, language]);
+
+  useEffect(() => {
+    if (!hasMoreAgents || !loadMoreRef.current) return undefined;
+    const observer = new IntersectionObserver(entries => {
+      if (entries[0]?.isIntersecting) {
+        setVisibleCount(count => Math.min(count + 9, filtered.length));
+      }
+    }, { rootMargin: '360px' });
+    observer.observe(loadMoreRef.current);
+    return () => observer.disconnect();
+  }, [filtered.length, hasMoreAgents]);
 
   return <main className={language === 'zh-CN' ? 'lang-zh' : 'lang-en'}>
     <section className="hero">
@@ -130,7 +149,7 @@ function App() {
       </section>
 
       <section className="grid">
-        {filtered.map((agent, index) => <article className="card" style={{'--delay': `${index * 45}ms`}} key={agent.id}>
+        {visibleAgents.map((agent, index) => <article className="card" style={{'--delay': `${Math.min(index, 8) * 35}ms`}} key={agent.id}>
           <div className="card-top"><span>{text.categories[agent.groupKey] || agent.category}</span><code>{agent.id}</code></div>
           <h2>{agent.name}</h2>
           <p>{agent.description}</p>
@@ -141,6 +160,10 @@ function App() {
           </div>
         </article>)}
       </section>
+      <div className="load-more" ref={loadMoreRef}>
+        <span>{text.listStatus.replace('{visible}', visibleAgents.length).replace('{total}', filtered.length)}</span>
+        {hasMoreAgents && <button onClick={() => setVisibleCount(count => Math.min(count + 9, filtered.length))}>{text.loadMore}</button>}
+      </div>
 
       <section className="stacks">
         <div>
