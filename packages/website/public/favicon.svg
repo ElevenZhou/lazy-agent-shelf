@@ -1,0 +1,13 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="FlaiOS favicon">
+  <rect width="64" height="64" rx="15" fill="#07111F"/>
+  <path d="M17 13H47C51.4 13 55 16.6 55 21C55 25.4 51.4 29 47 29H30V36H45C49.4 36 53 39.6 53 44C53 48.4 49.4 52 45 52H17V13Z" fill="url(#f)"/>
+  <path d="M9 32H30" stroke="#2FE6FF" stroke-width="6" stroke-linecap="round"/>
+  <path d="M42 21H58" stroke="#38D996" stroke-width="6" stroke-linecap="round"/>
+  <defs>
+    <linearGradient id="f" x1="17" y1="13" x2="55" y2="52" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2FE6FF"/>
+      <stop offset="0.58" stop-color="#4C8DFF"/>
+      <stop offset="1" stop-color="#38D996"/>
+    </linearGradient>
+  </defs>
+</svg>

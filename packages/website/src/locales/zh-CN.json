@@ -1,9 +1,12 @@
 {
   "languageLabel": "语言",
   "languageName": "中文",
-  "signal": "开源智能体货架",
-  "heroTitle": "给不想重复配置 AI 的人，准备好可直接安装的专业智能体。",
-  "heroBody": "Lazy Agent Shelf 把同一份高质量智能体源文件，生成到 Claude、Codex、Cursor、OpenCode、VSCode、Trae 和通用 AGENTS.md 工作流。",
+  "brandName": "FlaiOS Agents",
+  "signal": "Your AI Flow OS",
+  "eyebrow": "开源智能体控制层",
+  "heroTitle": "让每一次 AI 协作，都有可安装、可迁移、可复用的专业流程。",
+  "heroBody": "FlaiOS Agents 是面向 AI 工作流的智能体货架：把代码审查、产品设计、增长运营、数据分析等专家能力，打包成可直接安装到 Codex、Claude Code、Cursor、OpenCode、VSCode、Trae 的标准化 Agent。",
+  "heroSubline": "不再重复写提示词，不再在工具之间搬运经验；选择一个 Agent 或一组套装，让你的 AI 调用沿着清晰、可控的流程运行。",
   "tabs": {
     "browse": "浏览智能体",
     "usage": "使用方式"
@@ -16,8 +19,8 @@
   "copied": "已复制",
   "close": "关闭",
   "open": "展开",
-  "recommendedPacks": "推荐套装",
-  "packsTitle": "安装一组可协作的智能体，而不是只复制一条提示词。",
+  "recommendedPacks": "Flow Packs",
+  "packsTitle": "安装一组可协作的 AI 流程，而不是复制一条孤立提示词。",
   "agentsIncluded": "个智能体",
   "modal": {
     "inputs": "输入",
@@ -36,15 +39,15 @@
   },
   "usage": {
     "signal": "这些智能体在哪里运行",
-    "title": "这些智能体不是在网站里聊天用，而是安装到你常用的 AI 编程工具里。",
-    "body": "网站负责浏览、筛选和复制安装命令；真正使用发生在 Codex、Claude Code、Cursor、OpenCode、VSCode Copilot、Trae 等工具中。",
+    "title": "FlaiOS Agents 不是另一个聊天框，而是你的 AI 工具控制层。",
+    "body": "网站负责浏览、筛选和复制安装命令；真正执行发生在 Codex、Claude Code、Cursor、OpenCode、VSCode Copilot、Trae 等工具中。每个 Agent 都是一段可读、可审计、可迁移的工作流配置。",
     "steps": [
-      { "title": "选择", "body": "选择单个智能体，或直接安装 solo-founder-pack 这样的现成套装。" },
-      { "title": "安装", "body": "复制页面生成的命令，把文件输出到当前项目或工具配置目录。" },
-      { "title": "使用", "body": "回到目标工具，用自然语言描述任务，生成的智能体、规则或技能会指导执行。" }
+      { "title": "选择", "body": "按任务选择单个专家，或直接安装 solo-founder-pack、code-quality-pack 这样的现成流程套装。" },
+      { "title": "安装", "body": "复制页面生成的命令，把 Agent 输出到当前项目或目标工具的配置目录。" },
+      { "title": "运行", "body": "回到目标 AI 工具，用自然语言发起任务；生成的智能体、规则或技能会约束流程、输出和安全边界。" }
     ],
     "noteTitle": "一句话理解",
-    "noteBody": "Lazy Agent Shelf 就是一个智能体货架：网站用来挑选，命令行用来安装，各个 AI 工具才是真正工作的地方。"
+    "noteBody": "FlaiOS Agents 是 AI Flow OS 的智能体层：网站用来挑选，CLI 用来安装，你常用的 AI 工具负责执行。"
   },
   "platformGuides": {
     "codex": {

@@ -1,0 +1,22 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#07111F"/>
+  <path d="M0 105H1200M0 210H1200M0 315H1200M0 420H1200M0 525H1200M120 0V630M240 0V630M360 0V630M480 0V630M600 0V630M720 0V630M840 0V630M960 0V630M1080 0V630" stroke="#24496F" stroke-opacity="0.28"/>
+  <path d="M-60 414C92 276 250 222 414 252C578 282 620 414 782 382C944 350 984 198 1260 210" stroke="#2FE6FF" stroke-width="8" stroke-linecap="round"/>
+  <path d="M-40 500C166 328 348 320 506 430C664 540 836 496 940 400C1044 304 1128 288 1260 334" stroke="#4C8DFF" stroke-width="7" stroke-linecap="round" opacity="0.7"/>
+  <rect x="80" y="84" width="120" height="120" rx="28" fill="#F6F9FC"/>
+  <path d="M111 116H170C181.046 116 190 124.954 190 136C190 147.046 181.046 156 170 156H135V174H166C176.493 174 185 182.507 185 193C185 203.493 176.493 212 166 212H111V116Z" fill="url(#g)"/>
+  <path d="M68 174H135" stroke="#2FE6FF" stroke-width="8" stroke-linecap="round"/>
+  <path d="M166 136H214" stroke="#38D996" stroke-width="8" stroke-linecap="round"/>
+  <text x="80" y="306" fill="#FFFFFF" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="88" font-weight="780" letter-spacing="0">FlaiOS</text>
+  <text x="82" y="374" fill="#2FE6FF" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="38" font-weight="650">Your AI Flow OS.</text>
+  <text x="82" y="434" fill="#C8D6E6" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="28" font-weight="480">Manage every model, key, request, token, and cost from one control layer.</text>
+  <text x="82" y="516" fill="#8EA6BF" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="24" font-weight="520">FlaiOS by Timenova</text>
+  <defs>
+    <linearGradient id="g" x1="111" y1="116" x2="190" y2="212" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2FE6FF"/>
+      <stop offset="0.58" stop-color="#4C8DFF"/>
+      <stop offset="1" stop-color="#38D996"/>
+    </linearGradient>
+  </defs>
+</svg>
+

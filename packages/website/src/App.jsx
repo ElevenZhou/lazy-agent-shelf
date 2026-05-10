@@ -37,8 +37,7 @@ const platformTitles = {
 };
 
 function getInitialLanguage() {
-  if (typeof navigator === 'undefined') return 'en';
-  return navigator.language?.toLowerCase().startsWith('zh') ? 'zh-CN' : 'en';
+  return 'zh-CN';
 }
 
 function localizedEntity(entity, language) {
@@ -87,15 +86,25 @@ function App() {
     ].join(' ').toLowerCase().includes(q);
   }), [localizedAgents, query, category]);
   const categories = ['all', ...new Set(agents.map(agent => agent.groupKey))];
+  const assetBase = import.meta.env.BASE_URL;
 
   return <main className={language === 'zh-CN' ? 'lang-zh' : 'lang-en'}>
     <section className="hero">
+      <img className="hero-flow" src={`${assetBase}brand/hero-flow.svg`} alt="" aria-hidden="true" />
       <div className="topbar">
-        <div className="signal">{text.signal}</div>
+        <div className="brand-lockup">
+          <img src={`${assetBase}brand/nav-mark.svg`} alt="FlaiOS" />
+          <div>
+            <strong>{text.brandName}</strong>
+            <span>{text.signal}</span>
+          </div>
+        </div>
         <LanguageSwitcher language={language} onChange={setLanguage} text={text} />
       </div>
+      <span className="eyebrow">{text.eyebrow}</span>
       <h1>{text.heroTitle}</h1>
       <p>{text.heroBody}</p>
+      <p className="hero-subline">{text.heroSubline}</p>
       <Command text={`npx lazy-agent-shelf install code-reviewer --target ${target}`} copied={copied} onCopy={copyCommand} labels={text} />
     </section>
 

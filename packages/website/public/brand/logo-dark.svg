@@ -1,0 +1,21 @@
+<svg width="760" height="180" viewBox="0 0 760 180" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="FlaiOS by Timenova">
+  <rect x="20" y="26" width="128" height="128" rx="30" fill="#F6F9FC"/>
+  <path d="M48 62C48 53.163 55.163 46 64 46H126C134.837 46 142 53.163 142 62V118C142 126.837 134.837 134 126 134H64C55.163 134 48 126.837 48 118V62Z" fill="#0B2A4A" stroke="#D8E2EE" stroke-width="4"/>
+  <path d="M66 64H122C129.732 64 136 70.268 136 78C136 85.732 129.732 92 122 92H88V104H118C125.18 104 131 109.82 131 117C131 124.18 125.18 130 118 130H88V144H66V64Z" fill="url(#paint0_linear)"/>
+  <path d="M34 104H88" stroke="#2FE6FF" stroke-width="8" stroke-linecap="round"/>
+  <path d="M118 78H166" stroke="#38D996" stroke-width="8" stroke-linecap="round"/>
+  <path d="M113 117H156" stroke="#4C8DFF" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="34" cy="104" r="7" fill="#2FE6FF"/>
+  <circle cx="166" cy="78" r="7" fill="#38D996"/>
+  <circle cx="156" cy="117" r="7" fill="#4C8DFF"/>
+  <text x="184" y="101" fill="#FFFFFF" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="64" font-weight="760" letter-spacing="0">FlaiOS</text>
+  <text x="190" y="135" fill="#B8C7D9" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="22" font-weight="520" letter-spacing="0">AI Flow OS by Timenova</text>
+  <defs>
+    <linearGradient id="paint0_linear" x1="66" y1="64" x2="141" y2="139" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2FE6FF"/>
+      <stop offset="0.58" stop-color="#4C8DFF"/>
+      <stop offset="1" stop-color="#38D996"/>
+    </linearGradient>
+  </defs>
+</svg>
+

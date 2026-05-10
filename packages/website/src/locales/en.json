@@ -1,9 +1,12 @@
 {
   "languageLabel": "Language",
   "languageName": "English",
-  "signal": "open-source agent shelf",
-  "heroTitle": "Preset specialists for people too lazy to configure AI twice.",
-  "heroBody": "Lazy Agent Shelf turns one high-quality agent source into Claude, Codex, Cursor, OpenCode, VSCode, Trae, and generic AGENTS.md outputs.",
+  "brandName": "FlaiOS Agents",
+  "signal": "Your AI Flow OS",
+  "eyebrow": "Open-source agent control layer",
+  "heroTitle": "Installable expert flows for every AI coding tool you use.",
+  "heroBody": "FlaiOS Agents is the agent shelf for your AI Flow OS: code review, product design, growth, data, operations, and safety specialists packaged for Codex, Claude Code, Cursor, OpenCode, VSCode, Trae, and portable AGENTS.md workflows.",
+  "heroSubline": "Stop rewriting prompts and moving habits by hand. Pick one agent or a flow pack, then let every AI call run through a clearer, controlled workflow.",
   "tabs": {
     "browse": "Browse Agents",
     "usage": "How to Use"
@@ -16,8 +19,8 @@
   "copied": "copied",
   "close": "close",
   "open": "open",
-  "recommendedPacks": "recommended packs",
-  "packsTitle": "Install a working department, not a single prompt.",
+  "recommendedPacks": "Flow Packs",
+  "packsTitle": "Install a coordinated AI workflow, not a lonely prompt.",
   "agentsIncluded": "agents included",
   "modal": {
     "inputs": "Inputs",
@@ -36,15 +39,15 @@
   },
   "usage": {
     "signal": "where these agents run",
-    "title": "These agents are installed into your everyday AI coding tools, not used as a chat box on this website.",
-    "body": "The website helps you browse, filter, and copy install commands. The actual work happens in Codex, Claude Code, Cursor, OpenCode, VSCode Copilot, Trae, and similar tools.",
+    "title": "FlaiOS Agents is not another chat box. It is the control layer for the tools you already use.",
+    "body": "The website helps you browse, filter, and copy install commands. The actual work happens in Codex, Claude Code, Cursor, OpenCode, VSCode Copilot, Trae, and similar tools. Each agent is a readable, auditable, portable workflow file.",
     "steps": [
-      { "title": "Choose", "body": "Pick one agent, or install a ready-made pack such as solo-founder-pack." },
-      { "title": "Install", "body": "Copy the generated command and write the files into your current project or tool config directory." },
-      { "title": "Use", "body": "Return to the target tool and describe the task naturally; the generated agent, rule, or skill guides the work." }
+      { "title": "Choose", "body": "Pick a focused specialist, or install a flow pack such as solo-founder-pack or code-quality-pack." },
+      { "title": "Install", "body": "Copy the generated command and write the agent files into your project or target tool config directory." },
+      { "title": "Run", "body": "Return to the target AI tool and describe the task naturally; the generated agent, rule, or skill constrains the workflow, outputs, and safety boundary." }
     ],
     "noteTitle": "One-line mental model",
-    "noteBody": "Lazy Agent Shelf is an agent shelf: the website is for choosing, the CLI is for installing, and your AI tools are where the agents work."
+    "noteBody": "FlaiOS Agents is the agent layer of your AI Flow OS: the website is for choosing, the CLI is for installing, and your AI tools are where the flows run."
   },
   "platformGuides": {
     "codex": {
