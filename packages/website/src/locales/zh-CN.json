@@ -7,6 +7,11 @@
   "heroTitle": "让每一次 AI 协作，都有可安装、可迁移、可复用的专业流程。",
   "heroBody": "FlaiOS Agents 是面向 AI 工作流的智能体货架：把代码审查、产品设计、增长运营、数据分析等专家能力，打包成可直接安装到 Codex、Claude Code、Cursor、OpenCode、VSCode、Trae 的标准化 Agent。",
   "heroSubline": "不再重复写提示词，不再在工具之间搬运经验；选择一个 Agent 或一组套装，让你的 AI 调用沿着清晰、可控的流程运行。",
+  "heroStats": [
+    { "value": "25", "label": "精选 Agent" },
+    { "value": "5", "label": "流程套装" },
+    { "value": "7", "label": "兼容平台" }
+  ],
   "tabs": {
     "browse": "浏览智能体",
     "usage": "使用方式"

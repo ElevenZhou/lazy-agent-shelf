@@ -7,6 +7,11 @@
   "heroTitle": "Installable expert flows for every AI coding tool you use.",
   "heroBody": "FlaiOS Agents is the agent shelf for your AI Flow OS: code review, product design, growth, data, operations, and safety specialists packaged for Codex, Claude Code, Cursor, OpenCode, VSCode, Trae, and portable AGENTS.md workflows.",
   "heroSubline": "Stop rewriting prompts and moving habits by hand. Pick one agent or a flow pack, then let every AI call run through a clearer, controlled workflow.",
+  "heroStats": [
+    { "value": "25", "label": "curated agents" },
+    { "value": "5", "label": "flow packs" },
+    { "value": "7", "label": "tool targets" }
+  ],
   "tabs": {
     "browse": "Browse Agents",
     "usage": "How to Use"

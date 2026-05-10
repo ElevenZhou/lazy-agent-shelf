@@ -105,6 +105,12 @@ function App() {
       <h1>{text.heroTitle}</h1>
       <p>{text.heroBody}</p>
       <p className="hero-subline">{text.heroSubline}</p>
+      <div className="hero-stats">
+        {text.heroStats.map(item => <div key={item.label}>
+          <strong>{item.value}</strong>
+          <span>{item.label}</span>
+        </div>)}
+      </div>
       <Command text={`npx lazy-agent-shelf install code-reviewer --target ${target}`} copied={copied} onCopy={copyCommand} labels={text} />
     </section>
 
