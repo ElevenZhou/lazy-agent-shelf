@@ -1,0 +1,52 @@
+name: deploy-seoul
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-seoul
+  cancel-in-progress: true
+
+env:
+  BASE_PATH: /lazy-agent-shelf/
+  DEPLOY_PATH: /opt/lazy-agent-shelf/site
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate catalog
+        run: npm run catalog
+
+      - name: Build website for Seoul path
+        run: npm run website:build
+
+      - name: Prepare SSH
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s\n' "${{ secrets.SEOUL_SSH_KEY }}" > ~/.ssh/seoul.pem
+          chmod 600 ~/.ssh/seoul.pem
+          ssh-keyscan -H "${{ secrets.SEOUL_HOST }}" >> ~/.ssh/known_hosts
+
+      - name: Upload website
+        run: |
+          tar -C dist/website -czf site.tgz .
+          scp -i ~/.ssh/seoul.pem site.tgz "${{ secrets.SEOUL_USER }}@${{ secrets.SEOUL_HOST }}:/tmp/lazy-agent-shelf-site.tgz"
+          ssh -i ~/.ssh/seoul.pem "${{ secrets.SEOUL_USER }}@${{ secrets.SEOUL_HOST }}" "sudo mkdir -p '$DEPLOY_PATH' && sudo find '$DEPLOY_PATH' -mindepth 1 -delete && sudo tar -xzf /tmp/lazy-agent-shelf-site.tgz -C '$DEPLOY_PATH' && rm -f /tmp/lazy-agent-shelf-site.tgz"

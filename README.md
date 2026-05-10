@@ -2,6 +2,7 @@
 
 [![validate](https://github.com/ElevenZhou/lazy-agent-shelf/actions/workflows/validate.yml/badge.svg)](https://github.com/ElevenZhou/lazy-agent-shelf/actions/workflows/validate.yml)
 [![pages](https://github.com/ElevenZhou/lazy-agent-shelf/actions/workflows/pages.yml/badge.svg)](https://github.com/ElevenZhou/lazy-agent-shelf/actions/workflows/pages.yml)
+[![deploy-seoul](https://github.com/ElevenZhou/lazy-agent-shelf/actions/workflows/deploy-seoul.yml/badge.svg)](https://github.com/ElevenZhou/lazy-agent-shelf/actions/workflows/deploy-seoul.yml)
 [![GitHub Pages](https://img.shields.io/badge/site-live-d7ff37?labelColor=17130d)](https://elevenzhou.github.io/lazy-agent-shelf/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-b64020.svg)](LICENSE)
 
@@ -88,6 +89,7 @@ See `docs/roadmap.md`.
 
 ## Recent Updates
 
+- 2026-05-10: Added Seoul server deployment workflow for `https://flaios.com/lazy-agent-shelf/`.
 - 2026-05-10: Bumped package version to `0.1.1` for the multilingual website update.
 - 2026-05-10: Added website language switching for English and Chinese, with localized agent and collection summaries in the generated catalog.
 
