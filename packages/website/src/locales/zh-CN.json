@@ -1,20 +1,20 @@
 {
   "languageLabel": "语言",
   "languageName": "中文",
-  "brandName": "FlaiOS Agents",
-  "signal": "Your AI Flow OS",
-  "eyebrow": "开源智能体控制层",
-  "heroTitle": "让每一次 AI 协作，都有可安装、可迁移、可复用的专业流程。",
-  "heroBody": "FlaiOS Agents 是面向 AI 工作流的智能体货架：把代码审查、产品设计、增长运营、数据分析等专家能力，打包成可直接安装到 Codex、Claude Code、Cursor、OpenCode、VSCode、Trae 的标准化 Agent。",
-  "heroSubline": "不再重复写提示词，不再在工具之间搬运经验；选择一个 Agent 或一组套装，让你的 AI 调用沿着清晰、可控的流程运行。",
+  "brandName": "飞流AI枢纽",
+  "signal": "FlaiOS AI Flow Hub",
+  "eyebrow": "老周自用 AI 枢纽",
+  "heroTitle": "从 AI 入门、选工具，到安装 Agent、编排工作流，一站沉淀。",
+  "heroBody": "飞流AI枢纽基于老周自己的日常 AI 使用经验，把 AI 网站、常用工具、专家 Agent、Codex Skill、工作流、项目模板和实用记忆整理成可搜索、可安装、可提交的开放货架。",
+  "heroSubline": "不是追求数量的泛导航，而是围绕真实任务告诉你：该用哪个网站、哪个工具、哪个 Agent、哪个 Skill，以及它们怎么连成流程。",
   "heroStats": [
     {
       "value": "30",
       "label": "精选 Agent"
     },
     {
-      "value": "12+",
-      "label": "场景标签"
+      "value": "8",
+      "label": "内容门类"
     },
     {
       "value": "7",
@@ -22,12 +22,16 @@
     }
   ],
   "tabs": {
-    "browse": "浏览智能体",
-    "scenes": "常用场景",
-    "aiStarter": "AI使用入门",
-    "usage": "使用方式",
-    "aiTools": "AI工具场景",
-    "models": "顶级大模型"
+    "browse": "Agent货架",
+    "directory": "AI网站导航",
+    "aiStarter": "入门指南",
+    "aiTools": "常用工具",
+    "workflows": "工作流",
+    "workbench": "个人工作台",
+    "setupKits": "环境套件",
+    "projects": "项目集市",
+    "submit": "提交入口",
+    "ccSwitch": "CC Switch"
   },
   "searchPlaceholder": "搜索智能体、工作流、使用场景...",
   "targetPlatform": "目标平台",
@@ -438,5 +442,417 @@
         ]
       }
     ]
+  },
+  "directory": {
+    "signal": "AI Website Nav",
+    "title": "先按任务找 AI 网站，再看老周是否真的推荐。",
+    "body": "AI网站导航负责发现更多入口；常用工具只放高频使用和强推荐；老周精选再从中筛出最值得长期使用的组合。",
+    "searchHint": "搜索网站、任务、标签或使用场景",
+    "categoriesTitle": "第一版类目",
+    "cardLabels": {
+      "bestFor": "适合",
+      "note": "老周备注"
+    },
+    "categories": [
+      {
+        "id": "ai-chat",
+        "name": "AI 对话模型",
+        "body": "ChatGPT、Claude、Gemini、DeepSeek、Kimi、豆包等通用助手。"
+      },
+      {
+        "id": "ai-search",
+        "name": "AI 搜索研究",
+        "body": "带来源检索、研究助手、学术搜索和资料地图。"
+      },
+      {
+        "id": "ai-coding",
+        "name": "AI 编程开发",
+        "body": "Codex、Claude Code、Cursor、OpenCode、Trae、Copilot 等。"
+      },
+      {
+        "id": "ai-writing",
+        "name": "AI 写作内容",
+        "body": "长文、公众号、小红书、SEO、翻译、改写和编辑。"
+      },
+      {
+        "id": "ai-image",
+        "name": "AI 图片设计",
+        "body": "图片生成、海报、品牌视觉、设计素材和电商图。"
+      },
+      {
+        "id": "ai-video",
+        "name": "AI 视频创作",
+        "body": "短视频、数字人、剪辑、脚本到成片流程。"
+      },
+      {
+        "id": "ai-automation",
+        "name": "AI 自动化",
+        "body": "n8n、Make、Zapier、飞书、GitHub Actions 等流程编排。"
+      },
+      {
+        "id": "ai-model-api",
+        "name": "AI 模型/API",
+        "body": "模型榜单、API 平台、推理服务、价格和能力对比。"
+      }
+    ],
+    "featured": [
+      {
+        "name": "ChatGPT",
+        "rating": "S",
+        "body": "通用 AI 助手，适合写作、分析、代码、学习和多模态任务。",
+        "bestFor": [
+          "日常问答",
+          "文档分析",
+          "复杂问题拆解"
+        ],
+        "note": "老周主力通用助手之一。"
+      },
+      {
+        "name": "Perplexity",
+        "rating": "A",
+        "body": "带来源的 AI 搜索与研究入口，适合快速建立资料地图。",
+        "bestFor": [
+          "资料搜索",
+          "竞品初筛",
+          "主题研究"
+        ],
+        "note": "适合作为研究第一跳，再交给 Agent 结构化分析。"
+      },
+      {
+        "name": "Cursor / Codex / Claude Code",
+        "rating": "S",
+        "body": "AI 编程工具组合，适合把项目经验沉淀成可复用流程。",
+        "bestFor": [
+          "代码修改",
+          "仓库分析",
+          "项目协作"
+        ],
+        "note": "和 Agent 货架、Skill 货架强关联。"
+      }
+    ]
+  },
+  "workflowsHub": {
+    "signal": "Workflow OS",
+    "title": "把网站、工具、Agent、Skill 和记忆串成可执行流程。",
+    "body": "工作流不是单个提示词，而是从输入到产出的路径：用什么工具、调用哪个 Agent、需要哪个 Skill、交付什么结果、哪里要人工复核。",
+    "items": [
+      {
+        "name": "一句话提交到飞流AI枢纽",
+        "stage": "收录流程",
+        "body": "把网站、工具、项目、Agent、Skill 或记忆整理成规范内容并提交。",
+        "steps": [
+          "阅读分类规范",
+          "补齐字段",
+          "关联 Agent / Skill",
+          "运行校验"
+        ]
+      },
+      {
+        "name": "从想法到落地页",
+        "stage": "产品增长",
+        "body": "调研市场、命名域名、写定位文案、设计页面并上线。",
+        "steps": [
+          "Market Researcher",
+          "Domain Brand Finder",
+          "Landing Page Copywriter",
+          "Frontend Builder"
+        ]
+      },
+      {
+        "name": "代码质量工作队",
+        "stage": "工程",
+        "body": "用审查、测试、安全、故障定位和仓库入门 Agent 组成协作流程。",
+        "steps": [
+          "code-quality-pack",
+          "lint / test",
+          "review summary",
+          "修复建议"
+        ]
+      }
+    ]
+  },
+  "projectsHub": {
+    "signal": "Project Market",
+    "title": "项目精选先放能复制、能学习、能连接工作流的东西。",
+    "body": "项目集市收录模板项目、开源项目、案例拆解和一键部署项目。重点不是链接数量，而是说明适合谁、怎么用、能学到什么。",
+    "fieldsTitle": "项目提交字段",
+    "fields": [
+      "项目名称和链接",
+      "适合场景和目标用户",
+      "技术栈 / 使用工具",
+      "安装或部署步骤",
+      "关联 Agent / Skill / Workflow",
+      "老周或贡献者备注"
+    ],
+    "items": [
+      {
+        "name": "Lazy Agent Shelf / 飞流AI枢纽",
+        "body": "当前项目本身：从跨工具 Agent 货架升级为 AI 使用枢纽。",
+        "tags": [
+          "open-source",
+          "agent-library",
+          "workflow"
+        ]
+      },
+      {
+        "name": "AI Landing Page Starter",
+        "body": "计划收录：从产品定位到页面上线的模板项目。",
+        "tags": [
+          "planned",
+          "frontend",
+          "growth"
+        ]
+      },
+      {
+        "name": "Feishu Automation Pack",
+        "body": "计划收录：飞书多维表格、群消息、日程和任务的自动化样例。",
+        "tags": [
+          "planned",
+          "feishu",
+          "automation"
+        ]
+      }
+    ]
+  },
+  "submit": {
+    "signal": "Contribution Gate",
+    "title": "人可以提交，Agent 也可以提交。先把入口和规范放清楚。",
+    "body": "飞流AI枢纽支持四种提交方式：让你的 Agent 提交、使用 Codex 技能一句话提交、在网站提交页填写、直接发 Pull Request。",
+    "methods": [
+      {
+        "title": "让你的 Agent 提交",
+        "body": "把 docs/navigation-taxonomy.md 和 docs/submissions.md 发给你的 Agent，让它按规范新增内容并提交 PR。",
+        "command": "请按飞流AI枢纽提交规范，把这个项目整理成 project 提交。"
+      },
+      {
+        "title": "Codex 一句话提交技能",
+        "body": "本仓库已提供 flaios-content-submit 技能，适合把链接、项目、工具、工作流或记忆快速整理成规范内容。",
+        "command": "使用 flaios-content-submit：把这个 GitHub 项目提交到飞流AI枢纽项目集市。"
+      },
+      {
+        "title": "网站提交页面",
+        "body": "第一版先展示字段、模板和流程；后续接入表单、GitHub Issue、PR 自动生成或后台审核。",
+        "command": "选择类型 -> 填字段 -> 生成提交草稿"
+      },
+      {
+        "title": "直接 Pull Request",
+        "body": "熟悉 Git 的朋友可以直接改 content、agents、collections 或 packages/codex-skills 目录。",
+        "command": "npm run catalog && npm run lint:agents && npm run website:build"
+      }
+    ],
+    "typesTitle": "可提交内容类型",
+    "types": [
+      "AI 网站",
+      "常用工具",
+      "Agent",
+      "Skill",
+      "工作流",
+      "项目",
+      "记忆",
+      "指南"
+    ],
+    "docsTitle": "贡献者先读",
+    "docs": [
+      "docs/navigation-taxonomy.md",
+      "docs/submissions.md",
+      "schemas/content-item.schema.json"
+    ]
+  },
+  "setupKits": {
+    "signal": "Setup Kits",
+    "title": "把换电脑、装环境、导入常用网站这件事，变成可交给 Agent 的套件。",
+    "body": "环境套件收录软件清单、常用网站、推荐目录结构、安装脚本和 Agent 接管指令。它介于“常用工具”和“项目集市”之间：既能展示，也能执行。",
+    "warningTitle": "当前安全提醒",
+    "warningBody": "personal-ai-workstation 的 websites.yaml 来自 Chrome 历史，可能包含私有后台、内网地址和工作域名；公开前必须清理。Windows bootstrap.ps1 已修复 DryRun 编码/解析问题；真实安装前仍建议先预演并人工确认敏感项。",
+    "items": [
+      {
+        "name": "个人 AI 工作站",
+        "status": "MVP / draft",
+        "body": "用于新 Windows/macOS 电脑初始化的软件、网站、目录和 Agent 接管指令。",
+        "path": "setup-kits/personal-ai-workstation",
+        "modes": [
+          "基础环境",
+          "AI 工具",
+          "完整安装"
+        ],
+        "includes": [
+          "apps.yaml / apps.csv",
+          "websites.yaml / websites.csv",
+          "folders.yaml",
+          "general-setup-agent.md",
+          "scripts/windows/bootstrap.ps1"
+        ]
+      },
+      {
+        "name": "给朋友快速装机版",
+        "status": "planned",
+        "body": "轻量、低风险、少账号依赖，适合帮朋友或家人快速初始化电脑。",
+        "path": "setup-kits/friend-basic-setup",
+        "modes": [
+          "基础软件",
+          "常用网站",
+          "安全检查"
+        ],
+        "includes": [
+          "浏览器",
+          "输入法",
+          "压缩工具",
+          "远程协助",
+          "基础 AI 入口"
+        ]
+      },
+      {
+        "name": "开发者工作站",
+        "status": "planned",
+        "body": "面向开发者的 Node、Python、Git、Docker、IDE、AI Coding 和部署工具集合。",
+        "path": "setup-kits/developer-workstation",
+        "modes": [
+          "Web 开发",
+          "AI 开发",
+          "DevOps"
+        ],
+        "includes": [
+          "运行时",
+          "编辑器",
+          "CLI",
+          "数据库",
+          "部署工具"
+        ]
+      }
+    ],
+    "labels": {
+      "status": "状态",
+      "path": "路径",
+      "modes": "模式",
+      "includes": "包含"
+    },
+    "commandTitle": "可复制命令",
+    "commands": [
+      {
+        "label": "查看套件",
+        "body": "先看模式、入口文件和安全提醒。",
+        "template": "lazy-agent-shelf setup show {id}"
+      },
+      {
+        "label": "导出分享包",
+        "body": "导出 apps、公开网站书签、README、脚本和 Agent Prompt。",
+        "template": "lazy-agent-shelf setup export {id} --out ./generated/setup-share"
+      },
+      {
+        "label": "导出私有备份",
+        "body": "包含完整 websites.csv，仅用于自己的备份，不建议公开。",
+        "template": "lazy-agent-shelf setup export {id} --out ./generated/setup-private --include-private"
+      },
+      {
+        "label": "导出 Windows 脚本",
+        "body": "复制 bootstrap.ps1 到指定目录。",
+        "template": "lazy-agent-shelf setup script {id} --platform windows --out ./generated/setup"
+      },
+      {
+        "label": "导出 Codex Skill",
+        "body": "生成可安装到 Codex 的初始化 Agent。",
+        "template": "lazy-agent-shelf setup agent {id} --target codex --out ./generated/setup/codex"
+      },
+      {
+        "label": "DryRun 预演",
+        "body": "真实安装前先预演，确认软件、目录和风险项。",
+        "template": "powershell -NoProfile -ExecutionPolicy Bypass -File ./setup-kits/{id}/scripts/windows/bootstrap.ps1 -Mode Basic -DryRun"
+      }
+    ],
+    "detailLabels": {
+      "appSummary": "软件概览",
+      "required": "必装",
+      "recommended": "推荐",
+      "optional": "可选",
+      "auto": "自动安装",
+      "manual": "手动安装",
+      "secretRequired": "涉及密钥",
+      "requiredApps": "必装软件",
+      "recommendedApps": "推荐软件",
+      "optionalApps": "可选软件",
+      "folders": "目录结构",
+      "publicWebsites": "公开网站样例",
+      "safety": "安全规则",
+      "visitCount": "访问",
+      "installMode": "安装",
+      "secret": "密钥",
+      "yes": "是",
+      "no": "否",
+      "siteName": "网站名称",
+      "siteUrl": "网址"
+    }
+  },
+  "workbench": {
+    "signal": "Personal Master OS",
+    "title": "把资产、项目、关系、进展、风险和计划变成 Agent 可读的个人状态层。",
+    "body": "个人工作台只呈现情况，不直接编辑真实项目文件。它让 Agent 在接手任务前能快速理解你拥有什么、正在做什么、卡在哪里、下一步是什么。",
+    "summaryLabels": {
+      "projects": "项目",
+      "activeProjects": "进行中",
+      "highRisks": "高风险",
+      "activePlans": "计划",
+      "assets": "资产",
+      "relations": "关系"
+    },
+    "sections": {
+      "projects": "项目状态",
+      "risks": "当前风险",
+      "plans": "近期计划",
+      "progress": "进展记录",
+      "assets": "资产快照",
+      "relations": "关系网络"
+    },
+    "fields": {
+      "stage": "阶段",
+      "status": "状态",
+      "risk": "风险",
+      "next": "下一步",
+      "mitigation": "应对",
+      "horizon": "周期"
+    }
+  },
+  "ccSwitch": {
+    "signal": "Codex Endpoint Setup",
+    "title": "用 CC Switch 给 Codex 配好 FlaiOS 端点。",
+    "body": "给同事看的最短路径：先下载 CC Switch，再新增 Codex 可用的 OpenAI 兼容端点，最后用测试 Key 验证能连通。",
+    "downloadLabel": "下载 CC Switch",
+    "downloadUrl": "https://github.com/farion1231/cc-switch/releases",
+    "homepageLabel": "查看官网说明",
+    "homepageUrl": "https://www.ccswitch.io/zh/",
+    "steps": [
+      {
+        "kicker": "Download",
+        "title": "下载并打开 CC Switch",
+        "body": "进入 GitHub Releases，下载适合自己系统的安装包；如果浏览器拦截，确认来源是 farion1231/cc-switch 后再继续。"
+      },
+      {
+        "kicker": "Provider",
+        "title": "新增 Codex 端点配置",
+        "body": "在 CC Switch 里找到供应商、端点或 OpenAI Compatible 配置入口，新增一个给 Codex 使用的 FlaiOS 配置。"
+      },
+      {
+        "kicker": "Verify",
+        "title": "保存后切换并测试",
+        "body": "保存配置，切换到这个端点，再用 Codex 发起一次简单请求；能正常返回就说明同事的本地环境已经接通。"
+      }
+    ],
+    "config": {
+      "kicker": "Copy These Values",
+      "title": "Codex 端点参数",
+      "body": "下面两项直接复制到 CC Switch 的端点配置里。Key 是测试 Key，仅用于连通性验证，不要当生产凭证长期使用。",
+      "endpointLabel": "端点地址",
+      "endpoint": "https://flaios.com/v1",
+      "keyLabel": "测试 Key",
+      "key": "cr-xxxxxxxxx"
+    },
+    "checklistTitle": "给同事检查这 4 件事",
+    "checklist": [
+      "端点地址必须带 /v1： https://flaios.com/v1",
+      "Key 先使用 cr-xxxxxxxxx 做连通性测试",
+      "如果工具要求模型名，先选择当前可用的 Codex / OpenAI 兼容模型",
+      "测试通过后，再换成个人正式 Key 或团队分配的 Key"
+    ],
+    "noteTitle": "安全提醒",
+    "noteBody": "这个页面只放测试 Key 占位信息，方便同事快速照着配置。正式 Key 不要写进公开页面、截图或仓库。"
   }
 }

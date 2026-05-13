@@ -1,20 +1,20 @@
 {
   "languageLabel": "Language",
   "languageName": "English",
-  "brandName": "FlaiOS Agents",
-  "signal": "Your AI Flow OS",
-  "eyebrow": "Open-source agent control layer",
-  "heroTitle": "Installable expert flows for every AI coding tool you use.",
-  "heroBody": "FlaiOS Agents is the agent shelf for your AI Flow OS: code review, product design, growth, data, operations, and safety specialists packaged for Codex, Claude Code, Cursor, OpenCode, VSCode, Trae, and portable AGENTS.md workflows.",
-  "heroSubline": "Stop rewriting prompts and moving habits by hand. Pick one agent or a flow pack, then let every AI call run through a clearer, controlled workflow.",
+  "brandName": "FlaiOS Hub",
+  "signal": "AI Flow Hub",
+  "eyebrow": "Lao Zhou's AI hub",
+  "heroTitle": "From AI starter guides to tools, agents, skills, workflows, and projects.",
+  "heroBody": "FlaiOS Hub turns Lao Zhou’s everyday AI usage into a searchable and installable shelf of AI websites, tools, expert agents, Codex skills, workflows, project templates, and reusable memories.",
+  "heroSubline": "Not a raw link dump: it tells you which website, tool, agent, or skill to use for a real task, and how to connect them into a flow.",
   "heroStats": [
     {
       "value": "30",
       "label": "curated agents"
     },
     {
-      "value": "12+",
-      "label": "scenario tags"
+      "value": "8",
+      "label": "content types"
     },
     {
       "value": "7",
@@ -22,12 +22,16 @@
     }
   ],
   "tabs": {
-    "browse": "Browse Agents",
-    "scenes": "Common Scenes",
-    "aiStarter": "AI Starter",
-    "usage": "How to Use",
-    "aiTools": "AI Tool Scenes",
-    "models": "Top Models"
+    "browse": "Agents",
+    "directory": "AI Websites",
+    "aiStarter": "Starter",
+    "aiTools": "Tools",
+    "workflows": "Workflows",
+    "workbench": "Workbench",
+    "setupKits": "Setup Kits",
+    "projects": "Projects",
+    "submit": "Submit",
+    "ccSwitch": "CC Switch"
   },
   "searchPlaceholder": "Search agents, workflows, use cases...",
   "targetPlatform": "Target platform",
@@ -438,5 +442,417 @@
         ]
       }
     ]
+  },
+  "directory": {
+    "signal": "AI Website Nav",
+    "title": "Find AI websites by task, then check whether Lao Zhou actually recommends them.",
+    "body": "The website directory is broad discovery; common tools are high-frequency recommendations; Lao Zhou picks are the strongest long-term stack.",
+    "searchHint": "Search websites, tasks, tags, or use cases",
+    "categoriesTitle": "First categories",
+    "cardLabels": {
+      "bestFor": "Best for",
+      "note": "Lao Zhou note"
+    },
+    "categories": [
+      {
+        "id": "ai-chat",
+        "name": "AI chat models",
+        "body": "ChatGPT, Claude, Gemini, DeepSeek, Kimi, Doubao, and general assistants."
+      },
+      {
+        "id": "ai-search",
+        "name": "AI search and research",
+        "body": "Source-aware search, research assistants, academic search, and discovery maps."
+      },
+      {
+        "id": "ai-coding",
+        "name": "AI coding",
+        "body": "Codex, Claude Code, Cursor, OpenCode, Trae, Copilot, and IDE workflows."
+      },
+      {
+        "id": "ai-writing",
+        "name": "AI writing",
+        "body": "Long-form writing, social content, SEO, translation, rewriting, and editing."
+      },
+      {
+        "id": "ai-image",
+        "name": "AI image and design",
+        "body": "Image generation, posters, brand visuals, assets, and ecommerce graphics."
+      },
+      {
+        "id": "ai-video",
+        "name": "AI video",
+        "body": "Short videos, avatars, editing, scripts, and production flows."
+      },
+      {
+        "id": "ai-automation",
+        "name": "AI automation",
+        "body": "n8n, Make, Zapier, Lark, GitHub Actions, and workflow orchestration."
+      },
+      {
+        "id": "ai-model-api",
+        "name": "AI models and APIs",
+        "body": "Model leaderboards, API platforms, inference services, pricing, and capability comparisons."
+      }
+    ],
+    "featured": [
+      {
+        "name": "ChatGPT",
+        "rating": "S",
+        "body": "General AI assistant for writing, analysis, coding, learning, and multimodal tasks.",
+        "bestFor": [
+          "Daily Q&A",
+          "Document analysis",
+          "Problem decomposition"
+        ],
+        "note": "One of Lao Zhou’s main general assistants."
+      },
+      {
+        "name": "Perplexity",
+        "rating": "A",
+        "body": "Source-aware AI search and research entry point.",
+        "bestFor": [
+          "Research",
+          "Competitor discovery",
+          "Topic mapping"
+        ],
+        "note": "Good first research jump before structured agent analysis."
+      },
+      {
+        "name": "Cursor / Codex / Claude Code",
+        "rating": "S",
+        "body": "AI coding stack for turning project habits into reusable workflows.",
+        "bestFor": [
+          "Code edits",
+          "Repo analysis",
+          "Project work"
+        ],
+        "note": "Strongly connected with the Agent and Skill shelves."
+      }
+    ]
+  },
+  "workflowsHub": {
+    "signal": "Workflow OS",
+    "title": "Connect websites, tools, agents, skills, and memories into executable flows.",
+    "body": "A workflow is not one prompt. It is the path from input to output: tools, agents, skills, deliverables, and human review points.",
+    "items": [
+      {
+        "name": "One-line submit to FlaiOS",
+        "stage": "Contribution",
+        "body": "Normalize a website, tool, project, agent, skill, or memory into a contribution.",
+        "steps": [
+          "Read taxonomy",
+          "Fill fields",
+          "Link agents / skills",
+          "Run validation"
+        ]
+      },
+      {
+        "name": "Idea to landing page",
+        "stage": "Product growth",
+        "body": "Research the market, name the product, write positioning, design the page, and ship.",
+        "steps": [
+          "Market Researcher",
+          "Domain Brand Finder",
+          "Landing Page Copywriter",
+          "Frontend Builder"
+        ]
+      },
+      {
+        "name": "Code quality squad",
+        "stage": "Engineering",
+        "body": "Use review, testing, security, debugging, and onboarding agents together.",
+        "steps": [
+          "code-quality-pack",
+          "lint / test",
+          "review summary",
+          "fix plan"
+        ]
+      }
+    ]
+  },
+  "projectsHub": {
+    "signal": "Project Market",
+    "title": "Curate projects that can be copied, learned from, and connected to workflows.",
+    "body": "The project market collects templates, open-source projects, case studies, and deployable examples. The priority is context, setup, and learning value.",
+    "fieldsTitle": "Project fields",
+    "fields": [
+      "Name and link",
+      "Use case and audience",
+      "Stack / tools",
+      "Setup or deploy steps",
+      "Related agents / skills / workflows",
+      "Owner or contributor note"
+    ],
+    "items": [
+      {
+        "name": "Lazy Agent Shelf / FlaiOS Hub",
+        "body": "This project: evolving from a cross-tool agent shelf into a full AI usage hub.",
+        "tags": [
+          "open-source",
+          "agent-library",
+          "workflow"
+        ]
+      },
+      {
+        "name": "AI Landing Page Starter",
+        "body": "Planned template from positioning to shipped landing page.",
+        "tags": [
+          "planned",
+          "frontend",
+          "growth"
+        ]
+      },
+      {
+        "name": "Lark Automation Pack",
+        "body": "Planned examples for Base, chat, calendar, tasks, and operations automation.",
+        "tags": [
+          "planned",
+          "lark",
+          "automation"
+        ]
+      }
+    ]
+  },
+  "submit": {
+    "signal": "Contribution Gate",
+    "title": "Humans can submit. Agents can submit too.",
+    "body": "FlaiOS Hub supports four contribution paths: agent-assisted submission, one-line Codex skill submission, website submission, and direct Pull Request.",
+    "methods": [
+      {
+        "title": "Ask your agent to submit",
+        "body": "Give docs/navigation-taxonomy.md and docs/submissions.md to your agent, then ask it to add content and prepare a PR.",
+        "command": "Follow the FlaiOS submission spec and turn this project into a project entry."
+      },
+      {
+        "title": "Codex one-line submit skill",
+        "body": "The repo now includes flaios-content-submit for turning links, projects, tools, workflows, and memories into normalized entries.",
+        "command": "Use flaios-content-submit: submit this GitHub project to the FlaiOS project market."
+      },
+      {
+        "title": "Website submission page",
+        "body": "V1 lists fields, templates, and process; later it can connect to forms, GitHub Issues, generated PRs, or review queues.",
+        "command": "Choose type -> fill fields -> generate draft"
+      },
+      {
+        "title": "Direct Pull Request",
+        "body": "Git users can edit content, agents, collections, or packages/codex-skills directly.",
+        "command": "npm run catalog && npm run lint:agents && npm run website:build"
+      }
+    ],
+    "typesTitle": "Accepted content types",
+    "types": [
+      "AI website",
+      "Tool",
+      "Agent",
+      "Skill",
+      "Workflow",
+      "Project",
+      "Memory",
+      "Guide"
+    ],
+    "docsTitle": "Read first",
+    "docs": [
+      "docs/navigation-taxonomy.md",
+      "docs/submissions.md",
+      "schemas/content-item.schema.json"
+    ]
+  },
+  "setupKits": {
+    "signal": "Setup Kits",
+    "title": "Turn new-computer setup, app installs, and website lists into agent-ready kits.",
+    "body": "Setup kits collect software inventories, common websites, recommended folders, install scripts, and agent handoff prompts. They sit between common tools and project templates: browsable, shareable, and executable.",
+    "warningTitle": "Current safety note",
+    "warningBody": "personal-ai-workstation websites.yaml comes from Chrome history and may include private admin, intranet, or work domains. Clean it before public release. Windows bootstrap.ps1 now supports DryRun after parsing/encoding fixes; run a preview and confirm sensitive items before real installs.",
+    "items": [
+      {
+        "name": "Personal AI Workstation",
+        "status": "MVP / draft",
+        "body": "Software, websites, folders, and agent handoff instructions for initializing a new Windows/macOS machine.",
+        "path": "setup-kits/personal-ai-workstation",
+        "modes": [
+          "Basic environment",
+          "AI tools",
+          "Full install"
+        ],
+        "includes": [
+          "apps.yaml / apps.csv",
+          "websites.yaml / websites.csv",
+          "folders.yaml",
+          "general-setup-agent.md",
+          "scripts/windows/bootstrap.ps1"
+        ]
+      },
+      {
+        "name": "Friend Basic Setup",
+        "status": "planned",
+        "body": "A lightweight, low-risk setup for friends and family with fewer account dependencies.",
+        "path": "setup-kits/friend-basic-setup",
+        "modes": [
+          "Basic apps",
+          "Common websites",
+          "Safety check"
+        ],
+        "includes": [
+          "Browser",
+          "Input method",
+          "Archive tool",
+          "Remote help",
+          "Basic AI entry points"
+        ]
+      },
+      {
+        "name": "Developer Workstation",
+        "status": "planned",
+        "body": "Node, Python, Git, Docker, IDEs, AI coding tools, and deployment utilities for developers.",
+        "path": "setup-kits/developer-workstation",
+        "modes": [
+          "Web dev",
+          "AI dev",
+          "DevOps"
+        ],
+        "includes": [
+          "Runtimes",
+          "Editors",
+          "CLI",
+          "Databases",
+          "Deployment tools"
+        ]
+      }
+    ],
+    "labels": {
+      "status": "Status",
+      "path": "Path",
+      "modes": "Modes",
+      "includes": "Includes"
+    },
+    "commandTitle": "Copy commands",
+    "commands": [
+      {
+        "label": "Show kit",
+        "body": "Inspect modes, entrypoints, and safety notes first.",
+        "template": "lazy-agent-shelf setup show {id}"
+      },
+      {
+        "label": "Export share pack",
+        "body": "Export apps, public website bookmarks, README, scripts, and agent prompt.",
+        "template": "lazy-agent-shelf setup export {id} --out ./generated/setup-share"
+      },
+      {
+        "label": "Export private backup",
+        "body": "Includes full websites.csv; use only for private backups.",
+        "template": "lazy-agent-shelf setup export {id} --out ./generated/setup-private --include-private"
+      },
+      {
+        "label": "Export Windows script",
+        "body": "Copy bootstrap.ps1 into a chosen directory.",
+        "template": "lazy-agent-shelf setup script {id} --platform windows --out ./generated/setup"
+      },
+      {
+        "label": "Export Codex Skill",
+        "body": "Generate a Codex-ready setup agent.",
+        "template": "lazy-agent-shelf setup agent {id} --target codex --out ./generated/setup/codex"
+      },
+      {
+        "label": "DryRun preview",
+        "body": "Preview directories, installs, and risks before real setup.",
+        "template": "powershell -NoProfile -ExecutionPolicy Bypass -File ./setup-kits/{id}/scripts/windows/bootstrap.ps1 -Mode Basic -DryRun"
+      }
+    ],
+    "detailLabels": {
+      "appSummary": "App summary",
+      "required": "Required",
+      "recommended": "Recommended",
+      "optional": "Optional",
+      "auto": "Auto install",
+      "manual": "Manual install",
+      "secretRequired": "Secrets",
+      "requiredApps": "Required apps",
+      "recommendedApps": "Recommended apps",
+      "optionalApps": "Optional apps",
+      "folders": "Folders",
+      "publicWebsites": "Public website examples",
+      "safety": "Safety rules",
+      "visitCount": "Visits",
+      "installMode": "Install",
+      "secret": "Secret",
+      "yes": "Yes",
+      "no": "No",
+      "siteName": "Name",
+      "siteUrl": "URL"
+    }
+  },
+  "workbench": {
+    "signal": "Personal Master OS",
+    "title": "Turn assets, projects, relations, progress, risks, and plans into an agent-readable personal state layer.",
+    "body": "The workbench presents state only. It does not edit real project files. It helps agents understand what you own, what is active, what is blocked, and what comes next.",
+    "summaryLabels": {
+      "projects": "Projects",
+      "activeProjects": "Active",
+      "highRisks": "High risks",
+      "activePlans": "Plans",
+      "assets": "Assets",
+      "relations": "Relations"
+    },
+    "sections": {
+      "projects": "Project status",
+      "risks": "Current risks",
+      "plans": "Near-term plans",
+      "progress": "Progress log",
+      "assets": "Assets",
+      "relations": "Relations"
+    },
+    "fields": {
+      "stage": "Stage",
+      "status": "Status",
+      "risk": "Risk",
+      "next": "Next",
+      "mitigation": "Mitigation",
+      "horizon": "Horizon"
+    }
+  },
+  "ccSwitch": {
+    "signal": "Codex Endpoint Setup",
+    "title": "Configure the FlaiOS endpoint for Codex with CC Switch.",
+    "body": "A short teammate-facing guide: download CC Switch, add an OpenAI-compatible endpoint for Codex, then verify it with the test key.",
+    "downloadLabel": "Download CC Switch",
+    "downloadUrl": "https://github.com/farion1231/cc-switch/releases",
+    "homepageLabel": "Read CC Switch docs",
+    "homepageUrl": "https://www.ccswitch.io/zh/",
+    "steps": [
+      {
+        "kicker": "Download",
+        "title": "Download and open CC Switch",
+        "body": "Open GitHub Releases and download the package for your system. If the browser warns you, verify the source is farion1231/cc-switch before continuing."
+      },
+      {
+        "kicker": "Provider",
+        "title": "Add a Codex endpoint",
+        "body": "In CC Switch, find the provider, endpoint, or OpenAI Compatible settings and add a FlaiOS configuration for Codex."
+      },
+      {
+        "kicker": "Verify",
+        "title": "Save, switch, and test",
+        "body": "Save the profile, switch to it, and send a simple Codex request. A normal response means the local environment is connected."
+      }
+    ],
+    "config": {
+      "kicker": "Copy These Values",
+      "title": "Codex endpoint values",
+      "body": "Copy these values into the CC Switch endpoint configuration. The key is for connectivity testing only, not long-term production use.",
+      "endpointLabel": "Endpoint URL",
+      "endpoint": "https://flaios.com/v1",
+      "keyLabel": "Test key",
+      "key": "cr-xxxxxxxxx"
+    },
+    "checklistTitle": "Teammate checklist",
+    "checklist": [
+      "Endpoint URL includes /v1: https://flaios.com/v1",
+      "Start with cr-xxxxxxxxx for connectivity testing",
+      "If the tool asks for a model, pick the available Codex / OpenAI-compatible model first",
+      "After verification, replace the test key with a personal or team-issued key"
+    ],
+    "noteTitle": "Security note",
+    "noteBody": "This page only shows a test-key placeholder so teammates can configure quickly. Do not publish real keys in pages, screenshots, or the repository."
   }
 }
