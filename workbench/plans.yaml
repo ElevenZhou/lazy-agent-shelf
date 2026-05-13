@@ -1,0 +1,18 @@
+items:
+  - id: workbench-v1
+    horizon: short
+    status: active
+    title: 个人工作台 v1
+    goals:
+      - 新增结构化 workbench 数据层。
+      - 新增个人工作台网站栏目。
+      - 新增 personal-workbench Codex Skill。
+      - 让 Agent 可以按规范更新项目、风险、进展和计划。
+  - id: setup-kit-next
+    horizon: short
+    status: active
+    title: 环境套件下一步
+    goals:
+      - 继续补软件官方链接。
+      - 支持 setup export zip。
+      - 拆分公开网站清单与私有历史清单。

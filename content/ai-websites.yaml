@@ -1,0 +1,36 @@
+# AI website navigation seed entries. Add new items using schemas/content-item.schema.json.
+items:
+  - id: chatgpt
+    type: ai_website
+    name: ChatGPT
+    url: https://chatgpt.com
+    category: ai/chat
+    tags: [global, beginner-friendly, multimodal, laozhou-s]
+    one_liner: 通用 AI 助手，适合写作、分析、代码、学习和多模态任务。
+    best_for: [日常问答, 文档分析, 代码解释, 复杂问题拆解]
+    not_good_for: [需要完全确定的法律、医疗、投资结论]
+    pricing: 免费 + 付费
+    china_access: unstable
+    rating: S
+    owner_note: 老周主力通用助手之一，适合复杂问题拆解和文档协作。
+    related_agents: [product-manager, data-analyst, code-reviewer]
+    related_skills: [Memory]
+    related_workflows: [research-to-report]
+    status: draft
+  - id: perplexity
+    type: ai_website
+    name: Perplexity
+    url: https://www.perplexity.ai
+    category: ai/search
+    tags: [global, research, source-aware, laozhou-a]
+    one_liner: 带来源的 AI 搜索与研究入口，适合快速建立资料地图。
+    best_for: [资料搜索, 竞品初筛, 新闻线索, 主题研究]
+    not_good_for: [替代严肃引用核查, 直接做最终商业决策]
+    pricing: 免费 + 付费
+    china_access: unstable
+    rating: A
+    owner_note: 适合作为研究第一跳，再交给 Agent 做结构化分析。
+    related_agents: [market-researcher, seo-strategist]
+    related_skills: []
+    related_workflows: [research-to-report]
+    status: draft

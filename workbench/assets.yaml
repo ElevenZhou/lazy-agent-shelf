@@ -1,0 +1,19 @@
+items:
+  - id: agents-flaios-com
+    name: agents.flaios.com
+    type: domain
+    status: active
+    summary: 飞流AI枢纽线上入口域名。
+    related_projects: [flaios-hub]
+  - id: lazy-agent-shelf-repo
+    name: Lazy Agent Shelf repository
+    type: repository
+    status: active
+    summary: 飞流AI枢纽代码与内容源仓库。
+    related_projects: [flaios-hub]
+  - id: personal-ai-workstation-kit
+    name: 个人 AI 工作站套件
+    type: setup_kit
+    status: building
+    summary: 可分享、可导出、可交给 Agent 的电脑初始化资产。
+    related_projects: [personal-ai-workstation]

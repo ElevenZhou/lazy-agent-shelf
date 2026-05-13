@@ -1,0 +1,15 @@
+items:
+  - id: lazy-agent-shelf
+    type: project
+    name: Lazy Agent Shelf / 飞流AI枢纽
+    category: ai/automation
+    tags: [open-source, agent-library, workflow, laozhou-s]
+    one_liner: 跨工具 Agent 与 Skill 货架，把专家流程导出到 Codex、Claude Code、Cursor、OpenCode、VSCode、Trae 等工具。
+    best_for: [沉淀专家 Agent, 构建 AI 工作流导航, 给团队共享可复用流程]
+    not_good_for: [替代目标 AI 工具运行任务, 收录未经验证的泛导航链接]
+    rating: S
+    owner_note: 当前项目本身，正在从 Agent 货架扩展为 AI 使用枢纽。
+    related_agents: [agent-quality-evaluator, prompt-injection-auditor]
+    related_skills: [flaios-content-submit]
+    related_workflows: [submit-to-flaios]
+    status: draft

@@ -6,8 +6,10 @@
   "type": "module",
   "scripts": {
     "lint:agents": "node packages/cli/bin/lazy-agent-shelf.js lint",
+    "lint:hub": "node packages/cli/bin/lazy-agent-shelf.js lint:hub",
     "build:agents": "node packages/cli/bin/lazy-agent-shelf.js build --out generated",
     "catalog": "node packages/cli/bin/lazy-agent-shelf.js catalog --out packages/website/src/catalog.json",
+    "hub:catalog": "node packages/cli/bin/lazy-agent-shelf.js hub-catalog --out packages/website/src/hub-catalog.json",
     "list": "node packages/cli/bin/lazy-agent-shelf.js list",
     "website:dev": "vite --host 127.0.0.1 --port 5173 packages/website",
     "website:build": "vite build packages/website --config packages/website/vite.config.js --outDir ../../dist/website --emptyOutDir"
@@ -18,9 +20,9 @@
   },
   "dependencies": {
     "@vitejs/plugin-react": "latest",
-    "vite": "latest",
     "react": "latest",
-    "react-dom": "latest"
-  },
-  "devDependencies": {}
+    "react-dom": "latest",
+    "vite": "latest",
+    "yaml": "^2.9.0"
+  }
 }

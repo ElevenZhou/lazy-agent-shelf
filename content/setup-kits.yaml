@@ -1,0 +1,21 @@
+items:
+  - id: personal-ai-workstation
+    type: setup_kit
+    name: 个人 AI 工作站 Setup Kit
+    category: setup/ai-workstation
+    tags: [windows, mac, ai-coding, workstation, agent-assisted, laozhou-s]
+    one_liner: 用于新 Windows/macOS 电脑初始化的软件、网站、目录结构和 Agent 接管指令。
+    best_for: [新电脑初始化, 帮朋友快速装机, AI 编程环境搭建, 把个人常用网站和软件结构化]
+    not_good_for: [未经清理直接公开浏览器历史, 自动处理账号登录和密钥, 无人工确认的付费或管理员操作]
+    rating: S
+    owner_note: 当前处于 MVP；websites.yaml 来自 Chrome 历史，公开前必须清理私有域名、内网地址和后台入口；Windows bootstrap 脚本已修复 DryRun 编码/解析问题，真实安装前仍需先预演。
+    repo_path: setup-kits/personal-ai-workstation
+    entrypoints:
+      kit: setup-kits/personal-ai-workstation/kit.yaml
+      readme: setup-kits/personal-ai-workstation/README.md
+      agent_prompt: setup-kits/personal-ai-workstation/agent-prompts/general-setup-agent.md
+      windows_script: setup-kits/personal-ai-workstation/scripts/windows/bootstrap.ps1
+    related_agents: [repo-onboarding-guide, automation-workflow-designer]
+    related_skills: [flaios-content-submit]
+    related_workflows: [personal-ai-workstation-bootstrap, submit-to-flaios]
+    status: draft

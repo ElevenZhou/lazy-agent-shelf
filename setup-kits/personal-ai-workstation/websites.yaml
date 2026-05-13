@@ -1,0 +1,704 @@
+# Personal website shortlist
+# Source: Chrome history summary, last 30 days, min 2 visits, top 100.
+# Review before sharing publicly; this file may contain private admin or intranet domains.
+websites:
+  - domain: "api.yumiai.art"
+    name: "api.yumiai.art"
+    url: "https://api.yumiai.art/"
+    group: "service-admin"
+    visit_count_30d: 1099
+    typed_count_30d: 44
+    last_visit_at: "2026-05-12 12:07:51"
+  - domain: "ecnuknde55rf.feishu.cn"
+    name: "ecnuknde55rf.feishu.cn"
+    url: "https://ecnuknde55rf.feishu.cn/"
+    group: "work"
+    visit_count_30d: 481
+    typed_count_30d: 21
+    last_visit_at: "2026-05-12 10:31:16"
+  - domain: "open.feishu.cn"
+    name: "open.feishu.cn"
+    url: "https://open.feishu.cn/"
+    group: "work"
+    visit_count_30d: 381
+    typed_count_30d: 22
+    last_visit_at: "2026-05-11 23:03:00"
+  - domain: "joinquant.com"
+    name: "joinquant.com"
+    url: "https://joinquant.com/"
+    group: "trading"
+    visit_count_30d: 324
+    typed_count_30d: 10
+    last_visit_at: "2026-05-11 22:54:03"
+  - domain: "192.168.31.1"
+    name: "192.168.31.1"
+    url: "http://192.168.31.1/"
+    group: "local"
+    visit_count_30d: 293
+    typed_count_30d: 8
+    last_visit_at: "2026-05-10 11:13:40"
+  - domain: "baidu.com"
+    name: "baidu.com"
+    url: "https://baidu.com/"
+    group: "search"
+    visit_count_30d: 271
+    typed_count_30d: 59
+    last_visit_at: "2026-05-12 11:24:35"
+  - domain: "api2.yumiai.art"
+    name: "api2.yumiai.art"
+    url: "https://api2.yumiai.art/"
+    group: "service-admin"
+    visit_count_30d: 236
+    typed_count_30d: 10
+    last_visit_at: "2026-05-10 02:03:06"
+  - domain: "console.cloud.tencent.com"
+    name: "console.cloud.tencent.com"
+    url: "https://console.cloud.tencent.com/"
+    group: "common"
+    visit_count_30d: 183
+    typed_count_30d: 5
+    last_visit_at: "2026-05-12 01:36:32"
+  - domain: "150.109.233.152"
+    name: "150.109.233.152"
+    url: "https://150.109.233.152/"
+    group: "common"
+    visit_count_30d: 174
+    typed_count_30d: 4
+    last_visit_at: "2026-05-10 03:27:20"
+  - domain: "google.com"
+    name: "google.com"
+    url: "https://google.com/"
+    group: "search"
+    visit_count_30d: 164
+    typed_count_30d: 23
+    last_visit_at: "2026-05-10 22:57:27"
+  - domain: "1stformations.co.uk"
+    name: "1stformations.co.uk"
+    url: "https://1stformations.co.uk/"
+    group: "common"
+    visit_count_30d: 154
+    typed_count_30d: 1
+    last_visit_at: "2026-05-06 08:01:17"
+  - domain: "github.com"
+    name: "github.com"
+    url: "https://github.com/"
+    group: "development"
+    visit_count_30d: 146
+    typed_count_30d: 29
+    last_visit_at: "2026-05-12 10:03:19"
+  - domain: "tax.service.gov.uk"
+    name: "tax.service.gov.uk"
+    url: "https://tax.service.gov.uk/"
+    group: "common"
+    visit_count_30d: 139
+    typed_count_30d: 1
+    last_visit_at: "2026-04-26 23:27:08"
+  - domain: "merchant.vccvip.top"
+    name: "merchant.vccvip.top"
+    url: "https://merchant.vccvip.top/"
+    group: "common"
+    visit_count_30d: 132
+    typed_count_30d: 0
+    last_visit_at: "2026-05-12 12:18:49"
+  - domain: "coinglass.com"
+    name: "coinglass.com"
+    url: "https://coinglass.com/"
+    group: "common"
+    visit_count_30d: 132
+    typed_count_30d: 14
+    last_visit_at: "2026-05-12 03:49:04"
+  - domain: "accounts.google.com"
+    name: "accounts.google.com"
+    url: "https://accounts.google.com/"
+    group: "search"
+    visit_count_30d: 131
+    typed_count_30d: 0
+    last_visit_at: "2026-05-08 03:08:27"
+  - domain: "app.proxy-cheap.com"
+    name: "app.proxy-cheap.com"
+    url: "https://app.proxy-cheap.com/"
+    group: "common"
+    visit_count_30d: 122
+    typed_count_30d: 1
+    last_visit_at: "2026-05-05 23:59:58"
+  - domain: "api3.yumiai.art"
+    name: "api3.yumiai.art"
+    url: "https://api3.yumiai.art/"
+    group: "service-admin"
+    visit_count_30d: 114
+    typed_count_30d: 4
+    last_visit_at: "2026-05-08 12:38:44"
+  - domain: "lisahost.com"
+    name: "lisahost.com"
+    url: "https://lisahost.com/"
+    group: "common"
+    visit_count_30d: 109
+    typed_count_30d: 3
+    last_visit_at: "2026-05-02 00:54:27"
+  - domain: "namecheap.com"
+    name: "namecheap.com"
+    url: "https://namecheap.com/"
+    group: "common"
+    visit_count_30d: 108
+    typed_count_30d: 14
+    last_visit_at: "2026-05-10 10:48:27"
+  - domain: "flaios.com"
+    name: "flaios.com"
+    url: "https://flaios.com/"
+    group: "common"
+    visit_count_30d: 97
+    typed_count_30d: 3
+    last_visit_at: "2026-05-12 09:40:04"
+  - domain: "cloud.tencent.com"
+    name: "cloud.tencent.com"
+    url: "https://cloud.tencent.com/"
+    group: "common"
+    visit_count_30d: 97
+    typed_count_30d: 3
+    last_visit_at: "2026-05-12 01:29:59"
+  - domain: "console.firebase.google.com"
+    name: "console.firebase.google.com"
+    url: "https://console.firebase.google.com/"
+    group: "search"
+    visit_count_30d: 80
+    typed_count_30d: 0
+    last_visit_at: "2026-04-16 14:09:55"
+  - domain: "hcn5kaczw283.feishu.cn"
+    name: "hcn5kaczw283.feishu.cn"
+    url: "https://hcn5kaczw283.feishu.cn/"
+    group: "work"
+    visit_count_30d: 78
+    typed_count_30d: 0
+    last_visit_at: "2026-04-29 01:10:48"
+  - domain: "159.75.54.16:3000"
+    name: "159.75.54.16:3000"
+    url: "https://159.75.54.16:3000/"
+    group: "common"
+    visit_count_30d: 73
+    typed_count_30d: 0
+    last_visit_at: "2026-04-29 01:10:35"
+  - domain: "agent.minimaxi.com"
+    name: "agent.minimaxi.com"
+    url: "https://agent.minimaxi.com/"
+    group: "common"
+    visit_count_30d: 71
+    typed_count_30d: 9
+    last_visit_at: "2026-05-12 01:21:24"
+  - domain: "ap.www.namecheap.com"
+    name: "ap.www.namecheap.com"
+    url: "https://ap.www.namecheap.com/"
+    group: "common"
+    visit_count_30d: 71
+    typed_count_30d: 0
+    last_visit_at: "2026-05-10 10:48:38"
+  - domain: "mail.myscannedmail.co.uk"
+    name: "mail.myscannedmail.co.uk"
+    url: "https://mail.myscannedmail.co.uk/"
+    group: "common"
+    visit_count_30d: 68
+    typed_count_30d: 0
+    last_visit_at: "2026-04-27 02:37:31"
+  - domain: "bright.cn"
+    name: "bright.cn"
+    url: "https://bright.cn/"
+    group: "common"
+    visit_count_30d: 68
+    typed_count_30d: 2
+    last_visit_at: "2026-04-22 01:58:07"
+  - domain: "outlook.live.com"
+    name: "outlook.live.com"
+    url: "https://outlook.live.com/"
+    group: "common"
+    visit_count_30d: 67
+    typed_count_30d: 0
+    last_visit_at: "2026-05-11 01:24:26"
+  - domain: "forum.trae.cn"
+    name: "forum.trae.cn"
+    url: "https://forum.trae.cn/"
+    group: "common"
+    visit_count_30d: 62
+    typed_count_30d: 1
+    last_visit_at: "2026-05-08 19:44:56"
+  - domain: "mail.163.com"
+    name: "mail.163.com"
+    url: "https://mail.163.com/"
+    group: "common"
+    visit_count_30d: 62
+    typed_count_30d: 6
+    last_visit_at: "2026-05-06 09:50:37"
+  - domain: "access.service.gov.uk"
+    name: "access.service.gov.uk"
+    url: "https://access.service.gov.uk/"
+    group: "common"
+    visit_count_30d: 62
+    typed_count_30d: 3
+    last_visit_at: "2026-04-26 23:18:36"
+  - domain: "my.siteground.com"
+    name: "my.siteground.com"
+    url: "https://my.siteground.com/"
+    group: "common"
+    visit_count_30d: 59
+    typed_count_30d: 3
+    last_visit_at: "2026-05-06 08:27:23"
+  - domain: "merchant.onerway.com"
+    name: "merchant.onerway.com"
+    url: "https://merchant.onerway.com/"
+    group: "common"
+    visit_count_30d: 58
+    typed_count_30d: 7
+    last_visit_at: "2026-05-12 09:52:47"
+  - domain: "api.aabao.vip"
+    name: "api.aabao.vip"
+    url: "https://api.aabao.vip/"
+    group: "service-admin"
+    visit_count_30d: 57
+    typed_count_30d: 6
+    last_visit_at: "2026-05-10 00:20:52"
+  - domain: "business.revolut.com"
+    name: "business.revolut.com"
+    url: "https://business.revolut.com/"
+    group: "common"
+    visit_count_30d: 56
+    typed_count_30d: 2
+    last_visit_at: "2026-04-27 01:34:36"
+  - domain: "api5.yumiai.art"
+    name: "api5.yumiai.art"
+    url: "https://api5.yumiai.art/"
+    group: "service-admin"
+    visit_count_30d: 55
+    typed_count_30d: 1
+    last_visit_at: "2026-05-10 10:31:11"
+  - domain: "gov.uk"
+    name: "gov.uk"
+    url: "https://gov.uk/"
+    group: "common"
+    visit_count_30d: 55
+    typed_count_30d: 1
+    last_visit_at: "2026-04-29 01:10:44"
+  - domain: "identity.company-information.service.gov.uk"
+    name: "identity.company-information.service.gov.uk"
+    url: "https://identity.company-information.service.gov.uk/"
+    group: "common"
+    visit_count_30d: 52
+    typed_count_30d: 0
+    last_visit_at: "2026-04-25 20:51:26"
+  - domain: "ewf.companieshouse.gov.uk"
+    name: "ewf.companieshouse.gov.uk"
+    url: "https://ewf.companieshouse.gov.uk/"
+    group: "common"
+    visit_count_30d: 52
+    typed_count_30d: 2
+    last_visit_at: "2026-04-25 15:44:25"
+  - domain: "signin.account.gov.uk"
+    name: "signin.account.gov.uk"
+    url: "https://signin.account.gov.uk/"
+    group: "common"
+    visit_count_30d: 50
+    typed_count_30d: 2
+    last_visit_at: "2026-04-25 20:51:08"
+  - domain: "localhost:3000"
+    name: "localhost:3000"
+    url: "http://localhost:3000/"
+    group: "local"
+    visit_count_30d: 49
+    typed_count_30d: 4
+    last_visit_at: "2026-05-08 12:39:01"
+  - domain: "192.168.30.214:3000"
+    name: "192.168.30.214:3000"
+    url: "http://192.168.30.214:3000/"
+    group: "local"
+    visit_count_30d: 44
+    typed_count_30d: 0
+    last_visit_at: "2026-04-16 00:54:33"
+  - domain: "chatgpt.com"
+    name: "chatgpt.com"
+    url: "https://chatgpt.com/"
+    group: "common"
+    visit_count_30d: 39
+    typed_count_30d: 5
+    last_visit_at: "2026-05-10 10:31:04"
+  - domain: "mzmkj.cn"
+    name: "mzmkj.cn"
+    url: "https://mzmkj.cn/"
+    group: "common"
+    visit_count_30d: 38
+    typed_count_30d: 2
+    last_visit_at: "2026-05-09 05:00:03"
+  - domain: "trae.cn"
+    name: "trae.cn"
+    url: "https://trae.cn/"
+    group: "common"
+    visit_count_30d: 35
+    typed_count_30d: 0
+    last_visit_at: "2026-05-10 01:32:34"
+  - domain: "localhost:3001"
+    name: "localhost:3001"
+    url: "http://localhost:3001/"
+    group: "local"
+    visit_count_30d: 35
+    typed_count_30d: 6
+    last_visit_at: "2026-05-08 03:28:38"
+  - domain: "pan.baidu.com"
+    name: "pan.baidu.com"
+    url: "https://pan.baidu.com/"
+    group: "search"
+    visit_count_30d: 33
+    typed_count_30d: 0
+    last_visit_at: "2026-05-07 00:06:30"
+  - domain: "dict.thinktrader.net"
+    name: "dict.thinktrader.net"
+    url: "https://dict.thinktrader.net/"
+    group: "common"
+    visit_count_30d: 33
+    typed_count_30d: 1
+    last_visit_at: "2026-04-22 04:04:51"
+  - domain: "find-and-update.company-information.service.gov.uk"
+    name: "find-and-update.company-information.service.gov.uk"
+    url: "https://find-and-update.company-information.service.gov.uk/"
+    group: "common"
+    visit_count_30d: 32
+    typed_count_30d: 1
+    last_visit_at: "2026-05-06 08:52:10"
+  - domain: "docs.newapi.pro"
+    name: "docs.newapi.pro"
+    url: "https://docs.newapi.pro/"
+    group: "common"
+    visit_count_30d: 30
+    typed_count_30d: 1
+    last_visit_at: "2026-05-12 03:03:18"
+  - domain: "zeabur.cn"
+    name: "zeabur.cn"
+    url: "https://zeabur.cn/"
+    group: "common"
+    visit_count_30d: 28
+    typed_count_30d: 0
+    last_visit_at: "2026-05-08 03:13:40"
+  - domain: "coa.immigration.gov.tw"
+    name: "coa.immigration.gov.tw"
+    url: "https://coa.immigration.gov.tw/"
+    group: "common"
+    visit_count_30d: 28
+    typed_count_30d: 2
+    last_visit_at: "2026-05-06 09:50:42"
+  - domain: "gemini.google.com"
+    name: "gemini.google.com"
+    url: "https://gemini.google.com/"
+    group: "ai"
+    visit_count_30d: 27
+    typed_count_30d: 12
+    last_visit_at: "2026-05-11 00:54:32"
+  - domain: "dashboard.iproyal.com"
+    name: "dashboard.iproyal.com"
+    url: "https://dashboard.iproyal.com/"
+    group: "service-admin"
+    visit_count_30d: 27
+    typed_count_30d: 1
+    last_visit_at: "2026-05-02 01:05:52"
+  - domain: "status.claude.com"
+    name: "status.claude.com"
+    url: "https://status.claude.com/"
+    group: "ai"
+    visit_count_30d: 26
+    typed_count_30d: 2
+    last_visit_at: "2026-05-03 10:23:10"
+  - domain: "models.dev"
+    name: "models.dev"
+    url: "https://models.dev/"
+    group: "common"
+    visit_count_30d: 25
+    typed_count_30d: 1
+    last_visit_at: "2026-05-09 23:55:38"
+  - domain: "tinytax.co.uk"
+    name: "tinytax.co.uk"
+    url: "https://tinytax.co.uk/"
+    group: "common"
+    visit_count_30d: 25
+    typed_count_30d: 1
+    last_visit_at: "2026-04-29 01:10:42"
+  - domain: "shopee.vn"
+    name: "shopee.vn"
+    url: "https://shopee.vn/"
+    group: "common"
+    visit_count_30d: 25
+    typed_count_30d: 2
+    last_visit_at: "2026-04-21 00:25:21"
+  - domain: "127.0.0.1:8317"
+    name: "127.0.0.1:8317"
+    url: "http://127.0.0.1:8317/"
+    group: "local"
+    visit_count_30d: 24
+    typed_count_30d: 1
+    last_visit_at: "2026-05-11 03:00:34"
+  - domain: "buy.cloud.tencent.com"
+    name: "buy.cloud.tencent.com"
+    url: "https://buy.cloud.tencent.com/"
+    group: "common"
+    visit_count_30d: 24
+    typed_count_30d: 3
+    last_visit_at: "2026-05-09 09:13:19"
+  - domain: "sso.revolut.com"
+    name: "sso.revolut.com"
+    url: "https://sso.revolut.com/"
+    group: "common"
+    visit_count_30d: 23
+    typed_count_30d: 0
+    last_visit_at: "2026-05-06 09:00:10"
+  - domain: "feishu.cn"
+    name: "feishu.cn"
+    url: "https://feishu.cn/"
+    group: "work"
+    visit_count_30d: 22
+    typed_count_30d: 2
+    last_visit_at: "2026-05-11 21:42:42"
+  - domain: "outlook.com"
+    name: "outlook.com"
+    url: "https://outlook.com/"
+    group: "common"
+    visit_count_30d: 22
+    typed_count_30d: 10
+    last_visit_at: "2026-05-06 07:55:03"
+  - domain: "192.168.30.82:5001"
+    name: "192.168.30.82:5001"
+    url: "http://192.168.30.82:5001/"
+    group: "local"
+    visit_count_30d: 22
+    typed_count_30d: 3
+    last_visit_at: "2026-04-15 10:09:29"
+  - domain: "platform.deepseek.com"
+    name: "platform.deepseek.com"
+    url: "https://platform.deepseek.com/"
+    group: "ai"
+    visit_count_30d: 19
+    typed_count_30d: 1
+    last_visit_at: "2026-05-09 23:51:15"
+  - domain: "proxy-cheap.com"
+    name: "proxy-cheap.com"
+    url: "https://proxy-cheap.com/"
+    group: "common"
+    visit_count_30d: 19
+    typed_count_30d: 2
+    last_visit_at: "2026-05-05 21:43:37"
+  - domain: "login.siteground.com"
+    name: "login.siteground.com"
+    url: "https://login.siteground.com/"
+    group: "common"
+    visit_count_30d: 18
+    typed_count_30d: 0
+    last_visit_at: "2026-05-06 08:14:33"
+  - domain: "auth.cocos.com"
+    name: "auth.cocos.com"
+    url: "https://auth.cocos.com/"
+    group: "common"
+    visit_count_30d: 18
+    typed_count_30d: 0
+    last_visit_at: "2026-04-25 21:41:03"
+  - domain: "onlinebanking.aib.ie"
+    name: "onlinebanking.aib.ie"
+    url: "https://onlinebanking.aib.ie/"
+    group: "common"
+    visit_count_30d: 18
+    typed_count_30d: 0
+    last_visit_at: "2026-04-25 14:16:19"
+  - domain: "canva.com"
+    name: "canva.com"
+    url: "https://canva.com/"
+    group: "common"
+    visit_count_30d: 18
+    typed_count_30d: 2
+    last_visit_at: "2026-04-19 23:38:26"
+  - domain: "learn.saylor.org"
+    name: "learn.saylor.org"
+    url: "https://learn.saylor.org/"
+    group: "common"
+    visit_count_30d: 17
+    typed_count_30d: 0
+    last_visit_at: "2026-04-25 09:07:48"
+  - domain: "24bbb2ba-87a2-4f5a-8483-4794ffeccf51.lovableproject.com"
+    name: "24bbb2ba-87a2-4f5a-8483-4794ffeccf51.lovableproject.com"
+    url: "https://24bbb2ba-87a2-4f5a-8483-4794ffeccf51.lovableproject.com/"
+    group: "common"
+    visit_count_30d: 16
+    typed_count_30d: 0
+    last_visit_at: "2026-04-25 09:43:51"
+  - domain: "nodeseek.com"
+    name: "nodeseek.com"
+    url: "https://nodeseek.com/"
+    group: "common"
+    visit_count_30d: 16
+    typed_count_30d: 0
+    last_visit_at: "2026-04-22 02:18:52"
+  - domain: "cursor.com"
+    name: "cursor.com"
+    url: "https://cursor.com/"
+    group: "common"
+    visit_count_30d: 15
+    typed_count_30d: 0
+    last_visit_at: "2026-04-24 08:34:23"
+  - domain: "woollywander.com"
+    name: "woollywander.com"
+    url: "https://woollywander.com/"
+    group: "common"
+    visit_count_30d: 14
+    typed_count_30d: 7
+    last_visit_at: "2026-05-06 08:18:08"
+  - domain: "google.com.hk"
+    name: "google.com.hk"
+    url: "https://google.com.hk/"
+    group: "search"
+    visit_count_30d: 14
+    typed_count_30d: 0
+    last_visit_at: "2026-05-01 22:10:30"
+  - domain: "192.168.31.236:3000"
+    name: "192.168.31.236:3000"
+    url: "http://192.168.31.236:3000/"
+    group: "local"
+    visit_count_30d: 14
+    typed_count_30d: 4
+    last_visit_at: "2026-04-30 12:02:00"
+  - domain: "oidc.account.gov.uk"
+    name: "oidc.account.gov.uk"
+    url: "https://oidc.account.gov.uk/"
+    group: "common"
+    visit_count_30d: 14
+    typed_count_30d: 0
+    last_visit_at: "2026-04-25 20:51:08"
+  - domain: "lazada.sg"
+    name: "lazada.sg"
+    url: "https://lazada.sg/"
+    group: "common"
+    visit_count_30d: 14
+    typed_count_30d: 0
+    last_visit_at: "2026-04-25 08:20:35"
+  - domain: "login.live.com"
+    name: "login.live.com"
+    url: "https://login.live.com/"
+    group: "common"
+    visit_count_30d: 13
+    typed_count_30d: 0
+    last_visit_at: "2026-05-06 09:01:24"
+  - domain: "cn.jollytoday.com"
+    name: "cn.jollytoday.com"
+    url: "https://cn.jollytoday.com/"
+    group: "common"
+    visit_count_30d: 12
+    typed_count_30d: 0
+    last_visit_at: "2026-05-07 00:20:06"
+  - domain: "mygovid.ie"
+    name: "mygovid.ie"
+    url: "https://mygovid.ie/"
+    group: "common"
+    visit_count_30d: 12
+    typed_count_30d: 0
+    last_visit_at: "2026-04-25 10:22:19"
+  - domain: "hostbuf.com"
+    name: "hostbuf.com"
+    url: "https://hostbuf.com/"
+    group: "common"
+    visit_count_30d: 12
+    typed_count_30d: 1
+    last_visit_at: "2026-04-25 09:58:15"
+  - domain: "lebara.co.uk"
+    name: "lebara.co.uk"
+    url: "https://lebara.co.uk/"
+    group: "common"
+    visit_count_30d: 12
+    typed_count_30d: 0
+    last_visit_at: "2026-04-22 23:37:14"
+  - domain: "carousell.sg"
+    name: "carousell.sg"
+    url: "https://carousell.sg/"
+    group: "common"
+    visit_count_30d: 12
+    typed_count_30d: 2
+    last_visit_at: "2026-04-22 01:12:31"
+  - domain: "zhuanlan.zhihu.com"
+    name: "zhuanlan.zhihu.com"
+    url: "https://zhuanlan.zhihu.com/"
+    group: "common"
+    visit_count_30d: 11
+    typed_count_30d: 0
+    last_visit_at: "2026-05-08 17:10:30"
+  - domain: "124.222.221.3:3000"
+    name: "124.222.221.3:3000"
+    url: "https://124.222.221.3:3000/"
+    group: "common"
+    visit_count_30d: 11
+    typed_count_30d: 1
+    last_visit_at: "2026-05-08 12:32:19"
+  - domain: "security.feishu.cn"
+    name: "security.feishu.cn"
+    url: "https://security.feishu.cn/"
+    group: "work"
+    visit_count_30d: 11
+    typed_count_30d: 0
+    last_visit_at: "2026-05-06 14:39:00"
+  - domain: "openai.com"
+    name: "openai.com"
+    url: "https://openai.com/"
+    group: "ai"
+    visit_count_30d: 11
+    typed_count_30d: 4
+    last_visit_at: "2026-05-05 23:27:44"
+  - domain: "youtube.com"
+    name: "youtube.com"
+    url: "https://youtube.com/"
+    group: "common"
+    visit_count_30d: 11
+    typed_count_30d: 1
+    last_visit_at: "2026-05-01 10:37:24"
+  - domain: "lovable.dev"
+    name: "lovable.dev"
+    url: "https://lovable.dev/"
+    group: "common"
+    visit_count_30d: 11
+    typed_count_30d: 1
+    last_visit_at: "2026-04-25 13:49:43"
+  - domain: "43-134-187-60.d.clay.studio:2635"
+    name: "43-134-187-60.d.clay.studio:2635"
+    url: "https://43-134-187-60.d.clay.studio:2635/"
+    group: "common"
+    visit_count_30d: 11
+    typed_count_30d: 4
+    last_visit_at: "2026-04-22 12:01:13"
+  - domain: "cn.bing.com"
+    name: "cn.bing.com"
+    url: "https://cn.bing.com/"
+    group: "search"
+    visit_count_30d: 10
+    typed_count_30d: 0
+    last_visit_at: "2026-05-11 23:20:37"
+  - domain: "127.0.0.1:3003"
+    name: "127.0.0.1:3003"
+    url: "http://127.0.0.1:3003/"
+    group: "local"
+    visit_count_30d: 10
+    typed_count_30d: 0
+    last_visit_at: "2026-05-10 10:42:03"
+  - domain: "elevenzhou.github.io"
+    name: "elevenzhou.github.io"
+    url: "https://elevenzhou.github.io/"
+    group: "development"
+    visit_count_30d: 10
+    typed_count_30d: 3
+    last_visit_at: "2026-05-10 10:34:11"
+  - domain: "accounts.feishu.cn"
+    name: "accounts.feishu.cn"
+    url: "https://accounts.feishu.cn/"
+    group: "work"
+    visit_count_30d: 10
+    typed_count_30d: 2
+    last_visit_at: "2026-05-08 11:37:47"
+  - domain: "microsoft.com"
+    name: "microsoft.com"
+    url: "https://microsoft.com/"
+    group: "common"
+    visit_count_30d: 10
+    typed_count_30d: 0
+    last_visit_at: "2026-05-06 09:00:32"
+  - domain: "im.qq.com"
+    name: "im.qq.com"
+    url: "https://im.qq.com/"
+    group: "common"
+    visit_count_30d: 10
+    typed_count_30d: 0
+    last_visit_at: "2026-05-03 12:10:23"

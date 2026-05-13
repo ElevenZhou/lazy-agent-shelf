@@ -1,0 +1,15 @@
+items:
+  - id: private-website-history
+    name: 浏览器历史隐私泄露
+    risk_level: high
+    status: active
+    summary: websites.yaml/websites.csv 来自浏览器历史，可能包含后台、内网、账号、API、支付等敏感域名。
+    mitigation: 默认只导出 websites.public.csv；完整 websites.csv 仅允许 --include-private 私有备份。
+    related_projects: [personal-ai-workstation]
+  - id: workbench-overreach
+    name: 工作台范围膨胀
+    risk_level: medium
+    status: active
+    summary: 个人工作台容易变成项目管理系统或文件管理器。
+    mitigation: v1 只呈现状态，不编辑真实项目文件，不做复杂数据库。
+    related_projects: [flaios-hub]

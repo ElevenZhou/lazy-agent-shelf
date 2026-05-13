@@ -1,0 +1,13 @@
+items:
+  - id: contributors
+    name: 贡献者和朋友
+    type: group
+    status: watching
+    summary: 可以通过 Agent、网站提交页或 PR 提交 AI 网站、工具、项目和环境套件。
+    related_projects: [flaios-hub]
+  - id: ai-agents
+    name: 可接入 Agent
+    type: agent_group
+    status: active
+    summary: Codex、Claude Code、Cursor、OpenCode、Trae 等工具中的 Agent 可以按规范更新内容和工作台状态。
+    related_projects: [flaios-hub]

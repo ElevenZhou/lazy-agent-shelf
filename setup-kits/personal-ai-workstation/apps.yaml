@@ -1,0 +1,453 @@
+# Personal AI Workstation application inventory
+# Source: apps.csv. Generated for phase 1 MVP.
+apps:
+  - id: "cc-switch"
+    name: "CC Switch"
+    category: "ai-infra"
+    priority: "required"
+    install_mode: "auto"
+    homepage: "https://www.ccswitch.io/zh/"
+    download_url: "https://github.com/farion1231/cc-switch/releases"
+    github: "https://github.com/farion1231/cc-switch"
+    purpose: "AI编程CLI工具统一配置管理器，支持Claude Code、Codex、Gemini CLI等，提供自动故障转移、API测速、配置备份等功能"
+    latest_known: "2026年4月30日 (v3.13.0)"
+    platforms:
+      windows:
+        install:
+          method: "github_release"
+          repo: "farion1231/cc-switch"
+      mac:
+        install:
+          method: "github_release"
+          repo: "farion1231/cc-switch"
+    login_required: false
+    secret_required: true
+  - id: "vs-code"
+    name: "VS Code"
+    category: "editor"
+    priority: "required"
+    install_mode: "auto"
+    homepage: "https://code.visualstudio.com/"
+    download_url: "https://code.visualstudio.com/download"
+    github: "https://github.com/microsoft/vscode"
+    purpose: "轻量级但功能强大的源代码编辑器，支持多种编程语言和丰富的插件生态"
+    latest_known: "2026年5月6日 (v1.119.0)"
+    platforms:
+      windows:
+        install:
+          method: "winget"
+          id: "Microsoft.VisualStudioCode"
+      mac:
+        install:
+          method: "brew_cask"
+          id: "visual-studio-code"
+    login_required: false
+    secret_required: false
+  - id: "codex"
+    name: "Codex"
+    category: "ai-coding"
+    priority: "required"
+    install_mode: "auto"
+    homepage: "https://openai.com/codex"
+    download_url: "https://github.com/openai/codex/releases"
+    github: "https://github.com/openai/codex"
+    purpose: "OpenAI官方推出的终端级AI编程助手，支持CLI、桌面应用和IDE集成"
+    latest_known: "2026年4月25日"
+    platforms:
+      windows:
+        install:
+          method: "github_release"
+          repo: "openai/codex"
+      mac:
+        install:
+          method: "github_release"
+          repo: "openai/codex"
+    login_required: true
+    secret_required: true
+  - id: "claude"
+    name: "Claude"
+    category: "ai-assistant"
+    priority: "required"
+    install_mode: "manual"
+    homepage: "https://claude.ai/"
+    download_url: "https://claude.ai/download"
+    github: ""
+    purpose: "Anthropic推出的AI助手，提供Claude Code终端编程工具，支持代码编写、调试和重构"
+    latest_known: "2026年4月30日"
+    platforms:
+      windows:
+        install:
+          method: "manual"
+      mac:
+        install:
+          method: "manual"
+    login_required: true
+    secret_required: false
+  - id: "trae"
+    name: "Trae"
+    category: "ai-ide"
+    priority: "recommended"
+    install_mode: "manual"
+    homepage: "https://www.trae.cn/ (国内版); https://trae.ai/ (海外版)"
+    download_url: "https://www.trae.cn/download"
+    github: ""
+    purpose: "字节跳动旗下AI原生集成开发环境，搭载豆包大模型，支持代码生成、项目构建和远程开发"
+    latest_known: "2026年3月9日 (v3.5.36)"
+    platforms:
+      windows:
+        install:
+          method: "manual"
+      mac:
+        install:
+          method: "manual"
+    login_required: true
+    secret_required: false
+  - id: "feishu"
+    name: "飞书"
+    category: "collaboration"
+    priority: "required"
+    install_mode: "semi_auto"
+    homepage: "https://www.feishu.cn/"
+    download_url: "https://www.feishu.cn/download"
+    github: ""
+    purpose: "一站式企业协作与管理平台，整合即时沟通、云文档、音视频会议、多维表格等功能"
+    latest_known: "2026年4月14日 (v7.66.0.0)"
+    platforms:
+      windows:
+        install:
+          method: "winget"
+          id: "ByteDance.Feishu"
+      mac:
+        install:
+          method: "brew_cask"
+          id: "feishu"
+    login_required: true
+    secret_required: false
+  - id: "workbuddy"
+    name: "WorkBuddy"
+    category: "office-ai"
+    priority: "optional"
+    install_mode: "manual"
+    homepage: "https://www.codebuddy.cn/work/"
+    download_url: "https://www.codebuddy.cn/work/"
+    github: ""
+    purpose: "腾讯推出的AI原生桌面智能体工作台，支持自然语言驱动完成文档生成、数据分析、PPT制作等办公任务"
+    latest_known: "2026年5月6日 (v4.21+)"
+    platforms:
+      windows:
+        install:
+          method: "manual"
+      mac:
+        install:
+          method: "manual"
+    login_required: true
+    secret_required: false
+  - id: "uu-remote"
+    name: "UU远程"
+    category: "remote-control"
+    priority: "optional"
+    install_mode: "manual"
+    homepage: "https://uuyc.163.com/"
+    download_url: "https://uuyc.163.com/download"
+    github: ""
+    purpose: "网易出品的免费远程控制软件，支持真4K画质、超低延迟、文件传输和远程游戏"
+    latest_known: "2026年5月9日 (v4.23.0)"
+    platforms:
+      windows:
+        install:
+          method: "manual"
+      mac:
+        install:
+          method: "manual"
+    login_required: true
+    secret_required: false
+  - id: "clash-verge-rev"
+    name: "Clash Verge Rev"
+    category: "network"
+    priority: "recommended"
+    install_mode: "auto"
+    homepage: "https://clash-verge.org/"
+    download_url: "https://clash-verge.org/zh-CN/download"
+    github: "https://github.com/clash-verge-rev/clash-verge-rev"
+    purpose: "基于Clash Meta(mihomo)内核的跨平台代理客户端，支持VLESS、Reality等新协议"
+    latest_known: "2026年3月22日 (v2.4.7)"
+    platforms:
+      windows:
+        install:
+          method: "winget"
+          id: "ClashVergeRev.ClashVergeRev"
+      mac:
+        install:
+          method: "brew_cask"
+          id: "clash-verge-rev"
+    login_required: false
+    secret_required: true
+  - id: "chrome"
+    name: "Chrome"
+    category: "browser"
+    priority: "required"
+    install_mode: "auto"
+    homepage: "https://www.google.cn/intl/zh-CN/chrome/"
+    download_url: "https://www.google.cn/intl/zh-CN/chrome/"
+    github: "https://github.com/google/chrome"
+    purpose: "谷歌开发的跨平台网页浏览器，速度快、安全性高，支持丰富的扩展程序"
+    latest_known: "2026年5月7日 (v148.0.7727.24)"
+    platforms:
+      windows:
+        install:
+          method: "winget"
+          id: "Google.Chrome"
+      mac:
+        install:
+          method: "brew_cask"
+          id: "google-chrome"
+    login_required: false
+    secret_required: false
+  - id: "doubao"
+    name: "豆包"
+    category: "ai-assistant"
+    priority: "recommended"
+    install_mode: "manual"
+    homepage: "https://www.doubao.com/"
+    download_url: "https://www.doubao.com/download/desktop"
+    github: ""
+    purpose: "字节跳动推出的全能型AI助手，支持AI搜索、写作辅助、代码生成、图像创意等功能"
+    latest_known: "2026年4月21日 (v2.2.3)"
+    platforms:
+      windows:
+        install:
+          method: "manual"
+      mac:
+        install:
+          method: "manual"
+    login_required: true
+    secret_required: false
+  - id: "cherry-studio"
+    name: "Cherry Studio"
+    category: "ai-client"
+    priority: "required"
+    install_mode: "auto"
+    homepage: "https://cherry-ai.com/"
+    download_url: "https://cherry-ai.com/download"
+    github: "https://github.com/CherryHQ/cherry-studio"
+    purpose: "跨平台AI聊天客户端，支持300+AI模型，具备自主Agent能力和本地知识库功能"
+    latest_known: "2026年4月30日 (v1.9.4)"
+    platforms:
+      windows:
+        install:
+          method: "winget"
+          id: "CherryHQ.CherryStudio"
+      mac:
+        install:
+          method: "brew_cask"
+          id: "cherry-studio"
+    login_required: true
+    secret_required: false
+  - id: "powershell-7"
+    name: "PowerShell 7"
+    category: "dev-runtime"
+    priority: "required"
+    install_mode: "auto"
+    homepage: "https://learn.microsoft.com/zh-cn/powershell/"
+    download_url: "https://github.com/PowerShell/PowerShell/releases"
+    github: "https://github.com/PowerShell/PowerShell"
+    purpose: "跨平台任务自动化和配置管理框架，兼容Windows PowerShell"
+    latest_known: "2026年3月18日 (v7.6.0)"
+    platforms:
+      windows:
+        install:
+          method: "winget"
+          id: "Microsoft.PowerShell"
+      mac:
+        install:
+          method: "brew"
+          id: "powershell"
+    login_required: false
+    secret_required: false
+  - id: "tongdaxin"
+    name: "通达信"
+    category: "trading"
+    priority: "optional"
+    install_mode: "manual"
+    homepage: "https://www.tdx.com.cn/"
+    download_url: "https://www.tdx.com.cn/soft.html"
+    github: ""
+    purpose: "专业的股票行情分析和交易软件，支持A股、港股、美股、期货等多市场"
+    latest_known: "2025年11月10日 (v7.71)"
+    platforms:
+      windows:
+        install:
+          method: "manual"
+      mac:
+        install:
+          method: "manual"
+    login_required: false
+    secret_required: false
+  - id: "nssm"
+    name: "NSSM"
+    category: "windows-service"
+    priority: "recommended"
+    install_mode: "auto"
+    homepage: "https://nssm.cc/"
+    download_url: "https://nssm.cc/download"
+    github: "https://github.com/nssmgr/NSSM"
+    purpose: "将任意可执行程序(控制台、GUI、脚本)注册为Windows服务的工具，支持自动重启"
+    latest_known: "2017年4月26日 (v2.24-101)"
+    platforms:
+      windows:
+        install:
+          method: "github_release"
+          repo: "nssmgr/NSSM"
+      mac:
+        install:
+          method: "github_release"
+          repo: "nssmgr/NSSM"
+    login_required: false
+    secret_required: false
+  - id: "frp"
+    name: "FRP"
+    category: "network"
+    priority: "recommended"
+    install_mode: "auto"
+    homepage: "https://gofrp.org/"
+    download_url: "https://github.com/fatedier/frp/releases"
+    github: "https://github.com/fatedier/frp"
+    purpose: "快速反向代理工具，用于内网穿透，支持TCP、UDP、HTTP、HTTPS等协议"
+    latest_known: "2026年3月20日 (v0.68.0)"
+    platforms:
+      windows:
+        install:
+          method: "github_release"
+          repo: "fatedier/frp"
+      mac:
+        install:
+          method: "github_release"
+          repo: "fatedier/frp"
+    login_required: false
+    secret_required: false
+  - id: "cliproxyapi"
+    name: "CLIProxyAPI"
+    category: "ai-gateway"
+    priority: "recommended"
+    install_mode: "auto"
+    homepage: "无"
+    download_url: "https://github.com/router-for-me/CLIProxyAPI/releases"
+    github: "https://github.com/router-for-me/CLIProxyAPI"
+    purpose: "AI API代理服务，统一管理多个AI模型接口，支持负载均衡和故障转移"
+    latest_known: "2026年4月21日 (v6.9.31)"
+    platforms:
+      windows:
+        install:
+          method: "github_release"
+          repo: "router-for-me/CLIProxyAPI"
+      mac:
+        install:
+          method: "github_release"
+          repo: "router-for-me/CLIProxyAPI"
+    login_required: false
+    secret_required: true
+  - id: "cliproxyapi-dashboard"
+    name: "CLIProxyAPI Dashboard"
+    category: "ai-gateway"
+    priority: "optional"
+    install_mode: "auto"
+    homepage: "无"
+    download_url: "https://github.com/itsmylife44/cliproxyapi-dashboard/releases"
+    github: "https://github.com/itsmylife44/cliproxyapi-dashboard"
+    purpose: "CLIProxyAPI的Web管理界面，提供配置同步、OAuth提供商管理和监控功能"
+    latest_known: "2026年4月21日"
+    platforms:
+      windows:
+        install:
+          method: "github_release"
+          repo: "itsmylife44/cliproxyapi-dashboard"
+      mac:
+        install:
+          method: "github_release"
+          repo: "itsmylife44/cliproxyapi-dashboard"
+    login_required: false
+    secret_required: false
+  - id: "new-api"
+    name: "New API"
+    category: "ai-gateway"
+    priority: "recommended"
+    install_mode: "auto"
+    homepage: "https://docs.newapi.pro/"
+    download_url: "https://github.com/QuantumNous/new-api/releases"
+    github: "https://github.com/QuantumNous/new-api"
+    purpose: "新一代大模型网关和AI资产管理平台，支持40+AI模型，统一为OpenAI兼容格式"
+    latest_known: "2026年5月6日 (v1.1.138)"
+    platforms:
+      windows:
+        install:
+          method: "github_release"
+          repo: "QuantumNous/new-api"
+      mac:
+        install:
+          method: "github_release"
+          repo: "QuantumNous/new-api"
+    login_required: false
+    secret_required: true
+  - id: "claude-relay-service"
+    name: "Claude Relay Service"
+    category: "ai-gateway"
+    priority: "optional"
+    install_mode: "auto"
+    homepage: "无"
+    download_url: "https://github.com/Wei-Shaw/claude-relay-service/releases"
+    github: "https://github.com/Wei-Shaw/claude-relay-service"
+    purpose: "自托管的Claude API中继服务，支持多账户管理和负载均衡"
+    latest_known: "2026年3月26日 (v1.1.297)"
+    platforms:
+      windows:
+        install:
+          method: "github_release"
+          repo: "Wei-Shaw/claude-relay-service"
+      mac:
+        install:
+          method: "github_release"
+          repo: "Wei-Shaw/claude-relay-service"
+    login_required: false
+    secret_required: true
+  - id: "comfyui"
+    name: "ComfyUI"
+    category: "ai-image"
+    priority: "optional"
+    install_mode: "auto"
+    homepage: "https://comfyanonymous.github.io/ComfyUI/"
+    download_url: "https://github.com/Comfy-Org/ComfyUI/releases"
+    github: "https://github.com/Comfy-Org/ComfyUI"
+    purpose: "模块化的AI图像生成工具，基于节点的工作流设计，支持Stable Diffusion等模型"
+    latest_known: "2026年4月28日 (v0.20.1)"
+    platforms:
+      windows:
+        install:
+          method: "github_release"
+          repo: "Comfy-Org/ComfyUI"
+      mac:
+        install:
+          method: "github_release"
+          repo: "Comfy-Org/ComfyUI"
+    login_required: false
+    secret_required: false
+  - id: "litemonitor"
+    name: "LiteMonitor"
+    category: "system-monitor"
+    priority: "recommended"
+    install_mode: "auto"
+    homepage: "https://litemonitor.cn/"
+    download_url: "https://github.com/Diorser/LiteMonitor/releases"
+    github: "https://github.com/Diorser/LiteMonitor"
+    purpose: "轻量级、可定制的 Windows 桌面和任务栏硬件性能监控工具，支持 CPU、GPU、内存、磁盘、网络、FPS、插件和内存清理"
+    latest_known: "2026年2月12日 (v1.3.4)"
+    platforms:
+      windows:
+        install:
+          method: "winget"
+          id: "Diorser.LiteMonitor"
+      mac:
+        install:
+          method: "unsupported"
+    login_required: false
+    secret_required: false
+

@@ -1,0 +1,5407 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-05-12T18:00:14.879Z",
+  "item_count": 12,
+  "types": [
+    "ai_website",
+    "memory",
+    "project",
+    "setup_kit",
+    "skill",
+    "tool",
+    "workflow"
+  ],
+  "items": [
+    {
+      "id": "chatgpt",
+      "type": "ai_website",
+      "name": "ChatGPT",
+      "url": "https://chatgpt.com",
+      "category": "ai/chat",
+      "tags": [
+        "global",
+        "beginner-friendly",
+        "multimodal",
+        "laozhou-s"
+      ],
+      "one_liner": "通用 AI 助手，适合写作、分析、代码、学习和多模态任务。",
+      "best_for": [
+        "日常问答",
+        "文档分析",
+        "代码解释",
+        "复杂问题拆解"
+      ],
+      "not_good_for": [
+        "需要完全确定的法律、医疗、投资结论"
+      ],
+      "pricing": "免费 + 付费",
+      "china_access": "unstable",
+      "rating": "S",
+      "owner_note": "老周主力通用助手之一，适合复杂问题拆解和文档协作。",
+      "related_agents": [
+        "product-manager",
+        "data-analyst",
+        "code-reviewer"
+      ],
+      "related_skills": [
+        "Memory"
+      ],
+      "related_workflows": [
+        "research-to-report"
+      ],
+      "status": "draft",
+      "source_file": "content/ai-websites.yaml"
+    },
+    {
+      "id": "perplexity",
+      "type": "ai_website",
+      "name": "Perplexity",
+      "url": "https://www.perplexity.ai",
+      "category": "ai/search",
+      "tags": [
+        "global",
+        "research",
+        "source-aware",
+        "laozhou-a"
+      ],
+      "one_liner": "带来源的 AI 搜索与研究入口，适合快速建立资料地图。",
+      "best_for": [
+        "资料搜索",
+        "竞品初筛",
+        "新闻线索",
+        "主题研究"
+      ],
+      "not_good_for": [
+        "替代严肃引用核查",
+        "直接做最终商业决策"
+      ],
+      "pricing": "免费 + 付费",
+      "china_access": "unstable",
+      "rating": "A",
+      "owner_note": "适合作为研究第一跳，再交给 Agent 做结构化分析。",
+      "related_agents": [
+        "market-researcher",
+        "seo-strategist"
+      ],
+      "related_skills": [],
+      "related_workflows": [
+        "research-to-report"
+      ],
+      "status": "draft",
+      "source_file": "content/ai-websites.yaml"
+    },
+    {
+      "id": "laozhou-content-rule",
+      "type": "memory",
+      "name": "老周收录原则",
+      "category": "ai/knowledge",
+      "tags": [
+        "curation",
+        "quality",
+        "laozhou-s"
+      ],
+      "one_liner": "飞流AI枢纽优先收录真实使用、能连接工作流、有明确边界的 AI 资源。",
+      "best_for": [
+        "审核新提交",
+        "判断是否值得收录",
+        "统一贡献者口径"
+      ],
+      "not_good_for": [
+        "追求数量的泛导航站"
+      ],
+      "rating": "S",
+      "owner_note": "不做大全，做真实使用精选。",
+      "related_agents": [
+        "agent-quality-evaluator"
+      ],
+      "related_skills": [
+        "flaios-content-submit"
+      ],
+      "related_workflows": [
+        "submit-to-flaios"
+      ],
+      "status": "draft",
+      "source_file": "content/memories.yaml"
+    },
+    {
+      "id": "lazy-agent-shelf",
+      "type": "project",
+      "name": "Lazy Agent Shelf / 飞流AI枢纽",
+      "category": "ai/automation",
+      "tags": [
+        "open-source",
+        "agent-library",
+        "workflow",
+        "laozhou-s"
+      ],
+      "one_liner": "跨工具 Agent 与 Skill 货架，把专家流程导出到 Codex、Claude Code、Cursor、OpenCode、VSCode、Trae 等工具。",
+      "best_for": [
+        "沉淀专家 Agent",
+        "构建 AI 工作流导航",
+        "给团队共享可复用流程"
+      ],
+      "not_good_for": [
+        "替代目标 AI 工具运行任务",
+        "收录未经验证的泛导航链接"
+      ],
+      "rating": "S",
+      "owner_note": "当前项目本身，正在从 Agent 货架扩展为 AI 使用枢纽。",
+      "related_agents": [
+        "agent-quality-evaluator",
+        "prompt-injection-auditor"
+      ],
+      "related_skills": [
+        "flaios-content-submit"
+      ],
+      "related_workflows": [
+        "submit-to-flaios"
+      ],
+      "status": "draft",
+      "source_file": "content/projects.yaml"
+    },
+    {
+      "id": "personal-ai-workstation",
+      "type": "setup_kit",
+      "name": "个人 AI 工作站",
+      "category": "setup/ai-workstation",
+      "tags": [
+        "windows",
+        "mac",
+        "ai-coding",
+        "workstation",
+        "agent-assisted",
+        "laozhou-s"
+      ],
+      "one_liner": "用于新 Windows/macOS 电脑初始化的软件、网站、目录结构和 Agent 接管指令。",
+      "best_for": [
+        "新电脑初始化",
+        "帮朋友快速装机",
+        "AI 编程环境搭建",
+        "把个人常用网站和软件结构化"
+      ],
+      "not_good_for": [
+        "未经清理直接公开浏览器历史",
+        "自动处理账号登录和密钥",
+        "无人工确认的付费或管理员操作"
+      ],
+      "rating": "S",
+      "owner_note": "当前处于 MVP；websites.yaml 来自 Chrome 历史，公开前必须清理私有域名、内网地址和后台入口；Windows bootstrap 脚本已修复 DryRun 编码/解析问题，真实安装前仍需先预演。",
+      "repo_path": "setup-kits/personal-ai-workstation",
+      "entrypoints": {
+        "windows": "scripts/windows/bootstrap.ps1",
+        "agent_prompt": "agent-prompts/general-setup-agent.md"
+      },
+      "related_agents": [
+        "repo-onboarding-guide",
+        "automation-workflow-designer"
+      ],
+      "related_skills": [
+        "flaios-content-submit"
+      ],
+      "related_workflows": [
+        "personal-ai-workstation-bootstrap",
+        "submit-to-flaios"
+      ],
+      "status": "mvp",
+      "source_file": "setup-kits/personal-ai-workstation/kit.yaml",
+      "description": "用于新 Windows/macOS 电脑初始化的软件、网站、目录和 Agent 接管指令。",
+      "version": "0.1.0",
+      "owner": "AprilWu",
+      "created_at": "2026-05-12",
+      "source_files": {
+        "apps": "apps.yaml",
+        "websites": "websites.yaml",
+        "software_csv": "apps.csv",
+        "websites_csv": "websites.csv"
+      },
+      "safety": {
+        "public_share_ready": false,
+        "review_before_publish": [
+          "websites.csv / websites.yaml may include private domains from Chrome history.",
+          "Do not commit API keys, proxy subscriptions, cookies, or account tokens.",
+          "Scripts should pause before privileged, paid, or secret-related actions."
+        ]
+      },
+      "modes": [
+        {
+          "id": "basic",
+          "name": "基础环境",
+          "includes": [
+            "browser",
+            "editor",
+            "dev-runtime",
+            "collaboration"
+          ]
+        },
+        {
+          "id": "ai",
+          "name": "AI 工具",
+          "includes": [
+            "ai-coding",
+            "ai-assistant",
+            "ai-client",
+            "ai-infra",
+            "ai-gateway"
+          ]
+        },
+        {
+          "id": "full",
+          "name": "完整安装",
+          "includes": [
+            "all"
+          ]
+        }
+      ],
+      "details": {
+        "apps": [
+          {
+            "id": "cc-switch",
+            "name": "CC Switch",
+            "category": "ai-infra",
+            "priority": "required",
+            "install_mode": "auto",
+            "homepage": "https://www.ccswitch.io/zh/",
+            "download_url": "https://github.com/farion1231/cc-switch/releases",
+            "github": "https://github.com/farion1231/cc-switch",
+            "purpose": "AI编程CLI工具统一配置管理器，支持Claude Code、Codex、Gemini CLI等，提供自动故障转移、API测速、配置备份等功能",
+            "latest_known": "2026年4月30日 (v3.13.0)",
+            "platforms": {
+              "windows": {
+                "install": {
+                  "method": "github_release",
+                  "repo": "farion1231/cc-switch"
+                }
+              },
+              "mac": {
+                "install": {
+                  "method": "github_release",
+                  "repo": "farion1231/cc-switch"
+                }
+              }
+            },
+            "login_required": false,
+            "secret_required": true
+          },
+          {
+            "id": "vs-code",
+            "name": "VS Code",
+            "category": "editor",
+            "priority": "required",
+            "install_mode": "auto",
+            "homepage": "https://code.visualstudio.com/",
+            "download_url": "https://code.visualstudio.com/download",
+            "github": "https://github.com/microsoft/vscode",
+            "purpose": "轻量级但功能强大的源代码编辑器，支持多种编程语言和丰富的插件生态",
+            "latest_known": "2026年5月6日 (v1.119.0)",
+            "platforms": {
+              "windows": {
+                "install": {
+                  "method": "winget",
+                  "id": "Microsoft.VisualStudioCode"
+                }
+              },
+              "mac": {
+                "install": {
+                  "method": "brew_cask",
+                  "id": "visual-studio-code"
+                }
+              }
+            },
+            "login_required": false,
+            "secret_required": false
+          },
+          {
+            "id": "codex",
+            "name": "Codex",
+            "category": "ai-coding",
+            "priority": "required",
+            "install_mode": "auto",
+            "homepage": "https://openai.com/codex",
+            "download_url": "https://github.com/openai/codex/releases",
+            "github": "https://github.com/openai/codex",
+            "purpose": "OpenAI官方推出的终端级AI编程助手，支持CLI、桌面应用和IDE集成",
+            "latest_known": "2026年4月25日",
+            "platforms": {
+              "windows": {
+                "install": {
+                  "method": "github_release",
+                  "repo": "openai/codex"
+                }
+              },
+              "mac": {
+                "install": {
+                  "method": "github_release",
+                  "repo": "openai/codex"
+                }
+              }
+            },
+            "login_required": true,
+            "secret_required": true
+          },
+          {
+            "id": "claude",
+            "name": "Claude",
+            "category": "ai-assistant",
+            "priority": "required",
+            "install_mode": "manual",
+            "homepage": "https://claude.ai/",
+            "download_url": "https://claude.ai/download",
+            "github": "",
+            "purpose": "Anthropic推出的AI助手，提供Claude Code终端编程工具，支持代码编写、调试和重构",
+            "latest_known": "2026年4月30日",
+            "platforms": {
+              "windows": {
+                "install": {
+                  "method": "manual"
+                }
+              },
+              "mac": {
+                "install": {
+                  "method": "manual"
+                }
+              }
+            },
+            "login_required": true,
+            "secret_required": false
+          },
+          {
+            "id": "trae",
+            "name": "Trae",
+            "category": "ai-ide",
+            "priority": "recommended",
+            "install_mode": "manual",
+            "homepage": "https://www.trae.cn/ (国内版); https://trae.ai/ (海外版)",
+            "download_url": "https://www.trae.cn/download",
+            "github": "",
+            "purpose": "字节跳动旗下AI原生集成开发环境，搭载豆包大模型，支持代码生成、项目构建和远程开发",
+            "latest_known": "2026年3月9日 (v3.5.36)",
+            "platforms": {
+              "windows": {
+                "install": {
+                  "method": "manual"
+                }
+              },
+              "mac": {
+                "install": {
+                  "method": "manual"
+                }
+              }
+            },
+            "login_required": true,
+            "secret_required": false
+          },
+          {
+            "id": "feishu",
+            "name": "飞书",
+            "category": "collaboration",
+            "priority": "required",
+            "install_mode": "semi_auto",
+            "homepage": "https://www.feishu.cn/",
+            "download_url": "https://www.feishu.cn/download",
+            "github": "",
+            "purpose": "一站式企业协作与管理平台，整合即时沟通、云文档、音视频会议、多维表格等功能",
+            "latest_known": "2026年4月14日 (v7.66.0.0)",
+            "platforms": {
+              "windows": {
+                "install": {
+                  "method": "winget",
+                  "id": "ByteDance.Feishu"
+                }
+              },
+              "mac": {
+                "install": {
+                  "method": "brew_cask",
+                  "id": "feishu"
+                }
+              }
+            },
+            "login_required": true,
+            "secret_required": false
+          },
+          {
+            "id": "workbuddy",
+            "name": "WorkBuddy",
+            "category": "office-ai",
+            "priority": "optional",
+            "install_mode": "manual",
+            "homepage": "https://www.codebuddy.cn/work/",
+            "download_url": "https://www.codebuddy.cn/work/",
+            "github": "",
+            "purpose": "腾讯推出的AI原生桌面智能体工作台，支持自然语言驱动完成文档生成、数据分析、PPT制作等办公任务",
+            "latest_known": "2026年5月6日 (v4.21+)",
+            "platforms": {
+              "windows": {
+                "install": {
+                  "method": "manual"
+                }
+              },
+              "mac": {
+                "install": {
+                  "method": "manual"
+                }
+              }
+            },
+            "login_required": true,
+            "secret_required": false
+          },
+          {
+            "id": "uu-remote",
+            "name": "UU远程",
+            "category": "remote-control",
+            "priority": "optional",
+            "install_mode": "manual",
+            "homepage": "https://uuyc.163.com/",
+            "download_url": "https://uuyc.163.com/download",
+            "github": "",
+            "purpose": "网易出品的免费远程控制软件，支持真4K画质、超低延迟、文件传输和远程游戏",
+            "latest_known": "2026年5月9日 (v4.23.0)",
+            "platforms": {
+              "windows": {
+                "install": {
+                  "method": "manual"
+                }
+              },
+              "mac": {
+                "install": {
+                  "method": "manual"
+                }
+              }
+            },
+            "login_required": true,
+            "secret_required": false
+          },
+          {
+            "id": "clash-verge-rev",
+            "name": "Clash Verge Rev",
+            "category": "network",
+            "priority": "recommended",
+            "install_mode": "auto",
+            "homepage": "https://clash-verge.org/",
+            "download_url": "https://clash-verge.org/zh-CN/download",
+            "github": "https://github.com/clash-verge-rev/clash-verge-rev",
+            "purpose": "基于Clash Meta(mihomo)内核的跨平台代理客户端，支持VLESS、Reality等新协议",
+            "latest_known": "2026年3月22日 (v2.4.7)",
+            "platforms": {
+              "windows": {
+                "install": {
+                  "method": "winget",
+                  "id": "ClashVergeRev.ClashVergeRev"
+                }
+              },
+              "mac": {
+                "install": {
+                  "method": "brew_cask",
+                  "id": "clash-verge-rev"
+                }
+              }
+            },
+            "login_required": false,
+            "secret_required": true
+          },
+          {
+            "id": "chrome",
+            "name": "Chrome",
+            "category": "browser",
+            "priority": "required",
+            "install_mode": "auto",
+            "homepage": "https://www.google.cn/intl/zh-CN/chrome/",
+            "download_url": "https://www.google.cn/intl/zh-CN/chrome/",
+            "github": "https://github.com/google/chrome",
+            "purpose": "谷歌开发的跨平台网页浏览器，速度快、安全性高，支持丰富的扩展程序",
+            "latest_known": "2026年5月7日 (v148.0.7727.24)",
+            "platforms": {
+              "windows": {
+                "install": {
+                  "method": "winget",
+                  "id": "Google.Chrome"
+                }
+              },
+              "mac": {
+                "install": {
+                  "method": "brew_cask",
+                  "id": "google-chrome"
+                }
+              }
+            },
+            "login_required": false,
+            "secret_required": false
+          },
+          {
+            "id": "doubao",
+            "name": "豆包",
+            "category": "ai-assistant",
+            "priority": "recommended",
+            "install_mode": "manual",
+            "homepage": "https://www.doubao.com/",
+            "download_url": "https://www.doubao.com/download/desktop",
+            "github": "",
+            "purpose": "字节跳动推出的全能型AI助手，支持AI搜索、写作辅助、代码生成、图像创意等功能",
+            "latest_known": "2026年4月21日 (v2.2.3)",
+            "platforms": {
+              "windows": {
+                "install": {
+                  "method": "manual"
+                }
+              },
+              "mac": {
+                "install": {
+                  "method": "manual"
+                }
+              }
+            },
+            "login_required": true,
+            "secret_required": false
+          },
+          {
+            "id": "cherry-studio",
+            "name": "Cherry Studio",
+            "category": "ai-client",
+            "priority": "required",
+            "install_mode": "auto",
+            "homepage": "https://cherry-ai.com/",
+            "download_url": "https://cherry-ai.com/download",
+            "github": "https://github.com/CherryHQ/cherry-studio",
+            "purpose": "跨平台AI聊天客户端，支持300+AI模型，具备自主Agent能力和本地知识库功能",
+            "latest_known": "2026年4月30日 (v1.9.4)",
+            "platforms": {
+              "windows": {
+                "install": {
+                  "method": "winget",
+                  "id": "CherryHQ.CherryStudio"
+                }
+              },
+              "mac": {
+                "install": {
+                  "method": "brew_cask",
+                  "id": "cherry-studio"
+                }
+              }
+            },
+            "login_required": true,
+            "secret_required": false
+          },
+          {
+            "id": "powershell-7",
+            "name": "PowerShell 7",
+            "category": "dev-runtime",
+            "priority": "required",
+            "install_mode": "auto",
+            "homepage": "https://learn.microsoft.com/zh-cn/powershell/",
+            "download_url": "https://github.com/PowerShell/PowerShell/releases",
+            "github": "https://github.com/PowerShell/PowerShell",
+            "purpose": "跨平台任务自动化和配置管理框架，兼容Windows PowerShell",
+            "latest_known": "2026年3月18日 (v7.6.0)",
+            "platforms": {
+              "windows": {
+                "install": {
+                  "method": "winget",
+                  "id": "Microsoft.PowerShell"
+                }
+              },
+              "mac": {
+                "install": {
+                  "method": "brew",
+                  "id": "powershell"
+                }
+              }
+            },
+            "login_required": false,
+            "secret_required": false
+          },
+          {
+            "id": "tongdaxin",
+            "name": "通达信",
+            "category": "trading",
+            "priority": "optional",
+            "install_mode": "manual",
+            "homepage": "https://www.tdx.com.cn/",
+            "download_url": "https://www.tdx.com.cn/soft.html",
+            "github": "",
+            "purpose": "专业的股票行情分析和交易软件，支持A股、港股、美股、期货等多市场",
+            "latest_known": "2025年11月10日 (v7.71)",
+            "platforms": {
+              "windows": {
+                "install": {
+                  "method": "manual"
+                }
+              },
+              "mac": {
+                "install": {
+                  "method": "manual"
+                }
+              }
+            },
+            "login_required": false,
+            "secret_required": false
+          },
+          {
+            "id": "nssm",
+            "name": "NSSM",
+            "category": "windows-service",
+            "priority": "recommended",
+            "install_mode": "auto",
+            "homepage": "https://nssm.cc/",
+            "download_url": "https://nssm.cc/download",
+            "github": "https://github.com/nssmgr/NSSM",
+            "purpose": "将任意可执行程序(控制台、GUI、脚本)注册为Windows服务的工具，支持自动重启",
+            "latest_known": "2017年4月26日 (v2.24-101)",
+            "platforms": {
+              "windows": {
+                "install": {
+                  "method": "github_release",
+                  "repo": "nssmgr/NSSM"
+                }
+              },
+              "mac": {
+                "install": {
+                  "method": "github_release",
+                  "repo": "nssmgr/NSSM"
+                }
+              }
+            },
+            "login_required": false,
+            "secret_required": false
+          },
+          {
+            "id": "frp",
+            "name": "FRP",
+            "category": "network",
+            "priority": "recommended",
+            "install_mode": "auto",
+            "homepage": "https://gofrp.org/",
+            "download_url": "https://github.com/fatedier/frp/releases",
+            "github": "https://github.com/fatedier/frp",
+            "purpose": "快速反向代理工具，用于内网穿透，支持TCP、UDP、HTTP、HTTPS等协议",
+            "latest_known": "2026年3月20日 (v0.68.0)",
+            "platforms": {
+              "windows": {
+                "install": {
+                  "method": "github_release",
+                  "repo": "fatedier/frp"
+                }
+              },
+              "mac": {
+                "install": {
+                  "method": "github_release",
+                  "repo": "fatedier/frp"
+                }
+              }
+            },
+            "login_required": false,
+            "secret_required": false
+          },
+          {
+            "id": "cliproxyapi",
+            "name": "CLIProxyAPI",
+            "category": "ai-gateway",
+            "priority": "recommended",
+            "install_mode": "auto",
+            "homepage": "无",
+            "download_url": "https://github.com/router-for-me/CLIProxyAPI/releases",
+            "github": "https://github.com/router-for-me/CLIProxyAPI",
+            "purpose": "AI API代理服务，统一管理多个AI模型接口，支持负载均衡和故障转移",
+            "latest_known": "2026年4月21日 (v6.9.31)",
+            "platforms": {
+              "windows": {
+                "install": {
+                  "method": "github_release",
+                  "repo": "router-for-me/CLIProxyAPI"
+                }
+              },
+              "mac": {
+                "install": {
+                  "method": "github_release",
+                  "repo": "router-for-me/CLIProxyAPI"
+                }
+              }
+            },
+            "login_required": false,
+            "secret_required": true
+          },
+          {
+            "id": "cliproxyapi-dashboard",
+            "name": "CLIProxyAPI Dashboard",
+            "category": "ai-gateway",
+            "priority": "optional",
+            "install_mode": "auto",
+            "homepage": "无",
+            "download_url": "https://github.com/itsmylife44/cliproxyapi-dashboard/releases",
+            "github": "https://github.com/itsmylife44/cliproxyapi-dashboard",
+            "purpose": "CLIProxyAPI的Web管理界面，提供配置同步、OAuth提供商管理和监控功能",
+            "latest_known": "2026年4月21日",
+            "platforms": {
+              "windows": {
+                "install": {
+                  "method": "github_release",
+                  "repo": "itsmylife44/cliproxyapi-dashboard"
+                }
+              },
+              "mac": {
+                "install": {
+                  "method": "github_release",
+                  "repo": "itsmylife44/cliproxyapi-dashboard"
+                }
+              }
+            },
+            "login_required": false,
+            "secret_required": false
+          },
+          {
+            "id": "new-api",
+            "name": "New API",
+            "category": "ai-gateway",
+            "priority": "recommended",
+            "install_mode": "auto",
+            "homepage": "https://docs.newapi.pro/",
+            "download_url": "https://github.com/QuantumNous/new-api/releases",
+            "github": "https://github.com/QuantumNous/new-api",
+            "purpose": "新一代大模型网关和AI资产管理平台，支持40+AI模型，统一为OpenAI兼容格式",
+            "latest_known": "2026年5月6日 (v1.1.138)",
+            "platforms": {
+              "windows": {
+                "install": {
+                  "method": "github_release",
+                  "repo": "QuantumNous/new-api"
+                }
+              },
+              "mac": {
+                "install": {
+                  "method": "github_release",
+                  "repo": "QuantumNous/new-api"
+                }
+              }
+            },
+            "login_required": false,
+            "secret_required": true
+          },
+          {
+            "id": "claude-relay-service",
+            "name": "Claude Relay Service",
+            "category": "ai-gateway",
+            "priority": "optional",
+            "install_mode": "auto",
+            "homepage": "无",
+            "download_url": "https://github.com/Wei-Shaw/claude-relay-service/releases",
+            "github": "https://github.com/Wei-Shaw/claude-relay-service",
+            "purpose": "自托管的Claude API中继服务，支持多账户管理和负载均衡",
+            "latest_known": "2026年3月26日 (v1.1.297)",
+            "platforms": {
+              "windows": {
+                "install": {
+                  "method": "github_release",
+                  "repo": "Wei-Shaw/claude-relay-service"
+                }
+              },
+              "mac": {
+                "install": {
+                  "method": "github_release",
+                  "repo": "Wei-Shaw/claude-relay-service"
+                }
+              }
+            },
+            "login_required": false,
+            "secret_required": true
+          },
+          {
+            "id": "comfyui",
+            "name": "ComfyUI",
+            "category": "ai-image",
+            "priority": "optional",
+            "install_mode": "auto",
+            "homepage": "https://comfyanonymous.github.io/ComfyUI/",
+            "download_url": "https://github.com/Comfy-Org/ComfyUI/releases",
+            "github": "https://github.com/Comfy-Org/ComfyUI",
+            "purpose": "模块化的AI图像生成工具，基于节点的工作流设计，支持Stable Diffusion等模型",
+            "latest_known": "2026年4月28日 (v0.20.1)",
+            "platforms": {
+              "windows": {
+                "install": {
+                  "method": "github_release",
+                  "repo": "Comfy-Org/ComfyUI"
+                }
+              },
+              "mac": {
+                "install": {
+                  "method": "github_release",
+                  "repo": "Comfy-Org/ComfyUI"
+                }
+              }
+            },
+            "login_required": false,
+            "secret_required": false
+          },
+          {
+            "id": "litemonitor",
+            "name": "LiteMonitor",
+            "category": "system-monitor",
+            "priority": "recommended",
+            "install_mode": "auto",
+            "homepage": "https://litemonitor.cn/",
+            "download_url": "https://github.com/Diorser/LiteMonitor/releases",
+            "github": "https://github.com/Diorser/LiteMonitor",
+            "purpose": "轻量级、可定制的 Windows 桌面和任务栏硬件性能监控工具，支持 CPU、GPU、内存、磁盘、网络、FPS、插件和内存清理",
+            "latest_known": "2026年2月12日 (v1.3.4)",
+            "platforms": {
+              "windows": {
+                "install": {
+                  "method": "winget",
+                  "id": "Diorser.LiteMonitor"
+                }
+              },
+              "mac": {
+                "install": {
+                  "method": "unsupported"
+                }
+              }
+            },
+            "login_required": false,
+            "secret_required": false
+          }
+        ],
+        "app_summary": {
+          "total": 22,
+          "required": 8,
+          "recommended": 8,
+          "optional": 6,
+          "auto": 15,
+          "manual": 6,
+          "secret_required": 6
+        },
+        "apps_by_priority": {
+          "required": [
+            {
+              "id": "cc-switch",
+              "name": "CC Switch",
+              "category": "ai-infra",
+              "priority": "required",
+              "install_mode": "auto",
+              "homepage": "https://www.ccswitch.io/zh/",
+              "download_url": "https://github.com/farion1231/cc-switch/releases",
+              "github": "https://github.com/farion1231/cc-switch",
+              "purpose": "AI编程CLI工具统一配置管理器，支持Claude Code、Codex、Gemini CLI等，提供自动故障转移、API测速、配置备份等功能",
+              "latest_known": "2026年4月30日 (v3.13.0)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "farion1231/cc-switch"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "farion1231/cc-switch"
+                  }
+                }
+              },
+              "login_required": false,
+              "secret_required": true
+            },
+            {
+              "id": "vs-code",
+              "name": "VS Code",
+              "category": "editor",
+              "priority": "required",
+              "install_mode": "auto",
+              "homepage": "https://code.visualstudio.com/",
+              "download_url": "https://code.visualstudio.com/download",
+              "github": "https://github.com/microsoft/vscode",
+              "purpose": "轻量级但功能强大的源代码编辑器，支持多种编程语言和丰富的插件生态",
+              "latest_known": "2026年5月6日 (v1.119.0)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "winget",
+                    "id": "Microsoft.VisualStudioCode"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "brew_cask",
+                    "id": "visual-studio-code"
+                  }
+                }
+              },
+              "login_required": false,
+              "secret_required": false
+            },
+            {
+              "id": "codex",
+              "name": "Codex",
+              "category": "ai-coding",
+              "priority": "required",
+              "install_mode": "auto",
+              "homepage": "https://openai.com/codex",
+              "download_url": "https://github.com/openai/codex/releases",
+              "github": "https://github.com/openai/codex",
+              "purpose": "OpenAI官方推出的终端级AI编程助手，支持CLI、桌面应用和IDE集成",
+              "latest_known": "2026年4月25日",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "openai/codex"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "openai/codex"
+                  }
+                }
+              },
+              "login_required": true,
+              "secret_required": true
+            },
+            {
+              "id": "claude",
+              "name": "Claude",
+              "category": "ai-assistant",
+              "priority": "required",
+              "install_mode": "manual",
+              "homepage": "https://claude.ai/",
+              "download_url": "https://claude.ai/download",
+              "github": "",
+              "purpose": "Anthropic推出的AI助手，提供Claude Code终端编程工具，支持代码编写、调试和重构",
+              "latest_known": "2026年4月30日",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "manual"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "manual"
+                  }
+                }
+              },
+              "login_required": true,
+              "secret_required": false
+            },
+            {
+              "id": "feishu",
+              "name": "飞书",
+              "category": "collaboration",
+              "priority": "required",
+              "install_mode": "semi_auto",
+              "homepage": "https://www.feishu.cn/",
+              "download_url": "https://www.feishu.cn/download",
+              "github": "",
+              "purpose": "一站式企业协作与管理平台，整合即时沟通、云文档、音视频会议、多维表格等功能",
+              "latest_known": "2026年4月14日 (v7.66.0.0)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "winget",
+                    "id": "ByteDance.Feishu"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "brew_cask",
+                    "id": "feishu"
+                  }
+                }
+              },
+              "login_required": true,
+              "secret_required": false
+            },
+            {
+              "id": "chrome",
+              "name": "Chrome",
+              "category": "browser",
+              "priority": "required",
+              "install_mode": "auto",
+              "homepage": "https://www.google.cn/intl/zh-CN/chrome/",
+              "download_url": "https://www.google.cn/intl/zh-CN/chrome/",
+              "github": "https://github.com/google/chrome",
+              "purpose": "谷歌开发的跨平台网页浏览器，速度快、安全性高，支持丰富的扩展程序",
+              "latest_known": "2026年5月7日 (v148.0.7727.24)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "winget",
+                    "id": "Google.Chrome"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "brew_cask",
+                    "id": "google-chrome"
+                  }
+                }
+              },
+              "login_required": false,
+              "secret_required": false
+            },
+            {
+              "id": "cherry-studio",
+              "name": "Cherry Studio",
+              "category": "ai-client",
+              "priority": "required",
+              "install_mode": "auto",
+              "homepage": "https://cherry-ai.com/",
+              "download_url": "https://cherry-ai.com/download",
+              "github": "https://github.com/CherryHQ/cherry-studio",
+              "purpose": "跨平台AI聊天客户端，支持300+AI模型，具备自主Agent能力和本地知识库功能",
+              "latest_known": "2026年4月30日 (v1.9.4)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "winget",
+                    "id": "CherryHQ.CherryStudio"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "brew_cask",
+                    "id": "cherry-studio"
+                  }
+                }
+              },
+              "login_required": true,
+              "secret_required": false
+            },
+            {
+              "id": "powershell-7",
+              "name": "PowerShell 7",
+              "category": "dev-runtime",
+              "priority": "required",
+              "install_mode": "auto",
+              "homepage": "https://learn.microsoft.com/zh-cn/powershell/",
+              "download_url": "https://github.com/PowerShell/PowerShell/releases",
+              "github": "https://github.com/PowerShell/PowerShell",
+              "purpose": "跨平台任务自动化和配置管理框架，兼容Windows PowerShell",
+              "latest_known": "2026年3月18日 (v7.6.0)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "winget",
+                    "id": "Microsoft.PowerShell"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "brew",
+                    "id": "powershell"
+                  }
+                }
+              },
+              "login_required": false,
+              "secret_required": false
+            }
+          ],
+          "recommended": [
+            {
+              "id": "trae",
+              "name": "Trae",
+              "category": "ai-ide",
+              "priority": "recommended",
+              "install_mode": "manual",
+              "homepage": "https://www.trae.cn/ (国内版); https://trae.ai/ (海外版)",
+              "download_url": "https://www.trae.cn/download",
+              "github": "",
+              "purpose": "字节跳动旗下AI原生集成开发环境，搭载豆包大模型，支持代码生成、项目构建和远程开发",
+              "latest_known": "2026年3月9日 (v3.5.36)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "manual"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "manual"
+                  }
+                }
+              },
+              "login_required": true,
+              "secret_required": false
+            },
+            {
+              "id": "clash-verge-rev",
+              "name": "Clash Verge Rev",
+              "category": "network",
+              "priority": "recommended",
+              "install_mode": "auto",
+              "homepage": "https://clash-verge.org/",
+              "download_url": "https://clash-verge.org/zh-CN/download",
+              "github": "https://github.com/clash-verge-rev/clash-verge-rev",
+              "purpose": "基于Clash Meta(mihomo)内核的跨平台代理客户端，支持VLESS、Reality等新协议",
+              "latest_known": "2026年3月22日 (v2.4.7)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "winget",
+                    "id": "ClashVergeRev.ClashVergeRev"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "brew_cask",
+                    "id": "clash-verge-rev"
+                  }
+                }
+              },
+              "login_required": false,
+              "secret_required": true
+            },
+            {
+              "id": "doubao",
+              "name": "豆包",
+              "category": "ai-assistant",
+              "priority": "recommended",
+              "install_mode": "manual",
+              "homepage": "https://www.doubao.com/",
+              "download_url": "https://www.doubao.com/download/desktop",
+              "github": "",
+              "purpose": "字节跳动推出的全能型AI助手，支持AI搜索、写作辅助、代码生成、图像创意等功能",
+              "latest_known": "2026年4月21日 (v2.2.3)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "manual"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "manual"
+                  }
+                }
+              },
+              "login_required": true,
+              "secret_required": false
+            },
+            {
+              "id": "nssm",
+              "name": "NSSM",
+              "category": "windows-service",
+              "priority": "recommended",
+              "install_mode": "auto",
+              "homepage": "https://nssm.cc/",
+              "download_url": "https://nssm.cc/download",
+              "github": "https://github.com/nssmgr/NSSM",
+              "purpose": "将任意可执行程序(控制台、GUI、脚本)注册为Windows服务的工具，支持自动重启",
+              "latest_known": "2017年4月26日 (v2.24-101)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "nssmgr/NSSM"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "nssmgr/NSSM"
+                  }
+                }
+              },
+              "login_required": false,
+              "secret_required": false
+            },
+            {
+              "id": "frp",
+              "name": "FRP",
+              "category": "network",
+              "priority": "recommended",
+              "install_mode": "auto",
+              "homepage": "https://gofrp.org/",
+              "download_url": "https://github.com/fatedier/frp/releases",
+              "github": "https://github.com/fatedier/frp",
+              "purpose": "快速反向代理工具，用于内网穿透，支持TCP、UDP、HTTP、HTTPS等协议",
+              "latest_known": "2026年3月20日 (v0.68.0)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "fatedier/frp"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "fatedier/frp"
+                  }
+                }
+              },
+              "login_required": false,
+              "secret_required": false
+            },
+            {
+              "id": "cliproxyapi",
+              "name": "CLIProxyAPI",
+              "category": "ai-gateway",
+              "priority": "recommended",
+              "install_mode": "auto",
+              "homepage": "无",
+              "download_url": "https://github.com/router-for-me/CLIProxyAPI/releases",
+              "github": "https://github.com/router-for-me/CLIProxyAPI",
+              "purpose": "AI API代理服务，统一管理多个AI模型接口，支持负载均衡和故障转移",
+              "latest_known": "2026年4月21日 (v6.9.31)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "router-for-me/CLIProxyAPI"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "router-for-me/CLIProxyAPI"
+                  }
+                }
+              },
+              "login_required": false,
+              "secret_required": true
+            },
+            {
+              "id": "new-api",
+              "name": "New API",
+              "category": "ai-gateway",
+              "priority": "recommended",
+              "install_mode": "auto",
+              "homepage": "https://docs.newapi.pro/",
+              "download_url": "https://github.com/QuantumNous/new-api/releases",
+              "github": "https://github.com/QuantumNous/new-api",
+              "purpose": "新一代大模型网关和AI资产管理平台，支持40+AI模型，统一为OpenAI兼容格式",
+              "latest_known": "2026年5月6日 (v1.1.138)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "QuantumNous/new-api"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "QuantumNous/new-api"
+                  }
+                }
+              },
+              "login_required": false,
+              "secret_required": true
+            },
+            {
+              "id": "litemonitor",
+              "name": "LiteMonitor",
+              "category": "system-monitor",
+              "priority": "recommended",
+              "install_mode": "auto",
+              "homepage": "https://litemonitor.cn/",
+              "download_url": "https://github.com/Diorser/LiteMonitor/releases",
+              "github": "https://github.com/Diorser/LiteMonitor",
+              "purpose": "轻量级、可定制的 Windows 桌面和任务栏硬件性能监控工具，支持 CPU、GPU、内存、磁盘、网络、FPS、插件和内存清理",
+              "latest_known": "2026年2月12日 (v1.3.4)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "winget",
+                    "id": "Diorser.LiteMonitor"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "unsupported"
+                  }
+                }
+              },
+              "login_required": false,
+              "secret_required": false
+            }
+          ],
+          "optional": [
+            {
+              "id": "workbuddy",
+              "name": "WorkBuddy",
+              "category": "office-ai",
+              "priority": "optional",
+              "install_mode": "manual",
+              "homepage": "https://www.codebuddy.cn/work/",
+              "download_url": "https://www.codebuddy.cn/work/",
+              "github": "",
+              "purpose": "腾讯推出的AI原生桌面智能体工作台，支持自然语言驱动完成文档生成、数据分析、PPT制作等办公任务",
+              "latest_known": "2026年5月6日 (v4.21+)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "manual"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "manual"
+                  }
+                }
+              },
+              "login_required": true,
+              "secret_required": false
+            },
+            {
+              "id": "uu-remote",
+              "name": "UU远程",
+              "category": "remote-control",
+              "priority": "optional",
+              "install_mode": "manual",
+              "homepage": "https://uuyc.163.com/",
+              "download_url": "https://uuyc.163.com/download",
+              "github": "",
+              "purpose": "网易出品的免费远程控制软件，支持真4K画质、超低延迟、文件传输和远程游戏",
+              "latest_known": "2026年5月9日 (v4.23.0)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "manual"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "manual"
+                  }
+                }
+              },
+              "login_required": true,
+              "secret_required": false
+            },
+            {
+              "id": "tongdaxin",
+              "name": "通达信",
+              "category": "trading",
+              "priority": "optional",
+              "install_mode": "manual",
+              "homepage": "https://www.tdx.com.cn/",
+              "download_url": "https://www.tdx.com.cn/soft.html",
+              "github": "",
+              "purpose": "专业的股票行情分析和交易软件，支持A股、港股、美股、期货等多市场",
+              "latest_known": "2025年11月10日 (v7.71)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "manual"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "manual"
+                  }
+                }
+              },
+              "login_required": false,
+              "secret_required": false
+            },
+            {
+              "id": "cliproxyapi-dashboard",
+              "name": "CLIProxyAPI Dashboard",
+              "category": "ai-gateway",
+              "priority": "optional",
+              "install_mode": "auto",
+              "homepage": "无",
+              "download_url": "https://github.com/itsmylife44/cliproxyapi-dashboard/releases",
+              "github": "https://github.com/itsmylife44/cliproxyapi-dashboard",
+              "purpose": "CLIProxyAPI的Web管理界面，提供配置同步、OAuth提供商管理和监控功能",
+              "latest_known": "2026年4月21日",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "itsmylife44/cliproxyapi-dashboard"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "itsmylife44/cliproxyapi-dashboard"
+                  }
+                }
+              },
+              "login_required": false,
+              "secret_required": false
+            },
+            {
+              "id": "claude-relay-service",
+              "name": "Claude Relay Service",
+              "category": "ai-gateway",
+              "priority": "optional",
+              "install_mode": "auto",
+              "homepage": "无",
+              "download_url": "https://github.com/Wei-Shaw/claude-relay-service/releases",
+              "github": "https://github.com/Wei-Shaw/claude-relay-service",
+              "purpose": "自托管的Claude API中继服务，支持多账户管理和负载均衡",
+              "latest_known": "2026年3月26日 (v1.1.297)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "Wei-Shaw/claude-relay-service"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "Wei-Shaw/claude-relay-service"
+                  }
+                }
+              },
+              "login_required": false,
+              "secret_required": true
+            },
+            {
+              "id": "comfyui",
+              "name": "ComfyUI",
+              "category": "ai-image",
+              "priority": "optional",
+              "install_mode": "auto",
+              "homepage": "https://comfyanonymous.github.io/ComfyUI/",
+              "download_url": "https://github.com/Comfy-Org/ComfyUI/releases",
+              "github": "https://github.com/Comfy-Org/ComfyUI",
+              "purpose": "模块化的AI图像生成工具，基于节点的工作流设计，支持Stable Diffusion等模型",
+              "latest_known": "2026年4月28日 (v0.20.1)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "Comfy-Org/ComfyUI"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "Comfy-Org/ComfyUI"
+                  }
+                }
+              },
+              "login_required": false,
+              "secret_required": false
+            }
+          ]
+        },
+        "folders": [
+          {
+            "path": "Projects",
+            "purpose": "代码项目"
+          },
+          {
+            "path": "AI",
+            "purpose": "AI 工具配置、模型、工作流"
+          },
+          {
+            "path": "AI/Models",
+            "purpose": "本地模型"
+          },
+          {
+            "path": "AI/ComfyUI",
+            "purpose": "ComfyUI 工作区"
+          },
+          {
+            "path": "Services",
+            "purpose": "New API、CLIProxyAPI、FRP 等服务"
+          },
+          {
+            "path": "Documents",
+            "purpose": "重要文档"
+          },
+          {
+            "path": "Downloads/Installers",
+            "purpose": "安装包归档"
+          },
+          {
+            "path": "Scripts",
+            "purpose": "自用脚本"
+          },
+          {
+            "path": "Backups",
+            "purpose": "配置备份"
+          }
+        ],
+        "folder_root": {
+          "windows": "D:/Workspace",
+          "mac": "$HOME/Workspace"
+        },
+        "public_websites": [
+          {
+            "domain": "joinquant.com",
+            "visit_count_30d": 324,
+            "typed_count_30d": 10,
+            "last_visit_at": "2026-05-11 22:54:03"
+          },
+          {
+            "domain": "baidu.com",
+            "visit_count_30d": 271,
+            "typed_count_30d": 59,
+            "last_visit_at": "2026-05-12 11:24:35"
+          },
+          {
+            "domain": "google.com",
+            "visit_count_30d": 164,
+            "typed_count_30d": 23,
+            "last_visit_at": "2026-05-10 22:57:27"
+          },
+          {
+            "domain": "github.com",
+            "visit_count_30d": 146,
+            "typed_count_30d": 29,
+            "last_visit_at": "2026-05-12 10:03:19"
+          },
+          {
+            "domain": "coinglass.com",
+            "visit_count_30d": 132,
+            "typed_count_30d": 14,
+            "last_visit_at": "2026-05-12 03:49:04"
+          },
+          {
+            "domain": "flaios.com",
+            "visit_count_30d": 97,
+            "typed_count_30d": 3,
+            "last_visit_at": "2026-05-12 09:40:04"
+          },
+          {
+            "domain": "cloud.tencent.com",
+            "visit_count_30d": 97,
+            "typed_count_30d": 3,
+            "last_visit_at": "2026-05-12 01:29:59"
+          },
+          {
+            "domain": "forum.trae.cn",
+            "visit_count_30d": 62,
+            "typed_count_30d": 1,
+            "last_visit_at": "2026-05-08 19:44:56"
+          },
+          {
+            "domain": "chatgpt.com",
+            "visit_count_30d": 39,
+            "typed_count_30d": 5,
+            "last_visit_at": "2026-05-10 10:31:04"
+          },
+          {
+            "domain": "trae.cn",
+            "visit_count_30d": 35,
+            "typed_count_30d": 0,
+            "last_visit_at": "2026-05-10 01:32:34"
+          },
+          {
+            "domain": "pan.baidu.com",
+            "visit_count_30d": 33,
+            "typed_count_30d": 0,
+            "last_visit_at": "2026-05-07 00:06:30"
+          },
+          {
+            "domain": "gemini.google.com",
+            "visit_count_30d": 27,
+            "typed_count_30d": 12,
+            "last_visit_at": "2026-05-11 00:54:32"
+          },
+          {
+            "domain": "openai.com",
+            "visit_count_30d": 11,
+            "typed_count_30d": 4,
+            "last_visit_at": "2026-05-05 23:27:44"
+          }
+        ],
+        "public_website_count": 13
+      }
+    },
+    {
+      "id": "flaios-content-submit",
+      "type": "skill",
+      "name": "飞流AI枢纽内容提交",
+      "category": "ops/automation",
+      "tags": [
+        "codex",
+        "contribution",
+        "content-normalization",
+        "laozhou-s"
+      ],
+      "one_liner": "让 Codex 根据一句话把网站、工具、项目、Agent、Skill、工作流或记忆整理成飞流AI枢纽提交。",
+      "best_for": [
+        "一句话提交新内容",
+        "规范化分类和标签",
+        "生成 PR 变更摘要"
+      ],
+      "not_good_for": [
+        "绕过审核直接发布",
+        "收录无法说明价值的广告链接"
+      ],
+      "rating": "S",
+      "owner_note": "给老周自己和其他贡献者的低摩擦提交入口。",
+      "related_agents": [
+        "repo-onboarding-guide",
+        "agent-quality-evaluator"
+      ],
+      "related_skills": [],
+      "related_workflows": [
+        "submit-to-flaios"
+      ],
+      "status": "draft",
+      "source_file": "content/skills.yaml"
+    },
+    {
+      "id": "claude-code",
+      "type": "tool",
+      "name": "Claude Code",
+      "category": "ai/coding",
+      "tags": [
+        "developer",
+        "terminal",
+        "subagents",
+        "laozhou-a"
+      ],
+      "one_liner": "终端里的 AI 编程工具，适合代码理解、重构、子 Agent 分工和项目级任务推进。",
+      "best_for": [
+        "代码理解",
+        "重构规划",
+        "子 Agent 协作",
+        "长上下文项目分析"
+      ],
+      "not_good_for": [
+        "无需工程上下文的普通聊天",
+        "无人工审核的高风险批量改动"
+      ],
+      "rating": "A",
+      "owner_note": "适合作为 Codex 之外的工程协作入口，尤其适合 subagent 风格任务。",
+      "related_agents": [
+        "repo-onboarding-guide",
+        "bug-investigator",
+        "test-writer"
+      ],
+      "related_skills": [],
+      "related_workflows": [
+        "personal-ai-workstation-bootstrap"
+      ],
+      "status": "draft",
+      "source_file": "content/tools.yaml"
+    },
+    {
+      "id": "codex",
+      "type": "tool",
+      "name": "Codex",
+      "category": "ai/coding",
+      "tags": [
+        "developer",
+        "local-repo",
+        "agent-workflow",
+        "laozhou-s"
+      ],
+      "one_liner": "面向本地仓库的 AI 编程与任务执行工具，适合承载可复用 Skill 和项目级流程。",
+      "best_for": [
+        "代码修改",
+        "仓库分析",
+        "技能调用",
+        "自动化执行"
+      ],
+      "not_good_for": [
+        "纯聊天陪伴",
+        "无上下文的泛泛问答"
+      ],
+      "rating": "S",
+      "owner_note": "本项目的主要执行环境，适合把经验沉淀成 Skill。",
+      "related_agents": [
+        "code-reviewer",
+        "frontend-builder",
+        "backend-api-architect"
+      ],
+      "related_skills": [
+        "flaios-content-submit"
+      ],
+      "related_workflows": [
+        "submit-to-flaios"
+      ],
+      "status": "draft",
+      "source_file": "content/tools.yaml"
+    },
+    {
+      "id": "cursor",
+      "type": "tool",
+      "name": "Cursor",
+      "category": "ai/coding",
+      "tags": [
+        "developer",
+        "ai-ide",
+        "project-rules",
+        "laozhou-a"
+      ],
+      "one_liner": "AI 原生代码编辑器，适合在项目里结合规则文件、上下文和快速修改完成开发任务。",
+      "best_for": [
+        "项目内编码",
+        "快速改 UI",
+        "结合规则约束输出",
+        "新手进入 AI 编程"
+      ],
+      "not_good_for": [
+        "复杂仓库的长时间自治任务",
+        "严格终端自动化"
+      ],
+      "rating": "A",
+      "owner_note": "适合轻量开发和可视化编辑体验；复杂流程可以和 Codex / Claude Code 分工。",
+      "related_agents": [
+        "frontend-builder",
+        "ux-flow-designer",
+        "code-reviewer"
+      ],
+      "related_skills": [],
+      "related_workflows": [
+        "personal-ai-workstation-bootstrap"
+      ],
+      "status": "draft",
+      "source_file": "content/tools.yaml"
+    },
+    {
+      "id": "feishu",
+      "type": "tool",
+      "name": "飞书",
+      "category": "local-cn/feishu",
+      "tags": [
+        "china-friendly",
+        "collaboration",
+        "docs",
+        "automation",
+        "laozhou-s"
+      ],
+      "one_liner": "中国本地团队协作平台，适合文档、表格、多维表格、群聊、日程和自动化工作流。",
+      "best_for": [
+        "团队协作",
+        "云文档",
+        "多维表格",
+        "群消息自动化",
+        "日程和任务管理"
+      ],
+      "not_good_for": [
+        "完全离线工作流",
+        "不希望绑定组织账号的个人轻量笔记"
+      ],
+      "rating": "S",
+      "owner_note": "非常适合和 Lark / 飞书类 Skill 连接，沉淀运营、项目和自动化流程。",
+      "related_agents": [
+        "feishu-workflow-builder",
+        "automation-workflow-designer"
+      ],
+      "related_skills": [
+        "lark-doc",
+        "lark-base",
+        "lark-im",
+        "lark-calendar"
+      ],
+      "related_workflows": [
+        "personal-ai-workstation-bootstrap"
+      ],
+      "status": "draft",
+      "source_file": "content/tools.yaml"
+    },
+    {
+      "id": "personal-ai-workstation-bootstrap",
+      "type": "workflow",
+      "name": "个人 AI 工作站初始化",
+      "category": "setup/ai-workstation",
+      "tags": [
+        "windows",
+        "mac",
+        "setup-kit",
+        "ai-coding",
+        "agent-assisted",
+        "laozhou-s"
+      ],
+      "one_liner": "根据 setup kit 初始化新电脑的软件、目录、常用网站和 AI 工具接管流程。",
+      "best_for": [
+        "换新电脑",
+        "重装系统",
+        "给朋友配置 AI 工作站",
+        "标准化开发环境"
+      ],
+      "not_good_for": [
+        "无人值守安装所有敏感工具",
+        "自动登录账号",
+        "公开未清理的浏览器历史"
+      ],
+      "rating": "S",
+      "owner_note": "先作为栏目和数据源整合；执行真实安装前必须先运行 DryRun 并人工确认敏感项。",
+      "steps": [
+        "读取 setup-kits/personal-ai-workstation/kit.yaml。",
+        "审核 apps.yaml、websites.yaml、folders.yaml。",
+        "先运行 Windows DryRun 或 macOS 等价检查。",
+        "自动安装低风险软件，手动处理登录、密钥、付费和代理配置。",
+        "生成 setup-report.md。"
+      ],
+      "related_agents": [
+        "automation-workflow-designer"
+      ],
+      "related_skills": [],
+      "related_workflows": [
+        "submit-to-flaios"
+      ],
+      "status": "draft",
+      "source_file": "content/workflows.yaml"
+    },
+    {
+      "id": "submit-to-flaios",
+      "type": "workflow",
+      "name": "一句话提交到飞流AI枢纽",
+      "category": "ops/automation",
+      "tags": [
+        "contribution",
+        "codex",
+        "agent-assisted",
+        "laozhou-s"
+      ],
+      "one_liner": "把一个网站、工具、项目、Agent、Skill 或记忆整理成规范内容并提交。",
+      "best_for": [
+        "快速沉淀日常发现",
+        "让其他 Agent 帮忙提交",
+        "统一内容结构"
+      ],
+      "not_good_for": [
+        "未验证的广告内容",
+        "无法说明用途的链接"
+      ],
+      "rating": "S",
+      "owner_note": "用来把老周和朋友的日常 AI 发现持续沉淀到站点。",
+      "steps": [
+        "阅读 docs/navigation-taxonomy.md 和 docs/submissions.md。",
+        "判断内容类型和分类，必要时解释新类目理由。",
+        "补齐字段、关联 Agent / Skill / Workflow。",
+        "运行 npm run catalog、npm run lint:agents、npm run website:build。",
+        "给出变更摘要或创建 PR。"
+      ],
+      "related_agents": [
+        "repo-onboarding-guide",
+        "agent-quality-evaluator"
+      ],
+      "related_skills": [
+        "flaios-content-submit"
+      ],
+      "related_workflows": [],
+      "status": "draft",
+      "source_file": "content/workflows.yaml"
+    }
+  ],
+  "by_type": {
+    "ai_website": [
+      {
+        "id": "chatgpt",
+        "type": "ai_website",
+        "name": "ChatGPT",
+        "url": "https://chatgpt.com",
+        "category": "ai/chat",
+        "tags": [
+          "global",
+          "beginner-friendly",
+          "multimodal",
+          "laozhou-s"
+        ],
+        "one_liner": "通用 AI 助手，适合写作、分析、代码、学习和多模态任务。",
+        "best_for": [
+          "日常问答",
+          "文档分析",
+          "代码解释",
+          "复杂问题拆解"
+        ],
+        "not_good_for": [
+          "需要完全确定的法律、医疗、投资结论"
+        ],
+        "pricing": "免费 + 付费",
+        "china_access": "unstable",
+        "rating": "S",
+        "owner_note": "老周主力通用助手之一，适合复杂问题拆解和文档协作。",
+        "related_agents": [
+          "product-manager",
+          "data-analyst",
+          "code-reviewer"
+        ],
+        "related_skills": [
+          "Memory"
+        ],
+        "related_workflows": [
+          "research-to-report"
+        ],
+        "status": "draft",
+        "source_file": "content/ai-websites.yaml"
+      },
+      {
+        "id": "perplexity",
+        "type": "ai_website",
+        "name": "Perplexity",
+        "url": "https://www.perplexity.ai",
+        "category": "ai/search",
+        "tags": [
+          "global",
+          "research",
+          "source-aware",
+          "laozhou-a"
+        ],
+        "one_liner": "带来源的 AI 搜索与研究入口，适合快速建立资料地图。",
+        "best_for": [
+          "资料搜索",
+          "竞品初筛",
+          "新闻线索",
+          "主题研究"
+        ],
+        "not_good_for": [
+          "替代严肃引用核查",
+          "直接做最终商业决策"
+        ],
+        "pricing": "免费 + 付费",
+        "china_access": "unstable",
+        "rating": "A",
+        "owner_note": "适合作为研究第一跳，再交给 Agent 做结构化分析。",
+        "related_agents": [
+          "market-researcher",
+          "seo-strategist"
+        ],
+        "related_skills": [],
+        "related_workflows": [
+          "research-to-report"
+        ],
+        "status": "draft",
+        "source_file": "content/ai-websites.yaml"
+      }
+    ],
+    "memory": [
+      {
+        "id": "laozhou-content-rule",
+        "type": "memory",
+        "name": "老周收录原则",
+        "category": "ai/knowledge",
+        "tags": [
+          "curation",
+          "quality",
+          "laozhou-s"
+        ],
+        "one_liner": "飞流AI枢纽优先收录真实使用、能连接工作流、有明确边界的 AI 资源。",
+        "best_for": [
+          "审核新提交",
+          "判断是否值得收录",
+          "统一贡献者口径"
+        ],
+        "not_good_for": [
+          "追求数量的泛导航站"
+        ],
+        "rating": "S",
+        "owner_note": "不做大全，做真实使用精选。",
+        "related_agents": [
+          "agent-quality-evaluator"
+        ],
+        "related_skills": [
+          "flaios-content-submit"
+        ],
+        "related_workflows": [
+          "submit-to-flaios"
+        ],
+        "status": "draft",
+        "source_file": "content/memories.yaml"
+      }
+    ],
+    "project": [
+      {
+        "id": "lazy-agent-shelf",
+        "type": "project",
+        "name": "Lazy Agent Shelf / 飞流AI枢纽",
+        "category": "ai/automation",
+        "tags": [
+          "open-source",
+          "agent-library",
+          "workflow",
+          "laozhou-s"
+        ],
+        "one_liner": "跨工具 Agent 与 Skill 货架，把专家流程导出到 Codex、Claude Code、Cursor、OpenCode、VSCode、Trae 等工具。",
+        "best_for": [
+          "沉淀专家 Agent",
+          "构建 AI 工作流导航",
+          "给团队共享可复用流程"
+        ],
+        "not_good_for": [
+          "替代目标 AI 工具运行任务",
+          "收录未经验证的泛导航链接"
+        ],
+        "rating": "S",
+        "owner_note": "当前项目本身，正在从 Agent 货架扩展为 AI 使用枢纽。",
+        "related_agents": [
+          "agent-quality-evaluator",
+          "prompt-injection-auditor"
+        ],
+        "related_skills": [
+          "flaios-content-submit"
+        ],
+        "related_workflows": [
+          "submit-to-flaios"
+        ],
+        "status": "draft",
+        "source_file": "content/projects.yaml"
+      }
+    ],
+    "setup_kit": [
+      {
+        "id": "personal-ai-workstation",
+        "type": "setup_kit",
+        "name": "个人 AI 工作站",
+        "category": "setup/ai-workstation",
+        "tags": [
+          "windows",
+          "mac",
+          "ai-coding",
+          "workstation",
+          "agent-assisted",
+          "laozhou-s"
+        ],
+        "one_liner": "用于新 Windows/macOS 电脑初始化的软件、网站、目录结构和 Agent 接管指令。",
+        "best_for": [
+          "新电脑初始化",
+          "帮朋友快速装机",
+          "AI 编程环境搭建",
+          "把个人常用网站和软件结构化"
+        ],
+        "not_good_for": [
+          "未经清理直接公开浏览器历史",
+          "自动处理账号登录和密钥",
+          "无人工确认的付费或管理员操作"
+        ],
+        "rating": "S",
+        "owner_note": "当前处于 MVP；websites.yaml 来自 Chrome 历史，公开前必须清理私有域名、内网地址和后台入口；Windows bootstrap 脚本已修复 DryRun 编码/解析问题，真实安装前仍需先预演。",
+        "repo_path": "setup-kits/personal-ai-workstation",
+        "entrypoints": {
+          "windows": "scripts/windows/bootstrap.ps1",
+          "agent_prompt": "agent-prompts/general-setup-agent.md"
+        },
+        "related_agents": [
+          "repo-onboarding-guide",
+          "automation-workflow-designer"
+        ],
+        "related_skills": [
+          "flaios-content-submit"
+        ],
+        "related_workflows": [
+          "personal-ai-workstation-bootstrap",
+          "submit-to-flaios"
+        ],
+        "status": "mvp",
+        "source_file": "setup-kits/personal-ai-workstation/kit.yaml",
+        "description": "用于新 Windows/macOS 电脑初始化的软件、网站、目录和 Agent 接管指令。",
+        "version": "0.1.0",
+        "owner": "AprilWu",
+        "created_at": "2026-05-12",
+        "source_files": {
+          "apps": "apps.yaml",
+          "websites": "websites.yaml",
+          "software_csv": "apps.csv",
+          "websites_csv": "websites.csv"
+        },
+        "safety": {
+          "public_share_ready": false,
+          "review_before_publish": [
+            "websites.csv / websites.yaml may include private domains from Chrome history.",
+            "Do not commit API keys, proxy subscriptions, cookies, or account tokens.",
+            "Scripts should pause before privileged, paid, or secret-related actions."
+          ]
+        },
+        "modes": [
+          {
+            "id": "basic",
+            "name": "基础环境",
+            "includes": [
+              "browser",
+              "editor",
+              "dev-runtime",
+              "collaboration"
+            ]
+          },
+          {
+            "id": "ai",
+            "name": "AI 工具",
+            "includes": [
+              "ai-coding",
+              "ai-assistant",
+              "ai-client",
+              "ai-infra",
+              "ai-gateway"
+            ]
+          },
+          {
+            "id": "full",
+            "name": "完整安装",
+            "includes": [
+              "all"
+            ]
+          }
+        ],
+        "details": {
+          "apps": [
+            {
+              "id": "cc-switch",
+              "name": "CC Switch",
+              "category": "ai-infra",
+              "priority": "required",
+              "install_mode": "auto",
+              "homepage": "https://www.ccswitch.io/zh/",
+              "download_url": "https://github.com/farion1231/cc-switch/releases",
+              "github": "https://github.com/farion1231/cc-switch",
+              "purpose": "AI编程CLI工具统一配置管理器，支持Claude Code、Codex、Gemini CLI等，提供自动故障转移、API测速、配置备份等功能",
+              "latest_known": "2026年4月30日 (v3.13.0)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "farion1231/cc-switch"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "farion1231/cc-switch"
+                  }
+                }
+              },
+              "login_required": false,
+              "secret_required": true
+            },
+            {
+              "id": "vs-code",
+              "name": "VS Code",
+              "category": "editor",
+              "priority": "required",
+              "install_mode": "auto",
+              "homepage": "https://code.visualstudio.com/",
+              "download_url": "https://code.visualstudio.com/download",
+              "github": "https://github.com/microsoft/vscode",
+              "purpose": "轻量级但功能强大的源代码编辑器，支持多种编程语言和丰富的插件生态",
+              "latest_known": "2026年5月6日 (v1.119.0)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "winget",
+                    "id": "Microsoft.VisualStudioCode"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "brew_cask",
+                    "id": "visual-studio-code"
+                  }
+                }
+              },
+              "login_required": false,
+              "secret_required": false
+            },
+            {
+              "id": "codex",
+              "name": "Codex",
+              "category": "ai-coding",
+              "priority": "required",
+              "install_mode": "auto",
+              "homepage": "https://openai.com/codex",
+              "download_url": "https://github.com/openai/codex/releases",
+              "github": "https://github.com/openai/codex",
+              "purpose": "OpenAI官方推出的终端级AI编程助手，支持CLI、桌面应用和IDE集成",
+              "latest_known": "2026年4月25日",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "openai/codex"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "openai/codex"
+                  }
+                }
+              },
+              "login_required": true,
+              "secret_required": true
+            },
+            {
+              "id": "claude",
+              "name": "Claude",
+              "category": "ai-assistant",
+              "priority": "required",
+              "install_mode": "manual",
+              "homepage": "https://claude.ai/",
+              "download_url": "https://claude.ai/download",
+              "github": "",
+              "purpose": "Anthropic推出的AI助手，提供Claude Code终端编程工具，支持代码编写、调试和重构",
+              "latest_known": "2026年4月30日",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "manual"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "manual"
+                  }
+                }
+              },
+              "login_required": true,
+              "secret_required": false
+            },
+            {
+              "id": "trae",
+              "name": "Trae",
+              "category": "ai-ide",
+              "priority": "recommended",
+              "install_mode": "manual",
+              "homepage": "https://www.trae.cn/ (国内版); https://trae.ai/ (海外版)",
+              "download_url": "https://www.trae.cn/download",
+              "github": "",
+              "purpose": "字节跳动旗下AI原生集成开发环境，搭载豆包大模型，支持代码生成、项目构建和远程开发",
+              "latest_known": "2026年3月9日 (v3.5.36)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "manual"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "manual"
+                  }
+                }
+              },
+              "login_required": true,
+              "secret_required": false
+            },
+            {
+              "id": "feishu",
+              "name": "飞书",
+              "category": "collaboration",
+              "priority": "required",
+              "install_mode": "semi_auto",
+              "homepage": "https://www.feishu.cn/",
+              "download_url": "https://www.feishu.cn/download",
+              "github": "",
+              "purpose": "一站式企业协作与管理平台，整合即时沟通、云文档、音视频会议、多维表格等功能",
+              "latest_known": "2026年4月14日 (v7.66.0.0)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "winget",
+                    "id": "ByteDance.Feishu"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "brew_cask",
+                    "id": "feishu"
+                  }
+                }
+              },
+              "login_required": true,
+              "secret_required": false
+            },
+            {
+              "id": "workbuddy",
+              "name": "WorkBuddy",
+              "category": "office-ai",
+              "priority": "optional",
+              "install_mode": "manual",
+              "homepage": "https://www.codebuddy.cn/work/",
+              "download_url": "https://www.codebuddy.cn/work/",
+              "github": "",
+              "purpose": "腾讯推出的AI原生桌面智能体工作台，支持自然语言驱动完成文档生成、数据分析、PPT制作等办公任务",
+              "latest_known": "2026年5月6日 (v4.21+)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "manual"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "manual"
+                  }
+                }
+              },
+              "login_required": true,
+              "secret_required": false
+            },
+            {
+              "id": "uu-remote",
+              "name": "UU远程",
+              "category": "remote-control",
+              "priority": "optional",
+              "install_mode": "manual",
+              "homepage": "https://uuyc.163.com/",
+              "download_url": "https://uuyc.163.com/download",
+              "github": "",
+              "purpose": "网易出品的免费远程控制软件，支持真4K画质、超低延迟、文件传输和远程游戏",
+              "latest_known": "2026年5月9日 (v4.23.0)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "manual"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "manual"
+                  }
+                }
+              },
+              "login_required": true,
+              "secret_required": false
+            },
+            {
+              "id": "clash-verge-rev",
+              "name": "Clash Verge Rev",
+              "category": "network",
+              "priority": "recommended",
+              "install_mode": "auto",
+              "homepage": "https://clash-verge.org/",
+              "download_url": "https://clash-verge.org/zh-CN/download",
+              "github": "https://github.com/clash-verge-rev/clash-verge-rev",
+              "purpose": "基于Clash Meta(mihomo)内核的跨平台代理客户端，支持VLESS、Reality等新协议",
+              "latest_known": "2026年3月22日 (v2.4.7)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "winget",
+                    "id": "ClashVergeRev.ClashVergeRev"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "brew_cask",
+                    "id": "clash-verge-rev"
+                  }
+                }
+              },
+              "login_required": false,
+              "secret_required": true
+            },
+            {
+              "id": "chrome",
+              "name": "Chrome",
+              "category": "browser",
+              "priority": "required",
+              "install_mode": "auto",
+              "homepage": "https://www.google.cn/intl/zh-CN/chrome/",
+              "download_url": "https://www.google.cn/intl/zh-CN/chrome/",
+              "github": "https://github.com/google/chrome",
+              "purpose": "谷歌开发的跨平台网页浏览器，速度快、安全性高，支持丰富的扩展程序",
+              "latest_known": "2026年5月7日 (v148.0.7727.24)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "winget",
+                    "id": "Google.Chrome"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "brew_cask",
+                    "id": "google-chrome"
+                  }
+                }
+              },
+              "login_required": false,
+              "secret_required": false
+            },
+            {
+              "id": "doubao",
+              "name": "豆包",
+              "category": "ai-assistant",
+              "priority": "recommended",
+              "install_mode": "manual",
+              "homepage": "https://www.doubao.com/",
+              "download_url": "https://www.doubao.com/download/desktop",
+              "github": "",
+              "purpose": "字节跳动推出的全能型AI助手，支持AI搜索、写作辅助、代码生成、图像创意等功能",
+              "latest_known": "2026年4月21日 (v2.2.3)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "manual"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "manual"
+                  }
+                }
+              },
+              "login_required": true,
+              "secret_required": false
+            },
+            {
+              "id": "cherry-studio",
+              "name": "Cherry Studio",
+              "category": "ai-client",
+              "priority": "required",
+              "install_mode": "auto",
+              "homepage": "https://cherry-ai.com/",
+              "download_url": "https://cherry-ai.com/download",
+              "github": "https://github.com/CherryHQ/cherry-studio",
+              "purpose": "跨平台AI聊天客户端，支持300+AI模型，具备自主Agent能力和本地知识库功能",
+              "latest_known": "2026年4月30日 (v1.9.4)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "winget",
+                    "id": "CherryHQ.CherryStudio"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "brew_cask",
+                    "id": "cherry-studio"
+                  }
+                }
+              },
+              "login_required": true,
+              "secret_required": false
+            },
+            {
+              "id": "powershell-7",
+              "name": "PowerShell 7",
+              "category": "dev-runtime",
+              "priority": "required",
+              "install_mode": "auto",
+              "homepage": "https://learn.microsoft.com/zh-cn/powershell/",
+              "download_url": "https://github.com/PowerShell/PowerShell/releases",
+              "github": "https://github.com/PowerShell/PowerShell",
+              "purpose": "跨平台任务自动化和配置管理框架，兼容Windows PowerShell",
+              "latest_known": "2026年3月18日 (v7.6.0)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "winget",
+                    "id": "Microsoft.PowerShell"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "brew",
+                    "id": "powershell"
+                  }
+                }
+              },
+              "login_required": false,
+              "secret_required": false
+            },
+            {
+              "id": "tongdaxin",
+              "name": "通达信",
+              "category": "trading",
+              "priority": "optional",
+              "install_mode": "manual",
+              "homepage": "https://www.tdx.com.cn/",
+              "download_url": "https://www.tdx.com.cn/soft.html",
+              "github": "",
+              "purpose": "专业的股票行情分析和交易软件，支持A股、港股、美股、期货等多市场",
+              "latest_known": "2025年11月10日 (v7.71)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "manual"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "manual"
+                  }
+                }
+              },
+              "login_required": false,
+              "secret_required": false
+            },
+            {
+              "id": "nssm",
+              "name": "NSSM",
+              "category": "windows-service",
+              "priority": "recommended",
+              "install_mode": "auto",
+              "homepage": "https://nssm.cc/",
+              "download_url": "https://nssm.cc/download",
+              "github": "https://github.com/nssmgr/NSSM",
+              "purpose": "将任意可执行程序(控制台、GUI、脚本)注册为Windows服务的工具，支持自动重启",
+              "latest_known": "2017年4月26日 (v2.24-101)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "nssmgr/NSSM"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "nssmgr/NSSM"
+                  }
+                }
+              },
+              "login_required": false,
+              "secret_required": false
+            },
+            {
+              "id": "frp",
+              "name": "FRP",
+              "category": "network",
+              "priority": "recommended",
+              "install_mode": "auto",
+              "homepage": "https://gofrp.org/",
+              "download_url": "https://github.com/fatedier/frp/releases",
+              "github": "https://github.com/fatedier/frp",
+              "purpose": "快速反向代理工具，用于内网穿透，支持TCP、UDP、HTTP、HTTPS等协议",
+              "latest_known": "2026年3月20日 (v0.68.0)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "fatedier/frp"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "fatedier/frp"
+                  }
+                }
+              },
+              "login_required": false,
+              "secret_required": false
+            },
+            {
+              "id": "cliproxyapi",
+              "name": "CLIProxyAPI",
+              "category": "ai-gateway",
+              "priority": "recommended",
+              "install_mode": "auto",
+              "homepage": "无",
+              "download_url": "https://github.com/router-for-me/CLIProxyAPI/releases",
+              "github": "https://github.com/router-for-me/CLIProxyAPI",
+              "purpose": "AI API代理服务，统一管理多个AI模型接口，支持负载均衡和故障转移",
+              "latest_known": "2026年4月21日 (v6.9.31)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "router-for-me/CLIProxyAPI"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "router-for-me/CLIProxyAPI"
+                  }
+                }
+              },
+              "login_required": false,
+              "secret_required": true
+            },
+            {
+              "id": "cliproxyapi-dashboard",
+              "name": "CLIProxyAPI Dashboard",
+              "category": "ai-gateway",
+              "priority": "optional",
+              "install_mode": "auto",
+              "homepage": "无",
+              "download_url": "https://github.com/itsmylife44/cliproxyapi-dashboard/releases",
+              "github": "https://github.com/itsmylife44/cliproxyapi-dashboard",
+              "purpose": "CLIProxyAPI的Web管理界面，提供配置同步、OAuth提供商管理和监控功能",
+              "latest_known": "2026年4月21日",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "itsmylife44/cliproxyapi-dashboard"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "itsmylife44/cliproxyapi-dashboard"
+                  }
+                }
+              },
+              "login_required": false,
+              "secret_required": false
+            },
+            {
+              "id": "new-api",
+              "name": "New API",
+              "category": "ai-gateway",
+              "priority": "recommended",
+              "install_mode": "auto",
+              "homepage": "https://docs.newapi.pro/",
+              "download_url": "https://github.com/QuantumNous/new-api/releases",
+              "github": "https://github.com/QuantumNous/new-api",
+              "purpose": "新一代大模型网关和AI资产管理平台，支持40+AI模型，统一为OpenAI兼容格式",
+              "latest_known": "2026年5月6日 (v1.1.138)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "QuantumNous/new-api"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "QuantumNous/new-api"
+                  }
+                }
+              },
+              "login_required": false,
+              "secret_required": true
+            },
+            {
+              "id": "claude-relay-service",
+              "name": "Claude Relay Service",
+              "category": "ai-gateway",
+              "priority": "optional",
+              "install_mode": "auto",
+              "homepage": "无",
+              "download_url": "https://github.com/Wei-Shaw/claude-relay-service/releases",
+              "github": "https://github.com/Wei-Shaw/claude-relay-service",
+              "purpose": "自托管的Claude API中继服务，支持多账户管理和负载均衡",
+              "latest_known": "2026年3月26日 (v1.1.297)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "Wei-Shaw/claude-relay-service"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "Wei-Shaw/claude-relay-service"
+                  }
+                }
+              },
+              "login_required": false,
+              "secret_required": true
+            },
+            {
+              "id": "comfyui",
+              "name": "ComfyUI",
+              "category": "ai-image",
+              "priority": "optional",
+              "install_mode": "auto",
+              "homepage": "https://comfyanonymous.github.io/ComfyUI/",
+              "download_url": "https://github.com/Comfy-Org/ComfyUI/releases",
+              "github": "https://github.com/Comfy-Org/ComfyUI",
+              "purpose": "模块化的AI图像生成工具，基于节点的工作流设计，支持Stable Diffusion等模型",
+              "latest_known": "2026年4月28日 (v0.20.1)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "Comfy-Org/ComfyUI"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "Comfy-Org/ComfyUI"
+                  }
+                }
+              },
+              "login_required": false,
+              "secret_required": false
+            },
+            {
+              "id": "litemonitor",
+              "name": "LiteMonitor",
+              "category": "system-monitor",
+              "priority": "recommended",
+              "install_mode": "auto",
+              "homepage": "https://litemonitor.cn/",
+              "download_url": "https://github.com/Diorser/LiteMonitor/releases",
+              "github": "https://github.com/Diorser/LiteMonitor",
+              "purpose": "轻量级、可定制的 Windows 桌面和任务栏硬件性能监控工具，支持 CPU、GPU、内存、磁盘、网络、FPS、插件和内存清理",
+              "latest_known": "2026年2月12日 (v1.3.4)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "winget",
+                    "id": "Diorser.LiteMonitor"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "unsupported"
+                  }
+                }
+              },
+              "login_required": false,
+              "secret_required": false
+            }
+          ],
+          "app_summary": {
+            "total": 22,
+            "required": 8,
+            "recommended": 8,
+            "optional": 6,
+            "auto": 15,
+            "manual": 6,
+            "secret_required": 6
+          },
+          "apps_by_priority": {
+            "required": [
+              {
+                "id": "cc-switch",
+                "name": "CC Switch",
+                "category": "ai-infra",
+                "priority": "required",
+                "install_mode": "auto",
+                "homepage": "https://www.ccswitch.io/zh/",
+                "download_url": "https://github.com/farion1231/cc-switch/releases",
+                "github": "https://github.com/farion1231/cc-switch",
+                "purpose": "AI编程CLI工具统一配置管理器，支持Claude Code、Codex、Gemini CLI等，提供自动故障转移、API测速、配置备份等功能",
+                "latest_known": "2026年4月30日 (v3.13.0)",
+                "platforms": {
+                  "windows": {
+                    "install": {
+                      "method": "github_release",
+                      "repo": "farion1231/cc-switch"
+                    }
+                  },
+                  "mac": {
+                    "install": {
+                      "method": "github_release",
+                      "repo": "farion1231/cc-switch"
+                    }
+                  }
+                },
+                "login_required": false,
+                "secret_required": true
+              },
+              {
+                "id": "vs-code",
+                "name": "VS Code",
+                "category": "editor",
+                "priority": "required",
+                "install_mode": "auto",
+                "homepage": "https://code.visualstudio.com/",
+                "download_url": "https://code.visualstudio.com/download",
+                "github": "https://github.com/microsoft/vscode",
+                "purpose": "轻量级但功能强大的源代码编辑器，支持多种编程语言和丰富的插件生态",
+                "latest_known": "2026年5月6日 (v1.119.0)",
+                "platforms": {
+                  "windows": {
+                    "install": {
+                      "method": "winget",
+                      "id": "Microsoft.VisualStudioCode"
+                    }
+                  },
+                  "mac": {
+                    "install": {
+                      "method": "brew_cask",
+                      "id": "visual-studio-code"
+                    }
+                  }
+                },
+                "login_required": false,
+                "secret_required": false
+              },
+              {
+                "id": "codex",
+                "name": "Codex",
+                "category": "ai-coding",
+                "priority": "required",
+                "install_mode": "auto",
+                "homepage": "https://openai.com/codex",
+                "download_url": "https://github.com/openai/codex/releases",
+                "github": "https://github.com/openai/codex",
+                "purpose": "OpenAI官方推出的终端级AI编程助手，支持CLI、桌面应用和IDE集成",
+                "latest_known": "2026年4月25日",
+                "platforms": {
+                  "windows": {
+                    "install": {
+                      "method": "github_release",
+                      "repo": "openai/codex"
+                    }
+                  },
+                  "mac": {
+                    "install": {
+                      "method": "github_release",
+                      "repo": "openai/codex"
+                    }
+                  }
+                },
+                "login_required": true,
+                "secret_required": true
+              },
+              {
+                "id": "claude",
+                "name": "Claude",
+                "category": "ai-assistant",
+                "priority": "required",
+                "install_mode": "manual",
+                "homepage": "https://claude.ai/",
+                "download_url": "https://claude.ai/download",
+                "github": "",
+                "purpose": "Anthropic推出的AI助手，提供Claude Code终端编程工具，支持代码编写、调试和重构",
+                "latest_known": "2026年4月30日",
+                "platforms": {
+                  "windows": {
+                    "install": {
+                      "method": "manual"
+                    }
+                  },
+                  "mac": {
+                    "install": {
+                      "method": "manual"
+                    }
+                  }
+                },
+                "login_required": true,
+                "secret_required": false
+              },
+              {
+                "id": "feishu",
+                "name": "飞书",
+                "category": "collaboration",
+                "priority": "required",
+                "install_mode": "semi_auto",
+                "homepage": "https://www.feishu.cn/",
+                "download_url": "https://www.feishu.cn/download",
+                "github": "",
+                "purpose": "一站式企业协作与管理平台，整合即时沟通、云文档、音视频会议、多维表格等功能",
+                "latest_known": "2026年4月14日 (v7.66.0.0)",
+                "platforms": {
+                  "windows": {
+                    "install": {
+                      "method": "winget",
+                      "id": "ByteDance.Feishu"
+                    }
+                  },
+                  "mac": {
+                    "install": {
+                      "method": "brew_cask",
+                      "id": "feishu"
+                    }
+                  }
+                },
+                "login_required": true,
+                "secret_required": false
+              },
+              {
+                "id": "chrome",
+                "name": "Chrome",
+                "category": "browser",
+                "priority": "required",
+                "install_mode": "auto",
+                "homepage": "https://www.google.cn/intl/zh-CN/chrome/",
+                "download_url": "https://www.google.cn/intl/zh-CN/chrome/",
+                "github": "https://github.com/google/chrome",
+                "purpose": "谷歌开发的跨平台网页浏览器，速度快、安全性高，支持丰富的扩展程序",
+                "latest_known": "2026年5月7日 (v148.0.7727.24)",
+                "platforms": {
+                  "windows": {
+                    "install": {
+                      "method": "winget",
+                      "id": "Google.Chrome"
+                    }
+                  },
+                  "mac": {
+                    "install": {
+                      "method": "brew_cask",
+                      "id": "google-chrome"
+                    }
+                  }
+                },
+                "login_required": false,
+                "secret_required": false
+              },
+              {
+                "id": "cherry-studio",
+                "name": "Cherry Studio",
+                "category": "ai-client",
+                "priority": "required",
+                "install_mode": "auto",
+                "homepage": "https://cherry-ai.com/",
+                "download_url": "https://cherry-ai.com/download",
+                "github": "https://github.com/CherryHQ/cherry-studio",
+                "purpose": "跨平台AI聊天客户端，支持300+AI模型，具备自主Agent能力和本地知识库功能",
+                "latest_known": "2026年4月30日 (v1.9.4)",
+                "platforms": {
+                  "windows": {
+                    "install": {
+                      "method": "winget",
+                      "id": "CherryHQ.CherryStudio"
+                    }
+                  },
+                  "mac": {
+                    "install": {
+                      "method": "brew_cask",
+                      "id": "cherry-studio"
+                    }
+                  }
+                },
+                "login_required": true,
+                "secret_required": false
+              },
+              {
+                "id": "powershell-7",
+                "name": "PowerShell 7",
+                "category": "dev-runtime",
+                "priority": "required",
+                "install_mode": "auto",
+                "homepage": "https://learn.microsoft.com/zh-cn/powershell/",
+                "download_url": "https://github.com/PowerShell/PowerShell/releases",
+                "github": "https://github.com/PowerShell/PowerShell",
+                "purpose": "跨平台任务自动化和配置管理框架，兼容Windows PowerShell",
+                "latest_known": "2026年3月18日 (v7.6.0)",
+                "platforms": {
+                  "windows": {
+                    "install": {
+                      "method": "winget",
+                      "id": "Microsoft.PowerShell"
+                    }
+                  },
+                  "mac": {
+                    "install": {
+                      "method": "brew",
+                      "id": "powershell"
+                    }
+                  }
+                },
+                "login_required": false,
+                "secret_required": false
+              }
+            ],
+            "recommended": [
+              {
+                "id": "trae",
+                "name": "Trae",
+                "category": "ai-ide",
+                "priority": "recommended",
+                "install_mode": "manual",
+                "homepage": "https://www.trae.cn/ (国内版); https://trae.ai/ (海外版)",
+                "download_url": "https://www.trae.cn/download",
+                "github": "",
+                "purpose": "字节跳动旗下AI原生集成开发环境，搭载豆包大模型，支持代码生成、项目构建和远程开发",
+                "latest_known": "2026年3月9日 (v3.5.36)",
+                "platforms": {
+                  "windows": {
+                    "install": {
+                      "method": "manual"
+                    }
+                  },
+                  "mac": {
+                    "install": {
+                      "method": "manual"
+                    }
+                  }
+                },
+                "login_required": true,
+                "secret_required": false
+              },
+              {
+                "id": "clash-verge-rev",
+                "name": "Clash Verge Rev",
+                "category": "network",
+                "priority": "recommended",
+                "install_mode": "auto",
+                "homepage": "https://clash-verge.org/",
+                "download_url": "https://clash-verge.org/zh-CN/download",
+                "github": "https://github.com/clash-verge-rev/clash-verge-rev",
+                "purpose": "基于Clash Meta(mihomo)内核的跨平台代理客户端，支持VLESS、Reality等新协议",
+                "latest_known": "2026年3月22日 (v2.4.7)",
+                "platforms": {
+                  "windows": {
+                    "install": {
+                      "method": "winget",
+                      "id": "ClashVergeRev.ClashVergeRev"
+                    }
+                  },
+                  "mac": {
+                    "install": {
+                      "method": "brew_cask",
+                      "id": "clash-verge-rev"
+                    }
+                  }
+                },
+                "login_required": false,
+                "secret_required": true
+              },
+              {
+                "id": "doubao",
+                "name": "豆包",
+                "category": "ai-assistant",
+                "priority": "recommended",
+                "install_mode": "manual",
+                "homepage": "https://www.doubao.com/",
+                "download_url": "https://www.doubao.com/download/desktop",
+                "github": "",
+                "purpose": "字节跳动推出的全能型AI助手，支持AI搜索、写作辅助、代码生成、图像创意等功能",
+                "latest_known": "2026年4月21日 (v2.2.3)",
+                "platforms": {
+                  "windows": {
+                    "install": {
+                      "method": "manual"
+                    }
+                  },
+                  "mac": {
+                    "install": {
+                      "method": "manual"
+                    }
+                  }
+                },
+                "login_required": true,
+                "secret_required": false
+              },
+              {
+                "id": "nssm",
+                "name": "NSSM",
+                "category": "windows-service",
+                "priority": "recommended",
+                "install_mode": "auto",
+                "homepage": "https://nssm.cc/",
+                "download_url": "https://nssm.cc/download",
+                "github": "https://github.com/nssmgr/NSSM",
+                "purpose": "将任意可执行程序(控制台、GUI、脚本)注册为Windows服务的工具，支持自动重启",
+                "latest_known": "2017年4月26日 (v2.24-101)",
+                "platforms": {
+                  "windows": {
+                    "install": {
+                      "method": "github_release",
+                      "repo": "nssmgr/NSSM"
+                    }
+                  },
+                  "mac": {
+                    "install": {
+                      "method": "github_release",
+                      "repo": "nssmgr/NSSM"
+                    }
+                  }
+                },
+                "login_required": false,
+                "secret_required": false
+              },
+              {
+                "id": "frp",
+                "name": "FRP",
+                "category": "network",
+                "priority": "recommended",
+                "install_mode": "auto",
+                "homepage": "https://gofrp.org/",
+                "download_url": "https://github.com/fatedier/frp/releases",
+                "github": "https://github.com/fatedier/frp",
+                "purpose": "快速反向代理工具，用于内网穿透，支持TCP、UDP、HTTP、HTTPS等协议",
+                "latest_known": "2026年3月20日 (v0.68.0)",
+                "platforms": {
+                  "windows": {
+                    "install": {
+                      "method": "github_release",
+                      "repo": "fatedier/frp"
+                    }
+                  },
+                  "mac": {
+                    "install": {
+                      "method": "github_release",
+                      "repo": "fatedier/frp"
+                    }
+                  }
+                },
+                "login_required": false,
+                "secret_required": false
+              },
+              {
+                "id": "cliproxyapi",
+                "name": "CLIProxyAPI",
+                "category": "ai-gateway",
+                "priority": "recommended",
+                "install_mode": "auto",
+                "homepage": "无",
+                "download_url": "https://github.com/router-for-me/CLIProxyAPI/releases",
+                "github": "https://github.com/router-for-me/CLIProxyAPI",
+                "purpose": "AI API代理服务，统一管理多个AI模型接口，支持负载均衡和故障转移",
+                "latest_known": "2026年4月21日 (v6.9.31)",
+                "platforms": {
+                  "windows": {
+                    "install": {
+                      "method": "github_release",
+                      "repo": "router-for-me/CLIProxyAPI"
+                    }
+                  },
+                  "mac": {
+                    "install": {
+                      "method": "github_release",
+                      "repo": "router-for-me/CLIProxyAPI"
+                    }
+                  }
+                },
+                "login_required": false,
+                "secret_required": true
+              },
+              {
+                "id": "new-api",
+                "name": "New API",
+                "category": "ai-gateway",
+                "priority": "recommended",
+                "install_mode": "auto",
+                "homepage": "https://docs.newapi.pro/",
+                "download_url": "https://github.com/QuantumNous/new-api/releases",
+                "github": "https://github.com/QuantumNous/new-api",
+                "purpose": "新一代大模型网关和AI资产管理平台，支持40+AI模型，统一为OpenAI兼容格式",
+                "latest_known": "2026年5月6日 (v1.1.138)",
+                "platforms": {
+                  "windows": {
+                    "install": {
+                      "method": "github_release",
+                      "repo": "QuantumNous/new-api"
+                    }
+                  },
+                  "mac": {
+                    "install": {
+                      "method": "github_release",
+                      "repo": "QuantumNous/new-api"
+                    }
+                  }
+                },
+                "login_required": false,
+                "secret_required": true
+              },
+              {
+                "id": "litemonitor",
+                "name": "LiteMonitor",
+                "category": "system-monitor",
+                "priority": "recommended",
+                "install_mode": "auto",
+                "homepage": "https://litemonitor.cn/",
+                "download_url": "https://github.com/Diorser/LiteMonitor/releases",
+                "github": "https://github.com/Diorser/LiteMonitor",
+                "purpose": "轻量级、可定制的 Windows 桌面和任务栏硬件性能监控工具，支持 CPU、GPU、内存、磁盘、网络、FPS、插件和内存清理",
+                "latest_known": "2026年2月12日 (v1.3.4)",
+                "platforms": {
+                  "windows": {
+                    "install": {
+                      "method": "winget",
+                      "id": "Diorser.LiteMonitor"
+                    }
+                  },
+                  "mac": {
+                    "install": {
+                      "method": "unsupported"
+                    }
+                  }
+                },
+                "login_required": false,
+                "secret_required": false
+              }
+            ],
+            "optional": [
+              {
+                "id": "workbuddy",
+                "name": "WorkBuddy",
+                "category": "office-ai",
+                "priority": "optional",
+                "install_mode": "manual",
+                "homepage": "https://www.codebuddy.cn/work/",
+                "download_url": "https://www.codebuddy.cn/work/",
+                "github": "",
+                "purpose": "腾讯推出的AI原生桌面智能体工作台，支持自然语言驱动完成文档生成、数据分析、PPT制作等办公任务",
+                "latest_known": "2026年5月6日 (v4.21+)",
+                "platforms": {
+                  "windows": {
+                    "install": {
+                      "method": "manual"
+                    }
+                  },
+                  "mac": {
+                    "install": {
+                      "method": "manual"
+                    }
+                  }
+                },
+                "login_required": true,
+                "secret_required": false
+              },
+              {
+                "id": "uu-remote",
+                "name": "UU远程",
+                "category": "remote-control",
+                "priority": "optional",
+                "install_mode": "manual",
+                "homepage": "https://uuyc.163.com/",
+                "download_url": "https://uuyc.163.com/download",
+                "github": "",
+                "purpose": "网易出品的免费远程控制软件，支持真4K画质、超低延迟、文件传输和远程游戏",
+                "latest_known": "2026年5月9日 (v4.23.0)",
+                "platforms": {
+                  "windows": {
+                    "install": {
+                      "method": "manual"
+                    }
+                  },
+                  "mac": {
+                    "install": {
+                      "method": "manual"
+                    }
+                  }
+                },
+                "login_required": true,
+                "secret_required": false
+              },
+              {
+                "id": "tongdaxin",
+                "name": "通达信",
+                "category": "trading",
+                "priority": "optional",
+                "install_mode": "manual",
+                "homepage": "https://www.tdx.com.cn/",
+                "download_url": "https://www.tdx.com.cn/soft.html",
+                "github": "",
+                "purpose": "专业的股票行情分析和交易软件，支持A股、港股、美股、期货等多市场",
+                "latest_known": "2025年11月10日 (v7.71)",
+                "platforms": {
+                  "windows": {
+                    "install": {
+                      "method": "manual"
+                    }
+                  },
+                  "mac": {
+                    "install": {
+                      "method": "manual"
+                    }
+                  }
+                },
+                "login_required": false,
+                "secret_required": false
+              },
+              {
+                "id": "cliproxyapi-dashboard",
+                "name": "CLIProxyAPI Dashboard",
+                "category": "ai-gateway",
+                "priority": "optional",
+                "install_mode": "auto",
+                "homepage": "无",
+                "download_url": "https://github.com/itsmylife44/cliproxyapi-dashboard/releases",
+                "github": "https://github.com/itsmylife44/cliproxyapi-dashboard",
+                "purpose": "CLIProxyAPI的Web管理界面，提供配置同步、OAuth提供商管理和监控功能",
+                "latest_known": "2026年4月21日",
+                "platforms": {
+                  "windows": {
+                    "install": {
+                      "method": "github_release",
+                      "repo": "itsmylife44/cliproxyapi-dashboard"
+                    }
+                  },
+                  "mac": {
+                    "install": {
+                      "method": "github_release",
+                      "repo": "itsmylife44/cliproxyapi-dashboard"
+                    }
+                  }
+                },
+                "login_required": false,
+                "secret_required": false
+              },
+              {
+                "id": "claude-relay-service",
+                "name": "Claude Relay Service",
+                "category": "ai-gateway",
+                "priority": "optional",
+                "install_mode": "auto",
+                "homepage": "无",
+                "download_url": "https://github.com/Wei-Shaw/claude-relay-service/releases",
+                "github": "https://github.com/Wei-Shaw/claude-relay-service",
+                "purpose": "自托管的Claude API中继服务，支持多账户管理和负载均衡",
+                "latest_known": "2026年3月26日 (v1.1.297)",
+                "platforms": {
+                  "windows": {
+                    "install": {
+                      "method": "github_release",
+                      "repo": "Wei-Shaw/claude-relay-service"
+                    }
+                  },
+                  "mac": {
+                    "install": {
+                      "method": "github_release",
+                      "repo": "Wei-Shaw/claude-relay-service"
+                    }
+                  }
+                },
+                "login_required": false,
+                "secret_required": true
+              },
+              {
+                "id": "comfyui",
+                "name": "ComfyUI",
+                "category": "ai-image",
+                "priority": "optional",
+                "install_mode": "auto",
+                "homepage": "https://comfyanonymous.github.io/ComfyUI/",
+                "download_url": "https://github.com/Comfy-Org/ComfyUI/releases",
+                "github": "https://github.com/Comfy-Org/ComfyUI",
+                "purpose": "模块化的AI图像生成工具，基于节点的工作流设计，支持Stable Diffusion等模型",
+                "latest_known": "2026年4月28日 (v0.20.1)",
+                "platforms": {
+                  "windows": {
+                    "install": {
+                      "method": "github_release",
+                      "repo": "Comfy-Org/ComfyUI"
+                    }
+                  },
+                  "mac": {
+                    "install": {
+                      "method": "github_release",
+                      "repo": "Comfy-Org/ComfyUI"
+                    }
+                  }
+                },
+                "login_required": false,
+                "secret_required": false
+              }
+            ]
+          },
+          "folders": [
+            {
+              "path": "Projects",
+              "purpose": "代码项目"
+            },
+            {
+              "path": "AI",
+              "purpose": "AI 工具配置、模型、工作流"
+            },
+            {
+              "path": "AI/Models",
+              "purpose": "本地模型"
+            },
+            {
+              "path": "AI/ComfyUI",
+              "purpose": "ComfyUI 工作区"
+            },
+            {
+              "path": "Services",
+              "purpose": "New API、CLIProxyAPI、FRP 等服务"
+            },
+            {
+              "path": "Documents",
+              "purpose": "重要文档"
+            },
+            {
+              "path": "Downloads/Installers",
+              "purpose": "安装包归档"
+            },
+            {
+              "path": "Scripts",
+              "purpose": "自用脚本"
+            },
+            {
+              "path": "Backups",
+              "purpose": "配置备份"
+            }
+          ],
+          "folder_root": {
+            "windows": "D:/Workspace",
+            "mac": "$HOME/Workspace"
+          },
+          "public_websites": [
+            {
+              "domain": "joinquant.com",
+              "visit_count_30d": 324,
+              "typed_count_30d": 10,
+              "last_visit_at": "2026-05-11 22:54:03"
+            },
+            {
+              "domain": "baidu.com",
+              "visit_count_30d": 271,
+              "typed_count_30d": 59,
+              "last_visit_at": "2026-05-12 11:24:35"
+            },
+            {
+              "domain": "google.com",
+              "visit_count_30d": 164,
+              "typed_count_30d": 23,
+              "last_visit_at": "2026-05-10 22:57:27"
+            },
+            {
+              "domain": "github.com",
+              "visit_count_30d": 146,
+              "typed_count_30d": 29,
+              "last_visit_at": "2026-05-12 10:03:19"
+            },
+            {
+              "domain": "coinglass.com",
+              "visit_count_30d": 132,
+              "typed_count_30d": 14,
+              "last_visit_at": "2026-05-12 03:49:04"
+            },
+            {
+              "domain": "flaios.com",
+              "visit_count_30d": 97,
+              "typed_count_30d": 3,
+              "last_visit_at": "2026-05-12 09:40:04"
+            },
+            {
+              "domain": "cloud.tencent.com",
+              "visit_count_30d": 97,
+              "typed_count_30d": 3,
+              "last_visit_at": "2026-05-12 01:29:59"
+            },
+            {
+              "domain": "forum.trae.cn",
+              "visit_count_30d": 62,
+              "typed_count_30d": 1,
+              "last_visit_at": "2026-05-08 19:44:56"
+            },
+            {
+              "domain": "chatgpt.com",
+              "visit_count_30d": 39,
+              "typed_count_30d": 5,
+              "last_visit_at": "2026-05-10 10:31:04"
+            },
+            {
+              "domain": "trae.cn",
+              "visit_count_30d": 35,
+              "typed_count_30d": 0,
+              "last_visit_at": "2026-05-10 01:32:34"
+            },
+            {
+              "domain": "pan.baidu.com",
+              "visit_count_30d": 33,
+              "typed_count_30d": 0,
+              "last_visit_at": "2026-05-07 00:06:30"
+            },
+            {
+              "domain": "gemini.google.com",
+              "visit_count_30d": 27,
+              "typed_count_30d": 12,
+              "last_visit_at": "2026-05-11 00:54:32"
+            },
+            {
+              "domain": "openai.com",
+              "visit_count_30d": 11,
+              "typed_count_30d": 4,
+              "last_visit_at": "2026-05-05 23:27:44"
+            }
+          ],
+          "public_website_count": 13
+        }
+      }
+    ],
+    "skill": [
+      {
+        "id": "flaios-content-submit",
+        "type": "skill",
+        "name": "飞流AI枢纽内容提交",
+        "category": "ops/automation",
+        "tags": [
+          "codex",
+          "contribution",
+          "content-normalization",
+          "laozhou-s"
+        ],
+        "one_liner": "让 Codex 根据一句话把网站、工具、项目、Agent、Skill、工作流或记忆整理成飞流AI枢纽提交。",
+        "best_for": [
+          "一句话提交新内容",
+          "规范化分类和标签",
+          "生成 PR 变更摘要"
+        ],
+        "not_good_for": [
+          "绕过审核直接发布",
+          "收录无法说明价值的广告链接"
+        ],
+        "rating": "S",
+        "owner_note": "给老周自己和其他贡献者的低摩擦提交入口。",
+        "related_agents": [
+          "repo-onboarding-guide",
+          "agent-quality-evaluator"
+        ],
+        "related_skills": [],
+        "related_workflows": [
+          "submit-to-flaios"
+        ],
+        "status": "draft",
+        "source_file": "content/skills.yaml"
+      }
+    ],
+    "tool": [
+      {
+        "id": "claude-code",
+        "type": "tool",
+        "name": "Claude Code",
+        "category": "ai/coding",
+        "tags": [
+          "developer",
+          "terminal",
+          "subagents",
+          "laozhou-a"
+        ],
+        "one_liner": "终端里的 AI 编程工具，适合代码理解、重构、子 Agent 分工和项目级任务推进。",
+        "best_for": [
+          "代码理解",
+          "重构规划",
+          "子 Agent 协作",
+          "长上下文项目分析"
+        ],
+        "not_good_for": [
+          "无需工程上下文的普通聊天",
+          "无人工审核的高风险批量改动"
+        ],
+        "rating": "A",
+        "owner_note": "适合作为 Codex 之外的工程协作入口，尤其适合 subagent 风格任务。",
+        "related_agents": [
+          "repo-onboarding-guide",
+          "bug-investigator",
+          "test-writer"
+        ],
+        "related_skills": [],
+        "related_workflows": [
+          "personal-ai-workstation-bootstrap"
+        ],
+        "status": "draft",
+        "source_file": "content/tools.yaml"
+      },
+      {
+        "id": "codex",
+        "type": "tool",
+        "name": "Codex",
+        "category": "ai/coding",
+        "tags": [
+          "developer",
+          "local-repo",
+          "agent-workflow",
+          "laozhou-s"
+        ],
+        "one_liner": "面向本地仓库的 AI 编程与任务执行工具，适合承载可复用 Skill 和项目级流程。",
+        "best_for": [
+          "代码修改",
+          "仓库分析",
+          "技能调用",
+          "自动化执行"
+        ],
+        "not_good_for": [
+          "纯聊天陪伴",
+          "无上下文的泛泛问答"
+        ],
+        "rating": "S",
+        "owner_note": "本项目的主要执行环境，适合把经验沉淀成 Skill。",
+        "related_agents": [
+          "code-reviewer",
+          "frontend-builder",
+          "backend-api-architect"
+        ],
+        "related_skills": [
+          "flaios-content-submit"
+        ],
+        "related_workflows": [
+          "submit-to-flaios"
+        ],
+        "status": "draft",
+        "source_file": "content/tools.yaml"
+      },
+      {
+        "id": "cursor",
+        "type": "tool",
+        "name": "Cursor",
+        "category": "ai/coding",
+        "tags": [
+          "developer",
+          "ai-ide",
+          "project-rules",
+          "laozhou-a"
+        ],
+        "one_liner": "AI 原生代码编辑器，适合在项目里结合规则文件、上下文和快速修改完成开发任务。",
+        "best_for": [
+          "项目内编码",
+          "快速改 UI",
+          "结合规则约束输出",
+          "新手进入 AI 编程"
+        ],
+        "not_good_for": [
+          "复杂仓库的长时间自治任务",
+          "严格终端自动化"
+        ],
+        "rating": "A",
+        "owner_note": "适合轻量开发和可视化编辑体验；复杂流程可以和 Codex / Claude Code 分工。",
+        "related_agents": [
+          "frontend-builder",
+          "ux-flow-designer",
+          "code-reviewer"
+        ],
+        "related_skills": [],
+        "related_workflows": [
+          "personal-ai-workstation-bootstrap"
+        ],
+        "status": "draft",
+        "source_file": "content/tools.yaml"
+      },
+      {
+        "id": "feishu",
+        "type": "tool",
+        "name": "飞书",
+        "category": "local-cn/feishu",
+        "tags": [
+          "china-friendly",
+          "collaboration",
+          "docs",
+          "automation",
+          "laozhou-s"
+        ],
+        "one_liner": "中国本地团队协作平台，适合文档、表格、多维表格、群聊、日程和自动化工作流。",
+        "best_for": [
+          "团队协作",
+          "云文档",
+          "多维表格",
+          "群消息自动化",
+          "日程和任务管理"
+        ],
+        "not_good_for": [
+          "完全离线工作流",
+          "不希望绑定组织账号的个人轻量笔记"
+        ],
+        "rating": "S",
+        "owner_note": "非常适合和 Lark / 飞书类 Skill 连接，沉淀运营、项目和自动化流程。",
+        "related_agents": [
+          "feishu-workflow-builder",
+          "automation-workflow-designer"
+        ],
+        "related_skills": [
+          "lark-doc",
+          "lark-base",
+          "lark-im",
+          "lark-calendar"
+        ],
+        "related_workflows": [
+          "personal-ai-workstation-bootstrap"
+        ],
+        "status": "draft",
+        "source_file": "content/tools.yaml"
+      }
+    ],
+    "workflow": [
+      {
+        "id": "personal-ai-workstation-bootstrap",
+        "type": "workflow",
+        "name": "个人 AI 工作站初始化",
+        "category": "setup/ai-workstation",
+        "tags": [
+          "windows",
+          "mac",
+          "setup-kit",
+          "ai-coding",
+          "agent-assisted",
+          "laozhou-s"
+        ],
+        "one_liner": "根据 setup kit 初始化新电脑的软件、目录、常用网站和 AI 工具接管流程。",
+        "best_for": [
+          "换新电脑",
+          "重装系统",
+          "给朋友配置 AI 工作站",
+          "标准化开发环境"
+        ],
+        "not_good_for": [
+          "无人值守安装所有敏感工具",
+          "自动登录账号",
+          "公开未清理的浏览器历史"
+        ],
+        "rating": "S",
+        "owner_note": "先作为栏目和数据源整合；执行真实安装前必须先运行 DryRun 并人工确认敏感项。",
+        "steps": [
+          "读取 setup-kits/personal-ai-workstation/kit.yaml。",
+          "审核 apps.yaml、websites.yaml、folders.yaml。",
+          "先运行 Windows DryRun 或 macOS 等价检查。",
+          "自动安装低风险软件，手动处理登录、密钥、付费和代理配置。",
+          "生成 setup-report.md。"
+        ],
+        "related_agents": [
+          "automation-workflow-designer"
+        ],
+        "related_skills": [],
+        "related_workflows": [
+          "submit-to-flaios"
+        ],
+        "status": "draft",
+        "source_file": "content/workflows.yaml"
+      },
+      {
+        "id": "submit-to-flaios",
+        "type": "workflow",
+        "name": "一句话提交到飞流AI枢纽",
+        "category": "ops/automation",
+        "tags": [
+          "contribution",
+          "codex",
+          "agent-assisted",
+          "laozhou-s"
+        ],
+        "one_liner": "把一个网站、工具、项目、Agent、Skill 或记忆整理成规范内容并提交。",
+        "best_for": [
+          "快速沉淀日常发现",
+          "让其他 Agent 帮忙提交",
+          "统一内容结构"
+        ],
+        "not_good_for": [
+          "未验证的广告内容",
+          "无法说明用途的链接"
+        ],
+        "rating": "S",
+        "owner_note": "用来把老周和朋友的日常 AI 发现持续沉淀到站点。",
+        "steps": [
+          "阅读 docs/navigation-taxonomy.md 和 docs/submissions.md。",
+          "判断内容类型和分类，必要时解释新类目理由。",
+          "补齐字段、关联 Agent / Skill / Workflow。",
+          "运行 npm run catalog、npm run lint:agents、npm run website:build。",
+          "给出变更摘要或创建 PR。"
+        ],
+        "related_agents": [
+          "repo-onboarding-guide",
+          "agent-quality-evaluator"
+        ],
+        "related_skills": [
+          "flaios-content-submit"
+        ],
+        "related_workflows": [],
+        "status": "draft",
+        "source_file": "content/workflows.yaml"
+      }
+    ]
+  },
+  "setup_kits": [
+    {
+      "id": "personal-ai-workstation",
+      "type": "setup_kit",
+      "name": "个人 AI 工作站",
+      "category": "setup/ai-workstation",
+      "tags": [
+        "windows",
+        "mac",
+        "ai-coding",
+        "workstation",
+        "agent-assisted",
+        "laozhou-s"
+      ],
+      "one_liner": "用于新 Windows/macOS 电脑初始化的软件、网站、目录结构和 Agent 接管指令。",
+      "best_for": [
+        "新电脑初始化",
+        "帮朋友快速装机",
+        "AI 编程环境搭建",
+        "把个人常用网站和软件结构化"
+      ],
+      "not_good_for": [
+        "未经清理直接公开浏览器历史",
+        "自动处理账号登录和密钥",
+        "无人工确认的付费或管理员操作"
+      ],
+      "rating": "S",
+      "owner_note": "当前处于 MVP；websites.yaml 来自 Chrome 历史，公开前必须清理私有域名、内网地址和后台入口；Windows bootstrap 脚本已修复 DryRun 编码/解析问题，真实安装前仍需先预演。",
+      "repo_path": "setup-kits/personal-ai-workstation",
+      "entrypoints": {
+        "windows": "scripts/windows/bootstrap.ps1",
+        "agent_prompt": "agent-prompts/general-setup-agent.md"
+      },
+      "related_agents": [
+        "repo-onboarding-guide",
+        "automation-workflow-designer"
+      ],
+      "related_skills": [
+        "flaios-content-submit"
+      ],
+      "related_workflows": [
+        "personal-ai-workstation-bootstrap",
+        "submit-to-flaios"
+      ],
+      "status": "mvp",
+      "source_file": "setup-kits/personal-ai-workstation/kit.yaml",
+      "description": "用于新 Windows/macOS 电脑初始化的软件、网站、目录和 Agent 接管指令。",
+      "version": "0.1.0",
+      "owner": "AprilWu",
+      "created_at": "2026-05-12",
+      "source_files": {
+        "apps": "apps.yaml",
+        "websites": "websites.yaml",
+        "software_csv": "apps.csv",
+        "websites_csv": "websites.csv"
+      },
+      "safety": {
+        "public_share_ready": false,
+        "review_before_publish": [
+          "websites.csv / websites.yaml may include private domains from Chrome history.",
+          "Do not commit API keys, proxy subscriptions, cookies, or account tokens.",
+          "Scripts should pause before privileged, paid, or secret-related actions."
+        ]
+      },
+      "modes": [
+        {
+          "id": "basic",
+          "name": "基础环境",
+          "includes": [
+            "browser",
+            "editor",
+            "dev-runtime",
+            "collaboration"
+          ]
+        },
+        {
+          "id": "ai",
+          "name": "AI 工具",
+          "includes": [
+            "ai-coding",
+            "ai-assistant",
+            "ai-client",
+            "ai-infra",
+            "ai-gateway"
+          ]
+        },
+        {
+          "id": "full",
+          "name": "完整安装",
+          "includes": [
+            "all"
+          ]
+        }
+      ],
+      "details": {
+        "apps": [
+          {
+            "id": "cc-switch",
+            "name": "CC Switch",
+            "category": "ai-infra",
+            "priority": "required",
+            "install_mode": "auto",
+            "homepage": "https://www.ccswitch.io/zh/",
+            "download_url": "https://github.com/farion1231/cc-switch/releases",
+            "github": "https://github.com/farion1231/cc-switch",
+            "purpose": "AI编程CLI工具统一配置管理器，支持Claude Code、Codex、Gemini CLI等，提供自动故障转移、API测速、配置备份等功能",
+            "latest_known": "2026年4月30日 (v3.13.0)",
+            "platforms": {
+              "windows": {
+                "install": {
+                  "method": "github_release",
+                  "repo": "farion1231/cc-switch"
+                }
+              },
+              "mac": {
+                "install": {
+                  "method": "github_release",
+                  "repo": "farion1231/cc-switch"
+                }
+              }
+            },
+            "login_required": false,
+            "secret_required": true
+          },
+          {
+            "id": "vs-code",
+            "name": "VS Code",
+            "category": "editor",
+            "priority": "required",
+            "install_mode": "auto",
+            "homepage": "https://code.visualstudio.com/",
+            "download_url": "https://code.visualstudio.com/download",
+            "github": "https://github.com/microsoft/vscode",
+            "purpose": "轻量级但功能强大的源代码编辑器，支持多种编程语言和丰富的插件生态",
+            "latest_known": "2026年5月6日 (v1.119.0)",
+            "platforms": {
+              "windows": {
+                "install": {
+                  "method": "winget",
+                  "id": "Microsoft.VisualStudioCode"
+                }
+              },
+              "mac": {
+                "install": {
+                  "method": "brew_cask",
+                  "id": "visual-studio-code"
+                }
+              }
+            },
+            "login_required": false,
+            "secret_required": false
+          },
+          {
+            "id": "codex",
+            "name": "Codex",
+            "category": "ai-coding",
+            "priority": "required",
+            "install_mode": "auto",
+            "homepage": "https://openai.com/codex",
+            "download_url": "https://github.com/openai/codex/releases",
+            "github": "https://github.com/openai/codex",
+            "purpose": "OpenAI官方推出的终端级AI编程助手，支持CLI、桌面应用和IDE集成",
+            "latest_known": "2026年4月25日",
+            "platforms": {
+              "windows": {
+                "install": {
+                  "method": "github_release",
+                  "repo": "openai/codex"
+                }
+              },
+              "mac": {
+                "install": {
+                  "method": "github_release",
+                  "repo": "openai/codex"
+                }
+              }
+            },
+            "login_required": true,
+            "secret_required": true
+          },
+          {
+            "id": "claude",
+            "name": "Claude",
+            "category": "ai-assistant",
+            "priority": "required",
+            "install_mode": "manual",
+            "homepage": "https://claude.ai/",
+            "download_url": "https://claude.ai/download",
+            "github": "",
+            "purpose": "Anthropic推出的AI助手，提供Claude Code终端编程工具，支持代码编写、调试和重构",
+            "latest_known": "2026年4月30日",
+            "platforms": {
+              "windows": {
+                "install": {
+                  "method": "manual"
+                }
+              },
+              "mac": {
+                "install": {
+                  "method": "manual"
+                }
+              }
+            },
+            "login_required": true,
+            "secret_required": false
+          },
+          {
+            "id": "trae",
+            "name": "Trae",
+            "category": "ai-ide",
+            "priority": "recommended",
+            "install_mode": "manual",
+            "homepage": "https://www.trae.cn/ (国内版); https://trae.ai/ (海外版)",
+            "download_url": "https://www.trae.cn/download",
+            "github": "",
+            "purpose": "字节跳动旗下AI原生集成开发环境，搭载豆包大模型，支持代码生成、项目构建和远程开发",
+            "latest_known": "2026年3月9日 (v3.5.36)",
+            "platforms": {
+              "windows": {
+                "install": {
+                  "method": "manual"
+                }
+              },
+              "mac": {
+                "install": {
+                  "method": "manual"
+                }
+              }
+            },
+            "login_required": true,
+            "secret_required": false
+          },
+          {
+            "id": "feishu",
+            "name": "飞书",
+            "category": "collaboration",
+            "priority": "required",
+            "install_mode": "semi_auto",
+            "homepage": "https://www.feishu.cn/",
+            "download_url": "https://www.feishu.cn/download",
+            "github": "",
+            "purpose": "一站式企业协作与管理平台，整合即时沟通、云文档、音视频会议、多维表格等功能",
+            "latest_known": "2026年4月14日 (v7.66.0.0)",
+            "platforms": {
+              "windows": {
+                "install": {
+                  "method": "winget",
+                  "id": "ByteDance.Feishu"
+                }
+              },
+              "mac": {
+                "install": {
+                  "method": "brew_cask",
+                  "id": "feishu"
+                }
+              }
+            },
+            "login_required": true,
+            "secret_required": false
+          },
+          {
+            "id": "workbuddy",
+            "name": "WorkBuddy",
+            "category": "office-ai",
+            "priority": "optional",
+            "install_mode": "manual",
+            "homepage": "https://www.codebuddy.cn/work/",
+            "download_url": "https://www.codebuddy.cn/work/",
+            "github": "",
+            "purpose": "腾讯推出的AI原生桌面智能体工作台，支持自然语言驱动完成文档生成、数据分析、PPT制作等办公任务",
+            "latest_known": "2026年5月6日 (v4.21+)",
+            "platforms": {
+              "windows": {
+                "install": {
+                  "method": "manual"
+                }
+              },
+              "mac": {
+                "install": {
+                  "method": "manual"
+                }
+              }
+            },
+            "login_required": true,
+            "secret_required": false
+          },
+          {
+            "id": "uu-remote",
+            "name": "UU远程",
+            "category": "remote-control",
+            "priority": "optional",
+            "install_mode": "manual",
+            "homepage": "https://uuyc.163.com/",
+            "download_url": "https://uuyc.163.com/download",
+            "github": "",
+            "purpose": "网易出品的免费远程控制软件，支持真4K画质、超低延迟、文件传输和远程游戏",
+            "latest_known": "2026年5月9日 (v4.23.0)",
+            "platforms": {
+              "windows": {
+                "install": {
+                  "method": "manual"
+                }
+              },
+              "mac": {
+                "install": {
+                  "method": "manual"
+                }
+              }
+            },
+            "login_required": true,
+            "secret_required": false
+          },
+          {
+            "id": "clash-verge-rev",
+            "name": "Clash Verge Rev",
+            "category": "network",
+            "priority": "recommended",
+            "install_mode": "auto",
+            "homepage": "https://clash-verge.org/",
+            "download_url": "https://clash-verge.org/zh-CN/download",
+            "github": "https://github.com/clash-verge-rev/clash-verge-rev",
+            "purpose": "基于Clash Meta(mihomo)内核的跨平台代理客户端，支持VLESS、Reality等新协议",
+            "latest_known": "2026年3月22日 (v2.4.7)",
+            "platforms": {
+              "windows": {
+                "install": {
+                  "method": "winget",
+                  "id": "ClashVergeRev.ClashVergeRev"
+                }
+              },
+              "mac": {
+                "install": {
+                  "method": "brew_cask",
+                  "id": "clash-verge-rev"
+                }
+              }
+            },
+            "login_required": false,
+            "secret_required": true
+          },
+          {
+            "id": "chrome",
+            "name": "Chrome",
+            "category": "browser",
+            "priority": "required",
+            "install_mode": "auto",
+            "homepage": "https://www.google.cn/intl/zh-CN/chrome/",
+            "download_url": "https://www.google.cn/intl/zh-CN/chrome/",
+            "github": "https://github.com/google/chrome",
+            "purpose": "谷歌开发的跨平台网页浏览器，速度快、安全性高，支持丰富的扩展程序",
+            "latest_known": "2026年5月7日 (v148.0.7727.24)",
+            "platforms": {
+              "windows": {
+                "install": {
+                  "method": "winget",
+                  "id": "Google.Chrome"
+                }
+              },
+              "mac": {
+                "install": {
+                  "method": "brew_cask",
+                  "id": "google-chrome"
+                }
+              }
+            },
+            "login_required": false,
+            "secret_required": false
+          },
+          {
+            "id": "doubao",
+            "name": "豆包",
+            "category": "ai-assistant",
+            "priority": "recommended",
+            "install_mode": "manual",
+            "homepage": "https://www.doubao.com/",
+            "download_url": "https://www.doubao.com/download/desktop",
+            "github": "",
+            "purpose": "字节跳动推出的全能型AI助手，支持AI搜索、写作辅助、代码生成、图像创意等功能",
+            "latest_known": "2026年4月21日 (v2.2.3)",
+            "platforms": {
+              "windows": {
+                "install": {
+                  "method": "manual"
+                }
+              },
+              "mac": {
+                "install": {
+                  "method": "manual"
+                }
+              }
+            },
+            "login_required": true,
+            "secret_required": false
+          },
+          {
+            "id": "cherry-studio",
+            "name": "Cherry Studio",
+            "category": "ai-client",
+            "priority": "required",
+            "install_mode": "auto",
+            "homepage": "https://cherry-ai.com/",
+            "download_url": "https://cherry-ai.com/download",
+            "github": "https://github.com/CherryHQ/cherry-studio",
+            "purpose": "跨平台AI聊天客户端，支持300+AI模型，具备自主Agent能力和本地知识库功能",
+            "latest_known": "2026年4月30日 (v1.9.4)",
+            "platforms": {
+              "windows": {
+                "install": {
+                  "method": "winget",
+                  "id": "CherryHQ.CherryStudio"
+                }
+              },
+              "mac": {
+                "install": {
+                  "method": "brew_cask",
+                  "id": "cherry-studio"
+                }
+              }
+            },
+            "login_required": true,
+            "secret_required": false
+          },
+          {
+            "id": "powershell-7",
+            "name": "PowerShell 7",
+            "category": "dev-runtime",
+            "priority": "required",
+            "install_mode": "auto",
+            "homepage": "https://learn.microsoft.com/zh-cn/powershell/",
+            "download_url": "https://github.com/PowerShell/PowerShell/releases",
+            "github": "https://github.com/PowerShell/PowerShell",
+            "purpose": "跨平台任务自动化和配置管理框架，兼容Windows PowerShell",
+            "latest_known": "2026年3月18日 (v7.6.0)",
+            "platforms": {
+              "windows": {
+                "install": {
+                  "method": "winget",
+                  "id": "Microsoft.PowerShell"
+                }
+              },
+              "mac": {
+                "install": {
+                  "method": "brew",
+                  "id": "powershell"
+                }
+              }
+            },
+            "login_required": false,
+            "secret_required": false
+          },
+          {
+            "id": "tongdaxin",
+            "name": "通达信",
+            "category": "trading",
+            "priority": "optional",
+            "install_mode": "manual",
+            "homepage": "https://www.tdx.com.cn/",
+            "download_url": "https://www.tdx.com.cn/soft.html",
+            "github": "",
+            "purpose": "专业的股票行情分析和交易软件，支持A股、港股、美股、期货等多市场",
+            "latest_known": "2025年11月10日 (v7.71)",
+            "platforms": {
+              "windows": {
+                "install": {
+                  "method": "manual"
+                }
+              },
+              "mac": {
+                "install": {
+                  "method": "manual"
+                }
+              }
+            },
+            "login_required": false,
+            "secret_required": false
+          },
+          {
+            "id": "nssm",
+            "name": "NSSM",
+            "category": "windows-service",
+            "priority": "recommended",
+            "install_mode": "auto",
+            "homepage": "https://nssm.cc/",
+            "download_url": "https://nssm.cc/download",
+            "github": "https://github.com/nssmgr/NSSM",
+            "purpose": "将任意可执行程序(控制台、GUI、脚本)注册为Windows服务的工具，支持自动重启",
+            "latest_known": "2017年4月26日 (v2.24-101)",
+            "platforms": {
+              "windows": {
+                "install": {
+                  "method": "github_release",
+                  "repo": "nssmgr/NSSM"
+                }
+              },
+              "mac": {
+                "install": {
+                  "method": "github_release",
+                  "repo": "nssmgr/NSSM"
+                }
+              }
+            },
+            "login_required": false,
+            "secret_required": false
+          },
+          {
+            "id": "frp",
+            "name": "FRP",
+            "category": "network",
+            "priority": "recommended",
+            "install_mode": "auto",
+            "homepage": "https://gofrp.org/",
+            "download_url": "https://github.com/fatedier/frp/releases",
+            "github": "https://github.com/fatedier/frp",
+            "purpose": "快速反向代理工具，用于内网穿透，支持TCP、UDP、HTTP、HTTPS等协议",
+            "latest_known": "2026年3月20日 (v0.68.0)",
+            "platforms": {
+              "windows": {
+                "install": {
+                  "method": "github_release",
+                  "repo": "fatedier/frp"
+                }
+              },
+              "mac": {
+                "install": {
+                  "method": "github_release",
+                  "repo": "fatedier/frp"
+                }
+              }
+            },
+            "login_required": false,
+            "secret_required": false
+          },
+          {
+            "id": "cliproxyapi",
+            "name": "CLIProxyAPI",
+            "category": "ai-gateway",
+            "priority": "recommended",
+            "install_mode": "auto",
+            "homepage": "无",
+            "download_url": "https://github.com/router-for-me/CLIProxyAPI/releases",
+            "github": "https://github.com/router-for-me/CLIProxyAPI",
+            "purpose": "AI API代理服务，统一管理多个AI模型接口，支持负载均衡和故障转移",
+            "latest_known": "2026年4月21日 (v6.9.31)",
+            "platforms": {
+              "windows": {
+                "install": {
+                  "method": "github_release",
+                  "repo": "router-for-me/CLIProxyAPI"
+                }
+              },
+              "mac": {
+                "install": {
+                  "method": "github_release",
+                  "repo": "router-for-me/CLIProxyAPI"
+                }
+              }
+            },
+            "login_required": false,
+            "secret_required": true
+          },
+          {
+            "id": "cliproxyapi-dashboard",
+            "name": "CLIProxyAPI Dashboard",
+            "category": "ai-gateway",
+            "priority": "optional",
+            "install_mode": "auto",
+            "homepage": "无",
+            "download_url": "https://github.com/itsmylife44/cliproxyapi-dashboard/releases",
+            "github": "https://github.com/itsmylife44/cliproxyapi-dashboard",
+            "purpose": "CLIProxyAPI的Web管理界面，提供配置同步、OAuth提供商管理和监控功能",
+            "latest_known": "2026年4月21日",
+            "platforms": {
+              "windows": {
+                "install": {
+                  "method": "github_release",
+                  "repo": "itsmylife44/cliproxyapi-dashboard"
+                }
+              },
+              "mac": {
+                "install": {
+                  "method": "github_release",
+                  "repo": "itsmylife44/cliproxyapi-dashboard"
+                }
+              }
+            },
+            "login_required": false,
+            "secret_required": false
+          },
+          {
+            "id": "new-api",
+            "name": "New API",
+            "category": "ai-gateway",
+            "priority": "recommended",
+            "install_mode": "auto",
+            "homepage": "https://docs.newapi.pro/",
+            "download_url": "https://github.com/QuantumNous/new-api/releases",
+            "github": "https://github.com/QuantumNous/new-api",
+            "purpose": "新一代大模型网关和AI资产管理平台，支持40+AI模型，统一为OpenAI兼容格式",
+            "latest_known": "2026年5月6日 (v1.1.138)",
+            "platforms": {
+              "windows": {
+                "install": {
+                  "method": "github_release",
+                  "repo": "QuantumNous/new-api"
+                }
+              },
+              "mac": {
+                "install": {
+                  "method": "github_release",
+                  "repo": "QuantumNous/new-api"
+                }
+              }
+            },
+            "login_required": false,
+            "secret_required": true
+          },
+          {
+            "id": "claude-relay-service",
+            "name": "Claude Relay Service",
+            "category": "ai-gateway",
+            "priority": "optional",
+            "install_mode": "auto",
+            "homepage": "无",
+            "download_url": "https://github.com/Wei-Shaw/claude-relay-service/releases",
+            "github": "https://github.com/Wei-Shaw/claude-relay-service",
+            "purpose": "自托管的Claude API中继服务，支持多账户管理和负载均衡",
+            "latest_known": "2026年3月26日 (v1.1.297)",
+            "platforms": {
+              "windows": {
+                "install": {
+                  "method": "github_release",
+                  "repo": "Wei-Shaw/claude-relay-service"
+                }
+              },
+              "mac": {
+                "install": {
+                  "method": "github_release",
+                  "repo": "Wei-Shaw/claude-relay-service"
+                }
+              }
+            },
+            "login_required": false,
+            "secret_required": true
+          },
+          {
+            "id": "comfyui",
+            "name": "ComfyUI",
+            "category": "ai-image",
+            "priority": "optional",
+            "install_mode": "auto",
+            "homepage": "https://comfyanonymous.github.io/ComfyUI/",
+            "download_url": "https://github.com/Comfy-Org/ComfyUI/releases",
+            "github": "https://github.com/Comfy-Org/ComfyUI",
+            "purpose": "模块化的AI图像生成工具，基于节点的工作流设计，支持Stable Diffusion等模型",
+            "latest_known": "2026年4月28日 (v0.20.1)",
+            "platforms": {
+              "windows": {
+                "install": {
+                  "method": "github_release",
+                  "repo": "Comfy-Org/ComfyUI"
+                }
+              },
+              "mac": {
+                "install": {
+                  "method": "github_release",
+                  "repo": "Comfy-Org/ComfyUI"
+                }
+              }
+            },
+            "login_required": false,
+            "secret_required": false
+          },
+          {
+            "id": "litemonitor",
+            "name": "LiteMonitor",
+            "category": "system-monitor",
+            "priority": "recommended",
+            "install_mode": "auto",
+            "homepage": "https://litemonitor.cn/",
+            "download_url": "https://github.com/Diorser/LiteMonitor/releases",
+            "github": "https://github.com/Diorser/LiteMonitor",
+            "purpose": "轻量级、可定制的 Windows 桌面和任务栏硬件性能监控工具，支持 CPU、GPU、内存、磁盘、网络、FPS、插件和内存清理",
+            "latest_known": "2026年2月12日 (v1.3.4)",
+            "platforms": {
+              "windows": {
+                "install": {
+                  "method": "winget",
+                  "id": "Diorser.LiteMonitor"
+                }
+              },
+              "mac": {
+                "install": {
+                  "method": "unsupported"
+                }
+              }
+            },
+            "login_required": false,
+            "secret_required": false
+          }
+        ],
+        "app_summary": {
+          "total": 22,
+          "required": 8,
+          "recommended": 8,
+          "optional": 6,
+          "auto": 15,
+          "manual": 6,
+          "secret_required": 6
+        },
+        "apps_by_priority": {
+          "required": [
+            {
+              "id": "cc-switch",
+              "name": "CC Switch",
+              "category": "ai-infra",
+              "priority": "required",
+              "install_mode": "auto",
+              "homepage": "https://www.ccswitch.io/zh/",
+              "download_url": "https://github.com/farion1231/cc-switch/releases",
+              "github": "https://github.com/farion1231/cc-switch",
+              "purpose": "AI编程CLI工具统一配置管理器，支持Claude Code、Codex、Gemini CLI等，提供自动故障转移、API测速、配置备份等功能",
+              "latest_known": "2026年4月30日 (v3.13.0)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "farion1231/cc-switch"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "farion1231/cc-switch"
+                  }
+                }
+              },
+              "login_required": false,
+              "secret_required": true
+            },
+            {
+              "id": "vs-code",
+              "name": "VS Code",
+              "category": "editor",
+              "priority": "required",
+              "install_mode": "auto",
+              "homepage": "https://code.visualstudio.com/",
+              "download_url": "https://code.visualstudio.com/download",
+              "github": "https://github.com/microsoft/vscode",
+              "purpose": "轻量级但功能强大的源代码编辑器，支持多种编程语言和丰富的插件生态",
+              "latest_known": "2026年5月6日 (v1.119.0)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "winget",
+                    "id": "Microsoft.VisualStudioCode"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "brew_cask",
+                    "id": "visual-studio-code"
+                  }
+                }
+              },
+              "login_required": false,
+              "secret_required": false
+            },
+            {
+              "id": "codex",
+              "name": "Codex",
+              "category": "ai-coding",
+              "priority": "required",
+              "install_mode": "auto",
+              "homepage": "https://openai.com/codex",
+              "download_url": "https://github.com/openai/codex/releases",
+              "github": "https://github.com/openai/codex",
+              "purpose": "OpenAI官方推出的终端级AI编程助手，支持CLI、桌面应用和IDE集成",
+              "latest_known": "2026年4月25日",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "openai/codex"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "openai/codex"
+                  }
+                }
+              },
+              "login_required": true,
+              "secret_required": true
+            },
+            {
+              "id": "claude",
+              "name": "Claude",
+              "category": "ai-assistant",
+              "priority": "required",
+              "install_mode": "manual",
+              "homepage": "https://claude.ai/",
+              "download_url": "https://claude.ai/download",
+              "github": "",
+              "purpose": "Anthropic推出的AI助手，提供Claude Code终端编程工具，支持代码编写、调试和重构",
+              "latest_known": "2026年4月30日",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "manual"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "manual"
+                  }
+                }
+              },
+              "login_required": true,
+              "secret_required": false
+            },
+            {
+              "id": "feishu",
+              "name": "飞书",
+              "category": "collaboration",
+              "priority": "required",
+              "install_mode": "semi_auto",
+              "homepage": "https://www.feishu.cn/",
+              "download_url": "https://www.feishu.cn/download",
+              "github": "",
+              "purpose": "一站式企业协作与管理平台，整合即时沟通、云文档、音视频会议、多维表格等功能",
+              "latest_known": "2026年4月14日 (v7.66.0.0)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "winget",
+                    "id": "ByteDance.Feishu"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "brew_cask",
+                    "id": "feishu"
+                  }
+                }
+              },
+              "login_required": true,
+              "secret_required": false
+            },
+            {
+              "id": "chrome",
+              "name": "Chrome",
+              "category": "browser",
+              "priority": "required",
+              "install_mode": "auto",
+              "homepage": "https://www.google.cn/intl/zh-CN/chrome/",
+              "download_url": "https://www.google.cn/intl/zh-CN/chrome/",
+              "github": "https://github.com/google/chrome",
+              "purpose": "谷歌开发的跨平台网页浏览器，速度快、安全性高，支持丰富的扩展程序",
+              "latest_known": "2026年5月7日 (v148.0.7727.24)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "winget",
+                    "id": "Google.Chrome"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "brew_cask",
+                    "id": "google-chrome"
+                  }
+                }
+              },
+              "login_required": false,
+              "secret_required": false
+            },
+            {
+              "id": "cherry-studio",
+              "name": "Cherry Studio",
+              "category": "ai-client",
+              "priority": "required",
+              "install_mode": "auto",
+              "homepage": "https://cherry-ai.com/",
+              "download_url": "https://cherry-ai.com/download",
+              "github": "https://github.com/CherryHQ/cherry-studio",
+              "purpose": "跨平台AI聊天客户端，支持300+AI模型，具备自主Agent能力和本地知识库功能",
+              "latest_known": "2026年4月30日 (v1.9.4)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "winget",
+                    "id": "CherryHQ.CherryStudio"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "brew_cask",
+                    "id": "cherry-studio"
+                  }
+                }
+              },
+              "login_required": true,
+              "secret_required": false
+            },
+            {
+              "id": "powershell-7",
+              "name": "PowerShell 7",
+              "category": "dev-runtime",
+              "priority": "required",
+              "install_mode": "auto",
+              "homepage": "https://learn.microsoft.com/zh-cn/powershell/",
+              "download_url": "https://github.com/PowerShell/PowerShell/releases",
+              "github": "https://github.com/PowerShell/PowerShell",
+              "purpose": "跨平台任务自动化和配置管理框架，兼容Windows PowerShell",
+              "latest_known": "2026年3月18日 (v7.6.0)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "winget",
+                    "id": "Microsoft.PowerShell"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "brew",
+                    "id": "powershell"
+                  }
+                }
+              },
+              "login_required": false,
+              "secret_required": false
+            }
+          ],
+          "recommended": [
+            {
+              "id": "trae",
+              "name": "Trae",
+              "category": "ai-ide",
+              "priority": "recommended",
+              "install_mode": "manual",
+              "homepage": "https://www.trae.cn/ (国内版); https://trae.ai/ (海外版)",
+              "download_url": "https://www.trae.cn/download",
+              "github": "",
+              "purpose": "字节跳动旗下AI原生集成开发环境，搭载豆包大模型，支持代码生成、项目构建和远程开发",
+              "latest_known": "2026年3月9日 (v3.5.36)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "manual"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "manual"
+                  }
+                }
+              },
+              "login_required": true,
+              "secret_required": false
+            },
+            {
+              "id": "clash-verge-rev",
+              "name": "Clash Verge Rev",
+              "category": "network",
+              "priority": "recommended",
+              "install_mode": "auto",
+              "homepage": "https://clash-verge.org/",
+              "download_url": "https://clash-verge.org/zh-CN/download",
+              "github": "https://github.com/clash-verge-rev/clash-verge-rev",
+              "purpose": "基于Clash Meta(mihomo)内核的跨平台代理客户端，支持VLESS、Reality等新协议",
+              "latest_known": "2026年3月22日 (v2.4.7)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "winget",
+                    "id": "ClashVergeRev.ClashVergeRev"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "brew_cask",
+                    "id": "clash-verge-rev"
+                  }
+                }
+              },
+              "login_required": false,
+              "secret_required": true
+            },
+            {
+              "id": "doubao",
+              "name": "豆包",
+              "category": "ai-assistant",
+              "priority": "recommended",
+              "install_mode": "manual",
+              "homepage": "https://www.doubao.com/",
+              "download_url": "https://www.doubao.com/download/desktop",
+              "github": "",
+              "purpose": "字节跳动推出的全能型AI助手，支持AI搜索、写作辅助、代码生成、图像创意等功能",
+              "latest_known": "2026年4月21日 (v2.2.3)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "manual"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "manual"
+                  }
+                }
+              },
+              "login_required": true,
+              "secret_required": false
+            },
+            {
+              "id": "nssm",
+              "name": "NSSM",
+              "category": "windows-service",
+              "priority": "recommended",
+              "install_mode": "auto",
+              "homepage": "https://nssm.cc/",
+              "download_url": "https://nssm.cc/download",
+              "github": "https://github.com/nssmgr/NSSM",
+              "purpose": "将任意可执行程序(控制台、GUI、脚本)注册为Windows服务的工具，支持自动重启",
+              "latest_known": "2017年4月26日 (v2.24-101)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "nssmgr/NSSM"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "nssmgr/NSSM"
+                  }
+                }
+              },
+              "login_required": false,
+              "secret_required": false
+            },
+            {
+              "id": "frp",
+              "name": "FRP",
+              "category": "network",
+              "priority": "recommended",
+              "install_mode": "auto",
+              "homepage": "https://gofrp.org/",
+              "download_url": "https://github.com/fatedier/frp/releases",
+              "github": "https://github.com/fatedier/frp",
+              "purpose": "快速反向代理工具，用于内网穿透，支持TCP、UDP、HTTP、HTTPS等协议",
+              "latest_known": "2026年3月20日 (v0.68.0)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "fatedier/frp"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "fatedier/frp"
+                  }
+                }
+              },
+              "login_required": false,
+              "secret_required": false
+            },
+            {
+              "id": "cliproxyapi",
+              "name": "CLIProxyAPI",
+              "category": "ai-gateway",
+              "priority": "recommended",
+              "install_mode": "auto",
+              "homepage": "无",
+              "download_url": "https://github.com/router-for-me/CLIProxyAPI/releases",
+              "github": "https://github.com/router-for-me/CLIProxyAPI",
+              "purpose": "AI API代理服务，统一管理多个AI模型接口，支持负载均衡和故障转移",
+              "latest_known": "2026年4月21日 (v6.9.31)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "router-for-me/CLIProxyAPI"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "router-for-me/CLIProxyAPI"
+                  }
+                }
+              },
+              "login_required": false,
+              "secret_required": true
+            },
+            {
+              "id": "new-api",
+              "name": "New API",
+              "category": "ai-gateway",
+              "priority": "recommended",
+              "install_mode": "auto",
+              "homepage": "https://docs.newapi.pro/",
+              "download_url": "https://github.com/QuantumNous/new-api/releases",
+              "github": "https://github.com/QuantumNous/new-api",
+              "purpose": "新一代大模型网关和AI资产管理平台，支持40+AI模型，统一为OpenAI兼容格式",
+              "latest_known": "2026年5月6日 (v1.1.138)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "QuantumNous/new-api"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "QuantumNous/new-api"
+                  }
+                }
+              },
+              "login_required": false,
+              "secret_required": true
+            },
+            {
+              "id": "litemonitor",
+              "name": "LiteMonitor",
+              "category": "system-monitor",
+              "priority": "recommended",
+              "install_mode": "auto",
+              "homepage": "https://litemonitor.cn/",
+              "download_url": "https://github.com/Diorser/LiteMonitor/releases",
+              "github": "https://github.com/Diorser/LiteMonitor",
+              "purpose": "轻量级、可定制的 Windows 桌面和任务栏硬件性能监控工具，支持 CPU、GPU、内存、磁盘、网络、FPS、插件和内存清理",
+              "latest_known": "2026年2月12日 (v1.3.4)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "winget",
+                    "id": "Diorser.LiteMonitor"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "unsupported"
+                  }
+                }
+              },
+              "login_required": false,
+              "secret_required": false
+            }
+          ],
+          "optional": [
+            {
+              "id": "workbuddy",
+              "name": "WorkBuddy",
+              "category": "office-ai",
+              "priority": "optional",
+              "install_mode": "manual",
+              "homepage": "https://www.codebuddy.cn/work/",
+              "download_url": "https://www.codebuddy.cn/work/",
+              "github": "",
+              "purpose": "腾讯推出的AI原生桌面智能体工作台，支持自然语言驱动完成文档生成、数据分析、PPT制作等办公任务",
+              "latest_known": "2026年5月6日 (v4.21+)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "manual"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "manual"
+                  }
+                }
+              },
+              "login_required": true,
+              "secret_required": false
+            },
+            {
+              "id": "uu-remote",
+              "name": "UU远程",
+              "category": "remote-control",
+              "priority": "optional",
+              "install_mode": "manual",
+              "homepage": "https://uuyc.163.com/",
+              "download_url": "https://uuyc.163.com/download",
+              "github": "",
+              "purpose": "网易出品的免费远程控制软件，支持真4K画质、超低延迟、文件传输和远程游戏",
+              "latest_known": "2026年5月9日 (v4.23.0)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "manual"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "manual"
+                  }
+                }
+              },
+              "login_required": true,
+              "secret_required": false
+            },
+            {
+              "id": "tongdaxin",
+              "name": "通达信",
+              "category": "trading",
+              "priority": "optional",
+              "install_mode": "manual",
+              "homepage": "https://www.tdx.com.cn/",
+              "download_url": "https://www.tdx.com.cn/soft.html",
+              "github": "",
+              "purpose": "专业的股票行情分析和交易软件，支持A股、港股、美股、期货等多市场",
+              "latest_known": "2025年11月10日 (v7.71)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "manual"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "manual"
+                  }
+                }
+              },
+              "login_required": false,
+              "secret_required": false
+            },
+            {
+              "id": "cliproxyapi-dashboard",
+              "name": "CLIProxyAPI Dashboard",
+              "category": "ai-gateway",
+              "priority": "optional",
+              "install_mode": "auto",
+              "homepage": "无",
+              "download_url": "https://github.com/itsmylife44/cliproxyapi-dashboard/releases",
+              "github": "https://github.com/itsmylife44/cliproxyapi-dashboard",
+              "purpose": "CLIProxyAPI的Web管理界面，提供配置同步、OAuth提供商管理和监控功能",
+              "latest_known": "2026年4月21日",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "itsmylife44/cliproxyapi-dashboard"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "itsmylife44/cliproxyapi-dashboard"
+                  }
+                }
+              },
+              "login_required": false,
+              "secret_required": false
+            },
+            {
+              "id": "claude-relay-service",
+              "name": "Claude Relay Service",
+              "category": "ai-gateway",
+              "priority": "optional",
+              "install_mode": "auto",
+              "homepage": "无",
+              "download_url": "https://github.com/Wei-Shaw/claude-relay-service/releases",
+              "github": "https://github.com/Wei-Shaw/claude-relay-service",
+              "purpose": "自托管的Claude API中继服务，支持多账户管理和负载均衡",
+              "latest_known": "2026年3月26日 (v1.1.297)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "Wei-Shaw/claude-relay-service"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "Wei-Shaw/claude-relay-service"
+                  }
+                }
+              },
+              "login_required": false,
+              "secret_required": true
+            },
+            {
+              "id": "comfyui",
+              "name": "ComfyUI",
+              "category": "ai-image",
+              "priority": "optional",
+              "install_mode": "auto",
+              "homepage": "https://comfyanonymous.github.io/ComfyUI/",
+              "download_url": "https://github.com/Comfy-Org/ComfyUI/releases",
+              "github": "https://github.com/Comfy-Org/ComfyUI",
+              "purpose": "模块化的AI图像生成工具，基于节点的工作流设计，支持Stable Diffusion等模型",
+              "latest_known": "2026年4月28日 (v0.20.1)",
+              "platforms": {
+                "windows": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "Comfy-Org/ComfyUI"
+                  }
+                },
+                "mac": {
+                  "install": {
+                    "method": "github_release",
+                    "repo": "Comfy-Org/ComfyUI"
+                  }
+                }
+              },
+              "login_required": false,
+              "secret_required": false
+            }
+          ]
+        },
+        "folders": [
+          {
+            "path": "Projects",
+            "purpose": "代码项目"
+          },
+          {
+            "path": "AI",
+            "purpose": "AI 工具配置、模型、工作流"
+          },
+          {
+            "path": "AI/Models",
+            "purpose": "本地模型"
+          },
+          {
+            "path": "AI/ComfyUI",
+            "purpose": "ComfyUI 工作区"
+          },
+          {
+            "path": "Services",
+            "purpose": "New API、CLIProxyAPI、FRP 等服务"
+          },
+          {
+            "path": "Documents",
+            "purpose": "重要文档"
+          },
+          {
+            "path": "Downloads/Installers",
+            "purpose": "安装包归档"
+          },
+          {
+            "path": "Scripts",
+            "purpose": "自用脚本"
+          },
+          {
+            "path": "Backups",
+            "purpose": "配置备份"
+          }
+        ],
+        "folder_root": {
+          "windows": "D:/Workspace",
+          "mac": "$HOME/Workspace"
+        },
+        "public_websites": [
+          {
+            "domain": "joinquant.com",
+            "visit_count_30d": 324,
+            "typed_count_30d": 10,
+            "last_visit_at": "2026-05-11 22:54:03"
+          },
+          {
+            "domain": "baidu.com",
+            "visit_count_30d": 271,
+            "typed_count_30d": 59,
+            "last_visit_at": "2026-05-12 11:24:35"
+          },
+          {
+            "domain": "google.com",
+            "visit_count_30d": 164,
+            "typed_count_30d": 23,
+            "last_visit_at": "2026-05-10 22:57:27"
+          },
+          {
+            "domain": "github.com",
+            "visit_count_30d": 146,
+            "typed_count_30d": 29,
+            "last_visit_at": "2026-05-12 10:03:19"
+          },
+          {
+            "domain": "coinglass.com",
+            "visit_count_30d": 132,
+            "typed_count_30d": 14,
+            "last_visit_at": "2026-05-12 03:49:04"
+          },
+          {
+            "domain": "flaios.com",
+            "visit_count_30d": 97,
+            "typed_count_30d": 3,
+            "last_visit_at": "2026-05-12 09:40:04"
+          },
+          {
+            "domain": "cloud.tencent.com",
+            "visit_count_30d": 97,
+            "typed_count_30d": 3,
+            "last_visit_at": "2026-05-12 01:29:59"
+          },
+          {
+            "domain": "forum.trae.cn",
+            "visit_count_30d": 62,
+            "typed_count_30d": 1,
+            "last_visit_at": "2026-05-08 19:44:56"
+          },
+          {
+            "domain": "chatgpt.com",
+            "visit_count_30d": 39,
+            "typed_count_30d": 5,
+            "last_visit_at": "2026-05-10 10:31:04"
+          },
+          {
+            "domain": "trae.cn",
+            "visit_count_30d": 35,
+            "typed_count_30d": 0,
+            "last_visit_at": "2026-05-10 01:32:34"
+          },
+          {
+            "domain": "pan.baidu.com",
+            "visit_count_30d": 33,
+            "typed_count_30d": 0,
+            "last_visit_at": "2026-05-07 00:06:30"
+          },
+          {
+            "domain": "gemini.google.com",
+            "visit_count_30d": 27,
+            "typed_count_30d": 12,
+            "last_visit_at": "2026-05-11 00:54:32"
+          },
+          {
+            "domain": "openai.com",
+            "visit_count_30d": 11,
+            "typed_count_30d": 4,
+            "last_visit_at": "2026-05-05 23:27:44"
+          }
+        ],
+        "public_website_count": 13
+      }
+    }
+  ],
+  "workbench": {
+    "schema_version": 1,
+    "meta": {
+      "id": "personal-master-os",
+      "name": "个人工作台",
+      "version": "0.1.0",
+      "updated_at": "2026-05-13",
+      "positioning": "个人资产、项目状态、关系、进展、风险和计划的结构化状态层，供 Agent 读取、更新和展示。",
+      "principles": [
+        "只呈现情况，不直接管理或编辑真实项目文件。",
+        "本地优先，GitHub 负责版本历史。",
+        "Agent 可以更新状态文件，但高风险事实需要用户确认。",
+        "Markdown 给人读，YAML 给网站和 Agent 读。"
+      ],
+      "modules": [
+        "assets",
+        "projects",
+        "relations",
+        "progress",
+        "risks",
+        "plans"
+      ]
+    },
+    "summary": {
+      "projects": 2,
+      "active_projects": 2,
+      "high_risks": 1,
+      "active_plans": 2,
+      "recent_progress": 3,
+      "assets": 3,
+      "relations": 2
+    },
+    "projects": [
+      {
+        "id": "flaios-hub",
+        "name": "飞流AI枢纽",
+        "type": "project",
+        "stage": "building",
+        "status": "active",
+        "risk_level": "medium",
+        "summary": "从跨工具 Agent 货架升级为 AI 网站、工具、Agent、Skill、工作流、环境套件、项目和个人工作台的 AI 使用枢纽。",
+        "next_action": "完成个人工作台数据结构、页面展示和 Agent 更新技能。",
+        "owner_note": "当前主项目，适合先作为个人工作台的样板项目。",
+        "related_agents": [
+          "frontend-builder",
+          "automation-workflow-designer",
+          "agent-quality-evaluator"
+        ],
+        "related_workflows": [
+          "submit-to-flaios",
+          "personal-ai-workstation-bootstrap"
+        ],
+        "links": {
+          "repo": ".",
+          "local_preview": "http://127.0.0.1:5173/"
+        }
+      },
+      {
+        "id": "personal-ai-workstation",
+        "name": "个人 AI 工作站 Setup Kit",
+        "type": "setup_kit",
+        "stage": "building",
+        "status": "active",
+        "risk_level": "medium",
+        "summary": "新电脑初始化、软件清单、网站目录、目录结构、脚本和 Agent 接管指令。",
+        "next_action": "继续清理公开网站列表，补充更多官方软件下载渠道和可执行导出。",
+        "owner_note": "已接入环境套件栏目和 setup CLI。",
+        "related_agents": [
+          "automation-workflow-designer"
+        ],
+        "related_workflows": [
+          "personal-ai-workstation-bootstrap"
+        ],
+        "links": {
+          "path": "setup-kits/personal-ai-workstation"
+        }
+      }
+    ],
+    "assets": [
+      {
+        "id": "agents-flaios-com",
+        "name": "agents.flaios.com",
+        "type": "domain",
+        "status": "active",
+        "summary": "飞流AI枢纽线上入口域名。",
+        "related_projects": [
+          "flaios-hub"
+        ]
+      },
+      {
+        "id": "lazy-agent-shelf-repo",
+        "name": "Lazy Agent Shelf repository",
+        "type": "repository",
+        "status": "active",
+        "summary": "飞流AI枢纽代码与内容源仓库。",
+        "related_projects": [
+          "flaios-hub"
+        ]
+      },
+      {
+        "id": "personal-ai-workstation-kit",
+        "name": "个人 AI 工作站套件",
+        "type": "setup_kit",
+        "status": "building",
+        "summary": "可分享、可导出、可交给 Agent 的电脑初始化资产。",
+        "related_projects": [
+          "personal-ai-workstation"
+        ]
+      }
+    ],
+    "relations": [
+      {
+        "id": "contributors",
+        "name": "贡献者和朋友",
+        "type": "group",
+        "status": "watching",
+        "summary": "可以通过 Agent、网站提交页或 PR 提交 AI 网站、工具、项目和环境套件。",
+        "related_projects": [
+          "flaios-hub"
+        ]
+      },
+      {
+        "id": "ai-agents",
+        "name": "可接入 Agent",
+        "type": "agent_group",
+        "status": "active",
+        "summary": "Codex、Claude Code、Cursor、OpenCode、Trae 等工具中的 Agent 可以按规范更新内容和工作台状态。",
+        "related_projects": [
+          "flaios-hub"
+        ]
+      }
+    ],
+    "progress": [
+      {
+        "id": "setup-kit-detail-page",
+        "date": "2026-05-13",
+        "project": "flaios-hub",
+        "status": "done",
+        "summary": "环境套件页面已展示软件分组、官方链接、目录结构、安全规则、公开网站目录和可复制命令。"
+      },
+      {
+        "id": "setup-cli-export",
+        "date": "2026-05-13",
+        "project": "personal-ai-workstation",
+        "status": "done",
+        "summary": "setup CLI 已支持 list/show/export/script/agent，export 默认生成公开分享包。"
+      },
+      {
+        "id": "personal-workbench-start",
+        "date": "2026-05-13",
+        "project": "flaios-hub",
+        "status": "active",
+        "summary": "开始把个人工作台作为飞流AI枢纽的新栏目落地。"
+      }
+    ],
+    "risks": [
+      {
+        "id": "private-website-history",
+        "name": "浏览器历史隐私泄露",
+        "risk_level": "high",
+        "status": "active",
+        "summary": "websites.yaml/websites.csv 来自浏览器历史，可能包含后台、内网、账号、API、支付等敏感域名。",
+        "mitigation": "默认只导出 websites.public.csv；完整 websites.csv 仅允许 --include-private 私有备份。",
+        "related_projects": [
+          "personal-ai-workstation"
+        ]
+      },
+      {
+        "id": "workbench-overreach",
+        "name": "工作台范围膨胀",
+        "risk_level": "medium",
+        "status": "active",
+        "summary": "个人工作台容易变成项目管理系统或文件管理器。",
+        "mitigation": "v1 只呈现状态，不编辑真实项目文件，不做复杂数据库。",
+        "related_projects": [
+          "flaios-hub"
+        ]
+      }
+    ],
+    "plans": [
+      {
+        "id": "workbench-v1",
+        "horizon": "short",
+        "status": "active",
+        "title": "个人工作台 v1",
+        "goals": [
+          "新增结构化 workbench 数据层。",
+          "新增个人工作台网站栏目。",
+          "新增 personal-workbench Codex Skill。",
+          "让 Agent 可以按规范更新项目、风险、进展和计划。"
+        ]
+      },
+      {
+        "id": "setup-kit-next",
+        "horizon": "short",
+        "status": "active",
+        "title": "环境套件下一步",
+        "goals": [
+          "继续补软件官方链接。",
+          "支持 setup export zip。",
+          "拆分公开网站清单与私有历史清单。"
+        ]
+      }
+    ]
+  }
+}

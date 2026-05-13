@@ -1,0 +1,15 @@
+items:
+  - id: flaios-content-submit
+    type: skill
+    name: 飞流AI枢纽内容提交
+    category: ops/automation
+    tags: [codex, contribution, content-normalization, laozhou-s]
+    one_liner: 让 Codex 根据一句话把网站、工具、项目、Agent、Skill、工作流或记忆整理成飞流AI枢纽提交。
+    best_for: [一句话提交新内容, 规范化分类和标签, 生成 PR 变更摘要]
+    not_good_for: [绕过审核直接发布, 收录无法说明价值的广告链接]
+    rating: S
+    owner_note: 给老周自己和其他贡献者的低摩擦提交入口。
+    related_agents: [repo-onboarding-guide, agent-quality-evaluator]
+    related_skills: []
+    related_workflows: [submit-to-flaios]
+    status: draft

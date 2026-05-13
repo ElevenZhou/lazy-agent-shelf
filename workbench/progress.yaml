@@ -1,0 +1,16 @@
+items:
+  - id: setup-kit-detail-page
+    date: 2026-05-13
+    project: flaios-hub
+    status: done
+    summary: 环境套件页面已展示软件分组、官方链接、目录结构、安全规则、公开网站目录和可复制命令。
+  - id: setup-cli-export
+    date: 2026-05-13
+    project: personal-ai-workstation
+    status: done
+    summary: setup CLI 已支持 list/show/export/script/agent，export 默认生成公开分享包。
+  - id: personal-workbench-start
+    date: 2026-05-13
+    project: flaios-hub
+    status: active
+    summary: 开始把个人工作台作为飞流AI枢纽的新栏目落地。

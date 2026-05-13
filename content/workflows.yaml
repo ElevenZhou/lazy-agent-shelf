@@ -1,0 +1,42 @@
+items:
+  - id: submit-to-flaios
+    type: workflow
+    name: 一句话提交到飞流AI枢纽
+    category: ops/automation
+    tags: [contribution, codex, agent-assisted, laozhou-s]
+    one_liner: 把一个网站、工具、项目、Agent、Skill 或记忆整理成规范内容并提交。
+    best_for: [快速沉淀日常发现, 让其他 Agent 帮忙提交, 统一内容结构]
+    not_good_for: [未验证的广告内容, 无法说明用途的链接]
+    rating: S
+    owner_note: 用来把老周和朋友的日常 AI 发现持续沉淀到站点。
+    steps:
+      - 阅读 docs/navigation-taxonomy.md 和 docs/submissions.md。
+      - 判断内容类型和分类，必要时解释新类目理由。
+      - 补齐字段、关联 Agent / Skill / Workflow。
+      - 运行 npm run catalog、npm run lint:agents、npm run website:build。
+      - 给出变更摘要或创建 PR。
+    related_agents: [repo-onboarding-guide, agent-quality-evaluator]
+    related_skills: [flaios-content-submit]
+    related_workflows: []
+    status: draft
+
+  - id: personal-ai-workstation-bootstrap
+    type: workflow
+    name: 个人 AI 工作站初始化
+    category: setup/ai-workstation
+    tags: [windows, mac, setup-kit, ai-coding, agent-assisted, laozhou-s]
+    one_liner: 根据 setup kit 初始化新电脑的软件、目录、常用网站和 AI 工具接管流程。
+    best_for: [换新电脑, 重装系统, 给朋友配置 AI 工作站, 标准化开发环境]
+    not_good_for: [无人值守安装所有敏感工具, 自动登录账号, 公开未清理的浏览器历史]
+    rating: S
+    owner_note: 先作为栏目和数据源整合；执行真实安装前必须先运行 DryRun 并人工确认敏感项。
+    steps:
+      - 读取 setup-kits/personal-ai-workstation/kit.yaml。
+      - 审核 apps.yaml、websites.yaml、folders.yaml。
+      - 先运行 Windows DryRun 或 macOS 等价检查。
+      - 自动安装低风险软件，手动处理登录、密钥、付费和代理配置。
+      - 生成 setup-report.md。
+    related_agents: [automation-workflow-designer]
+    related_skills: []
+    related_workflows: [submit-to-flaios]
+    status: draft

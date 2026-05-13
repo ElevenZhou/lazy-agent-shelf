@@ -1,0 +1,28 @@
+items:
+  - id: flaios-hub
+    name: 飞流AI枢纽
+    type: project
+    stage: building
+    status: active
+    risk_level: medium
+    summary: 从跨工具 Agent 货架升级为 AI 网站、工具、Agent、Skill、工作流、环境套件、项目和个人工作台的 AI 使用枢纽。
+    next_action: 完成个人工作台数据结构、页面展示和 Agent 更新技能。
+    owner_note: 当前主项目，适合先作为个人工作台的样板项目。
+    related_agents: [frontend-builder, automation-workflow-designer, agent-quality-evaluator]
+    related_workflows: [submit-to-flaios, personal-ai-workstation-bootstrap]
+    links:
+      repo: .
+      local_preview: http://127.0.0.1:5173/
+  - id: personal-ai-workstation
+    name: 个人 AI 工作站 Setup Kit
+    type: setup_kit
+    stage: building
+    status: active
+    risk_level: medium
+    summary: 新电脑初始化、软件清单、网站目录、目录结构、脚本和 Agent 接管指令。
+    next_action: 继续清理公开网站列表，补充更多官方软件下载渠道和可执行导出。
+    owner_note: 已接入环境套件栏目和 setup CLI。
+    related_agents: [automation-workflow-designer]
+    related_workflows: [personal-ai-workstation-bootstrap]
+    links:
+      path: setup-kits/personal-ai-workstation

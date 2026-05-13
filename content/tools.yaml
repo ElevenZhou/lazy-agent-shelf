@@ -1,0 +1,57 @@
+items:
+  - id: codex
+    type: tool
+    name: Codex
+    category: ai/coding
+    tags: [developer, local-repo, agent-workflow, laozhou-s]
+    one_liner: 面向本地仓库的 AI 编程与任务执行工具，适合承载可复用 Skill 和项目级流程。
+    best_for: [代码修改, 仓库分析, 技能调用, 自动化执行]
+    not_good_for: [纯聊天陪伴, 无上下文的泛泛问答]
+    rating: S
+    owner_note: 本项目的主要执行环境，适合把经验沉淀成 Skill。
+    related_agents: [code-reviewer, frontend-builder, backend-api-architect]
+    related_skills: [flaios-content-submit]
+    related_workflows: [submit-to-flaios]
+    status: draft
+  - id: cursor
+    type: tool
+    name: Cursor
+    category: ai/coding
+    tags: [developer, ai-ide, project-rules, laozhou-a]
+    one_liner: AI 原生代码编辑器，适合在项目里结合规则文件、上下文和快速修改完成开发任务。
+    best_for: [项目内编码, 快速改 UI, 结合规则约束输出, 新手进入 AI 编程]
+    not_good_for: [复杂仓库的长时间自治任务, 严格终端自动化]
+    rating: A
+    owner_note: 适合轻量开发和可视化编辑体验；复杂流程可以和 Codex / Claude Code 分工。
+    related_agents: [frontend-builder, ux-flow-designer, code-reviewer]
+    related_skills: []
+    related_workflows: [personal-ai-workstation-bootstrap]
+    status: draft
+  - id: claude-code
+    type: tool
+    name: Claude Code
+    category: ai/coding
+    tags: [developer, terminal, subagents, laozhou-a]
+    one_liner: 终端里的 AI 编程工具，适合代码理解、重构、子 Agent 分工和项目级任务推进。
+    best_for: [代码理解, 重构规划, 子 Agent 协作, 长上下文项目分析]
+    not_good_for: [无需工程上下文的普通聊天, 无人工审核的高风险批量改动]
+    rating: A
+    owner_note: 适合作为 Codex 之外的工程协作入口，尤其适合 subagent 风格任务。
+    related_agents: [repo-onboarding-guide, bug-investigator, test-writer]
+    related_skills: []
+    related_workflows: [personal-ai-workstation-bootstrap]
+    status: draft
+  - id: feishu
+    type: tool
+    name: 飞书
+    category: local-cn/feishu
+    tags: [china-friendly, collaboration, docs, automation, laozhou-s]
+    one_liner: 中国本地团队协作平台，适合文档、表格、多维表格、群聊、日程和自动化工作流。
+    best_for: [团队协作, 云文档, 多维表格, 群消息自动化, 日程和任务管理]
+    not_good_for: [完全离线工作流, 不希望绑定组织账号的个人轻量笔记]
+    rating: S
+    owner_note: 非常适合和 Lark / 飞书类 Skill 连接，沉淀运营、项目和自动化流程。
+    related_agents: [feishu-workflow-builder, automation-workflow-designer]
+    related_skills: [lark-doc, lark-base, lark-im, lark-calendar]
+    related_workflows: [personal-ai-workstation-bootstrap]
+    status: draft

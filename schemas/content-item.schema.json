@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://flaios.com/schemas/content-item.schema.json",
+  "title": "FlaiOS Hub Content Item",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "name",
+    "category",
+    "one_liner",
+    "best_for",
+    "not_good_for",
+    "rating",
+    "status"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "type": {
+      "enum": [
+        "agent",
+        "skill",
+        "ai_website",
+        "tool",
+        "workflow",
+        "project",
+        "setup_kit",
+        "memory",
+        "guide"
+      ]
+    },
+    "name": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+(?:/[a-z0-9-]+)*$"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "one_liner": {
+      "type": "string"
+    },
+    "best_for": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "not_good_for": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "pricing": {
+      "type": "string"
+    },
+    "china_access": {
+      "enum": [
+        "friendly",
+        "unstable",
+        "blocked",
+        "unknown",
+        "not_applicable"
+      ]
+    },
+    "rating": {
+      "enum": [
+        "S",
+        "A",
+        "B",
+        "C",
+        "Watch"
+      ]
+    },
+    "owner_note": {
+      "type": "string"
+    },
+    "related_agents": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "related_skills": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "related_workflows": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "review",
+        "published",
+        "archived"
+      ]
+    }
+  },
+  "additionalProperties": true
+}

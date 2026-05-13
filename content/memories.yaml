@@ -1,0 +1,15 @@
+items:
+  - id: laozhou-content-rule
+    type: memory
+    name: 老周收录原则
+    category: ai/knowledge
+    tags: [curation, quality, laozhou-s]
+    one_liner: 飞流AI枢纽优先收录真实使用、能连接工作流、有明确边界的 AI 资源。
+    best_for: [审核新提交, 判断是否值得收录, 统一贡献者口径]
+    not_good_for: [追求数量的泛导航站]
+    rating: S
+    owner_note: 不做大全，做真实使用精选。
+    related_agents: [agent-quality-evaluator]
+    related_skills: [flaios-content-submit]
+    related_workflows: [submit-to-flaios]
+    status: draft

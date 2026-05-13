@@ -1,0 +1,31 @@
+id: personal-ai-workstation
+name: "个人 AI 工作站"
+description: "用于新 Windows/macOS 电脑初始化的软件、网站、目录和 Agent 接管指令。"
+version: "0.1.0"
+owner: "AprilWu"
+status: "mvp"
+created_at: "2026-05-12"
+source_files:
+  apps: "apps.yaml"
+  websites: "websites.yaml"
+  software_csv: "apps.csv"
+  websites_csv: "websites.csv"
+entrypoints:
+  windows: "scripts/windows/bootstrap.ps1"
+  agent_prompt: "agent-prompts/general-setup-agent.md"
+safety:
+  public_share_ready: false
+  review_before_publish:
+    - "websites.csv / websites.yaml may include private domains from Chrome history."
+    - "Do not commit API keys, proxy subscriptions, cookies, or account tokens."
+    - "Scripts should pause before privileged, paid, or secret-related actions."
+modes:
+  - id: basic
+    name: "基础环境"
+    includes: ["browser", "editor", "dev-runtime", "collaboration"]
+  - id: ai
+    name: "AI 工具"
+    includes: ["ai-coding", "ai-assistant", "ai-client", "ai-infra", "ai-gateway"]
+  - id: full
+    name: "完整安装"
+    includes: ["all"]

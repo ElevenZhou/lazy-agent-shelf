@@ -1,0 +1,50 @@
+# Source of truth: docs/navigation-taxonomy.md
+project_zh_name: 飞流AI枢纽
+project_positioning: 基于老周日常 AI 使用经验沉淀的工具、网站、Agent、Skill、工作流与项目精选导航。
+content_types:
+  - agent
+  - skill
+  - ai_website
+  - tool
+  - workflow
+  - project
+  - setup_kit
+  - memory
+  - guide
+standard_categories:
+  - ai/chat
+  - ai/search
+  - ai/coding
+  - ai/writing
+  - ai/image
+  - ai/video
+  - ai/audio
+  - ai/slides-docs
+  - ai/automation
+  - ai/data
+  - ai/knowledge
+  - ai/model-api
+  - ai/learning-news
+  - engineering/frontend
+  - engineering/backend
+  - engineering/code-quality
+  - product/strategy
+  - product/ux
+  - growth/marketing
+  - growth/seo
+  - growth/ads
+  - content/social
+  - content/ecommerce
+  - data/analysis
+  - data/trading
+  - ops/automation
+  - ops/devops
+  - local-cn/feishu
+  - local-cn/wechat
+  - local-cn/xiaohongshu
+  - local-cn/douyin
+  - setup/windows
+  - setup/mac
+  - setup/ai-workstation
+  - setup/developer-workstation
+  - setup/creator-workstation
