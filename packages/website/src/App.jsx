@@ -67,7 +67,7 @@ function App() {
   const [scenario, setScenario] = useState(locales[getInitialLanguage()].scenes[0]?.id || 'web-product');
   const [target, setTarget] = useState('codex');
   const [activeTab, setActiveTab] = useState(getInitialTab);
-  const [openCollection, setOpenCollection] = useState(collections[0]?.id || '');
+  const [openCollection, setOpenCollection] = useState('');
   const [selectedAgent, setSelectedAgent] = useState(null);
   const [copied, setCopied] = useState('');
   const [visibleCount, setVisibleCount] = useState(12);
