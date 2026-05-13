@@ -38,7 +38,7 @@ const platformTitles = {
   vscode: 'VSCode Copilot',
   trae: 'Trae'
 };
-const tabs = ['browse', 'directory', 'aiStarter', 'aiTools', 'workflows', 'workbench', 'setupKits', 'ccSwitch', 'projects', 'submit'];
+const tabs = ['browse', 'directory', 'aiStarter', 'aiTools', 'workflows', 'workbench', 'setupKits', 'ccSwitch', 'finance', 'projects', 'submit'];
 
 function getInitialTab() {
   if (typeof window === 'undefined') return 'browse';
@@ -225,6 +225,7 @@ function App() {
     {activeTab === 'workbench' && <WorkbenchChannel labels={text} workbench={hubCatalog.workbench} />}
     {activeTab === 'setupKits' && <SetupKitsChannel labels={text} items={hubCatalog.setup_kits || hubByType.setup_kit || []} copied={copied} onCopy={copyCommand} />}
     {activeTab === 'ccSwitch' && <CCSwitchGuide labels={text} copied={copied} onCopy={copyCommand} />}
+    {activeTab === 'finance' && <FinanceChannel labels={text} />}
     {activeTab === 'projects' && <ProjectsChannel labels={text} items={hubByType.project || []} />}
     {activeTab === 'submit' && <SubmitChannel copied={copied} onCopy={copyCommand} labels={text} />}
     {selectedAgent && <AgentModal agent={selectedAgent} onClose={() => setSelectedAgent(null)} target={target} copied={copied} onCopy={copyCommand} labels={text} />}
@@ -406,6 +407,35 @@ function CCSwitchGuide({ labels, copied, onCopy }) {
     </div>
 
     <div className="usage-note cc-switch-note">
+      <h3>{text.noteTitle}</h3>
+      <p>{text.noteBody}</p>
+    </div>
+  </section>;
+}
+
+function FinanceChannel({ labels }) {
+  const text = labels.finance;
+  return <section className="channel-page finance-page">
+    <div className="channel-hero finance-hero">
+      <span className="signal">{text.signal}</span>
+      <h2>{text.title}</h2>
+      <p>{text.body}</p>
+    </div>
+    <div className="finance-grid">
+      {text.items.map((item, index) => {
+        const content = <>
+          <strong>{String(index + 1).padStart(2, '0')}</strong>
+          <span>{item.category}</span>
+          <h3>{item.title}</h3>
+          <p>{item.body}</p>
+          <em>{item.cta}</em>
+        </>;
+        return item.pending
+          ? <article className="finance-card pending" key={item.title}>{content}</article>
+          : <a className="finance-card" href={item.url} target="_blank" rel="noreferrer" key={item.title}>{content}</a>;
+      })}
+    </div>
+    <div className="usage-note finance-note">
       <h3>{text.noteTitle}</h3>
       <p>{text.noteBody}</p>
     </div>

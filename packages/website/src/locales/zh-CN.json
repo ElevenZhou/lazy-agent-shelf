@@ -31,7 +31,8 @@
     "setupKits": "环境套件",
     "projects": "项目集市",
     "submit": "提交入口",
-    "ccSwitch": "CC Switch"
+    "ccSwitch": "CC Switch",
+    "finance": "常用金融"
   },
   "searchPlaceholder": "搜索智能体、工作流、使用场景...",
   "targetPlatform": "目标平台",
@@ -854,5 +855,43 @@
     ],
     "noteTitle": "安全提醒",
     "noteBody": "这个页面只放测试 Key 占位信息，方便同事快速照着配置。正式 Key 不要写进公开页面、截图或仓库。"
+  },
+  "finance": {
+    "signal": "Finance Shortcuts",
+    "title": "常用金融入口，先把高频系统放在一起。",
+    "body": "这里是老周自己常用的金融、公司和合规入口，不做泛导航，只放需要反复打开的关键网站。后续你再给我链接，我继续往这里补。",
+    "items": [
+      {
+        "category": "VCC 系统",
+        "title": "VCCVIP 商户后台",
+        "body": "虚拟卡、商户后台和相关支付操作入口。",
+        "url": "https://merchant.vccvip.top/",
+        "cta": "打开 VCC 系统"
+      },
+      {
+        "category": "Business Banking",
+        "title": "Revolut Business 官网",
+        "body": "Revolut 企业账户、银行卡、跨境收付款和团队财务管理入口。",
+        "url": "https://www.revolut.com/business/",
+        "cta": "打开官网"
+      },
+      {
+        "category": "UK Company Compliance",
+        "title": "英国 Companies House",
+        "body": "英国公司信息查询、confirmation statement 年审、accounts 报账与公司申报相关入口。",
+        "url": "https://www.gov.uk/government/organisations/companies-house",
+        "cta": "打开 Companies House"
+      },
+      {
+        "category": "Coming Soon",
+        "title": "其他金融入口待补充",
+        "body": "你后续继续给我名称、网址和用途，我会按同一格式追加。",
+        "url": "#",
+        "cta": "等待更新",
+        "pending": true
+      }
+    ],
+    "noteTitle": "使用提醒",
+    "noteBody": "金融和公司合规入口涉及账户、付款、报税和公司资料，请确认网址后再登录；不要在公开页面保存真实账号、密码、验证码或客户隐私信息。"
   }
 }

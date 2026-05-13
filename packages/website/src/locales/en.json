@@ -31,7 +31,8 @@
     "setupKits": "Setup Kits",
     "projects": "Projects",
     "submit": "Submit",
-    "ccSwitch": "CC Switch"
+    "ccSwitch": "CC Switch",
+    "finance": "Finance"
   },
   "searchPlaceholder": "Search agents, workflows, use cases...",
   "targetPlatform": "Target platform",
@@ -854,5 +855,43 @@
     ],
     "noteTitle": "Security note",
     "noteBody": "This page only shows a test-key placeholder so teammates can configure quickly. Do not publish real keys in pages, screenshots, or the repository."
+  },
+  "finance": {
+    "signal": "Finance Shortcuts",
+    "title": "Common finance links, collected for repeated daily use.",
+    "body": "A focused shortcut page for finance, company, and compliance systems that Lao Zhou opens often. It is intentionally small now and can be expanded whenever more links are provided.",
+    "items": [
+      {
+        "category": "VCC System",
+        "title": "VCCVIP merchant portal",
+        "body": "Entry point for virtual cards, merchant operations, and related payment workflows.",
+        "url": "https://merchant.vccvip.top/",
+        "cta": "Open VCC system"
+      },
+      {
+        "category": "Business Banking",
+        "title": "Revolut Business official site",
+        "body": "Business account, cards, international payments, and team finance management.",
+        "url": "https://www.revolut.com/business/",
+        "cta": "Open official site"
+      },
+      {
+        "category": "UK Company Compliance",
+        "title": "UK Companies House",
+        "body": "Company lookup, confirmation statement filing, accounts filing, and UK company compliance entry point.",
+        "url": "https://www.gov.uk/government/organisations/companies-house",
+        "cta": "Open Companies House"
+      },
+      {
+        "category": "Coming Soon",
+        "title": "More finance entries to add",
+        "body": "Send the name, URL, and purpose later; this page will keep the same clean shortcut format.",
+        "url": "#",
+        "cta": "Waiting for updates",
+        "pending": true
+      }
+    ],
+    "noteTitle": "Usage note",
+    "noteBody": "Finance and company-compliance links involve accounts, payments, tax, and company records. Verify the URL before logging in, and never publish real credentials, OTPs, or customer-private data here."
   }
 }
