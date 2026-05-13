@@ -1,0 +1,782 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CRS 2.0 / Sub2API Windows 部署操作文档</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f5f7fb;
+      --paper: #ffffff;
+      --ink: #172033;
+      --muted: #667085;
+      --line: #d8e0ec;
+      --brand: #0f766e;
+      --brand-dark: #115e59;
+      --ok: #147d45;
+      --warn: #b54708;
+      --danger: #b42318;
+      --code-bg: #101828;
+      --code-ink: #e5e7eb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Microsoft YaHei", "PingFang SC", "Segoe UI", Arial, sans-serif;
+      line-height: 1.68;
+    }
+    header {
+      background: #0b2f2c;
+      color: #fff;
+      padding: 44px 24px 36px;
+      border-bottom: 5px solid var(--brand);
+    }
+    header .wrap, main { max-width: 1120px; margin: 0 auto; }
+    h1 { margin: 0 0 12px; font-size: 34px; line-height: 1.22; }
+    header p { margin: 0; color: #d9fffb; max-width: 920px; font-size: 16px; }
+    main { padding: 24px; }
+    section {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      margin: 18px 0;
+      padding: 24px;
+      box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
+    }
+    h2 { margin: 0 0 14px; font-size: 24px; line-height: 1.3; }
+    h3 { margin: 22px 0 10px; font-size: 18px; line-height: 1.35; }
+    p { margin: 10px 0; }
+    ul, ol { margin: 10px 0 10px 22px; padding: 0; }
+    li { margin: 6px 0; }
+    a { color: var(--brand-dark); }
+    .toc { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 10px; margin-top: 14px; }
+    .toc a { display: block; padding: 10px 12px; border: 1px solid var(--line); border-radius: 6px; color: var(--brand-dark); text-decoration: none; background: #f4fffd; font-weight: 600; }
+    .note, .warning, .success {
+      border-left: 5px solid var(--brand);
+      background: #f0fdfa;
+      padding: 12px 14px;
+      border-radius: 6px;
+      margin: 14px 0;
+    }
+    .warning { border-left-color: var(--warn); background: #fff7ed; }
+    .success { border-left-color: var(--ok); background: #f0fdf4; }
+    .danger { color: var(--danger); font-weight: 700; }
+    code { font-family: Consolas, "Cascadia Mono", "Courier New", monospace; background: #eef2f7; padding: 2px 5px; border-radius: 4px; font-size: 0.94em; }
+    pre { margin: 12px 0; padding: 14px 16px; overflow: auto; background: var(--code-bg); color: var(--code-ink); border-radius: 8px; line-height: 1.45; border: 1px solid #263244; }
+    pre code { background: transparent; padding: 0; color: inherit; border-radius: 0; font-size: 13px; }
+    table { width: 100%; border-collapse: collapse; margin: 12px 0; overflow-wrap: anywhere; }
+    th, td { border: 1px solid var(--line); padding: 10px 12px; vertical-align: top; }
+    th { background: #f1f5fb; text-align: left; width: 230px; }
+    .small { color: var(--muted); font-size: 14px; }
+    .kbd { display: inline-block; border: 1px solid #b7c2d1; border-bottom-width: 2px; border-radius: 4px; padding: 0 6px; background: #fff; font-family: Consolas, monospace; }
+    .lang-switch {
+      position: fixed;
+      top: 14px;
+      right: 14px;
+      z-index: 999;
+      display: flex;
+      gap: 6px;
+      padding: 6px;
+      background: rgba(255,255,255,0.94);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      box-shadow: 0 8px 24px rgba(16, 24, 40, 0.16);
+      backdrop-filter: blur(8px);
+    }
+    .lang-switch button {
+      border: 0;
+      border-radius: 999px;
+      padding: 7px 12px;
+      background: transparent;
+      color: var(--brand-dark);
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .lang-switch button.active {
+      background: var(--brand);
+      color: #fff;
+    }
+    .lang-content.hidden { display: none; }
+
+    @media print {
+      body { background: #fff; }
+      header { color: #111; background: #fff; border-bottom-color: #111; }
+      header p { color: #333; }
+      section { box-shadow: none; break-inside: avoid; }
+      a { color: #111; }
+    }
+  </style>
+</head>
+<body>
+  <div id="langSwitch" class="lang-switch" aria-label="Language switch">
+    <button type="button" data-lang="zh" class="active">中文</button>
+    <button type="button" data-lang="vi">Tiếng Việt</button>
+  </div>
+  <header>
+    <div class="wrap">
+      <h1>CRS 2.0 / Sub2API Windows 部署操作文档</h1>
+      <p>面向一台全新的 Windows 电脑，从零搭建 CRS 2.0（Sub2API）本地服务。本文包含环境准备、必备软件、Docker 部署、账号注册订阅、关键端口、验证、交付报告和残留问题记录要求。</p>
+    </div>
+  </header>
+
+  <main id="zhContent" class="lang-content">
+    <section id="toc">
+      <h2>目录</h2>
+      <div class="toc">
+        <a href="#scope">1. 范围和结论</a>
+        <a href="#sources">2. 官方资料和许可</a>
+        <a href="#accounts">3. Claude / GPT 账号注册和最高档订阅</a>
+        <a href="#software">4. 干净 Windows 必备软件</a>
+        <a href="#credentials">5. 部署前需要的凭证</a>
+        <a href="#layout">6. 目录和端口规划</a>
+        <a href="#deploy">7. Docker Compose 部署</a>
+        <a href="#frp-seoul">8. 韩国服务器 frp 转发</a>
+        <a href="#setup">9. 初始化和后台配置</a>
+        <a href="#client">10. 客户端 / NewAPI 对接</a>
+        <a href="#verify">11. 验证和排障</a>
+        <a href="#security">12. 安全和合规</a>
+        <a href="#handover">13. 部署完成交付 HTML</a>
+        <a href="#appendix">14. 参考命令</a>
+      </div>
+    </section>
+
+    <section id="scope">
+      <h2>1. 范围和结论</h2>
+      <p>CRS 2.0 当前对应 Sub2API 项目。官方描述为一站式开源中转服务，用于统一接入 Claude、OpenAI、Gemini、Antigravity 等订阅或账号资源，并通过平台 API Key 分发给客户端使用。</p>
+      <div class="warning">
+        这个系统涉及把订阅账号能力通过网关转发给其他客户端。部署前必须确认内部使用边界、上游服务条款和账号风控风险。不要把个人账号凭证公开给多人直接使用，不要把账号转售或开放给不受控第三方。
+      </div>
+      <p>本文推荐在干净 Windows 电脑上使用 Docker Desktop + WSL2 + Docker Compose 方式部署。这样 PostgreSQL、Redis、Sub2API 都由 Docker 管理，便于迁移和备份。</p>
+    </section>
+
+    <section id="sources">
+      <h2>2. 官方资料和许可</h2>
+      <table>
+        <tr><th>项目仓库</th><td><code>https://github.com/Wei-Shaw/sub2api.git</code></td></tr>
+        <tr><th>中文 README</th><td><a href="https://github.com/Wei-Shaw/sub2api/blob/main/README_CN.md">https://github.com/Wei-Shaw/sub2api/blob/main/README_CN.md</a></td></tr>
+        <tr><th>Docker 部署说明</th><td><a href="https://github.com/Wei-Shaw/sub2api/blob/main/deploy/README.md">https://github.com/Wei-Shaw/sub2api/blob/main/deploy/README.md</a></td></tr>
+        <tr><th>许可证</th><td>LGPL-3.0-or-later。可自用和二次开发；如果分发修改版，需要遵守 LGPL 的源码、版权和许可证义务。</td></tr>
+        <tr><th>默认端口</th><td>官方 Docker 部署默认 Web 端口为 <code>8080</code>，可通过 <code>SERVER_PORT</code> 修改。</td></tr>
+      </table>
+      <div class="note">本文只记录工程部署流程，不替代法律意见。商用分发、二开售卖或对外服务前，必须单独评估 LGPL 许可证和上游服务条款。</div>
+    </section>
+
+    <section id="accounts">
+      <h2>3. Claude / GPT 账号注册和最高档订阅</h2>
+      <p>CRS 2.0 的价值依赖可用的上游账号或 API Key。账号订阅必须由账号负责人本人完成，并保存好恢复邮箱、支付方式、2FA 和账单信息。</p>
+
+      <h3>3.1 Claude 账号和最高档</h3>
+      <ol>
+        <li>打开 <a href="https://claude.ai/">https://claude.ai/</a>。</li>
+        <li>使用邮箱、Google 或 Apple 方式注册 / 登录 Claude 账号。</li>
+        <li>完成手机号、地区、支付方式等平台要求的验证。</li>
+        <li>进入 Claude 的 <span class="kbd">Settings</span> / <span class="kbd">Plan</span> / <span class="kbd">Upgrade</span> 页面。</li>
+        <li>个人账号建议订阅当前可用最高个人档：<code>Claude Max 20x</code>。Claude 官方定价页显示 Max 从 100 USD/月起，可选择 5x 或 20x more usage than Pro；如果是团队采购，可评估 Team Premium 或 Enterprise。</li>
+        <li>开启 2FA，记录账单邮箱和恢复方式。不要把 Claude 明文密码写入部署报告。</li>
+      </ol>
+      <p>官方价格页：<a href="https://claude.com/pricing">https://claude.com/pricing</a></p>
+
+      <h3>3.2 ChatGPT / OpenAI 账号和最高档</h3>
+      <ol>
+        <li>打开 <a href="https://chatgpt.com/">https://chatgpt.com/</a> 或 <a href="https://openai.com/chatgpt/pricing">OpenAI ChatGPT Pricing</a>。</li>
+        <li>使用邮箱、Google、Microsoft 或 Apple 方式注册 / 登录。</li>
+        <li>完成手机号、地区、支付方式等平台要求的验证。</li>
+        <li>进入 <span class="kbd">Settings</span> → <span class="kbd">My Plan</span> 或 Pricing 页面升级。</li>
+        <li>个人账号建议订阅当前可用最高个人档：<code>ChatGPT Pro $200/月</code>。OpenAI 帮助中心说明 Pro $200 是最高使用量档，Pro $100 是较低使用量档。</li>
+        <li>开启 2FA，记录账单邮箱和恢复方式。不要把 ChatGPT 明文密码写入部署报告。</li>
+      </ol>
+      <p>官方价格页：<a href="https://openai.com/chatgpt/pricing">https://openai.com/chatgpt/pricing</a>；Pro 档说明：<a href="https://help.openai.com/en/articles/9793128-about-chatgpt-pro-plans">https://help.openai.com/en/articles/9793128-about-chatgpt-pro-plans</a></p>
+
+      <h3>3.3 可选：Gemini / Google AI 账号</h3>
+      <p>如果后续要接入 Gemini，使用个人 Google 账号进入 <a href="https://gemini.google/">https://gemini.google/</a> 或订阅页。个人最高档通常看 <code>Google AI Ultra</code>；不同国家/地区可用性、价格和模型权益会变化，以 Google 官方订阅页为准。</p>
+      <p>官方订阅页：<a href="https://gemini.google/us/subscriptions/">https://gemini.google/us/subscriptions/</a></p>
+
+      <div class="warning">
+        账号订阅不等于允许共享、转售或自动化滥用。OpenAI 帮助中心明确提到禁止共享账号凭证、转售访问或用 ChatGPT 为第三方服务供能。Claude / Google 也有类似条款和风控。CRS2 部署只能在明确授权的内部范围使用。
+      </div>
+    </section>
+
+    <section id="software">
+      <h2>4. 干净 Windows 必备软件</h2>
+      <p>目标系统建议 Windows 11 Pro/Enterprise，Windows 10 也可，但必须支持 WSL2 和 Docker Desktop。</p>
+      <table>
+        <tr><th>软件</th><th>用途</th><th>要求</th></tr>
+        <tr><td>Windows Terminal</td><td>统一运行 PowerShell / WSL</td><td>推荐</td></tr>
+        <tr><td>PowerShell 7 或系统 PowerShell</td><td>执行部署命令</td><td>必需</td></tr>
+        <tr><td>WSL2 + Ubuntu</td><td>运行官方 bash 部署脚本</td><td>推荐必装</td></tr>
+        <tr><td>Docker Desktop</td><td>运行 Sub2API、PostgreSQL、Redis 容器</td><td>必需，启用 WSL2 backend</td></tr>
+        <tr><td>Git for Windows</td><td>拉取仓库和辅助命令</td><td>必需</td></tr>
+        <tr><td>VS Code</td><td>编辑 <code>.env</code>、Compose 文件和报告</td><td>推荐</td></tr>
+        <tr><td>Chrome / Edge</td><td>访问 Sub2API 管理后台和上游账号</td><td>必需</td></tr>
+        <tr><td>7-Zip</td><td>解压或备份部署目录</td><td>推荐</td></tr>
+      </table>
+
+      <h3>4.1 安装 WSL2 和 Ubuntu</h3>
+      <pre><code>wsl --install -d Ubuntu
+wsl --set-default-version 2
+wsl -l -v</code></pre>
+      <p>第一次打开 Ubuntu 时创建 Linux 用户。后续官方脚本在 Ubuntu 终端中执行。</p>
+
+      <h3>4.2 安装 Docker Desktop</h3>
+      <ol>
+        <li>从 Docker 官网安装 Docker Desktop。</li>
+        <li>设置中确认启用 <span class="kbd">Use the WSL 2 based engine</span>。</li>
+        <li>在 <span class="kbd">Resources</span> → <span class="kbd">WSL Integration</span> 中启用 Ubuntu。</li>
+        <li>重启 Docker Desktop，执行验证：</li>
+      </ol>
+      <pre><code>docker version
+docker compose version</code></pre>
+    </section>
+
+    <section id="credentials">
+      <h2>5. 部署前需要的凭证</h2>
+      <table>
+        <tr><th>凭证</th><th>用途</th><th>来源</th></tr>
+        <tr><td>Sub2API 管理员邮箱/密码</td><td>首次登录后台</td><td>部署人创建或管理员提供</td></tr>
+        <tr><td>Claude 账号 / OAuth / Cookie / Token</td><td>添加 Claude 上游账号</td><td>Claude 账号负责人</td></tr>
+        <tr><td>ChatGPT / OpenAI 账号或 API Key</td><td>添加 OpenAI / Codex 上游账号</td><td>OpenAI 账号负责人</td></tr>
+        <tr><td>Gemini / Google 账号或 API Key</td><td>可选，添加 Gemini 上游账号</td><td>Google 账号负责人</td></tr>
+        <tr><td>域名和 HTTPS 证书权限</td><td>公网访问或反向代理</td><td>域名/服务器管理员</td></tr>
+        <tr><td>服务器或局域网端口权限</td><td>放行 <code>8080</code> 或反向代理端口</td><td>网络管理员</td></tr>
+      </table>
+      <div class="warning">部署报告里只能写“已取得 / 未取得 / 负责人 / 用途”，不能写明文密码、Token、Cookie、API Key。</div>
+    </section>
+
+    <section id="layout">
+      <h2>6. 目录和端口规划</h2>
+      <p>后续所有 Windows 电脑统一使用 C 盘。</p>
+      <table>
+        <tr><th>项目</th><th>路径 / 端口</th></tr>
+        <tr><td>部署根目录</td><td><code>C:\Projects\CRS2</code></td></tr>
+        <tr><td>Sub2API 部署目录</td><td><code>C:\Projects\CRS2\sub2api-deploy</code></td></tr>
+        <tr><td>Docker 数据目录</td><td><code>C:\Projects\CRS2\sub2api-deploy\data</code>、<code>postgres_data</code>、<code>redis_data</code></td></tr>
+        <tr><td>交付报告</td><td><code>C:\Projects\CRS2\crs2-deployment-report.html</code></td></tr>
+        <tr><td>Sub2API Web / API</td><td><code>http://127.0.0.1:8080</code></td></tr>
+        <tr><td>PostgreSQL</td><td>容器内部使用，默认不对外开放</td></tr>
+        <tr><td>Redis</td><td>容器内部使用，默认不对外开放</td></tr>
+      </table>
+      <p>如 8080 被占用，修改 <code>.env</code> 中 <code>SERVER_PORT</code>，例如改成 <code>18088</code>。</p>
+      <h3>6.1 韩国服务器 frp 端口规划</h3>
+      <p>如果 CRS2 要给韩国/首尔服务器上的 NewAPI 调用，建议不要复用现有 CLIProxyAPI 的 <code>18080</code>，避免端口冲突。本文建议 CRS2 使用新的远端端口：</p>
+      <table>
+        <tr><th>用途</th><th>端口 / 地址</th></tr>
+        <tr><td>本机 CRS2</td><td><code>127.0.0.1:8080</code></td></tr>
+        <tr><td>韩国服务器 frps 控制端口</td><td><code>150.109.233.152:7000</code></td></tr>
+        <tr><td>韩国服务器 CRS2 映射端口</td><td><code>150.109.233.152:18081</code></td></tr>
+        <tr><td>NewAPI 容器内调用 CRS2</td><td><code>http://172.17.0.1:18081/v1</code></td></tr>
+        <tr><td>韩国服务器宿主机调用 CRS2</td><td><code>http://127.0.0.1:18081/v1</code></td></tr>
+      </table>
+      <div class="warning">如果韩国服务器上 <code>18081</code> 已被占用，先让服务器管理员分配新端口。不要直接覆盖现有 <code>18080</code>，它可能已经给 CLIProxyAPI 使用。</div>
+    </section>
+
+    <section id="deploy">
+      <h2>7. Docker Compose 部署</h2>
+      <p>官方推荐 Docker Compose 部署，包含 PostgreSQL 和 Redis。Windows 上推荐在 WSL Ubuntu 中执行官方 bash 脚本，但部署目录放在 C 盘，便于备份。</p>
+
+      <h3>7.1 创建目录</h3>
+      <p>在 PowerShell 中执行：</p>
+      <pre><code>mkdir C:\Projects\CRS2
+mkdir C:\Projects\CRS2\sub2api-deploy</code></pre>
+
+      <h3>7.2 在 WSL 中进入目录</h3>
+      <pre><code>wsl
+cd /mnt/c/Projects/CRS2/sub2api-deploy</code></pre>
+
+      <h3>7.3 执行官方 Docker 部署准备脚本</h3>
+      <pre><code>curl -sSL https://raw.githubusercontent.com/Wei-Shaw/sub2api/main/deploy/docker-deploy.sh | bash</code></pre>
+      <p>脚本会下载 <code>docker-compose.yml</code> 和 <code>.env.example</code>，生成 <code>.env</code>，并自动生成 <code>POSTGRES_PASSWORD</code>、<code>JWT_SECRET</code>、<code>TOTP_ENCRYPTION_KEY</code> 等安全凭证。</p>
+      <div class="warning">脚本输出的管理员密码和密钥只记录到本机安全密码管理器。不要截图发群，不要写入公开 HTML。</div>
+
+      <h3>7.4 检查和修改 .env</h3>
+      <pre><code>code .env</code></pre>
+      <p>至少确认这些配置：</p>
+      <pre><code>SERVER_PORT=8080
+ADMIN_EMAIL=admin@example.com
+ADMIN_PASSWORD=&lt;strong-password&gt;
+POSTGRES_PASSWORD=&lt;generated-or-custom&gt;
+JWT_SECRET=&lt;generated&gt;
+TOTP_ENCRYPTION_KEY=&lt;generated&gt;
+TZ=Asia/Shanghai</code></pre>
+      <p>如果不手动设置 <code>ADMIN_PASSWORD</code>，需要在启动日志中查找自动生成的 admin password。</p>
+
+      <h3>7.5 启动服务</h3>
+      <pre><code>docker compose up -d
+docker compose ps
+docker compose logs -f sub2api</code></pre>
+
+      <h3>7.6 查找自动生成的管理员密码</h3>
+      <pre><code>docker compose logs sub2api | grep "admin password"</code></pre>
+      <p>如果 PowerShell 里没有 <code>grep</code>，用：</p>
+      <pre><code>docker compose logs sub2api | findstr /i "admin password"</code></pre>
+    </section>
+
+    <section id="frp-seoul">
+      <h2>8. 韩国服务器 frp 转发</h2>
+      <p>如果 CRS2 只在本机使用，可以跳过本节。如果韩国/首尔服务器上的 NewAPI 需要调用这台 Windows 电脑上的 CRS2，就需要配置 frp：本机运行 <code>frpc</code>，韩国服务器运行 <code>frps</code>。</p>
+
+      <h3>8.1 frp 架构</h3>
+      <pre><code>NewAPI（韩国/首尔服务器 Docker 容器）
+    |
+    | http://172.17.0.1:18081/v1
+    v
+韩国/首尔服务器 frps :18081
+    |
+    | frp tcp tunnel，控制端口 :7000
+    v
+Windows frpc
+    |
+    | http://127.0.0.1:8080
+    v
+CRS2 / Sub2API</code></pre>
+
+      <h3>8.2 需要向管理员确认</h3>
+      <ul>
+        <li>韩国服务器公网 IP：当前示例为 <code>150.109.233.152</code>。</li>
+        <li>frps 控制端口：当前示例为 <code>7000</code>。</li>
+        <li>frp token：必须和服务器 <code>/opt/frp/frps.toml</code> 一致。</li>
+        <li>CRS2 远端映射端口：本文建议 <code>18081</code>。</li>
+        <li>云厂商安全组：需要放行 TCP <code>7000</code>；如果 NewAPI 只在服务器本机使用，<code>18081</code> 可只允许本机/内网访问，避免公网长期暴露。</li>
+      </ul>
+
+      <h3>8.3 下载 frp Windows 客户端</h3>
+      <p>建议和服务器 frps 使用相同或兼容版本。示例使用 <code>0.68.1</code>：</p>
+      <pre><code>mkdir C:\Projects\claude-workspace
+cd C:\Projects\claude-workspace
+Invoke-WebRequest `
+  -Uri "https://github.com/fatedier/frp/releases/download/v0.68.1/frp_0.68.1_windows_amd64.zip" `
+  -OutFile ".\frp_0.68.1_windows_amd64.zip"
+Expand-Archive ".\frp_0.68.1_windows_amd64.zip" -DestinationPath "." -Force
+dir .\frp_0.68.1_windows_amd64\frpc.exe</code></pre>
+
+      <div class="warning">Windows 安全中心 / Microsoft Defender 可能误隔离 <code>frpc.exe</code>。确认来源为 frp 官方 GitHub release 后，只把 <code>C:\Projects\claude-workspace\frp_0.68.1_windows_amd64</code> 加入排除项，不要排除整个 <code>C:\Projects</code> 或系统盘。</div>
+
+      <h3>8.4 创建 CRS2 专用 frpc 目录</h3>
+      <pre><code>mkdir C:\Projects\CRS2\frp-seoul-crs2</code></pre>
+
+      <p><code>C:\Projects\CRS2\frp-seoul-crs2\frpc.toml</code> 模板：</p>
+      <pre><code>serverAddr = "150.109.233.152"
+serverPort = 7000
+loginFailExit = false
+
+auth.method = "token"
+auth.token = "&lt;frp-token&gt;"
+
+[[proxies]]
+name = "crs2_8080"
+type = "tcp"
+localIP = "127.0.0.1"
+localPort = 8080
+remotePort = 18081</code></pre>
+
+      <p><code>C:\Projects\CRS2\frp-seoul-crs2\run-frpc-crs2.ps1</code> 内容：</p>
+      <pre><code>$ErrorActionPreference = 'Continue'
+$frpc = 'C:\Projects\claude-workspace\frp_0.68.1_windows_amd64\frpc.exe'
+$cfg = 'C:\Projects\CRS2\frp-seoul-crs2\frpc.toml'
+$wd = 'C:\Projects\CRS2\frp-seoul-crs2'
+$log = Join-Path $wd 'frpc.log'
+$err = Join-Path $wd 'frpc.err.log'
+&amp; $frpc -c $cfg &gt;&gt; $log 2&gt;&gt; $err</code></pre>
+
+      <p><code>C:\Projects\CRS2\frp-seoul-crs2\start-frpc-crs2-hidden.vbs</code> 内容：</p>
+      <pre><code>Set shell = CreateObject("WScript.Shell")
+shell.Run "powershell.exe -NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File ""C:\Projects\CRS2\frp-seoul-crs2\run-frpc-crs2.ps1""", 0, False</code></pre>
+
+      <h3>8.5 启动和验证 frpc</h3>
+      <pre><code>powershell.exe -NoProfile -ExecutionPolicy Bypass -File "C:\Projects\CRS2\frp-seoul-crs2\run-frpc-crs2.ps1"</code></pre>
+      <pre><code>Get-CimInstance Win32_Process |
+  Where-Object { $_.Name -eq 'frpc.exe' -and $_.CommandLine -like '*frp-seoul-crs2*' }
+
+Get-Content "C:\Projects\CRS2\frp-seoul-crs2\frpc.log" -Tail 80
+Get-Content "C:\Projects\CRS2\frp-seoul-crs2\frpc.err.log" -Tail 80</code></pre>
+
+      <h3>8.6 韩国服务器验证</h3>
+      <p>服务器管理员在韩国/首尔服务器上执行：</p>
+      <pre><code>sudo systemctl status frps
+ss -ltnp | grep -E ':(7000|18081)'
+curl -i http://127.0.0.1:18081/
+curl -i http://127.0.0.1:18081/v1/models</code></pre>
+      <p>如果只看到 <code>7000</code>，没有 <code>18081</code>，说明 frps 已启动但 Windows frpc 没有成功注册。回到 Windows 检查 <code>frpc.exe</code> 进程、日志和 Defender 隔离记录。</p>
+
+      <h3>8.7 Windows 开机自启</h3>
+      <p>把 <code>start-frpc-crs2-hidden.vbs</code> 的快捷方式放入当前用户启动目录：</p>
+      <pre><code>%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup</code></pre>
+      <p>部署报告里必须写明是否已配置开机自启，以及重启 Windows 后是否验证过。</p>
+    </section>
+
+    <section id="setup">
+      <h2>9. 初始化和后台配置</h2>
+      <ol>
+        <li>浏览器打开 <code>http://127.0.0.1:8080</code>。</li>
+        <li>使用 <code>ADMIN_EMAIL</code> 和 <code>ADMIN_PASSWORD</code> 登录。</li>
+        <li>立即修改默认管理员密码，开启 2FA。</li>
+        <li>进入账号 / 上游 / Provider 管理页面，按后台 UI 添加 Claude、OpenAI、Gemini 等账号。</li>
+        <li>进入 API Key 管理，创建给客户端或 NewAPI 使用的 API Key。</li>
+        <li>进入模型 / 路由 / 额度相关页面，配置账号池、模型可见性、额度策略和用量计费。</li>
+      </ol>
+
+      <h3>8.1 添加 Claude 账号</h3>
+      <p>按后台 UI 支持的方式添加 Claude 账号。不同版本可能支持 OAuth、订阅账号、Cookie、Token 或 API Key 方式。执行人必须在交付报告里写清楚实际采用了哪一种方式，但敏感值打码。</p>
+
+      <h3>8.2 添加 ChatGPT / OpenAI 账号</h3>
+      <p>按后台 UI 支持的方式添加 OpenAI / ChatGPT / Codex 账号或 API Key。ChatGPT 订阅账号和 OpenAI API Key 是不同体系，后台如何接入以实际版本 UI 为准。</p>
+
+      <h3>8.3 生成客户端 API Key</h3>
+      <p>给客户端或 NewAPI 的调用方只发 Sub2API 生成的 API Key，不要发上游 Claude / ChatGPT 的账号密码。</p>
+    </section>
+
+    <section id="client">
+      <h2>10. 客户端 / NewAPI 对接</h2>
+      <p>默认本机访问地址：</p>
+      <pre><code>http://127.0.0.1:8080</code></pre>
+      <p>如果 NewAPI 或其他客户端在同一台 Windows 电脑上，Base URL 可填写 Sub2API 提供的 OpenAI-compatible API 地址。具体路径以后台和当前版本 API 文档为准，常见形式是：</p>
+      <pre><code>http://127.0.0.1:8080/v1</code></pre>
+      <p>鉴权使用 Sub2API 后台生成的 API Key，例如：</p>
+      <pre><code>Authorization: Bearer &lt;sub2api-client-api-key&gt;</code></pre>
+      <div class="warning">不要把 Claude / ChatGPT / Google 的账号密码填到 NewAPI 渠道里。NewAPI 只应该拿到 Sub2API 发出的客户端 API Key。</div>
+
+      <h3>10.1 韩国服务器 NewAPI 配置</h3>
+      <p>如果 NewAPI 运行在韩国/首尔服务器 Docker 容器里，渠道 Base URL 填：</p>
+      <pre><code>http://172.17.0.1:18081/v1</code></pre>
+      <p>如果 NewAPI 直接运行在韩国/首尔服务器宿主机上，渠道 Base URL 填：</p>
+      <pre><code>http://127.0.0.1:18081/v1</code></pre>
+      <p>说明：Docker 容器里的 <code>127.0.0.1</code> 指向容器自身，不是服务器宿主机。因此 NewAPI 在 Docker 内时通常要使用宿主机 Docker 网关地址 <code>172.17.0.1</code>。</p>
+
+      <h3>10.2 NewAPI 渠道建议</h3>
+      <table>
+        <tr><th>配置项</th><th>建议值</th></tr>
+        <tr><td>渠道类型</td><td>OpenAI-compatible / OpenAI 兼容</td></tr>
+        <tr><td>Base URL（NewAPI Docker 内）</td><td><code>http://172.17.0.1:18081/v1</code></td></tr>
+        <tr><td>Base URL（宿主机）</td><td><code>http://127.0.0.1:18081/v1</code></td></tr>
+        <tr><td>API Key</td><td>Sub2API 后台生成的客户端 API Key，格式按后台实际生成结果填写。</td></tr>
+        <tr><td>模型</td><td>先用 Sub2API 后台或 <code>/v1/models</code> 查到的模型名，不要凭记忆乱填。</td></tr>
+        <tr><td>测试</td><td>先测试 <code>/v1/models</code>，再测试一次 chat/completions。</td></tr>
+      </table>
+
+      <h3>10.3 NewAPI 连通性测试</h3>
+      <p>在韩国/首尔服务器宿主机上：</p>
+      <pre><code>curl -i http://127.0.0.1:18081/v1/models \
+  -H "Authorization: Bearer &lt;sub2api-client-api-key&gt;"</code></pre>
+      <p>在 NewAPI Docker 容器内：</p>
+      <pre><code>curl -i http://172.17.0.1:18081/v1/models \
+  -H "Authorization: Bearer &lt;sub2api-client-api-key&gt;"</code></pre>
+    </section>
+
+    <section id="verify">
+      <h2>11. 验证和排障</h2>
+      <h3>11.1 基础验证</h3>
+      <pre><code>cd /mnt/c/Projects/CRS2/sub2api-deploy
+docker compose ps
+docker compose logs --tail 100 sub2api
+curl -I http://127.0.0.1:8080</code></pre>
+      <p>Windows PowerShell 验证：</p>
+      <pre><code>curl.exe -I http://127.0.0.1:8080
+netstat -ano | findstr :8080</code></pre>
+
+      <h3>11.2 常见问题</h3>
+      <table>
+        <tr><th>现象</th><th>处理</th></tr>
+        <tr><td>8080 无法访问</td><td>检查 Docker Desktop 是否运行、容器是否启动、<code>SERVER_PORT</code> 是否被占用。</td></tr>
+        <tr><td>sub2api 容器反复重启</td><td>查看 <code>docker compose logs sub2api</code>，重点检查数据库、Redis、环境变量。</td></tr>
+        <tr><td>管理员密码不知道</td><td>查日志中的 <code>admin password</code>，或停止服务后按官方方式重置。</td></tr>
+        <tr><td>账号接入失败</td><td>确认上游账号订阅有效、地区/风控/2FA 状态正常，按后台错误日志处理。</td></tr>
+        <tr><td>NewAPI 调不通</td><td>确认 Base URL、API Key、模型名、路由配置和防火墙。</td></tr>
+      </table>
+    </section>
+
+    <section id="security">
+      <h2>12. 安全和合规</h2>
+      <ul>
+        <li>不要把上游账号密码、Cookie、OAuth Token、API Key 写入 Git、HTML 报告或群聊。</li>
+        <li>只给客户端分发 Sub2API 生成的 API Key，不分发上游账号凭证。</li>
+        <li>管理员账号必须使用强密码并开启 2FA。</li>
+        <li>如果对外暴露，必须使用 HTTPS 和反向代理，并限制管理后台访问来源。</li>
+        <li>如果使用 Nginx 反代且配合 Codex CLI，官方提示需要在 Nginx <code>http</code> 块启用 <code>underscores_in_headers on;</code>，避免带下划线的请求头被丢弃。</li>
+        <li>定期备份 <code>C:\Projects\CRS2\sub2api-deploy</code> 整个目录。</li>
+        <li>删除或迁移前先 <code>docker compose down</code>，不要直接删除运行中的数据目录。</li>
+      </ul>
+    </section>
+
+    <section id="handover">
+      <h2>13. 部署完成交付 HTML</h2>
+      <p>部署完成后，必须输出：</p>
+      <pre><code>C:\Projects\CRS2\crs2-deployment-report.html</code></pre>
+      <p>报告至少包含：</p>
+      <ul>
+        <li>实际部署过程：安装了哪些软件、执行了哪些命令。</li>
+        <li>实际目录：部署目录、数据目录、Compose 文件、<code>.env</code>。</li>
+        <li>端口配置：<code>SERVER_PORT</code>、Web UI、API Base URL、是否做反向代理。</li>
+        <li>账号情况：Claude / ChatGPT / Gemini 是否已注册、订阅档位、是否已接入后台。敏感值打码。</li>
+        <li>关键配置：<code>POSTGRES_PASSWORD</code>、<code>JWT_SECRET</code>、<code>TOTP_ENCRYPTION_KEY</code> 只写“已生成/已备份”，不写明文。</li>
+        <li>验证结果：容器状态、Web UI 访问、API Key 调用、NewAPI 或客户端测试。</li>
+        <li>残留问题：缺少凭证、未完成订阅、未完成 OAuth、端口未开放、HTTPS 未配置、上游账号风控、服务条款风险。</li>
+      </ul>
+    </section>
+
+    <section id="appendix">
+      <h2>14. 参考命令</h2>
+      <h3>日常维护</h3>
+      <pre><code>cd /mnt/c/Projects/CRS2/sub2api-deploy
+docker compose ps
+docker compose logs -f sub2api
+docker compose restart sub2api
+docker compose pull
+docker compose up -d</code></pre>
+
+      <h3>备份</h3>
+      <pre><code>cd /mnt/c/Projects/CRS2
+tar czf sub2api-deploy-backup-$(date +%Y%m%d-%H%M%S).tar.gz sub2api-deploy/</code></pre>
+
+      <h3>停止</h3>
+      <pre><code>cd /mnt/c/Projects/CRS2/sub2api-deploy
+docker compose down</code></pre>
+
+      <h3>参考资料</h3>
+      <ul>
+        <li>Sub2API README_CN：<a href="https://github.com/Wei-Shaw/sub2api/blob/main/README_CN.md">https://github.com/Wei-Shaw/sub2api/blob/main/README_CN.md</a></li>
+        <li>Sub2API Docker 部署：<a href="https://github.com/Wei-Shaw/sub2api/blob/main/deploy/README.md">https://github.com/Wei-Shaw/sub2api/blob/main/deploy/README.md</a></li>
+        <li>Claude Pricing：<a href="https://claude.com/pricing">https://claude.com/pricing</a></li>
+        <li>ChatGPT Pricing：<a href="https://openai.com/chatgpt/pricing">https://openai.com/chatgpt/pricing</a></li>
+        <li>ChatGPT Pro tiers：<a href="https://help.openai.com/en/articles/9793128-about-chatgpt-pro-plans">https://help.openai.com/en/articles/9793128-about-chatgpt-pro-plans</a></li>
+        <li>Google Gemini Subscriptions：<a href="https://gemini.google/us/subscriptions/">https://gemini.google/us/subscriptions/</a></li>
+      </ul>
+      <p class="small">文档生成时间：2026-05-13。账号计划、价格、模型权益和项目部署方式可能变化，执行前以官方页面和当前仓库 README 为准。</p>
+    </section>
+  </main>
+
+  <main id="viContent" class="lang-content hidden" lang="vi">
+    <section>
+      <h2>Hướng dẫn triển khai CRS 2.0 / Sub2API trên Windows</h2>
+      <p>Tài liệu này dành cho đồng nghiệp Việt Nam phụ trách khởi tạo máy tính Windows mới. Mục tiêu là cài môi trường sạch, chạy CRS 2.0 / Sub2API bằng Docker, cấu hình tài khoản Claude / GPT, sau đó nếu cần thì nối về máy chủ Hàn Quốc qua frp để NewAPI gọi được.</p>
+      <div class="warning">Không ghi mật khẩu, token, cookie, API key, SSH key vào báo cáo công khai. Nếu cần xác nhận, chỉ ghi dạng đã che hoặc hash.</div>
+    </section>
+
+    <section>
+      <h2>1. Kết luận nhanh</h2>
+      <ul>
+        <li>Thư mục chuẩn trên mọi máy Windows mới: <code>C:\Projects\CRS2</code>.</li>
+        <li>CRS2 / Sub2API chạy local ở: <code>http://127.0.0.1:8080</code>.</li>
+        <li>Nếu cần cho NewAPI trên máy chủ Hàn Quốc gọi: dùng frp map local <code>127.0.0.1:8080</code> lên remote port <code>18081</code>.</li>
+        <li>NewAPI chạy trong Docker trên server Hàn Quốc dùng Base URL: <code>http://172.17.0.1:18081/v1</code>.</li>
+        <li>NewAPI chạy trực tiếp trên host server dùng Base URL: <code>http://127.0.0.1:18081/v1</code>.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>2. Phần mềm bắt buộc</h2>
+      <table>
+        <tr><th>Phần mềm</th><th>Mục đích</th></tr>
+        <tr><td>Windows 11 hoặc Windows 10 hỗ trợ WSL2</td><td>Hệ điều hành nền.</td></tr>
+        <tr><td>Windows Terminal</td><td>Mở PowerShell và Ubuntu dễ hơn.</td></tr>
+        <tr><td>WSL2 + Ubuntu</td><td>Chạy script triển khai chính thức.</td></tr>
+        <tr><td>Docker Desktop</td><td>Chạy Sub2API, PostgreSQL, Redis.</td></tr>
+        <tr><td>Git for Windows</td><td>Kéo mã nguồn / kiểm tra repo.</td></tr>
+        <tr><td>VS Code</td><td>Sửa file <code>.env</code>, compose, báo cáo.</td></tr>
+        <tr><td>Chrome hoặc Edge</td><td>Đăng nhập dashboard, Claude, ChatGPT.</td></tr>
+      </table>
+      <pre><code>wsl --install -d Ubuntu
+wsl --set-default-version 2
+wsl -l -v
+
+docker version
+docker compose version</code></pre>
+    </section>
+
+    <section>
+      <h2>3. Đăng ký tài khoản Claude / GPT và gói cao nhất</h2>
+      <h3>3.1 Claude</h3>
+      <ol>
+        <li>Mở <a href="https://claude.ai/">https://claude.ai/</a>.</li>
+        <li>Đăng ký bằng email, Google hoặc Apple.</li>
+        <li>Hoàn tất xác minh số điện thoại, khu vực và thanh toán nếu hệ thống yêu cầu.</li>
+        <li>Vào phần Plan / Upgrade.</li>
+        <li>Nếu dùng cá nhân, ưu tiên gói cao nhất hiện có: <code>Claude Max 20x</code>. Nếu dùng cho team hoặc doanh nghiệp, đánh giá Team Premium / Enterprise.</li>
+        <li>Bật 2FA. Lưu email khôi phục và thông tin thanh toán trong kho mật khẩu nội bộ.</li>
+      </ol>
+      <h3>3.2 ChatGPT / OpenAI</h3>
+      <ol>
+        <li>Mở <a href="https://chatgpt.com/">https://chatgpt.com/</a> hoặc trang giá <a href="https://openai.com/chatgpt/pricing">OpenAI ChatGPT Pricing</a>.</li>
+        <li>Đăng ký bằng email, Google, Microsoft hoặc Apple.</li>
+        <li>Hoàn tất xác minh và thanh toán.</li>
+        <li>Vào Settings / My Plan để nâng cấp.</li>
+        <li>Nếu dùng cá nhân, ưu tiên gói cao nhất hiện có: <code>ChatGPT Pro 200 USD/tháng</code>.</li>
+        <li>Bật 2FA. Không ghi mật khẩu ChatGPT vào báo cáo triển khai.</li>
+      </ol>
+      <div class="warning">Việc mua gói thuê bao không có nghĩa là được bán lại hoặc chia sẻ tài khoản bừa bãi. Chỉ dùng trong phạm vi nội bộ đã được quản lý cho phép.</div>
+    </section>
+
+    <section>
+      <h2>4. Thông tin cần xin quản trị viên trước khi triển khai</h2>
+      <table>
+        <tr><th>Thông tin</th><th>Dùng để làm gì</th></tr>
+        <tr><td>Tài khoản admin CRS2</td><td>Đăng nhập dashboard Sub2API lần đầu.</td></tr>
+        <tr><td>Claude account / OAuth / token / cookie</td><td>Thêm Claude upstream vào CRS2.</td></tr>
+        <tr><td>ChatGPT / OpenAI account hoặc API key</td><td>Thêm OpenAI / GPT / Codex upstream.</td></tr>
+        <tr><td>frp token</td><td>Cho Windows frpc kết nối server frps tại Hàn Quốc.</td></tr>
+        <tr><td>SSH/sudo server Hàn Quốc</td><td>Kiểm tra frps, port 18081, log server.</td></tr>
+        <tr><td>Quyền NewAPI admin</td><td>Cấu hình kênh NewAPI gọi CRS2.</td></tr>
+      </table>
+    </section>
+
+    <section>
+      <h2>5. Triển khai Sub2API bằng Docker Compose</h2>
+      <p>Tạo thư mục trên Windows PowerShell:</p>
+      <pre><code>mkdir C:\Projects\CRS2
+mkdir C:\Projects\CRS2\sub2api-deploy</code></pre>
+      <p>Vào WSL Ubuntu:</p>
+      <pre><code>wsl
+cd /mnt/c/Projects/CRS2/sub2api-deploy</code></pre>
+      <p>Chạy script triển khai chính thức:</p>
+      <pre><code>curl -sSL https://raw.githubusercontent.com/Wei-Shaw/sub2api/main/deploy/docker-deploy.sh | bash</code></pre>
+      <p>Kiểm tra <code>.env</code>:</p>
+      <pre><code>code .env</code></pre>
+      <p>Các mục cần kiểm tra:</p>
+      <pre><code>SERVER_PORT=8080
+ADMIN_EMAIL=admin@example.com
+ADMIN_PASSWORD=&lt;strong-password&gt;
+POSTGRES_PASSWORD=&lt;generated-or-custom&gt;
+JWT_SECRET=&lt;generated&gt;
+TOTP_ENCRYPTION_KEY=&lt;generated&gt;
+TZ=Asia/Shanghai</code></pre>
+      <p>Khởi động:</p>
+      <pre><code>docker compose up -d
+docker compose ps
+docker compose logs -f sub2api</code></pre>
+      <p>Mở dashboard:</p>
+      <pre><code>http://127.0.0.1:8080</code></pre>
+    </section>
+
+    <section>
+      <h2>6. Cấu hình tài khoản trong dashboard</h2>
+      <ol>
+        <li>Đăng nhập CRS2 / Sub2API dashboard bằng admin email và password.</li>
+        <li>Đổi mật khẩu admin ngay sau lần đăng nhập đầu tiên.</li>
+        <li>Bật 2FA nếu có.</li>
+        <li>Thêm Claude upstream theo cách UI hỗ trợ: OAuth, cookie, token hoặc API key.</li>
+        <li>Thêm OpenAI / ChatGPT / Codex upstream theo cách UI hỗ trợ.</li>
+        <li>Tạo API key cho client hoặc NewAPI. Chỉ phát API key của Sub2API, không phát mật khẩu Claude/GPT.</li>
+        <li>Kiểm tra danh sách model bằng dashboard hoặc endpoint <code>/v1/models</code>.</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>7. frp tới server Hàn Quốc</h2>
+      <p>Nếu NewAPI trên server Hàn Quốc cần gọi CRS2 trên máy Windows này, cấu hình frp như sau.</p>
+      <pre><code>NewAPI Docker container
+    |
+    | http://172.17.0.1:18081/v1
+    v
+Korea server frps :18081
+    |
+    | frp tcp tunnel, control port :7000
+    v
+Windows frpc
+    |
+    | http://127.0.0.1:8080
+    v
+CRS2 / Sub2API</code></pre>
+
+      <h3>7.1 Download frp client</h3>
+      <pre><code>mkdir C:\Projects\claude-workspace
+cd C:\Projects\claude-workspace
+Invoke-WebRequest `
+  -Uri "https://github.com/fatedier/frp/releases/download/v0.68.1/frp_0.68.1_windows_amd64.zip" `
+  -OutFile ".\frp_0.68.1_windows_amd64.zip"
+Expand-Archive ".\frp_0.68.1_windows_amd64.zip" -DestinationPath "." -Force</code></pre>
+      <div class="warning">Windows Security / Microsoft Defender có thể cách ly <code>frpc.exe</code>. Sau khi xác nhận file tải từ GitHub release chính thức, chỉ thêm thư mục <code>C:\Projects\claude-workspace\frp_0.68.1_windows_amd64</code> vào exclusion. Không exclude toàn bộ <code>C:\Projects</code> hoặc ổ C.</div>
+
+      <h3>7.2 Cấu hình frpc cho CRS2</h3>
+      <pre><code>mkdir C:\Projects\CRS2\frp-seoul-crs2</code></pre>
+      <p>File <code>C:\Projects\CRS2\frp-seoul-crs2\frpc.toml</code>:</p>
+      <pre><code>serverAddr = "150.109.233.152"
+serverPort = 7000
+loginFailExit = false
+
+auth.method = "token"
+auth.token = "&lt;frp-token&gt;"
+
+[[proxies]]
+name = "crs2_8080"
+type = "tcp"
+localIP = "127.0.0.1"
+localPort = 8080
+remotePort = 18081</code></pre>
+      <p>File <code>run-frpc-crs2.ps1</code>:</p>
+      <pre><code>$ErrorActionPreference = 'Continue'
+$frpc = 'C:\Projects\claude-workspace\frp_0.68.1_windows_amd64\frpc.exe'
+$cfg = 'C:\Projects\CRS2\frp-seoul-crs2\frpc.toml'
+$wd = 'C:\Projects\CRS2\frp-seoul-crs2'
+$log = Join-Path $wd 'frpc.log'
+$err = Join-Path $wd 'frpc.err.log'
+&amp; $frpc -c $cfg &gt;&gt; $log 2&gt;&gt; $err</code></pre>
+      <p>Chạy frpc:</p>
+      <pre><code>powershell.exe -NoProfile -ExecutionPolicy Bypass -File "C:\Projects\CRS2\frp-seoul-crs2\run-frpc-crs2.ps1"</code></pre>
+      <p>Kiểm tra trên server Hàn Quốc:</p>
+      <pre><code>sudo systemctl status frps
+ss -ltnp | grep -E ':(7000|18081)'
+curl -i http://127.0.0.1:18081/
+curl -i http://127.0.0.1:18081/v1/models</code></pre>
+    </section>
+
+    <section>
+      <h2>8. Cấu hình NewAPI</h2>
+      <p>Nếu NewAPI chạy trong Docker container trên server Hàn Quốc, Base URL điền:</p>
+      <pre><code>http://172.17.0.1:18081/v1</code></pre>
+      <p>Nếu NewAPI chạy trực tiếp trên host server, Base URL điền:</p>
+      <pre><code>http://127.0.0.1:18081/v1</code></pre>
+      <table>
+        <tr><th>Mục</th><th>Giá trị đề nghị</th></tr>
+        <tr><td>Channel type</td><td>OpenAI-compatible / OpenAI compatible</td></tr>
+        <tr><td>Base URL trong NewAPI Docker</td><td><code>http://172.17.0.1:18081/v1</code></td></tr>
+        <tr><td>API Key</td><td>API key tạo trong Sub2API dashboard.</td></tr>
+        <tr><td>Model</td><td>Lấy từ <code>/v1/models</code> hoặc dashboard, không tự đoán.</td></tr>
+      </table>
+      <p>Test từ host server:</p>
+      <pre><code>curl -i http://127.0.0.1:18081/v1/models \
+  -H "Authorization: Bearer &lt;sub2api-client-api-key&gt;"</code></pre>
+      <p>Test trong container NewAPI:</p>
+      <pre><code>curl -i http://172.17.0.1:18081/v1/models \
+  -H "Authorization: Bearer &lt;sub2api-client-api-key&gt;"</code></pre>
+    </section>
+
+    <section>
+      <h2>9. Báo cáo bàn giao sau triển khai</h2>
+      <p>Sau khi triển khai xong, bắt buộc tạo file:</p>
+      <pre><code>C:\Projects\CRS2\crs2-deployment-report.html</code></pre>
+      <p>Báo cáo phải có:</p>
+      <ul>
+        <li>Các lệnh đã chạy và file đã sửa.</li>
+        <li>Đường dẫn thực tế: Sub2API, Docker compose, <code>.env</code>, frp.</li>
+        <li>Port: <code>8080</code>, <code>7000</code>, <code>18081</code>, NewAPI Base URL.</li>
+        <li>Tình trạng tài khoản Claude / GPT: đã đăng ký chưa, gói nào, đã kết nối vào dashboard chưa. Không ghi mật khẩu/token.</li>
+        <li>Kết quả kiểm tra Docker, dashboard, <code>/v1/models</code>, frp, NewAPI.</li>
+        <li>Vấn đề còn lại: thiếu credential, OAuth chưa xong, port chưa mở, Defender còn chặn, NewAPI chưa test xong.</li>
+      </ul>
+    </section>
+  </main>
+  <script>
+    (function () {
+      const buttons = document.querySelectorAll('#langSwitch button');
+      const zh = document.getElementById('zhContent');
+      const vi = document.getElementById('viContent');
+      function setLang(lang) {
+        const isVi = lang === 'vi';
+        zh.classList.toggle('hidden', isVi);
+        vi.classList.toggle('hidden', !isVi);
+        document.documentElement.lang = isVi ? 'vi' : 'zh-CN';
+        buttons.forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
+        try { localStorage.setItem('crs2-doc-lang', lang); } catch (_) {}
+      }
+      buttons.forEach(btn => btn.addEventListener('click', () => setLang(btn.dataset.lang)));
+      let saved = 'zh';
+      try { saved = localStorage.getItem('crs2-doc-lang') || 'zh'; } catch (_) {}
+      setLang(saved === 'vi' ? 'vi' : 'zh');
+    })();
+  </script>
+</body>
+</html>
+
+

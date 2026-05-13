@@ -1,0 +1,1065 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CLIProxyAPI 整体部署与交接操作文档</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f6f8fb;
+      --paper: #ffffff;
+      --ink: #172033;
+      --muted: #667085;
+      --line: #d9e2ef;
+      --brand: #1f6feb;
+      --brand-dark: #164fa8;
+      --ok: #147d45;
+      --warn: #b54708;
+      --danger: #b42318;
+      --code-bg: #111827;
+      --code-ink: #e5e7eb;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Microsoft YaHei", "PingFang SC", "Segoe UI", Arial, sans-serif;
+      line-height: 1.68;
+    }
+
+    header {
+      background: #0f2447;
+      color: #fff;
+      padding: 44px 24px 36px;
+      border-bottom: 5px solid var(--brand);
+    }
+
+    header .wrap,
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: 34px;
+      line-height: 1.22;
+      letter-spacing: 0;
+    }
+
+    header p {
+      margin: 0;
+      color: #d9e7ff;
+      max-width: 900px;
+      font-size: 16px;
+    }
+
+    main {
+      padding: 24px;
+    }
+
+    section {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      margin: 18px 0;
+      padding: 24px;
+      box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 24px;
+      line-height: 1.3;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 22px 0 10px;
+      font-size: 18px;
+      line-height: 1.35;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 10px 0;
+    }
+
+    ul,
+    ol {
+      margin: 10px 0 10px 22px;
+      padding: 0;
+    }
+
+    li {
+      margin: 6px 0;
+    }
+
+    a {
+      color: var(--brand);
+    }
+
+    .toc {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .toc a {
+      display: block;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      color: var(--brand-dark);
+      text-decoration: none;
+      background: #f8fbff;
+      font-weight: 600;
+    }
+
+    .note,
+    .warning,
+    .success {
+      border-left: 5px solid var(--brand);
+      background: #f4f8ff;
+      padding: 12px 14px;
+      border-radius: 6px;
+      margin: 14px 0;
+    }
+
+    .warning {
+      border-left-color: var(--warn);
+      background: #fff7ed;
+    }
+
+    .success {
+      border-left-color: var(--ok);
+      background: #f0fdf4;
+    }
+
+    .danger {
+      color: var(--danger);
+      font-weight: 700;
+    }
+
+    code {
+      font-family: Consolas, "Cascadia Mono", "Courier New", monospace;
+      background: #eef2f7;
+      padding: 2px 5px;
+      border-radius: 4px;
+      font-size: 0.94em;
+    }
+
+    pre {
+      margin: 12px 0;
+      padding: 14px 16px;
+      overflow: auto;
+      background: var(--code-bg);
+      color: var(--code-ink);
+      border-radius: 8px;
+      line-height: 1.45;
+      border: 1px solid #263244;
+    }
+
+    pre code {
+      background: transparent;
+      padding: 0;
+      color: inherit;
+      border-radius: 0;
+      font-size: 13px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+      overflow-wrap: anywhere;
+    }
+
+    th,
+    td {
+      border: 1px solid var(--line);
+      padding: 10px 12px;
+      vertical-align: top;
+    }
+
+    th {
+      background: #f1f5fb;
+      text-align: left;
+      width: 220px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 14px;
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .kbd {
+      display: inline-block;
+      border: 1px solid #b7c2d1;
+      border-bottom-width: 2px;
+      border-radius: 4px;
+      padding: 0 6px;
+      background: #fff;
+      font-family: Consolas, monospace;
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      header {
+        color: #111;
+        background: #fff;
+        border-bottom-color: #111;
+      }
+
+      header p {
+        color: #333;
+      }
+
+      section {
+        box-shadow: none;
+        break-inside: avoid;
+      }
+
+      a {
+        color: #111;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>CLIProxyAPI 整体部署与交接操作文档</h1>
+      <p>
+        本文整理当前项目目录、CLIProxyAPI 服务、管理面板、Docker 启动方式，以及家庭 Windows 到首尔服务器的 frp 转发链路。
+        同事可以按本文手工操作，也可以把最后的“交给 AI 执行提示词”发给自己的 AI 代理来完成。
+      </p>
+    </div>
+  </header>
+
+  <main>
+    <section id="toc">
+      <h2>目录</h2>
+      <div class="toc">
+        <a href="#overview">1. 当前部署结构</a>
+        <a href="#paths">2. 项目目录说明</a>
+        <a href="#prerequisites">3. 环境准备</a>
+        <a href="#deploy">4. CLIProxyAPI 安装与启动</a>
+        <a href="#management">5. 管理面板使用</a>
+        <a href="#frp">6. frp 首尔转发链路</a>
+        <a href="#newapi">7. NewAPI 对接地址</a>
+        <a href="#verify">8. 验证与排障</a>
+        <a href="#security">9. 安全注意事项</a>
+        <a href="#ai-prompt">10. 交给 AI 的提示词</a>
+        <a href="#handover-output">11. 部署完成交付 HTML</a>
+        <a href="#credentials-needed">12. 需要向管理员索取的凭证</a>
+      </div>
+    </section>
+
+    <section id="overview">
+      <h2>1. 当前部署结构</h2>
+      <p>当前示例面向后续 Windows 电脑，统一使用 C 盘部署；历史本机曾使用 D 盘路径，但同事新电脑不要照抄 D 盘。CLIProxyAPI 通过 Docker 运行，服务端口是 <code>8317</code>。管理面板随主服务提供，访问路径是 <code>/management.html</code>。</p>
+      <pre><code>浏览器 / 客户端
+    |
+    | http://127.0.0.1:8317
+    v
+Docker 容器 cli-proxy-api
+    |
+    | 挂载本地 config.yaml / auths / logs
+    v
+C:\Projects\CLIProxyAPI\CLIProxyAPI
+
+首尔 NewAPI
+    |
+    | http://172.17.0.1:18080   （NewAPI 在 Docker 容器内时使用）
+    | http://127.0.0.1:18080    （NewAPI 在服务器宿主机上时使用）
+    v
+首尔 frps :18080
+    |
+    | frp tcp tunnel，控制端口 :7000
+    v
+家庭 Windows frpc
+    |
+    | 127.0.0.1:8317
+    v
+CLIProxyAPI</code></pre>
+
+      <div class="success">
+        当前已验证：本机 <code>http://127.0.0.1:8317/</code> 返回 CLI Proxy API Server，<code>http://127.0.0.1:8317/management.html</code> 返回 HTTP 200。
+      </div>
+    </section>
+
+    <section id="paths">
+      <h2>2. 项目目录说明</h2>
+      <h3>2.1 Git 仓库地址</h3>
+      <table>
+        <tr>
+          <th>CLIProxyAPI 主项目</th>
+          <td><code>https://github.com/router-for-me/CLIProxyAPI.git</code></td>
+        </tr>
+        <tr>
+          <th>管理中心源码</th>
+          <td><code>https://github.com/router-for-me/Cli-Proxy-API-Management-Center.git</code></td>
+        </tr>
+      </table>
+
+      <h3>2.2 本机目录</h3>
+      <table>
+        <tr>
+          <th>路径</th>
+          <th>用途</th>
+        </tr>
+        <tr>
+          <td><code>C:\Projects\CLIProxyAPI\CLIProxyAPI</code></td>
+          <td>CLIProxyAPI 主程序源码、Dockerfile、docker-compose.yml、配置文件、认证文件和日志。</td>
+        </tr>
+        <tr>
+          <td><code>C:\Projects\CLIProxyAPI\CLIProxyAPI\config.yaml</code></td>
+          <td>当前实际运行配置。Docker 容器把它挂载到 <code>/CLIProxyAPI/config.yaml</code>。</td>
+        </tr>
+        <tr>
+          <td><code>C:\Projects\CLIProxyAPI\CLIProxyAPI\config.example.yaml</code></td>
+          <td>完整配置模板，可对照字段含义。</td>
+        </tr>
+        <tr>
+          <td><code>C:\Projects\CLIProxyAPI\CLIProxyAPI\auths</code></td>
+          <td>本地 OAuth / token 认证文件目录。Docker 容器挂载到 <code>/root/.cli-proxy-api</code>。</td>
+        </tr>
+        <tr>
+          <td><code>C:\Projects\CLIProxyAPI\CLIProxyAPI\logs</code></td>
+          <td>日志目录。当前配置已开启 <code>logging-to-file: true</code>。</td>
+        </tr>
+        <tr>
+          <td><code>C:\Projects\CLIProxyAPI\Cli-Proxy-API-Management-Center</code></td>
+          <td>React + TypeScript 管理中心源码。通常不需要单独部署，因为 CLIProxyAPI 已内置管理页。</td>
+        </tr>
+        <tr>
+          <td><code>C:\Projects\CLIProxyAPI\frp-seoul-cliproxyapi</code></td>
+          <td>首尔链路专用 frpc 配置、启动脚本、日志。</td>
+        </tr>
+        <tr>
+          <td><code>C:\Projects\CLIProxyAPI\Fuwuqi</code></td>
+          <td>服务器/frp 维护说明和本地私有凭据目录。包含敏感材料，不能随意转发。</td>
+        </tr>
+      </table>
+    </section>
+
+    <section id="prerequisites">
+      <h2>3. 环境准备</h2>
+      <p>如果是在一台新 Windows 机器上部署，先准备这些环境：</p>
+      <div class="warning">
+        后续所有同事电脑统一使用 <code>C:\Projects\CLIProxyAPI</code> 作为项目根目录，frp 客户端统一放在 <code>C:\Projects\claude-workspace</code>。除非明确说明是历史记录，否则不要使用 <code>D:</code> 路径。
+      </div>
+      <ol>
+        <li>安装 Docker Desktop，并确保 Docker Engine 正常运行。</li>
+        <li>安装 Git，用于拉取或更新项目。</li>
+        <li>安装 7-Zip、WinRAR 或使用 PowerShell 自带 <code>Expand-Archive</code>，用于解压 frp。</li>
+        <li>准备项目目录，例如 <code>C:\Projects\CLIProxyAPI</code>。</li>
+        <li>准备一个强管理密钥，用于登录管理面板。</li>
+        <li>准备一个或多个代理 API Key，供 NewAPI、客户端或同事调用 CLIProxyAPI 的 OpenAI 兼容接口。</li>
+        <li>如果要接入首尔服务器，准备 frp 客户端程序 <code>frpc.exe</code>、服务器地址、端口和 frp token。当前本机使用的是 frp <code>0.68.1</code> Windows amd64 版本。</li>
+      </ol>
+
+      <div class="warning">
+        不要把 <code>.pem</code>、服务器密码、frp token、API Key、管理密钥发到群里或提交到公开仓库。交接文档里只写占位符。
+      </div>
+    </section>
+
+    <section id="deploy">
+      <h2>4. CLIProxyAPI 安装与启动</h2>
+
+      <h3>4.1 拉取或确认项目</h3>
+      <p>如果是新机器，先从 GitHub 拉取 CLIProxyAPI 主项目：</p>
+      <pre><code>cd /d C:\Projects
+mkdir CLIProxyAPI
+git clone https://github.com/router-for-me/CLIProxyAPI.git CLIProxyAPI\CLIProxyAPI</code></pre>
+
+      <p>如果同事还需要管理中心源码，也可以单独拉取第二个仓库：</p>
+      <pre><code>cd /d C:\Projects\CLIProxyAPI
+git clone https://github.com/router-for-me/Cli-Proxy-API-Management-Center.git Cli-Proxy-API-Management-Center</code></pre>
+
+      <p>如果目录已经存在，进入项目目录并确认关键文件：</p>
+      <pre><code>cd /d C:\Projects\CLIProxyAPI\CLIProxyAPI
+dir README_CN.md docker-compose.yml config.example.yaml</code></pre>
+
+      <p>后续更新主程序源码时使用：</p>
+      <pre><code>cd /d C:\Projects\CLIProxyAPI\CLIProxyAPI
+git pull</code></pre>
+
+      <div class="note">
+        <code>Cli-Proxy-API-Management-Center</code> 是管理面板源码仓库，普通部署不需要单独拉取。CLIProxyAPI 服务启动后会直接通过 <code>/management.html</code> 提供管理页；只有需要改 UI、重新构建管理页或查看前端源码时才需要拉取它。
+      </div>
+
+      <h3>4.2 创建配置文件</h3>
+      <p>如果还没有 <code>config.yaml</code>，先从模板复制：</p>
+      <pre><code>cd /d C:\Projects\CLIProxyAPI\CLIProxyAPI
+copy config.example.yaml config.yaml</code></pre>
+
+      <p>编辑 <code>config.yaml</code>，最少确认以下字段：</p>
+      <pre><code>host: "127.0.0.1"
+port: 8317
+
+remote-management:
+  allow-remote: true
+  secret-key: "&lt;填写强管理密钥，首次启动后可能会被程序哈希化&gt;"
+
+auth-dir: "~/.cli-proxy-api"
+
+api-keys:
+  - "&lt;给 NewAPI 或客户端使用的代理 API Key&gt;"
+
+logging-to-file: true</code></pre>
+
+      <p>说明：</p>
+      <ul>
+        <li><code>host: "127.0.0.1"</code> 表示 CLIProxyAPI 只允许本机访问，适合配合本机 frpc 转发。</li>
+        <li><code>remote-management.allow-remote: true</code> 允许通过转发或非 localhost 访问管理 API，但仍需要管理密钥。</li>
+        <li><code>remote-management.secret-key</code> 是管理面板密钥，不是客户端调用 API 的 key。</li>
+        <li><code>api-keys</code> 是客户端、NewAPI、OpenAI SDK 调用 <code>/v1/chat/completions</code> 等接口时用的 key。</li>
+      </ul>
+
+      <h3>4.3 使用 Docker Compose 启动</h3>
+      <p>在主项目目录执行：</p>
+      <pre><code>cd /d C:\Projects\CLIProxyAPI\CLIProxyAPI
+docker compose up -d</code></pre>
+
+      <p>当前 <code>docker-compose.yml</code> 会使用镜像 <code>eceasy/cli-proxy-api:latest</code>，并挂载：</p>
+      <pre><code>./config.yaml  -&gt; /CLIProxyAPI/config.yaml
+./auths        -&gt; /root/.cli-proxy-api
+./logs         -&gt; /CLIProxyAPI/logs</code></pre>
+
+      <p>常用维护命令：</p>
+      <pre><code>docker ps
+docker logs --tail 100 cli-proxy-api
+docker compose restart
+docker compose pull
+docker compose up -d</code></pre>
+
+      <h3>4.4 验证本机服务</h3>
+      <pre><code>curl http://127.0.0.1:8317/
+curl -I http://127.0.0.1:8317/management.html</code></pre>
+
+      <p>正常返回示例：</p>
+      <pre><code>{"endpoints":["POST /v1/chat/completions","POST /v1/completions","GET /v1/models"],"message":"CLI Proxy API Server"}</code></pre>
+    </section>
+
+    <section id="management">
+      <h2>5. 管理面板使用</h2>
+      <p>CLIProxyAPI 从 6.0.19 起自带管理面板。服务启动后，打开：</p>
+      <pre><code>http://127.0.0.1:8317/management.html</code></pre>
+
+      <p>连接时填写：</p>
+      <table>
+        <tr>
+          <th>API 地址</th>
+          <td><code>http://127.0.0.1:8317</code> 或 <code>127.0.0.1:8317</code></td>
+        </tr>
+        <tr>
+          <th>管理密钥</th>
+          <td>填写 <code>config.yaml</code> 中 <code>remote-management.secret-key</code> 对应的明文管理密钥。</td>
+        </tr>
+      </table>
+
+      <p>管理面板可做的事：</p>
+      <ul>
+        <li>基础设置：调试、重试、日志、代理 URL、WebSocket 鉴权等。</li>
+        <li>API Keys：维护给 NewAPI 或客户端使用的代理 API Key。</li>
+        <li>AI Providers：配置 Gemini、Codex、Claude、Vertex、OpenAI 兼容供应商、Ampcode。</li>
+        <li>认证文件：上传、下载、删除 OAuth JSON 凭据。</li>
+        <li>OAuth：发起 Gemini、Codex、Claude、Antigravity、Kimi 等登录流程。</li>
+        <li>配置文件：直接在浏览器里编辑 <code>config.yaml</code> 并保存。</li>
+        <li>日志：查看、搜索、下载错误日志。</li>
+      </ul>
+
+      <div class="note">
+        管理密钥保存在浏览器 localStorage 中，虽然有轻量混淆，但仍按敏感信息处理。建议用专门浏览器配置文件管理。
+      </div>
+    </section>
+
+    <section id="frp">
+      <h2>6. frp 首尔转发链路</h2>
+
+      <h3>6.1 下载 frp 客户端</h3>
+      <p>frp 需要单独下载。当前本机脚本引用的程序路径是：</p>
+      <pre><code>C:\Projects\claude-workspace\frp_0.68.1_windows_amd64\frpc.exe</code></pre>
+
+      <p>新机器建议使用同版本，避免客户端和服务器版本差异带来兼容问题。PowerShell 下载和解压示例：</p>
+      <pre><code>mkdir C:\Projects\claude-workspace
+cd C:\Projects\claude-workspace
+Invoke-WebRequest `
+  -Uri "https://github.com/fatedier/frp/releases/download/v0.68.1/frp_0.68.1_windows_amd64.zip" `
+  -OutFile ".\frp_0.68.1_windows_amd64.zip"
+Expand-Archive ".\frp_0.68.1_windows_amd64.zip" -DestinationPath "." -Force
+dir .\frp_0.68.1_windows_amd64\frpc.exe</code></pre>
+
+      <p>如果服务器端 frps 后续升级，客户端也应下载相同或兼容版本，并同步修改 <code>run-frpc-seoul.ps1</code> 里的 <code>$frpc</code> 路径。</p>
+
+      <div class="warning">
+        Windows 安全中心 / Microsoft Defender 可能会把 <code>frpc.exe</code>、frp 压缩包或启动脚本误判为风险文件并隔离。下载和解压后，应在确认来源为 frp 官方 GitHub release 的前提下，把 frp 客户端目录加入“排除项/允许列表”，避免后续被误删导致转发中断。
+      </div>
+
+      <h3>6.1.1 将 frp 加入 Windows 安全中心排除项</h3>
+      <p>推荐只把 frp 客户端目录加入排除项，不要把整个 <code>C:\Projects</code> 或系统盘加入排除项。</p>
+      <ol>
+        <li>打开 <span class="kbd">Windows 安全中心</span>。</li>
+        <li>进入 <span class="kbd">病毒和威胁防护</span>。</li>
+        <li>进入 <span class="kbd">病毒和威胁防护设置</span>，点击 <span class="kbd">管理设置</span>。</li>
+        <li>找到 <span class="kbd">排除项</span>，点击 <span class="kbd">添加或删除排除项</span>。</li>
+        <li>选择 <span class="kbd">添加排除项</span> → <span class="kbd">文件夹</span>。</li>
+        <li>添加目录：<code>C:\Projects\claude-workspace\frp_0.68.1_windows_amd64</code>。</li>
+      </ol>
+
+      <p>如果 <code>frpc.exe</code> 已经被隔离，先到 Windows 安全中心的“保护历史记录”中恢复文件，再加入排除项。恢复后重新执行：</p>
+      <pre><code>dir C:\Projects\claude-workspace\frp_0.68.1_windows_amd64\frpc.exe
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "C:\Projects\CLIProxyAPI\frp-seoul-cliproxyapi\run-frpc-seoul.ps1"</code></pre>
+
+      <h3>6.2 本机 frpc 目录</h3>
+      <p>当前首尔链路使用独立目录：</p>
+      <pre><code>C:\Projects\CLIProxyAPI\frp-seoul-cliproxyapi</code></pre>
+
+      <p>主要文件：</p>
+      <table>
+        <tr>
+          <th>文件</th>
+          <th>用途</th>
+        </tr>
+        <tr>
+          <td><code>frpc.toml</code></td>
+          <td>frpc 配置，连接首尔服务器 <code>150.109.233.152:7000</code>，把本机 <code>127.0.0.1:8317</code> 映射到服务器 <code>18080</code>。</td>
+        </tr>
+        <tr>
+          <td><code>run-frpc-seoul.ps1</code></td>
+          <td>PowerShell 启动脚本，调用实际的 <code>frpc.exe</code> 并写日志。</td>
+        </tr>
+        <tr>
+          <td><code>start-frpc-seoul-hidden.vbs</code></td>
+          <td>后台隐藏启动 PowerShell 脚本。</td>
+        </tr>
+        <tr>
+          <td><code>frpc.log</code> / <code>frpc.err.log</code></td>
+          <td>frpc 正常日志和错误日志。</td>
+        </tr>
+      </table>
+
+      <h3>6.3 创建 frpc 启动脚本</h3>
+      <p>新机器如果没有这些文件，可以按下面创建。先建立目录：</p>
+      <pre><code>mkdir C:\Projects\CLIProxyAPI\frp-seoul-cliproxyapi</code></pre>
+
+      <p><code>run-frpc-seoul.ps1</code> 内容：</p>
+      <pre><code>$ErrorActionPreference = 'Continue'
+$frpc = 'C:\Projects\claude-workspace\frp_0.68.1_windows_amd64\frpc.exe'
+$cfg = 'C:\Projects\CLIProxyAPI\frp-seoul-cliproxyapi\frpc.toml'
+$wd = 'C:\Projects\CLIProxyAPI\frp-seoul-cliproxyapi'
+$log = Join-Path $wd 'frpc.log'
+$err = Join-Path $wd 'frpc.err.log'
+&amp; $frpc -c $cfg &gt;&gt; $log 2&gt;&gt; $err</code></pre>
+
+      <p><code>start-frpc-seoul-hidden.vbs</code> 内容：</p>
+      <pre><code>Set shell = CreateObject("WScript.Shell")
+shell.Run "powershell.exe -NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File ""C:\Projects\CLIProxyAPI\frp-seoul-cliproxyapi\run-frpc-seoul.ps1""", 0, False</code></pre>
+
+      <h3>6.4 frpc 配置模板</h3>
+      <p>不要在交接文档里暴露真实 token。模板如下：</p>
+      <pre><code>serverAddr = "150.109.233.152"
+serverPort = 7000
+loginFailExit = false
+
+auth.method = "token"
+auth.token = "&lt;frp-token&gt;"
+
+[[proxies]]
+name = "cliproxyapi_8317"
+type = "tcp"
+localIP = "127.0.0.1"
+localPort = 8317
+remotePort = 18080</code></pre>
+
+      <h3>6.5 手动启动 frpc</h3>
+      <pre><code>powershell.exe -NoProfile -ExecutionPolicy Bypass -File "C:\Projects\CLIProxyAPI\frp-seoul-cliproxyapi\run-frpc-seoul.ps1"</code></pre>
+
+      <p>检查是否运行：</p>
+      <pre><code>Get-CimInstance Win32_Process |
+  Where-Object { $_.Name -eq 'frpc.exe' -and $_.CommandLine -like '*frp-seoul-cliproxyapi*' }</code></pre>
+
+      <p>查看日志：</p>
+      <pre><code>Get-Content "C:\Projects\CLIProxyAPI\frp-seoul-cliproxyapi\frpc.log" -Tail 80
+Get-Content "C:\Projects\CLIProxyAPI\frp-seoul-cliproxyapi\frpc.err.log" -Tail 80</code></pre>
+
+      <h3>6.6 设置 Windows 登录后自动启动</h3>
+      <p>把 <code>start-frpc-seoul-hidden.vbs</code> 的快捷方式放入当前用户启动目录：</p>
+      <pre><code>C:\Users\KIMPC\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup</code></pre>
+
+      <p>当前已存在的启动入口名称：</p>
+      <pre><code>CLIProxyAPI-Seoul-frpc.vbs</code></pre>
+
+      <h3>6.7 首尔服务器 frps</h3>
+      <p>首尔服务器信息：</p>
+      <table>
+        <tr>
+          <th>公网 IP</th>
+          <td><code>150.109.233.152</code></td>
+        </tr>
+        <tr>
+          <th>系统用户</th>
+          <td><code>ubuntu</code></td>
+        </tr>
+        <tr>
+          <th>frps 控制端口</th>
+          <td><code>7000</code></td>
+        </tr>
+        <tr>
+          <th>CLIProxyAPI 映射端口</th>
+          <td><code>18080</code></td>
+        </tr>
+      </table>
+
+      <p>服务器上的文件和服务：</p>
+      <pre><code>/opt/frp/frps
+/opt/frp/frps.toml
+/etc/systemd/system/frps.service
+/var/log/frps.log</code></pre>
+
+      <p>服务器维护命令：</p>
+      <pre><code>sudo systemctl status frps
+sudo systemctl restart frps
+sudo journalctl -u frps --no-pager -n 100
+sudo tail -n 100 /var/log/frps.log
+ss -ltnp | grep -E ':(7000|18080)'</code></pre>
+
+      <div class="warning">
+        当前阶段服务器安全组需要放行 TCP <code>7000</code> 和 <code>18080</code>。跑通后建议收口 <code>18080</code>，只允许 NewAPI 所在服务器本机或可信来源访问。
+      </div>
+    </section>
+
+    <section id="newapi">
+      <h2>7. NewAPI 对接地址</h2>
+      <p>如果 NewAPI 运行在首尔服务器 Docker 容器里，渠道 Base URL 填：</p>
+      <pre><code>http://172.17.0.1:18080</code></pre>
+
+      <p>如果 NewAPI 直接运行在首尔服务器宿主机上，渠道 Base URL 填：</p>
+      <pre><code>http://127.0.0.1:18080</code></pre>
+
+      <p>原因：Docker 容器里的 <code>127.0.0.1</code> 是容器自身，不是宿主机；<code>172.17.0.1</code> 是默认 Docker bridge 下宿主机网关地址。</p>
+
+      <p>NewAPI 渠道里使用的鉴权 key，应填写 CLIProxyAPI <code>config.yaml</code> 里的 <code>api-keys</code>，不是管理密钥。</p>
+    </section>
+
+    <section id="verify">
+      <h2>8. 验证与排障</h2>
+
+      <div class="two-col">
+        <div>
+          <h3>本机 Docker 检查</h3>
+          <pre><code>docker ps
+docker logs --tail 100 cli-proxy-api</code></pre>
+        </div>
+        <div>
+          <h3>本机端口检查</h3>
+          <pre><code>Get-NetTCPConnection -LocalPort 8317
+curl http://127.0.0.1:8317/</code></pre>
+        </div>
+        <div>
+          <h3>管理页检查</h3>
+          <pre><code>curl -I http://127.0.0.1:8317/management.html</code></pre>
+        </div>
+        <div>
+          <h3>frpc 检查</h3>
+          <pre><code>Get-CimInstance Win32_Process |
+  Where-Object { $_.Name -eq 'frpc.exe' }</code></pre>
+        </div>
+      </div>
+
+      <h3>首尔服务器检查</h3>
+      <pre><code>sudo systemctl status frps
+ss -ltnp | grep -E ':(7000|18080)'
+curl -i http://127.0.0.1:18080/</code></pre>
+
+      <h3>常见问题</h3>
+      <table>
+        <tr>
+          <th>现象</th>
+          <th>处理方法</th>
+        </tr>
+        <tr>
+          <td>管理页打不开</td>
+          <td>先检查 Docker 容器是否运行，再访问 <code>http://127.0.0.1:8317/</code>。若服务正常但管理页 404，检查 <code>remote-management.disable-control-panel</code> 是否为 false。</td>
+        </tr>
+        <tr>
+          <td>管理面板 401</td>
+          <td>确认填写的是管理密钥，不是 <code>api-keys</code>。多次输错可能触发远程 IP 临时封禁。</td>
+        </tr>
+        <tr>
+          <td>NewAPI 调不通</td>
+          <td>在首尔服务器上执行 <code>curl -i http://127.0.0.1:18080/</code>。若不通，检查 frps、frpc、云安全组、家庭 Windows 是否在线。</td>
+        </tr>
+        <tr>
+          <td>只看到服务器监听 7000，没有 18080</td>
+          <td>说明 frps 已启动，但家庭 Windows 的 frpc 没有成功注册转发。检查 frpc 进程和 <code>frpc.err.log</code>。</td>
+        </tr>
+        <tr>
+          <td>frpc.exe 突然消失或启动脚本找不到 frpc.exe</td>
+          <td>优先检查 Windows 安全中心“保护历史记录”，确认是否被 Defender 隔离。恢复后把 <code>C:\Projects\claude-workspace\frp_0.68.1_windows_amd64</code> 加入排除项。</td>
+        </tr>
+        <tr>
+          <td>frpc 被安全软件反复拦截</td>
+          <td>确认 frp 来源为官方 GitHub release，不使用来路不明的 frp 程序。只对 frp 客户端目录做排除，不扩大到整个项目目录或系统盘。</td>
+        </tr>
+        <tr>
+          <td>Docker 容器启动后配置没生效</td>
+          <td>确认挂载的是 <code>C:\Projects\CLIProxyAPI\CLIProxyAPI\config.yaml</code>，修改后执行 <code>docker compose restart</code>。</td>
+        </tr>
+      </table>
+    </section>
+
+    <section id="security">
+      <h2>9. 安全注意事项</h2>
+      <ul>
+        <li><span class="danger">不要</span>把真实 frp token、SSH 私钥、服务器密码、API Key、管理密钥写进可转发文档。</li>
+        <li><span class="danger">不要</span>把 <code>Fuwuqi</code> 目录整体发给无关人员，里面可能包含私有凭据。</li>
+        <li>frp 客户端只从官方 GitHub release 下载；加入 Defender 排除项前先确认文件来源，不要给未知程序放行。</li>
+        <li>Windows 安全中心排除项只添加 frp 客户端目录，不要排除整个 <code>C:\Projects</code>、用户目录或系统盘。</li>
+        <li>CLIProxyAPI 建议保持 <code>host: "127.0.0.1"</code>，通过 frp 或反向代理暴露必要入口。</li>
+        <li>服务器 <code>18080</code> 跑通后建议关闭公网访问或加来源白名单。</li>
+        <li>定期轮换 frp token、管理密钥和客户端 API Key。</li>
+        <li>如果怀疑泄露，立即更换 token/key，并重启 Docker 容器和 frp 服务。</li>
+      </ul>
+      <div class="note">
+        部署前必须确认管理员已提供必要凭证。缺少凭证时，不要临时绕过鉴权或把服务暴露到公网；应在交付报告的“残留问题”里明确写出缺少哪一项。
+      </div>
+    </section>
+
+    <section id="ai-prompt">
+      <h2>10. 交给 AI 的执行提示词</h2>
+      <p>同事可以把下面这段发给自己的 AI 代理，让 AI 按机器实际情况执行。尖括号内容需要同事自己补充。</p>
+
+      <pre><code>你是我的部署助手。请在 Windows 机器上帮我部署并验证 CLIProxyAPI。
+
+目标：
+1. 使用 Docker Compose 运行 CLIProxyAPI。
+2. 本机服务监听 127.0.0.1:8317。
+3. 启用管理面板 /management.html。
+4. 准备 api-keys 给 NewAPI 或客户端调用。
+5. 如果我提供 frp 信息，则配置 frpc，把本机 127.0.0.1:8317 映射到首尔服务器 18080。
+
+项目目录：
+C:\Projects\CLIProxyAPI\CLIProxyAPI
+
+需要检查的文件：
+- README_CN.md
+- docker-compose.yml
+- config.example.yaml
+- config.yaml
+
+部署步骤：
+1. 先向管理员确认并索取必要凭证：CLIProxyAPI 管理密钥、客户端 API Key、frp token、服务器 SSH/sudo 权限、NewAPI 管理权限、需要登录的上游模型账号。没有凭证时不要伪造，不要绕过鉴权，把缺少项写入最终报告。
+2. 检查 Docker Desktop 是否运行，检查 Git 是否可用。
+3. 如果没有项目目录，执行：
+   cd /d C:\Projects
+   mkdir CLIProxyAPI
+   git clone https://github.com/router-for-me/CLIProxyAPI.git CLIProxyAPI\CLIProxyAPI
+4. 如果需要查看或修改管理中心源码，再执行：
+   cd /d C:\Projects\CLIProxyAPI
+   git clone https://github.com/router-for-me/Cli-Proxy-API-Management-Center.git Cli-Proxy-API-Management-Center
+   注意：普通部署不需要单独拉取管理中心，CLIProxyAPI 自带 /management.html。
+5. 进入 C:\Projects\CLIProxyAPI\CLIProxyAPI，确认 README_CN.md、docker-compose.yml、config.example.yaml 存在。
+6. 如果没有 config.yaml，从 config.example.yaml 复制。
+7. 修改 config.yaml，至少包含：
+   host: "127.0.0.1"
+   port: 8317
+   remote-management.allow-remote: true
+   remote-management.secret-key: "&lt;我的管理密钥&gt;"
+   api-keys:
+     - "&lt;我的客户端 API Key&gt;"
+   logging-to-file: true
+8. 执行 docker compose up -d。
+9. 验证：
+   docker ps
+   curl http://127.0.0.1:8317/
+   curl -I http://127.0.0.1:8317/management.html
+10. 打开 http://127.0.0.1:8317/management.html，用管理密钥连接。
+
+如果配置 frp：
+1. 下载 frp 0.68.1 Windows amd64 客户端：
+   mkdir C:\Projects\claude-workspace
+   cd C:\Projects\claude-workspace
+   Invoke-WebRequest `
+     -Uri "https://github.com/fatedier/frp/releases/download/v0.68.1/frp_0.68.1_windows_amd64.zip" `
+     -OutFile ".\frp_0.68.1_windows_amd64.zip"
+   Expand-Archive ".\frp_0.68.1_windows_amd64.zip" -DestinationPath "." -Force
+2. 在 C:\Projects\CLIProxyAPI\frp-seoul-cliproxyapi 创建或检查 run-frpc-seoul.ps1、start-frpc-seoul-hidden.vbs、frpc.toml。
+3. 确认 Windows 安全中心没有隔离 frpc.exe；如被隔离，恢复文件，并把 C:\Projects\claude-workspace\frp_0.68.1_windows_amd64 加入 Defender 排除项。只排除这个 frp 目录，不要排除整个 C:\Projects。
+4. run-frpc-seoul.ps1 里 frpc.exe 路径应指向：
+   C:\Projects\claude-workspace\frp_0.68.1_windows_amd64\frpc.exe
+5. frpc.toml 模板：
+   serverAddr = "150.109.233.152"
+   serverPort = 7000
+   loginFailExit = false
+
+   auth.method = "token"
+   auth.token = "&lt;frp-token&gt;"
+
+   [[proxies]]
+   name = "cliproxyapi_8317"
+   type = "tcp"
+   localIP = "127.0.0.1"
+   localPort = 8317
+   remotePort = 18080
+6. 启动 frpc，并把日志写到 frpc.log 和 frpc.err.log。
+7. 检查 frpc.exe 进程。
+8. 在首尔服务器上验证：
+   sudo systemctl status frps
+   ss -ltnp | grep -E ':(7000|18080)'
+   curl -i http://127.0.0.1:18080/
+
+安全要求：
+- 不要把真实 token、密钥、SSH 私钥打印到聊天窗口。
+- 不要提交 config.yaml、frpc.toml、.pem、密码文件到公开仓库。
+- 每一步执行前告诉我将要改哪个文件，执行后给出验证结果。
+
+最终交付要求：
+部署完成后，必须输出一个 HTML 文档，例如 C:\Projects\CLIProxyAPI\deployment-report.html。
+这个 HTML 文档必须说明：
+1. 实际部署过程：执行过哪些命令、改过哪些文件、服务如何启动。
+2. 实际目录：CLIProxyAPI、config.yaml、auths、logs、frp 客户端、frpc 配置分别在哪。
+3. 实际端口：CLIProxyAPI 监听端口、Docker 映射端口、frps 控制端口、frp remotePort、NewAPI 调用地址。
+4. 关键配置：config.yaml 中 host、port、remote-management、api-keys、logging-to-file；frpc.toml 中 serverAddr、serverPort、localIP、localPort、remotePort。敏感值必须打码。
+5. 验证结果：docker ps、curl /、curl /management.html、frpc 进程、frps 状态、服务器 curl 18080 的结果。
+6. Windows 安全中心处理情况：frpc.exe 是否被隔离过、是否已恢复、是否已把 frp 客户端目录加入排除项。
+7. 最后残留的问题：没有完成的步骤、无法验证的项目、需要人工补充的密钥/安全组/账号/OAuth 登录、后续收口建议。
+8. 访问路径：如果部署到了服务器，也要写出最终可访问 URL。
+注意：报告中不要写明文 token、API Key、管理密钥、SSH 私钥内容。</code></pre>
+    </section>
+
+    <section id="handover-output">
+      <h2>11. 部署完成后的交付 HTML</h2>
+      <p>每台后续电脑部署完成后，执行人或 AI 代理必须额外输出一份 HTML 交付报告。建议文件名：</p>
+      <pre><code>C:\Projects\CLIProxyAPI\deployment-report.html</code></pre>
+
+      <p>这份报告用于交接和复盘，不能只口头说“部署好了”。报告至少包含以下内容：</p>
+
+      <h3>11.1 部署过程</h3>
+      <ul>
+        <li>实际执行的 Git clone / git pull / Docker / frp 命令。</li>
+        <li>实际创建或修改的文件，例如 <code>config.yaml</code>、<code>frpc.toml</code>、<code>run-frpc-seoul.ps1</code>。</li>
+        <li>Docker 容器启动方式，例如 <code>docker compose up -d</code>。</li>
+        <li>是否配置了 Windows 登录后自动启动 frpc。</li>
+      </ul>
+
+      <h3>11.2 目录和文件</h3>
+      <table>
+        <tr>
+          <th>项目</th>
+          <th>报告里必须写清楚的内容</th>
+        </tr>
+        <tr>
+          <td>CLIProxyAPI 主项目</td>
+          <td>实际路径，例如 <code>C:\Projects\CLIProxyAPI\CLIProxyAPI</code>。</td>
+        </tr>
+        <tr>
+          <td>配置文件</td>
+          <td><code>config.yaml</code> 的实际路径和是否从 <code>config.example.yaml</code> 复制。</td>
+        </tr>
+        <tr>
+          <td>认证文件目录</td>
+          <td><code>auths</code> 的实际路径，以及 Docker 挂载到容器内哪个目录。</td>
+        </tr>
+        <tr>
+          <td>日志目录</td>
+          <td><code>logs</code> 的实际路径，是否已开启 <code>logging-to-file</code>。</td>
+        </tr>
+        <tr>
+          <td>frp 客户端</td>
+          <td><code>frpc.exe</code>、<code>frpc.toml</code>、启动脚本和日志文件的实际路径。</td>
+        </tr>
+      </table>
+
+      <h3>11.3 端口和访问地址</h3>
+      <p>报告里必须列出端口表，至少包含：</p>
+      <table>
+        <tr>
+          <th>配置项</th>
+          <th>当前建议值</th>
+        </tr>
+        <tr>
+          <td>CLIProxyAPI host</td>
+          <td><code>127.0.0.1</code></td>
+        </tr>
+        <tr>
+          <td>CLIProxyAPI port</td>
+          <td><code>8317</code></td>
+        </tr>
+        <tr>
+          <td>管理面板</td>
+          <td><code>http://127.0.0.1:8317/management.html</code></td>
+        </tr>
+        <tr>
+          <td>frps 控制端口</td>
+          <td><code>7000</code></td>
+        </tr>
+        <tr>
+          <td>frp remotePort</td>
+          <td><code>18080</code></td>
+        </tr>
+        <tr>
+          <td>NewAPI 容器内调用地址</td>
+          <td><code>http://172.17.0.1:18080</code></td>
+        </tr>
+        <tr>
+          <td>NewAPI 宿主机调用地址</td>
+          <td><code>http://127.0.0.1:18080</code></td>
+        </tr>
+      </table>
+
+      <h3>11.4 关键配置</h3>
+      <p>报告需要摘录关键配置，但敏感值必须打码。示例：</p>
+      <pre><code>config.yaml:
+host: "127.0.0.1"
+port: 8317
+remote-management:
+  allow-remote: true
+  secret-key: "&lt;masked&gt;"
+api-keys:
+  - "&lt;masked&gt;"
+logging-to-file: true
+
+frpc.toml:
+serverAddr = "150.109.233.152"
+serverPort = 7000
+auth.token = "&lt;masked&gt;"
+localIP = "127.0.0.1"
+localPort = 8317
+remotePort = 18080</code></pre>
+
+      <h3>11.5 验证结果</h3>
+      <p>报告里必须记录验证命令和结果摘要：</p>
+      <ul>
+        <li><code>docker ps</code>：确认 <code>cli-proxy-api</code> 正在运行。</li>
+        <li><code>curl http://127.0.0.1:8317/</code>：确认返回 CLI Proxy API Server。</li>
+        <li><code>curl -I http://127.0.0.1:8317/management.html</code>：确认返回 200。</li>
+        <li><code>Get-CimInstance Win32_Process</code>：确认 <code>frpc.exe</code> 正在运行。</li>
+        <li>Windows 安全中心：确认 <code>frpc.exe</code> 未被隔离，frp 客户端目录已按需加入排除项。</li>
+        <li>服务器 <code>sudo systemctl status frps</code> 和 <code>curl -i http://127.0.0.1:18080/</code>：确认 frp 链路可用。</li>
+      </ul>
+
+      <h3>11.6 最后残留的问题</h3>
+      <p>报告最后必须列出残留问题，即使没有问题也写“暂无”。常见残留项包括：</p>
+      <ul>
+        <li>尚未填写或需要轮换的管理密钥、API Key、frp token。</li>
+        <li>尚未完成的 OAuth 登录或账号导入。</li>
+        <li>服务器安全组 <code>18080</code> 是否还暴露公网，是否需要收口。</li>
+        <li>Windows 开机自启是否已验证。</li>
+        <li>Windows 安全中心是否仍会拦截或隔离 <code>frpc.exe</code>。</li>
+        <li>NewAPI 渠道是否已正式配置并通过模型调用测试。</li>
+        <li>管理面板是否能从目标电脑浏览器稳定访问。</li>
+      </ul>
+    </section>
+
+    <section id="credentials-needed">
+      <h2>12. 需要向管理员索取的密码/凭证</h2>
+      <p>后续电脑部署前，执行人需要先向管理员确认下面这些凭证。没有拿到对应凭证时，对应步骤不能算完成。</p>
+
+      <table>
+        <tr>
+          <th>凭证/密码</th>
+          <th>用途</th>
+          <th>谁提供</th>
+          <th>是否必须</th>
+        </tr>
+        <tr>
+          <td>CLIProxyAPI 管理密钥</td>
+          <td>登录 <code>/management.html</code>，调用 <code>/v0/management</code> 管理接口。</td>
+          <td>CLIProxyAPI 管理员</td>
+          <td>必须</td>
+        </tr>
+        <tr>
+          <td>CLIProxyAPI 客户端 API Key</td>
+          <td>NewAPI、OpenAI SDK、客户端调用 <code>/v1/chat/completions</code>、<code>/v1/models</code> 等代理接口。</td>
+          <td>CLIProxyAPI 管理员</td>
+          <td>必须</td>
+        </tr>
+        <tr>
+          <td>frp token</td>
+          <td>本机 <code>frpc</code> 连接首尔服务器 <code>frps</code>。必须和服务器 <code>/opt/frp/frps.toml</code> 中的 token 一致。</td>
+          <td>服务器/frp 管理员</td>
+          <td>需要首尔转发时必须</td>
+        </tr>
+        <tr>
+          <td>首尔服务器 SSH 私钥或临时登录方式</td>
+          <td>检查 <code>frps</code> 状态、上传文档、验证 <code>18080</code>、查看服务日志。</td>
+          <td>服务器管理员</td>
+          <td>需要操作服务器时必须</td>
+        </tr>
+        <tr>
+          <td>服务器 sudo 权限</td>
+          <td>重启 <code>frps</code>、修改 <code>/opt/frp/frps.toml</code>、查看 systemd 日志、部署静态文档到服务器目录。</td>
+          <td>服务器管理员</td>
+          <td>需要改服务器配置时必须</td>
+        </tr>
+        <tr>
+          <td>云厂商控制台权限或安全组管理员协助</td>
+          <td>放行或收口 TCP <code>7000</code>、<code>18080</code>、<code>80</code>、<code>443</code> 等端口。</td>
+          <td>云服务器管理员</td>
+          <td>端口不通或要安全收口时必须</td>
+        </tr>
+        <tr>
+          <td>NewAPI 管理员账号/API 配置权限</td>
+          <td>在 NewAPI 中配置渠道 Base URL、模型、密钥和测试请求。</td>
+          <td>NewAPI 管理员</td>
+          <td>需要接入 NewAPI 时必须</td>
+        </tr>
+        <tr>
+          <td>上游模型账号或 OAuth 登录账号</td>
+          <td>在管理面板里完成 Gemini、Codex、Claude、Antigravity、Kimi 等账号登录或凭据导入。</td>
+          <td>对应账号负责人</td>
+          <td>需要对应模型时必须</td>
+        </tr>
+        <tr>
+          <td>OpenAI 兼容上游 API Key</td>
+          <td>配置 OpenRouter、PackyCode、AICodeMirror、VisionCoder 等 OpenAI-compatible provider。</td>
+          <td>供应商账号负责人</td>
+          <td>使用第三方中转时必须</td>
+        </tr>
+      </table>
+
+      <h3>12.1 凭证记录规则</h3>
+      <ul>
+        <li>交付报告只能写凭证是否已拿到、由谁提供、用途是什么，不能写明文值。</li>
+        <li>如果必须核对一致性，使用掩码和哈希，例如 <code>fsCA****7io=</code> 或 SHA256，不输出完整 token。</li>
+        <li>SSH 私钥、<code>.pem</code>、frp token、API Key、管理密钥不要提交到 Git，也不要放进可公开访问的 HTML。</li>
+        <li>缺少凭证时，在 <code>deployment-report.html</code> 的“最后残留的问题”里写清楚：缺少哪一项、找谁要、影响哪个步骤。</li>
+      </ul>
+    </section>
+
+    <section id="references">
+      <h2>参考文件</h2>
+      <ul>
+        <li><code>C:\Projects\CLIProxyAPI\CLIProxyAPI\README_CN.md</code></li>
+        <li><code>C:\Projects\CLIProxyAPI\Cli-Proxy-API-Management-Center\README_CN.md</code></li>
+        <li><code>C:\Projects\CLIProxyAPI\CLIProxyAPI\docker-compose.yml</code></li>
+        <li><code>C:\Projects\CLIProxyAPI\CLIProxyAPI\config.example.yaml</code></li>
+        <li><code>C:\Projects\CLIProxyAPI\Fuwuqi\frp-seoul-deployment_CN.md</code></li>
+        <li><code>C:\Projects\CLIProxyAPI\Fuwuqi\server-admin-seoul-frps_CN.md</code></li>
+      </ul>
+      <p class="small">文档生成时间：2026-05-12。后续如果端口、服务器 IP、目录或镜像名变化，请同步更新本文。</p>
+    </section>
+  </main>
+</body>
+</html>
+
+
