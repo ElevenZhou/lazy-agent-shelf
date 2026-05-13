@@ -817,7 +817,7 @@
     "title": "用 CC Switch 给 Codex 配好 FlaiOS 端点。",
     "body": "给同事看的最短路径：先下载 CC Switch，再新增 Codex 可用的 OpenAI 兼容端点，最后用测试 Key 验证能连通。",
     "downloadLabel": "下载 CC Switch",
-    "downloadUrl": "https://github.com/farion1231/cc-switch/releases",
+    "downloadUrl": "https://github.com/farion1231/cc-switch/releases/tag/v3.14.1",
     "homepageLabel": "查看官网说明",
     "homepageUrl": "https://www.ccswitch.io/zh/",
     "steps": [

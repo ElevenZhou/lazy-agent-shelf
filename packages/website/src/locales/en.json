@@ -817,7 +817,7 @@
     "title": "Configure the FlaiOS endpoint for Codex with CC Switch.",
     "body": "A short teammate-facing guide: download CC Switch, add an OpenAI-compatible endpoint for Codex, then verify it with the test key.",
     "downloadLabel": "Download CC Switch",
-    "downloadUrl": "https://github.com/farion1231/cc-switch/releases",
+    "downloadUrl": "https://github.com/farion1231/cc-switch/releases/tag/v3.14.1",
     "homepageLabel": "Read CC Switch docs",
     "homepageUrl": "https://www.ccswitch.io/zh/",
     "steps": [
