@@ -229,7 +229,18 @@ function App() {
     {activeTab === 'projects' && <ProjectsChannel labels={text} items={hubByType.project || []} />}
     {activeTab === 'submit' && <SubmitChannel copied={copied} onCopy={copyCommand} labels={text} />}
     {selectedAgent && <AgentModal agent={selectedAgent} onClose={() => setSelectedAgent(null)} target={target} copied={copied} onCopy={copyCommand} labels={text} />}
+    <ScrollJumps />
   </main>;
+}
+
+function ScrollJumps() {
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+  const scrollToBottom = () => window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
+
+  return <div className="scroll-jumps" aria-label="Page scroll shortcuts">
+    <button type="button" onClick={scrollToTop} aria-label="回到顶部" title="回到顶部">↑</button>
+    <button type="button" onClick={scrollToBottom} aria-label="跳到底部" title="跳到底部">↓</button>
+  </div>;
 }
 
 function LanguageSwitcher({ language, onChange, text }) {

@@ -99,6 +99,9 @@ h1 { position: relative; z-index: 1; max-width: 720px; margin: 18px 0; font-size
 .language-switcher { position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 8px; padding: 7px; border: 1px solid rgba(216, 226, 238, .28); border-radius: 999px; background: rgba(255,255,255,.08); backdrop-filter: blur(8px); }
 .language-switcher span { color: #9fb6ce; font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
 .language-switcher button { padding: 7px 11px; font-size: 12px; border-radius: 999px; color: var(--white); border-color: transparent; }
+.scroll-jumps { position: fixed; right: clamp(12px, 2vw, 28px); top: 50%; z-index: 20; display: grid; gap: 8px; transform: translateY(-50%); }
+.scroll-jumps button { display: grid; place-items: center; width: 42px; height: 42px; padding: 0; border: 1px solid rgba(216,226,238,.86); border-radius: 14px; color: var(--ink); background: rgba(255,255,255,.68); box-shadow: 0 14px 34px rgba(7,17,31,.14); backdrop-filter: blur(12px); font-size: 22px; line-height: 1; }
+.scroll-jumps button:hover { border-color: rgba(47,230,255,.44); color: var(--ink); background: rgba(255,255,255,.92); transform: translateY(-1px); }
 .command { position: relative; z-index: 1; width: fit-content; max-width: 100%; display: flex; align-items: stretch; gap: 0; margin-top: 22px; border: 1px solid rgba(47, 230, 255, .36); border-radius: 14px; background: rgba(7, 17, 31, .84); box-shadow: var(--glow); overflow: hidden; }
 .command code { overflow: auto; padding: 14px 16px; color: var(--flow); font-family: Consolas, monospace; line-height: 1.35; }
 .command button { border: 0; border-left: 1px solid rgba(47, 230, 255, .22); background: var(--gradient-flow); color: var(--ink); text-transform: uppercase; letter-spacing: .08em; }
@@ -376,4 +379,6 @@ pre { margin: 0; white-space: pre-wrap; font-family: Consolas, monospace; font-s
   .model-row { grid-template-columns: 1fr; }
   .command { width: 100%; }
   .command button { min-width: 74px; }
+  .scroll-jumps { right: 10px; top: auto; bottom: 18px; transform: none; }
+  .scroll-jumps button { width: 38px; height: 38px; border-radius: 13px; font-size: 20px; }
 }
