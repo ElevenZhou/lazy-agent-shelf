@@ -13,3 +13,10 @@ items:
     summary: 个人工作台容易变成项目管理系统或文件管理器。
     mitigation: v1 只呈现状态，不编辑真实项目文件，不做复杂数据库。
     related_projects: [flaios-hub]
+  - id: local-image-generator-private-paths
+    name: 本地图像 Skill 含私有路径
+    risk_level: medium
+    status: active
+    summary: 当前 local-image-generator Skill 依赖本机路径和本地 .env.local 配置，原样公开会暴露个人目录结构并降低他人复用性。
+    mitigation: 公开前改为环境变量或模板路径，只发布 .env.example，不发布 .env.local、API key、私有 prompt 或生成素材。
+    related_projects: [local-image-generator-skill]

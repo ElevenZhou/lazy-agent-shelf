@@ -16,3 +16,11 @@ items:
       - 继续补软件官方链接。
       - 支持 setup export zip。
       - 拆分公开网站清单与私有历史清单。
+  - id: local-image-generator-public-draft
+    horizon: short
+    status: active
+    title: 本地图像生成 Skill 公开草案
+    goals:
+      - 将工具路径改为 LOCAL_IMAGE_GENERATOR_DIR 或跨平台默认目录。
+      - 把 dev/image-generator 整理成可分享模板，仅包含 .env.example。
+      - 在飞流AI枢纽中以 draft 状态展示，明确适合场景、边界和风险。

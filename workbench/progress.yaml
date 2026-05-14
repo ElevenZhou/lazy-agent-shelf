@@ -14,3 +14,13 @@ items:
     project: flaios-hub
     status: active
     summary: 开始把个人工作台作为飞流AI枢纽的新栏目落地。
+  - id: local-image-generator-skill-created
+    date: 2026-05-15
+    project: local-image-generator-skill
+    status: done
+    summary: 已创建本地图像生成工具与 Codex Skill，默认使用 gpt-image-2，生成图片时同步保存 output 图片和 prompts 提示词，并验证可复制到当前项目 public/images/hero.png。
+  - id: submit-results-to-workbench-skill-created
+    date: 2026-05-15
+    project: submit-results-to-workbench-skill
+    status: done
+    summary: 已创建“提交成果到工作台”Codex Skill，封装跨项目提交成果到个人工作台的流程，默认目标为 I:\Dev\通用性agent开发，并通过 quick_validate.py 校验。

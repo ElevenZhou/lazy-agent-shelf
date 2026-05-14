@@ -1,7 +1,7 @@
 id: personal-master-os
 name: 个人工作台
 version: 0.1.0
-updated_at: 2026-05-13
+updated_at: 2026-05-15
 positioning: 个人资产、项目状态、关系、进展、风险和计划的结构化状态层，供 Agent 读取、更新和展示。
 principles:
   - 只呈现情况，不直接管理或编辑真实项目文件。

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-12T18:00:14.879Z",
-  "item_count": 12,
+  "generated_at": "2026-05-14T19:30:44.162Z",
+  "item_count": 13,
   "types": [
     "ai_website",
     "memory",
@@ -1634,6 +1634,39 @@
       "related_workflows": [
         "submit-to-flaios"
       ],
+      "status": "draft",
+      "source_file": "content/skills.yaml"
+    },
+    {
+      "id": "local-image-generator",
+      "type": "skill",
+      "name": "本地图像生成器",
+      "category": "ai/image",
+      "tags": [
+        "codex",
+        "gpt-image-2",
+        "image-generation",
+        "website-assets",
+        "workflow",
+        "laozhou-a"
+      ],
+      "one_liner": "让 Codex 调用本地 gpt-image-2 工具生成图片，同时保存同名提示词并复制到项目资源目录。",
+      "best_for": [
+        "网站 hero 背景",
+        "项目插图素材",
+        "需要保留 prompt 溯源的设计迭代",
+        "Codex 内部自动化生图流程"
+      ],
+      "not_good_for": [
+        "直接公开个人 API key",
+        "批量无审核生图",
+        "对私有本机路径零配置复用"
+      ],
+      "rating": "A",
+      "owner_note": "已在本地真实跑通：生成“我站在巨人的肩膀眺望大海”首页 hero 背景，保存 output/hero.png 与 prompts/hero.txt，并复制到当前项目 public/images/hero.png。公开前需要移除硬编码私有路径，改为环境变量或模板安装方式。",
+      "related_agents": [],
+      "related_skills": [],
+      "related_workflows": [],
       "status": "draft",
       "source_file": "content/skills.yaml"
     },
@@ -3509,6 +3542,39 @@
         ],
         "status": "draft",
         "source_file": "content/skills.yaml"
+      },
+      {
+        "id": "local-image-generator",
+        "type": "skill",
+        "name": "本地图像生成器",
+        "category": "ai/image",
+        "tags": [
+          "codex",
+          "gpt-image-2",
+          "image-generation",
+          "website-assets",
+          "workflow",
+          "laozhou-a"
+        ],
+        "one_liner": "让 Codex 调用本地 gpt-image-2 工具生成图片，同时保存同名提示词并复制到项目资源目录。",
+        "best_for": [
+          "网站 hero 背景",
+          "项目插图素材",
+          "需要保留 prompt 溯源的设计迭代",
+          "Codex 内部自动化生图流程"
+        ],
+        "not_good_for": [
+          "直接公开个人 API key",
+          "批量无审核生图",
+          "对私有本机路径零配置复用"
+        ],
+        "rating": "A",
+        "owner_note": "已在本地真实跑通：生成“我站在巨人的肩膀眺望大海”首页 hero 背景，保存 output/hero.png 与 prompts/hero.txt，并复制到当前项目 public/images/hero.png。公开前需要移除硬编码私有路径，改为环境变量或模板安装方式。",
+        "related_agents": [],
+        "related_skills": [],
+        "related_workflows": [],
+        "status": "draft",
+        "source_file": "content/skills.yaml"
       }
     ],
     "tool": [
@@ -5205,7 +5271,7 @@
       "id": "personal-master-os",
       "name": "个人工作台",
       "version": "0.1.0",
-      "updated_at": "2026-05-13",
+      "updated_at": "2026-05-15",
       "positioning": "个人资产、项目状态、关系、进展、风险和计划的结构化状态层，供 Agent 读取、更新和展示。",
       "principles": [
         "只呈现情况，不直接管理或编辑真实项目文件。",
@@ -5223,12 +5289,12 @@
       ]
     },
     "summary": {
-      "projects": 2,
-      "active_projects": 2,
+      "projects": 4,
+      "active_projects": 4,
       "high_risks": 1,
-      "active_plans": 2,
-      "recent_progress": 3,
-      "assets": 3,
+      "active_plans": 3,
+      "recent_progress": 5,
+      "assets": 4,
       "relations": 2
     },
     "projects": [
@@ -5275,6 +5341,43 @@
         "links": {
           "path": "setup-kits/personal-ai-workstation"
         }
+      },
+      {
+        "id": "local-image-generator-skill",
+        "name": "本地图像生成 Skill",
+        "type": "skill",
+        "stage": "testing",
+        "status": "active",
+        "risk_level": "medium",
+        "summary": "将本地 gpt-image-2 生图工具封装为 Codex Skill，支持生成网站 hero、背景和设计素材，并自动保存同名 prompt。",
+        "next_action": "泛化硬编码本机路径，整理可公开分享的 skill 和工具模板。",
+        "owner_note": "已在真实任务中生成“站在巨人的肩膀眺望大海”hero 背景，并复制到项目 public/images/hero.png。",
+        "related_agents": [],
+        "related_workflows": [],
+        "links": {
+          "local_skill": "C:\\Users\\AprilWu\\.codex\\skills\\local-image-generator",
+          "local_tool": "Y:\\服务器管理\\腾讯云-首尔-Ubunut-150.109.233.152\\dev\\image-generator"
+        }
+      },
+      {
+        "id": "submit-results-to-workbench-skill",
+        "name": "提交成果到工作台 Skill",
+        "type": "skill",
+        "stage": "testing",
+        "status": "active",
+        "risk_level": "low",
+        "summary": "将任意项目的阶段性成果沉淀回个人工作台，默认只更新 workbench/*.yaml，并可选把可复用成果以 draft 状态提交到飞流AI枢纽内容库。",
+        "next_action": "在其他真实项目中继续使用，观察是否需要增加自动识别项目名、生成进展摘要或公开目录提交的脚本化能力。",
+        "owner_note": "已创建为本地 Codex Skill，可用“提交成果到工作台”或“使用 submit-results-to-workbench”触发。",
+        "related_agents": [
+          "codex"
+        ],
+        "related_workflows": [
+          "submit-to-flaios"
+        ],
+        "links": {
+          "local_skill": "C:\\Users\\AprilWu\\.codex\\skills\\submit-results-to-workbench"
+        }
       }
     ],
     "assets": [
@@ -5306,6 +5409,17 @@
         "summary": "可分享、可导出、可交给 Agent 的电脑初始化资产。",
         "related_projects": [
           "personal-ai-workstation"
+        ]
+      },
+      {
+        "id": "submit-results-to-workbench-local-skill",
+        "name": "提交成果到工作台本地 Skill",
+        "type": "skill",
+        "status": "active",
+        "summary": "本地 Codex Skill，用于把其他项目的成果登记到个人工作台，并可选沉淀为飞流AI枢纽草稿内容。",
+        "related_projects": [
+          "submit-results-to-workbench-skill",
+          "flaios-hub"
         ]
       }
     ],
@@ -5352,6 +5466,20 @@
         "project": "flaios-hub",
         "status": "active",
         "summary": "开始把个人工作台作为飞流AI枢纽的新栏目落地。"
+      },
+      {
+        "id": "local-image-generator-skill-created",
+        "date": "2026-05-15",
+        "project": "local-image-generator-skill",
+        "status": "done",
+        "summary": "已创建本地图像生成工具与 Codex Skill，默认使用 gpt-image-2，生成图片时同步保存 output 图片和 prompts 提示词，并验证可复制到当前项目 public/images/hero.png。"
+      },
+      {
+        "id": "submit-results-to-workbench-skill-created",
+        "date": "2026-05-15",
+        "project": "submit-results-to-workbench-skill",
+        "status": "done",
+        "summary": "已创建“提交成果到工作台”Codex Skill，封装跨项目提交成果到个人工作台的流程，默认目标为 I:\\Dev\\通用性agent开发，并通过 quick_validate.py 校验。"
       }
     ],
     "risks": [
@@ -5375,6 +5503,17 @@
         "mitigation": "v1 只呈现状态，不编辑真实项目文件，不做复杂数据库。",
         "related_projects": [
           "flaios-hub"
+        ]
+      },
+      {
+        "id": "local-image-generator-private-paths",
+        "name": "本地图像 Skill 含私有路径",
+        "risk_level": "medium",
+        "status": "active",
+        "summary": "当前 local-image-generator Skill 依赖本机路径和本地 .env.local 配置，原样公开会暴露个人目录结构并降低他人复用性。",
+        "mitigation": "公开前改为环境变量或模板路径，只发布 .env.example，不发布 .env.local、API key、私有 prompt 或生成素材。",
+        "related_projects": [
+          "local-image-generator-skill"
         ]
       }
     ],
@@ -5400,6 +5539,17 @@
           "继续补软件官方链接。",
           "支持 setup export zip。",
           "拆分公开网站清单与私有历史清单。"
+        ]
+      },
+      {
+        "id": "local-image-generator-public-draft",
+        "horizon": "short",
+        "status": "active",
+        "title": "本地图像生成 Skill 公开草案",
+        "goals": [
+          "将工具路径改为 LOCAL_IMAGE_GENERATOR_DIR 或跨平台默认目录。",
+          "把 dev/image-generator 整理成可分享模板，仅包含 .env.example。",
+          "在飞流AI枢纽中以 draft 状态展示，明确适合场景、边界和风险。"
         ]
       }
     ]

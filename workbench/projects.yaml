@@ -26,3 +26,30 @@ items:
     related_workflows: [personal-ai-workstation-bootstrap]
     links:
       path: setup-kits/personal-ai-workstation
+  - id: local-image-generator-skill
+    name: 本地图像生成 Skill
+    type: skill
+    stage: testing
+    status: active
+    risk_level: medium
+    summary: 将本地 gpt-image-2 生图工具封装为 Codex Skill，支持生成网站 hero、背景和设计素材，并自动保存同名 prompt。
+    next_action: 泛化硬编码本机路径，整理可公开分享的 skill 和工具模板。
+    owner_note: 已在真实任务中生成“站在巨人的肩膀眺望大海”hero 背景，并复制到项目 public/images/hero.png。
+    related_agents: []
+    related_workflows: []
+    links:
+      local_skill: C:\Users\AprilWu\.codex\skills\local-image-generator
+      local_tool: Y:\服务器管理\腾讯云-首尔-Ubunut-150.109.233.152\dev\image-generator
+  - id: submit-results-to-workbench-skill
+    name: 提交成果到工作台 Skill
+    type: skill
+    stage: testing
+    status: active
+    risk_level: low
+    summary: 将任意项目的阶段性成果沉淀回个人工作台，默认只更新 workbench/*.yaml，并可选把可复用成果以 draft 状态提交到飞流AI枢纽内容库。
+    next_action: 在其他真实项目中继续使用，观察是否需要增加自动识别项目名、生成进展摘要或公开目录提交的脚本化能力。
+    owner_note: 已创建为本地 Codex Skill，可用“提交成果到工作台”或“使用 submit-results-to-workbench”触发。
+    related_agents: [codex]
+    related_workflows: [submit-to-flaios]
+    links:
+      local_skill: C:\Users\AprilWu\.codex\skills\submit-results-to-workbench

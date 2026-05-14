@@ -368,13 +368,30 @@ CLIProxyAPI</code></pre>
       </div>
       <ol>
         <li>安装 Docker Desktop，并确保 Docker Engine 正常运行。</li>
+        <li>安装 Node.js LTS，确保 <code>node</code> 和 <code>npm</code> 可用；后续安装 Codex CLI、OpenCode CLI 或其他前端工具都会用到。</li>
         <li>安装 Git，用于拉取或更新项目。</li>
+        <li>安装 Codex：桌面版用于可视化项目协作，CLI 版用于在终端里执行代码任务。</li>
+        <li>安装 OpenCode：优先安装 CLI/TUI 版本；如果官方提供桌面版或图形入口，按官网最新说明安装。</li>
         <li>安装 7-Zip、WinRAR 或使用 PowerShell 自带 <code>Expand-Archive</code>，用于解压 frp。</li>
         <li>准备项目目录，例如 <code>C:\Projects\CLIProxyAPI</code>。</li>
         <li>准备一个强管理密钥，用于登录管理面板。</li>
         <li>准备一个或多个代理 API Key，供 NewAPI、客户端或同事调用 CLIProxyAPI 的 OpenAI 兼容接口。</li>
         <li>如果要接入首尔服务器，准备 frp 客户端程序 <code>frpc.exe</code>、服务器地址、端口和 frp token。当前本机使用的是 frp <code>0.68.1</code> Windows amd64 版本。</li>
       </ol>
+
+      <h3>3.1 新电脑 AI 编程工具安装</h3>
+      <table>
+        <tr><th>工具</th><th>安装内容</th><th>验证方式</th></tr>
+        <tr><td>Docker Desktop</td><td>从 Docker 官网下载安装，启用 WSL2 backend。CLIProxyAPI 通过 Docker Compose 运行。</td><td><code>docker version</code><br /><code>docker compose version</code></td></tr>
+        <tr><td>Node.js / npm</td><td>安装 Node.js LTS，推荐使用官方安装包。安装后重开 PowerShell。</td><td><code>node -v</code><br /><code>npm -v</code></td></tr>
+        <tr><td>Codex 桌面版</td><td>从 OpenAI Codex App 官方页面下载安装 Windows 桌面版，登录 ChatGPT 账号或 API Key。</td><td>打开 Codex 桌面应用，选择项目目录。</td></tr>
+        <tr><td>Codex CLI</td><td>使用 npm 全局安装：<code>npm install -g @openai/codex</code>。</td><td><code>codex</code></td></tr>
+        <tr><td>OpenCode CLI/TUI</td><td>从 OpenCode 官网选择 Windows 可用安装方式；可用 npm 时优先按官网 npm 命令安装。</td><td><code>opencode --version</code><br /><code>opencode</code></td></tr>
+      </table>
+
+      <div class="note">
+        Codex 和 OpenCode 都可能读取、修改并运行当前项目代码。新电脑第一次使用前，先确认 Git 工作区干净，并养成任务前后提交或打 checkpoint 的习惯。
+      </div>
 
       <div class="warning">
         不要把 <code>.pem</code>、服务器密码、frp token、API Key、管理密钥发到群里或提交到公开仓库。交接文档里只写占位符。

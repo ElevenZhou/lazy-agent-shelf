@@ -13,3 +13,17 @@ items:
     related_skills: []
     related_workflows: [submit-to-flaios]
     status: draft
+  - id: local-image-generator
+    type: skill
+    name: 本地图像生成器
+    category: ai/image
+    tags: [codex, gpt-image-2, image-generation, website-assets, workflow, laozhou-a]
+    one_liner: 让 Codex 调用本地 gpt-image-2 工具生成图片，同时保存同名提示词并复制到项目资源目录。
+    best_for: [网站 hero 背景, 项目插图素材, 需要保留 prompt 溯源的设计迭代, Codex 内部自动化生图流程]
+    not_good_for: [直接公开个人 API key, 批量无审核生图, 对私有本机路径零配置复用]
+    rating: A
+    owner_note: 已在本地真实跑通：生成“我站在巨人的肩膀眺望大海”首页 hero 背景，保存 output/hero.png 与 prompts/hero.txt，并复制到当前项目 public/images/hero.png。公开前需要移除硬编码私有路径，改为环境变量或模板安装方式。
+    related_agents: []
+    related_skills: []
+    related_workflows: []
+    status: draft

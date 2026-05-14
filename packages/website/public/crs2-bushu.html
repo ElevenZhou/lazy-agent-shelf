@@ -209,7 +209,11 @@
         <tr><td>PowerShell 7 或系统 PowerShell</td><td>执行部署命令</td><td>必需</td></tr>
         <tr><td>WSL2 + Ubuntu</td><td>运行官方 bash 部署脚本</td><td>推荐必装</td></tr>
         <tr><td>Docker Desktop</td><td>运行 Sub2API、PostgreSQL、Redis 容器</td><td>必需，启用 WSL2 backend</td></tr>
+        <tr><td>Node.js LTS / npm</td><td>安装 Codex CLI、OpenCode CLI 和常用前端工具</td><td>必需</td></tr>
         <tr><td>Git for Windows</td><td>拉取仓库和辅助命令</td><td>必需</td></tr>
+        <tr><td>Codex 桌面版</td><td>可视化选择项目、登录账号、让 Codex 协作处理本地任务</td><td>推荐</td></tr>
+        <tr><td>Codex CLI</td><td>在 PowerShell / Windows Terminal 里运行 Codex 代码代理</td><td>推荐，npm 安装</td></tr>
+        <tr><td>OpenCode CLI/TUI</td><td>终端里的开源 AI 编程代理，可连接不同模型供应商</td><td>推荐</td></tr>
         <tr><td>VS Code</td><td>编辑 <code>.env</code>、Compose 文件和报告</td><td>推荐</td></tr>
         <tr><td>Chrome / Edge</td><td>访问 Sub2API 管理后台和上游账号</td><td>必需</td></tr>
         <tr><td>7-Zip</td><td>解压或备份部署目录</td><td>推荐</td></tr>
@@ -230,6 +234,29 @@ wsl -l -v</code></pre>
       </ol>
       <pre><code>docker version
 docker compose version</code></pre>
+
+      <h3>4.3 安装 Node.js、Codex 和 OpenCode</h3>
+      <ol>
+        <li>从 Node.js 官网安装 LTS 版本。安装完成后关闭并重新打开 Windows Terminal。</li>
+        <li>验证 Node 和 npm：</li>
+      </ol>
+      <pre><code>node -v
+npm -v</code></pre>
+      <ol start="3">
+        <li>安装 Codex 桌面版：从 OpenAI Codex App 官方页面下载 Windows 版本，打开后登录 ChatGPT 账号或 API Key，并选择项目目录。</li>
+        <li>安装 Codex CLI：</li>
+      </ol>
+      <pre><code>npm install -g @openai/codex
+codex</code></pre>
+      <ol start="5">
+        <li>安装 OpenCode：打开 OpenCode 官网，选择 Windows 可用的 CLI/TUI 安装方式；如果当前官网提供 npm 安装命令，就按官网命令安装。</li>
+        <li>验证 OpenCode：</li>
+      </ol>
+      <pre><code>opencode --version
+opencode</code></pre>
+      <div class="note">
+        Codex 和 OpenCode 都可能读取、修改并运行当前项目代码。新电脑第一次使用前，先确认 Git 工作区干净；每次部署或调试前后都建议提交 Git checkpoint。
+      </div>
     </section>
 
     <section id="credentials">
@@ -573,7 +600,11 @@ docker compose down</code></pre>
         <tr><td>Windows Terminal</td><td>Mở PowerShell và Ubuntu dễ hơn.</td></tr>
         <tr><td>WSL2 + Ubuntu</td><td>Chạy script triển khai chính thức.</td></tr>
         <tr><td>Docker Desktop</td><td>Chạy Sub2API, PostgreSQL, Redis.</td></tr>
+        <tr><td>Node.js LTS / npm</td><td>Cài Codex CLI, OpenCode CLI và các công cụ frontend cần thiết.</td></tr>
         <tr><td>Git for Windows</td><td>Kéo mã nguồn / kiểm tra repo.</td></tr>
+        <tr><td>Codex Desktop</td><td>Ứng dụng desktop để chọn thư mục dự án và đăng nhập tài khoản Codex.</td></tr>
+        <tr><td>Codex CLI</td><td>Chạy Codex trong terminal bằng npm.</td></tr>
+        <tr><td>OpenCode CLI/TUI</td><td>AI coding agent chạy trong terminal, có thể kết nối nhiều model provider.</td></tr>
         <tr><td>VS Code</td><td>Sửa file <code>.env</code>, compose, báo cáo.</td></tr>
         <tr><td>Chrome hoặc Edge</td><td>Đăng nhập dashboard, Claude, ChatGPT.</td></tr>
       </table>
@@ -582,7 +613,17 @@ wsl --set-default-version 2
 wsl -l -v
 
 docker version
-docker compose version</code></pre>
+docker compose version
+
+node -v
+npm -v
+
+npm install -g @openai/codex
+codex
+
+opencode --version
+opencode</code></pre>
+      <div class="note">Trước khi dùng Codex hoặc OpenCode trên máy mới, hãy kiểm tra Git worktree sạch và tạo checkpoint/commit trước sau mỗi thay đổi quan trọng.</div>
     </section>
 
     <section>
