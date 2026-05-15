@@ -809,7 +809,9 @@
       "risk": "Risk",
       "next": "Next",
       "mitigation": "Mitigation",
-      "horizon": "Horizon"
+      "horizon": "Horizon",
+      "updated": "Updated",
+      "modified": "Last modified"
     }
   },
   "ccSwitch": {

@@ -5,18 +5,28 @@ items:
     status: active
     summary: websites.yaml/websites.csv 来自浏览器历史，可能包含后台、内网、账号、API、支付等敏感域名。
     mitigation: 默认只导出 websites.public.csv；完整 websites.csv 仅允许 --include-private 私有备份。
-    related_projects: [personal-ai-workstation]
+    related_projects:
+      - personal-ai-workstation
+    updated_at: 2026-05-13
+    last_modified_at: 2026-05-15
   - id: workbench-overreach
     name: 工作台范围膨胀
     risk_level: medium
     status: active
     summary: 个人工作台容易变成项目管理系统或文件管理器。
     mitigation: v1 只呈现状态，不编辑真实项目文件，不做复杂数据库。
-    related_projects: [flaios-hub]
+    related_projects:
+      - flaios-hub
+    updated_at: 2026-05-13
+    last_modified_at: 2026-05-15
   - id: local-image-generator-private-paths
     name: 本地图像 Skill 含私有路径
     risk_level: medium
     status: active
-    summary: 当前 local-image-generator Skill 依赖本机路径和本地 .env.local 配置，原样公开会暴露个人目录结构并降低他人复用性。
+    summary: 当前 local-image-generator Skill 依赖本机路径和本地 .env.local
+      配置，原样公开会暴露个人目录结构并降低他人复用性。
     mitigation: 公开前改为环境变量或模板路径，只发布 .env.example，不发布 .env.local、API key、私有 prompt 或生成素材。
-    related_projects: [local-image-generator-skill]
+    related_projects:
+      - local-image-generator-skill
+    updated_at: 2026-05-15
+    last_modified_at: 2026-05-15

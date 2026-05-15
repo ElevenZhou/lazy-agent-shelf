@@ -8,6 +8,8 @@ items:
       - 新增个人工作台网站栏目。
       - 新增 personal-workbench Codex Skill。
       - 让 Agent 可以按规范更新项目、风险、进展和计划。
+    updated_at: 2026-05-15
+    last_modified_at: 2026-05-15
   - id: setup-kit-next
     horizon: short
     status: active
@@ -16,6 +18,8 @@ items:
       - 继续补软件官方链接。
       - 支持 setup export zip。
       - 拆分公开网站清单与私有历史清单。
+    updated_at: 2026-05-13
+    last_modified_at: 2026-05-15
   - id: local-image-generator-public-draft
     horizon: short
     status: active
@@ -24,3 +28,15 @@ items:
       - 将工具路径改为 LOCAL_IMAGE_GENERATOR_DIR 或跨平台默认目录。
       - 把 dev/image-generator 整理成可分享模板，仅包含 .env.example。
       - 在飞流AI枢纽中以 draft 状态展示，明确适合场景、边界和风险。
+    updated_at: 2026-05-15
+    last_modified_at: 2026-05-15
+  - id: dev-workspace-inventory-maintenance
+    horizon: recurring
+    status: active
+    title: I:\Dev 项目管理清单维护
+    goals:
+      - 每周刷新 I:\Dev\项目管理清单.md。
+      - 关注近 14 天活跃项目、Git dirty 项目和涉及 .env/服务器/支付的敏感目录。
+      - 不自动读取密钥、不提交其他项目源码，只更新管理清单。
+    updated_at: 2026-05-15
+    last_modified_at: 2026-05-15

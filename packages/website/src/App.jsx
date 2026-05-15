@@ -619,6 +619,15 @@ function WorkbenchChannel({ labels, workbench }) {
   const wb = workbench || { summary: {}, projects: [], risks: [], plans: [], progress: [], assets: [], relations: [] };
   const summary = wb.summary || {};
   const text = labels.workbench;
+  const TimeMeta = ({ item }) => {
+    const updated = item.updated_at || item.date;
+    const modified = item.last_modified_at;
+    if (!updated && !modified) return null;
+    return <small className="workbench-time">
+      {updated && <span>{text.fields.updated}: {updated}</span>}
+      {modified && <span>{text.fields.modified}: {modified}</span>}
+    </small>;
+  };
   const stats = [
     [text.summaryLabels.projects, summary.projects || 0],
     [text.summaryLabels.activeProjects, summary.active_projects || 0],
@@ -644,6 +653,7 @@ function WorkbenchChannel({ labels, workbench }) {
           <h4>{project.name}</h4>
           <p>{project.summary}</p>
           <div className="targets"><em>{text.fields.risk}: {project.risk_level}</em><em>{text.fields.next}: {project.next_action}</em></div>
+          <TimeMeta item={project} />
         </article>)}
       </section>
       <section className="workbench-panel">
@@ -653,6 +663,7 @@ function WorkbenchChannel({ labels, workbench }) {
           <p>{risk.summary}</p>
           <em>{text.fields.risk}: {risk.risk_level}</em>
           <p>{text.fields.mitigation}: {risk.mitigation}</p>
+          <TimeMeta item={risk} />
         </article>)}
       </section>
       <section className="workbench-panel">
@@ -661,6 +672,7 @@ function WorkbenchChannel({ labels, workbench }) {
           <strong>{plan.title}</strong>
           <em>{text.fields.horizon}: {plan.horizon}</em>
           <ul>{(plan.goals || []).map(goal => <li key={goal}>{goal}</li>)}</ul>
+          <TimeMeta item={plan} />
         </article>)}
       </section>
       <section className="workbench-panel">
@@ -668,6 +680,7 @@ function WorkbenchChannel({ labels, workbench }) {
         {(wb.progress || []).map(item => <article className="workbench-item" key={item.id}>
           <strong>{item.summary}</strong>
           <em>{item.date} · {item.status}</em>
+          <TimeMeta item={item} />
         </article>)}
       </section>
       <section className="workbench-panel">
@@ -676,6 +689,7 @@ function WorkbenchChannel({ labels, workbench }) {
           <strong>{asset.name}</strong>
           <p>{asset.summary}</p>
           <em>{asset.type} · {asset.status}</em>
+          <TimeMeta item={asset} />
         </article>)}
       </section>
       <section className="workbench-panel">
@@ -684,6 +698,7 @@ function WorkbenchChannel({ labels, workbench }) {
           <strong>{relation.name}</strong>
           <p>{relation.summary}</p>
           <em>{relation.type} · {relation.status}</em>
+          <TimeMeta item={relation} />
         </article>)}
       </section>
     </div>

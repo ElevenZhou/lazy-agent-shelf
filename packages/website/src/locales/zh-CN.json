@@ -809,7 +809,9 @@
       "risk": "风险",
       "next": "下一步",
       "mitigation": "应对",
-      "horizon": "周期"
+      "horizon": "周期",
+      "updated": "最新",
+      "modified": "上次修改"
     }
   },
   "ccSwitch": {

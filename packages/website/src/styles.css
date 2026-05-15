@@ -251,6 +251,8 @@ pre { margin: 0; white-space: pre-wrap; font-family: Consolas, monospace; font-s
 .workbench-project h4 { margin: 0; font-size: 24px; line-height: 1.05; letter-spacing: -.045em; }
 .workbench-project p, .workbench-item p { margin: 0; color: var(--muted); line-height: 1.55; }
 .workbench-item strong { color: var(--deep); line-height: 1.25; }
+.workbench-time { display: flex; flex-wrap: wrap; gap: 8px; color: var(--muted); font-size: 11px; font-weight: 800; letter-spacing: .04em; }
+.workbench-time span { padding: 5px 8px; border-radius: 999px; background: rgba(216,226,238,.62); }
 .taxonomy-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
 .taxonomy-lead, .taxonomy-card, .spotlight-card, .workflow-card, .project-card, .project-fields, .submit-card { border: 1px solid rgba(216,226,238,.88); border-radius: 22px; background: rgba(255,255,255,.8); box-shadow: 0 14px 38px rgba(7,17,31,.08); }
 .taxonomy-lead { grid-row: span 2; display: grid; align-content: end; min-height: 260px; padding: 24px; color: var(--white); background: var(--gradient-ink); }

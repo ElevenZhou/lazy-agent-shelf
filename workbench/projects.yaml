@@ -8,11 +8,18 @@ items:
     summary: 从跨工具 Agent 货架升级为 AI 网站、工具、Agent、Skill、工作流、环境套件、项目和个人工作台的 AI 使用枢纽。
     next_action: 完成个人工作台数据结构、页面展示和 Agent 更新技能。
     owner_note: 当前主项目，适合先作为个人工作台的样板项目。
-    related_agents: [frontend-builder, automation-workflow-designer, agent-quality-evaluator]
-    related_workflows: [submit-to-flaios, personal-ai-workstation-bootstrap]
+    related_agents:
+      - frontend-builder
+      - automation-workflow-designer
+      - agent-quality-evaluator
+    related_workflows:
+      - submit-to-flaios
+      - personal-ai-workstation-bootstrap
     links:
       repo: .
       local_preview: http://127.0.0.1:5173/
+    updated_at: 2026-05-15
+    last_modified_at: 2026-05-15
   - id: personal-ai-workstation
     name: 个人 AI 工作站 Setup Kit
     type: setup_kit
@@ -22,10 +29,14 @@ items:
     summary: 新电脑初始化、软件清单、网站目录、目录结构、脚本和 Agent 接管指令。
     next_action: 继续清理公开网站列表，补充更多官方软件下载渠道和可执行导出。
     owner_note: 已接入环境套件栏目和 setup CLI。
-    related_agents: [automation-workflow-designer]
-    related_workflows: [personal-ai-workstation-bootstrap]
+    related_agents:
+      - automation-workflow-designer
+    related_workflows:
+      - personal-ai-workstation-bootstrap
     links:
       path: setup-kits/personal-ai-workstation
+    updated_at: 2026-05-13
+    last_modified_at: 2026-05-15
   - id: local-image-generator-skill
     name: 本地图像生成 Skill
     type: skill
@@ -40,6 +51,8 @@ items:
     links:
       local_skill: C:\Users\AprilWu\.codex\skills\local-image-generator
       local_tool: Y:\服务器管理\腾讯云-首尔-Ubunut-150.109.233.152\dev\image-generator
+    updated_at: 2026-05-15
+    last_modified_at: 2026-05-15
   - id: submit-results-to-workbench-skill
     name: 提交成果到工作台 Skill
     type: skill
@@ -49,7 +62,28 @@ items:
     summary: 将任意项目的阶段性成果沉淀回个人工作台，默认只更新 workbench/*.yaml，并可选把可复用成果以 draft 状态提交到飞流AI枢纽内容库。
     next_action: 在其他真实项目中继续使用，观察是否需要增加自动识别项目名、生成进展摘要或公开目录提交的脚本化能力。
     owner_note: 已创建为本地 Codex Skill，可用“提交成果到工作台”或“使用 submit-results-to-workbench”触发。
-    related_agents: [codex]
-    related_workflows: [submit-to-flaios]
+    related_agents:
+      - codex
+    related_workflows:
+      - submit-to-flaios
     links:
       local_skill: C:\Users\AprilWu\.codex\skills\submit-results-to-workbench
+    updated_at: 2026-05-15
+    last_modified_at: 2026-05-15
+  - id: dev-workspace-inventory
+    name: I:\Dev 项目管理清单
+    type: project
+    stage: operating
+    status: active
+    risk_level: medium
+    summary: 对 I:\Dev 工作区下的项目、资料、运维、量化和 Agent/Skill 目录做浅层盘点，记录最新更新时间、项目标识、Git 状态和概况。
+    next_action: 每周自动刷新项目清单，优先跟进近 14 天活跃项目和 Git 有改动项目。
+    owner_note: 清单只做浅扫，不读取 .env、密钥、token 或私有配置内容，不自动修改其他项目源码。
+    related_agents:
+      - codex
+    related_workflows:
+      - submit-to-flaios
+    links:
+      local_doc: I:\Dev\项目管理清单.md
+    updated_at: 2026-05-15
+    last_modified_at: 2026-05-15

@@ -4,23 +4,43 @@ items:
     project: flaios-hub
     status: done
     summary: 环境套件页面已展示软件分组、官方链接、目录结构、安全规则、公开网站目录和可复制命令。
+    updated_at: 2026-05-13
+    last_modified_at: 2026-05-15
   - id: setup-cli-export
     date: 2026-05-13
     project: personal-ai-workstation
     status: done
     summary: setup CLI 已支持 list/show/export/script/agent，export 默认生成公开分享包。
+    updated_at: 2026-05-13
+    last_modified_at: 2026-05-15
   - id: personal-workbench-start
     date: 2026-05-13
     project: flaios-hub
     status: active
     summary: 开始把个人工作台作为飞流AI枢纽的新栏目落地。
+    updated_at: 2026-05-13
+    last_modified_at: 2026-05-15
   - id: local-image-generator-skill-created
     date: 2026-05-15
     project: local-image-generator-skill
     status: done
-    summary: 已创建本地图像生成工具与 Codex Skill，默认使用 gpt-image-2，生成图片时同步保存 output 图片和 prompts 提示词，并验证可复制到当前项目 public/images/hero.png。
+    summary: 已创建本地图像生成工具与 Codex Skill，默认使用 gpt-image-2，生成图片时同步保存 output 图片和 prompts
+      提示词，并验证可复制到当前项目 public/images/hero.png。
+    updated_at: 2026-05-15
+    last_modified_at: 2026-05-15
   - id: submit-results-to-workbench-skill-created
     date: 2026-05-15
     project: submit-results-to-workbench-skill
     status: done
-    summary: 已创建“提交成果到工作台”Codex Skill，封装跨项目提交成果到个人工作台的流程，默认目标为 I:\Dev\通用性agent开发，并通过 quick_validate.py 校验。
+    summary: 已创建“提交成果到工作台”Codex Skill，封装跨项目提交成果到个人工作台的流程，默认目标为 I:\Dev\通用性agent开发，并通过
+      quick_validate.py 校验。
+    updated_at: 2026-05-15
+    last_modified_at: 2026-05-15
+  - id: dev-workspace-inventory-created
+    date: 2026-05-15
+    project: dev-workspace-inventory
+    status: done
+    summary: 已在 I:\Dev\项目管理清单.md 创建 Dev 工作区项目管理清单，纳入 38 个项目/目录，包含近 14 天活跃项目、Git
+      需要关注项目和全量项目概况。
+    updated_at: 2026-05-15
+    last_modified_at: 2026-05-15

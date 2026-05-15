@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-14T19:30:44.162Z",
+  "generated_at": "2026-05-15T04:01:52.217Z",
   "item_count": 13,
   "types": [
     "ai_website",
@@ -5286,15 +5286,16 @@
         "progress",
         "risks",
         "plans"
-      ]
+      ],
+      "last_modified_at": "2026-05-15"
     },
     "summary": {
-      "projects": 4,
-      "active_projects": 4,
+      "projects": 5,
+      "active_projects": 5,
       "high_risks": 1,
-      "active_plans": 3,
-      "recent_progress": 5,
-      "assets": 4,
+      "active_plans": 4,
+      "recent_progress": 6,
+      "assets": 5,
       "relations": 2
     },
     "projects": [
@@ -5320,7 +5321,9 @@
         "links": {
           "repo": ".",
           "local_preview": "http://127.0.0.1:5173/"
-        }
+        },
+        "updated_at": "2026-05-15",
+        "last_modified_at": "2026-05-15"
       },
       {
         "id": "personal-ai-workstation",
@@ -5340,7 +5343,9 @@
         ],
         "links": {
           "path": "setup-kits/personal-ai-workstation"
-        }
+        },
+        "updated_at": "2026-05-13",
+        "last_modified_at": "2026-05-15"
       },
       {
         "id": "local-image-generator-skill",
@@ -5357,7 +5362,9 @@
         "links": {
           "local_skill": "C:\\Users\\AprilWu\\.codex\\skills\\local-image-generator",
           "local_tool": "Y:\\服务器管理\\腾讯云-首尔-Ubunut-150.109.233.152\\dev\\image-generator"
-        }
+        },
+        "updated_at": "2026-05-15",
+        "last_modified_at": "2026-05-15"
       },
       {
         "id": "submit-results-to-workbench-skill",
@@ -5377,7 +5384,31 @@
         ],
         "links": {
           "local_skill": "C:\\Users\\AprilWu\\.codex\\skills\\submit-results-to-workbench"
-        }
+        },
+        "updated_at": "2026-05-15",
+        "last_modified_at": "2026-05-15"
+      },
+      {
+        "id": "dev-workspace-inventory",
+        "name": "I:\\Dev 项目管理清单",
+        "type": "project",
+        "stage": "operating",
+        "status": "active",
+        "risk_level": "medium",
+        "summary": "对 I:\\Dev 工作区下的项目、资料、运维、量化和 Agent/Skill 目录做浅层盘点，记录最新更新时间、项目标识、Git 状态和概况。",
+        "next_action": "每周自动刷新项目清单，优先跟进近 14 天活跃项目和 Git 有改动项目。",
+        "owner_note": "清单只做浅扫，不读取 .env、密钥、token 或私有配置内容，不自动修改其他项目源码。",
+        "related_agents": [
+          "codex"
+        ],
+        "related_workflows": [
+          "submit-to-flaios"
+        ],
+        "links": {
+          "local_doc": "I:\\Dev\\项目管理清单.md"
+        },
+        "updated_at": "2026-05-15",
+        "last_modified_at": "2026-05-15"
       }
     ],
     "assets": [
@@ -5389,7 +5420,9 @@
         "summary": "飞流AI枢纽线上入口域名。",
         "related_projects": [
           "flaios-hub"
-        ]
+        ],
+        "updated_at": "2026-05-13",
+        "last_modified_at": "2026-05-15"
       },
       {
         "id": "lazy-agent-shelf-repo",
@@ -5399,7 +5432,9 @@
         "summary": "飞流AI枢纽代码与内容源仓库。",
         "related_projects": [
           "flaios-hub"
-        ]
+        ],
+        "updated_at": "2026-05-15",
+        "last_modified_at": "2026-05-15"
       },
       {
         "id": "personal-ai-workstation-kit",
@@ -5409,7 +5444,9 @@
         "summary": "可分享、可导出、可交给 Agent 的电脑初始化资产。",
         "related_projects": [
           "personal-ai-workstation"
-        ]
+        ],
+        "updated_at": "2026-05-13",
+        "last_modified_at": "2026-05-15"
       },
       {
         "id": "submit-results-to-workbench-local-skill",
@@ -5420,7 +5457,22 @@
         "related_projects": [
           "submit-results-to-workbench-skill",
           "flaios-hub"
-        ]
+        ],
+        "updated_at": "2026-05-15",
+        "last_modified_at": "2026-05-15"
+      },
+      {
+        "id": "dev-project-inventory-doc",
+        "name": "I:\\Dev 项目管理清单文档",
+        "type": "document",
+        "status": "active",
+        "summary": "位于 I:\\Dev\\项目管理清单.md，记录 38 个项目/目录的分类、概况、最新更新时间、Git 状态和维护注意事项。",
+        "related_projects": [
+          "dev-workspace-inventory",
+          "flaios-hub"
+        ],
+        "updated_at": "2026-05-15",
+        "last_modified_at": "2026-05-15"
       }
     ],
     "relations": [
@@ -5432,7 +5484,9 @@
         "summary": "可以通过 Agent、网站提交页或 PR 提交 AI 网站、工具、项目和环境套件。",
         "related_projects": [
           "flaios-hub"
-        ]
+        ],
+        "updated_at": "2026-05-13",
+        "last_modified_at": "2026-05-15"
       },
       {
         "id": "ai-agents",
@@ -5442,7 +5496,9 @@
         "summary": "Codex、Claude Code、Cursor、OpenCode、Trae 等工具中的 Agent 可以按规范更新内容和工作台状态。",
         "related_projects": [
           "flaios-hub"
-        ]
+        ],
+        "updated_at": "2026-05-13",
+        "last_modified_at": "2026-05-15"
       }
     ],
     "progress": [
@@ -5451,35 +5507,54 @@
         "date": "2026-05-13",
         "project": "flaios-hub",
         "status": "done",
-        "summary": "环境套件页面已展示软件分组、官方链接、目录结构、安全规则、公开网站目录和可复制命令。"
+        "summary": "环境套件页面已展示软件分组、官方链接、目录结构、安全规则、公开网站目录和可复制命令。",
+        "updated_at": "2026-05-13",
+        "last_modified_at": "2026-05-15"
       },
       {
         "id": "setup-cli-export",
         "date": "2026-05-13",
         "project": "personal-ai-workstation",
         "status": "done",
-        "summary": "setup CLI 已支持 list/show/export/script/agent，export 默认生成公开分享包。"
+        "summary": "setup CLI 已支持 list/show/export/script/agent，export 默认生成公开分享包。",
+        "updated_at": "2026-05-13",
+        "last_modified_at": "2026-05-15"
       },
       {
         "id": "personal-workbench-start",
         "date": "2026-05-13",
         "project": "flaios-hub",
         "status": "active",
-        "summary": "开始把个人工作台作为飞流AI枢纽的新栏目落地。"
+        "summary": "开始把个人工作台作为飞流AI枢纽的新栏目落地。",
+        "updated_at": "2026-05-13",
+        "last_modified_at": "2026-05-15"
       },
       {
         "id": "local-image-generator-skill-created",
         "date": "2026-05-15",
         "project": "local-image-generator-skill",
         "status": "done",
-        "summary": "已创建本地图像生成工具与 Codex Skill，默认使用 gpt-image-2，生成图片时同步保存 output 图片和 prompts 提示词，并验证可复制到当前项目 public/images/hero.png。"
+        "summary": "已创建本地图像生成工具与 Codex Skill，默认使用 gpt-image-2，生成图片时同步保存 output 图片和 prompts 提示词，并验证可复制到当前项目 public/images/hero.png。",
+        "updated_at": "2026-05-15",
+        "last_modified_at": "2026-05-15"
       },
       {
         "id": "submit-results-to-workbench-skill-created",
         "date": "2026-05-15",
         "project": "submit-results-to-workbench-skill",
         "status": "done",
-        "summary": "已创建“提交成果到工作台”Codex Skill，封装跨项目提交成果到个人工作台的流程，默认目标为 I:\\Dev\\通用性agent开发，并通过 quick_validate.py 校验。"
+        "summary": "已创建“提交成果到工作台”Codex Skill，封装跨项目提交成果到个人工作台的流程，默认目标为 I:\\Dev\\通用性agent开发，并通过 quick_validate.py 校验。",
+        "updated_at": "2026-05-15",
+        "last_modified_at": "2026-05-15"
+      },
+      {
+        "id": "dev-workspace-inventory-created",
+        "date": "2026-05-15",
+        "project": "dev-workspace-inventory",
+        "status": "done",
+        "summary": "已在 I:\\Dev\\项目管理清单.md 创建 Dev 工作区项目管理清单，纳入 38 个项目/目录，包含近 14 天活跃项目、Git 需要关注项目和全量项目概况。",
+        "updated_at": "2026-05-15",
+        "last_modified_at": "2026-05-15"
       }
     ],
     "risks": [
@@ -5492,7 +5567,9 @@
         "mitigation": "默认只导出 websites.public.csv；完整 websites.csv 仅允许 --include-private 私有备份。",
         "related_projects": [
           "personal-ai-workstation"
-        ]
+        ],
+        "updated_at": "2026-05-13",
+        "last_modified_at": "2026-05-15"
       },
       {
         "id": "workbench-overreach",
@@ -5503,7 +5580,9 @@
         "mitigation": "v1 只呈现状态，不编辑真实项目文件，不做复杂数据库。",
         "related_projects": [
           "flaios-hub"
-        ]
+        ],
+        "updated_at": "2026-05-13",
+        "last_modified_at": "2026-05-15"
       },
       {
         "id": "local-image-generator-private-paths",
@@ -5514,7 +5593,9 @@
         "mitigation": "公开前改为环境变量或模板路径，只发布 .env.example，不发布 .env.local、API key、私有 prompt 或生成素材。",
         "related_projects": [
           "local-image-generator-skill"
-        ]
+        ],
+        "updated_at": "2026-05-15",
+        "last_modified_at": "2026-05-15"
       }
     ],
     "plans": [
@@ -5528,7 +5609,9 @@
           "新增个人工作台网站栏目。",
           "新增 personal-workbench Codex Skill。",
           "让 Agent 可以按规范更新项目、风险、进展和计划。"
-        ]
+        ],
+        "updated_at": "2026-05-15",
+        "last_modified_at": "2026-05-15"
       },
       {
         "id": "setup-kit-next",
@@ -5539,7 +5622,9 @@
           "继续补软件官方链接。",
           "支持 setup export zip。",
           "拆分公开网站清单与私有历史清单。"
-        ]
+        ],
+        "updated_at": "2026-05-13",
+        "last_modified_at": "2026-05-15"
       },
       {
         "id": "local-image-generator-public-draft",
@@ -5550,7 +5635,22 @@
           "将工具路径改为 LOCAL_IMAGE_GENERATOR_DIR 或跨平台默认目录。",
           "把 dev/image-generator 整理成可分享模板，仅包含 .env.example。",
           "在飞流AI枢纽中以 draft 状态展示，明确适合场景、边界和风险。"
-        ]
+        ],
+        "updated_at": "2026-05-15",
+        "last_modified_at": "2026-05-15"
+      },
+      {
+        "id": "dev-workspace-inventory-maintenance",
+        "horizon": "recurring",
+        "status": "active",
+        "title": "I:\\Dev 项目管理清单维护",
+        "goals": [
+          "每周刷新 I:\\Dev\\项目管理清单.md。",
+          "关注近 14 天活跃项目、Git dirty 项目和涉及 .env/服务器/支付的敏感目录。",
+          "不自动读取密钥、不提交其他项目源码，只更新管理清单。"
+        ],
+        "updated_at": "2026-05-15",
+        "last_modified_at": "2026-05-15"
       }
     ]
   }
