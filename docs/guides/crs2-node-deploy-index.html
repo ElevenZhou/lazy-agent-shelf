@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="CRS2.0 家庭节点(N6-N16)一键部署指南。人照做能上线;AI 读后能自动化执行。">
+<meta name="keywords" content="CRS2.0,sub2api,frp,部署,节点,NewAPI">
+<title>CRS2.0 节点部署指南 · crs2-deploy</title>
+<style>
+:root{
+  --bg:#0f1115;--panel:#161a22;--panel2:#1d222c;--border:#2a313d;
+  --text:#e6e9ef;--muted:#8b94a3;--accent:#7dd3fc;--accent2:#a78bfa;
+  --ok:#4ade80;--warn:#fbbf24;--err:#f87171;--code:#0b0d12;
+  --link:#7dd3fc;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--text);font:14px/1.65 ui-sans-serif,system-ui,-apple-system,"Microsoft YaHei",sans-serif}
+a{color:var(--link);text-decoration:none}a:hover{text-decoration:underline}
+code,pre,kbd{font-family:ui-monospace,SFMono-Regular,"Cascadia Code",Consolas,monospace}
+code{background:#202734;border:1px solid var(--border);padding:1px 6px;border-radius:4px;font-size:.92em}
+pre{background:var(--code);border:1px solid var(--border);border-radius:8px;padding:14px 16px;overflow-x:auto;margin:8px 0;position:relative}
+pre code{background:none;border:none;padding:0;font-size:.92em}
+.copy{position:absolute;top:6px;right:6px;background:#2a313d;border:1px solid #3a4252;color:var(--muted);font-size:11px;padding:3px 8px;border-radius:5px;cursor:pointer;opacity:.6;transition:.15s}
+.copy:hover{opacity:1;color:var(--text)}
+.copy.copied{color:var(--ok);border-color:var(--ok)}
+
+.layout{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
+nav.side{background:var(--panel);border-right:1px solid var(--border);padding:20px 16px;position:sticky;top:0;height:100vh;overflow-y:auto}
+nav.side h1{font-size:18px;margin:0 0 6px;color:var(--accent)}
+nav.side .sub{color:var(--muted);font-size:12px;margin-bottom:18px}
+nav.side ul{list-style:none;padding:0;margin:0}
+nav.side li{margin:2px 0}
+nav.side a{display:block;padding:5px 9px;border-radius:5px;color:var(--text);font-size:13px}
+nav.side a:hover{background:var(--panel2);text-decoration:none}
+nav.side a.active{background:var(--panel2);color:var(--accent);font-weight:600}
+nav.side .group{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.5px;margin:14px 0 6px;padding:0 9px}
+
+main{padding:32px 48px;max-width:980px}
+h1.hero{font-size:30px;margin:0 0 6px;background:linear-gradient(120deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{color:var(--muted);font-size:16px;margin:0 0 26px}
+h2{margin:36px 0 10px;font-size:22px;border-bottom:1px solid var(--border);padding-bottom:6px}
+h3{margin:22px 0 8px;font-size:17px;color:var(--accent)}
+h4{margin:14px 0 6px;font-size:15px;color:var(--accent2)}
+p,li{font-size:14px}
+
+.card{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:16px 20px;margin:14px 0}
+.card-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:900px){.card-row{grid-template-columns:1fr}}
+
+table{width:100%;border-collapse:collapse;margin:8px 0;font-size:13px}
+th,td{padding:7px 10px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top}
+th{color:var(--muted);font-weight:600;background:var(--panel)}
+tr:last-child td{border-bottom:none}
+
+.callout{border-left:3px solid;padding:10px 14px;margin:10px 0;border-radius:6px;background:var(--panel)}
+.callout.info{border-color:var(--accent)}
+.callout.warn{border-color:var(--warn);background:#2a1f0a}
+.callout.err{border-color:var(--err);background:#2a0e0e}
+.callout.ok{border-color:var(--ok);background:#0e2516}
+.callout .lab{font-weight:700;text-transform:uppercase;font-size:11px;letter-spacing:1px;margin-right:6px}
+.callout.info .lab{color:var(--accent)}
+.callout.warn .lab{color:var(--warn)}
+.callout.err .lab{color:var(--err)}
+.callout.ok .lab{color:var(--ok)}
+
+.kbd{background:#202734;border:1px solid var(--border);border-bottom-width:2px;padding:1px 6px;border-radius:4px;font-size:.85em;font-family:ui-monospace,monospace}
+
+.step{counter-increment:step;background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:18px 22px;margin:18px 0}
+.step h3{margin-top:0;display:flex;align-items:baseline;gap:10px}
+.step h3::before{content:counter(step,decimal-leading-zero);background:var(--accent2);color:#0a0d14;font-weight:800;padding:2px 8px;border-radius:5px;font-size:13px}
+.phase{counter-reset:step}
+
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+.chip{background:#202734;border:1px solid var(--border);color:var(--muted);padding:3px 9px;border-radius:999px;font-size:12px}
+.chip.ok{color:var(--ok);border-color:#1f5132}
+.chip.warn{color:var(--warn);border-color:#5a4515}
+.chip.err{color:var(--err);border-color:#5a2828}
+
+.check{display:flex;align-items:flex-start;gap:8px;margin:4px 0}
+.check input{margin-top:3px}
+.check label{cursor:pointer;flex:1}
+
+.diagram{background:var(--code);border:1px solid var(--border);border-radius:8px;padding:16px;overflow-x:auto;font-family:ui-monospace,monospace;font-size:12px;line-height:1.55;white-space:pre;color:#cbd5e1}
+
+footer{margin:60px 0 30px;color:var(--muted);font-size:12px;border-top:1px solid var(--border);padding-top:18px;text-align:center}
+
+.outhint{color:var(--muted);font-size:12px;margin:-4px 0 8px}
+.outhint::before{content:"↳ 期望输出: ";color:var(--accent)}
+
+.expected{background:#0e2516;border:1px dashed #1f5132;border-radius:6px;padding:8px 12px;margin:6px 0;font-family:ui-monospace,monospace;font-size:12px;color:#bef0c8}
+
+mark{background:#3a2f0a;color:#fde68a;padding:0 4px;border-radius:3px}
+
+.ai-banner{background:linear-gradient(135deg,#1e2a3a,#2a1e3a);border:1px solid #3a4252;border-radius:12px;padding:20px 24px;margin:20px 0}
+.ai-banner h2{margin-top:0;border:none}
+
+details{background:var(--panel);border:1px solid var(--border);border-radius:8px;padding:0;margin:10px 0}
+details>summary{cursor:pointer;padding:10px 14px;font-weight:600;list-style:none}
+details>summary::before{content:"▸ ";color:var(--muted);transition:transform .15s}
+details[open]>summary::before{content:"▾ "}
+details>:not(summary){padding:0 14px 12px}
+</style>
+</head>
+<body>
+<div class="layout">
+
+<nav class="side">
+  <h1>crs2-deploy</h1>
+  <div class="sub">CRS2.0 节点部署 · v0.1.0</div>
+
+  <div class="group">概览</div>
+  <ul>
+    <li><a href="#goal">目标</a></li>
+    <li><a href="#arch">架构</a></li>
+    <li><a href="#node-table">节点编号表</a></li>
+  </ul>
+
+  <div class="group">部署流程</div>
+  <ul>
+    <li><a href="#phase-pre">P. 前置准备</a></li>
+    <li><a href="#phase-a">A. 机器先决</a></li>
+    <li><a href="#phase-b">B. 拿代码 + 实物</a></li>
+    <li><a href="#phase-c">C. 解压工具</a></li>
+    <li><a href="#phase-d">D. 装 Docker Desktop</a></li>
+    <li><a href="#phase-e">E. secrets</a></li>
+    <li><a href="#phase-f">F. install.ps1</a></li>
+    <li><a href="#phase-g">G. 节点本机验</a></li>
+    <li><a href="#phase-h">H. 首尔侧验</a></li>
+    <li><a href="#phase-i">I. NewAPI 接入</a></li>
+    <li><a href="#phase-j">J. 收尾</a></li>
+  </ul>
+
+  <div class="group">参考</div>
+  <ul>
+    <li><a href="#verify">完成标志</a></li>
+    <li><a href="#troubleshoot">故障速查</a></li>
+    <li><a href="#for-ai">给 AI 的说明</a></li>
+  </ul>
+</nav>
+
+<main>
+
+<h1 class="hero">CRS2.0 节点部署指南</h1>
+<p class="lead">一份页面 = 一次部署。人可以照做,AI 可以读懂。家庭节点 N6-N16 通用。</p>
+
+<section id="goal">
+<h2>目标</h2>
+<div class="card">
+  <p>把一台家庭 Windows 机器接入 CRS2.0 网关网络:</p>
+  <ol>
+    <li>本机跑 <strong>sub2api</strong>(Docker Compose,内置 postgres + redis),监听 <code>127.0.0.1:8080</code></li>
+    <li>本机跑 <strong>frpc</strong>,反向连到首尔 frps(<code>150.109.233.152:7000</code>),映射到 <code>:160XX</code>(XX=节点编号 6-16)</li>
+    <li>首尔 <strong>NewAPI</strong> 把这个 <code>:160XX</code> 作为一个 channel 加入调度池</li>
+    <li>用户调用 NewAPI → 自动路由到家庭节点 → sub2api 转发到上游 AI</li>
+  </ol>
+  <p><strong>完成 = 5 件事全打勾</strong>:节点本机服务运行 + 首尔本机能 curl 通 / health + 飞书收到部署完成卡片 + NewAPI channel 测试通过 + smoke test 走通。</p>
+</div>
+</section>
+
+<section id="arch">
+<h2>架构</h2>
+<div class="diagram">用户
+  │
+  ▼ https://&lt;NewAPI 入口域名&gt;
+┌──────────────────────────────────────────────┐
+│ 首尔服务器  150.109.233.152                  │
+│                                              │
+│  NewAPI(Caddy:80/443 + new-api Docker)       │
+│  ├── channel: N6-api6-sub2api → 127.0.0.1:16006
+│  ├── channel: N7-api7-sub2api → 127.0.0.1:16007
+│  └── ...                                     │
+│           ↑(本机回环)                         │
+│  frps :7000(token 认证)                      │
+│     ├─ N3        → :18080   保留(cli 用)     │
+│     ├─ MAXHUB    → :18081   保留(测试用)     │
+│     └─ N6-N16    → :16006-16016 新接入        │
+└──────────────────────────────────────────────┘
+                    ▲ frpc 出站到 7000
+                    │
+┌──────────────────────────────────────────────┐
+│ 家庭节点 NX                                  │
+│   sub2api(docker compose)  :8080             │
+│   frpc.exe          → 150.109.233.152:7000   │
+│   NSSM 守护两个服务                          │
+│   monitor.ps1 每分钟健康检查 + 飞书告警      │
+└──────────────────────────────────────────────┘
+</div>
+</section>
+
+<section id="node-table">
+<h2>节点编号表</h2>
+<p>找到 <strong>你要部署哪个节点</strong>,记住对应的<mark>远程端口</mark>和<mark>子域名</mark>。后面所有命令把 <code>NX</code> 替换成自己的编号。</p>
+<table>
+<thead><tr><th>节点</th><th>proxy 名</th><th>远端口</th><th>子域名(规划)</th><th>本地服务</th></tr></thead>
+<tbody>
+<tr><td>N6</td><td>n6-sub2api</td><td>16006</td><td>api6.flaios.com</td><td rowspan="11"><code>127.0.0.1:8080</code><br>(sub2api 默认)</td></tr>
+<tr><td>N7</td><td>n7-sub2api</td><td>16007</td><td>api7.flaios.com</td></tr>
+<tr><td>N8</td><td>n8-sub2api</td><td>16008</td><td>api8.flaios.com</td></tr>
+<tr><td>N9</td><td>n9-sub2api</td><td>16009</td><td>api9.flaios.com</td></tr>
+<tr><td>N10</td><td>n10-sub2api</td><td>16010</td><td>api10.flaios.com</td></tr>
+<tr><td>N11</td><td>n11-sub2api</td><td>16011</td><td>api11.flaios.com</td></tr>
+<tr><td>N12</td><td>n12-sub2api</td><td>16012</td><td>api12.flaios.com</td></tr>
+<tr><td>N13</td><td>n13-sub2api</td><td>16013</td><td>api13.flaios.com</td></tr>
+<tr><td>N14</td><td>n14-sub2api</td><td>16014</td><td>api14.flaios.com</td></tr>
+<tr><td>N15</td><td>n15-sub2api</td><td>16015</td><td>api15.flaios.com</td></tr>
+<tr><td>N16</td><td>n16-sub2api</td><td>16016</td><td>api16.flaios.com</td></tr>
+</tbody>
+</table>
+<p class="outhint">规则:<code>remotePort = 16000 + 节点编号</code>,<code>proxy_name = n{x}-sub2api</code>。N17+ 顺延。</p>
+</section>
+
+<section id="phase-pre" class="phase">
+<h2>P. 前置准备(你的本机,2 分钟)</h2>
+
+<div class="step">
+<h3>把 crs2-deploy 仓库推到最新</h3>
+<p>开发主控机本地有变更的话,先 commit + push。N6 接下来要 <code>gh repo clone</code>,得拿到最新版。</p>
+<pre><code># 你的本机(开发主控,非 N6)
+cd I:\Dev\CRS2.0配套
+git status
+# 干净就跳过下一行;有变动就 commit
+git add . ; git commit -m "..." ; git push</code></pre>
+</div>
+</section>
+
+<section id="phase-a" class="phase">
+<h2>A. N6 机器先决条件(10 分钟)</h2>
+<div class="callout warn"><span class="lab">必读</span> 以下命令都在 N6 的 <strong>管理员 PowerShell</strong> 跑(右键开始菜单 → 终端管理员 / <span class="kbd">Win+X</span> 然后 <span class="kbd">A</span>)。</div>
+
+<div class="step">
+<h3>装 git / gh / PowerShell 7</h3>
+<pre><code>winget install --id Git.Git              -e --silent --accept-source-agreements --accept-package-agreements
+winget install --id GitHub.cli           -e --silent --accept-source-agreements --accept-package-agreements
+winget install --id Microsoft.PowerShell -e --silent --accept-source-agreements --accept-package-agreements</code></pre>
+<div class="callout info"><span class="lab">关键</span> <strong>关掉当前 PowerShell,重新开一个管理员 PowerShell</strong>,让 PATH 刷新。</div>
+<pre><code>git --version       # 2.x
+gh --version        # 2.x
+pwsh --version      # 7.x</code></pre>
+</div>
+
+<div class="step">
+<h3>验 BIOS 虚拟化</h3>
+<p>这是 N6 部署唯一<strong>远程做不了的步</strong>,先验它再继续。</p>
+<pre><code>Get-ComputerInfo -Property "HyperVisorPresent","HyperVRequirementVirtualizationFirmwareEnabled" | Format-List</code></pre>
+<div class="callout ok"><span class="lab">通过</span> <code>HyperVRequirementVirtualizationFirmwareEnabled = True</code> → 继续。</div>
+<div class="callout err"><span class="lab">失败</span> <code>= False</code> → 联系现场同学进 BIOS 开 VT-x / AMD-V,这之前不要继续。</div>
+</div>
+
+<div class="step">
+<h3>启用 Hyper-V + WSL</h3>
+<pre><code>Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All -NoRestart
+Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform -NoRestart
+wsl --install --no-distribution</code></pre>
+<p>如提示"需要重启",<strong>先重启 N6</strong>(<code>Restart-Computer -Force</code>),RDP 重连后再继续。</p>
+</div>
+</section>
+
+<section id="phase-b" class="phase">
+<h2>B. 拿代码 + 实物到 N6(5-30 分钟)</h2>
+<p>两条路线<strong>二选一</strong>。优先 B-1(git clone)。网络受限改 B-2(zip)。</p>
+
+<details open>
+<summary>B-1 · git clone(推荐主路)</summary>
+
+<div class="step">
+<h3>gh auth login(用 ElevenZhou 账号)</h3>
+<pre><code>gh auth login</code></pre>
+<p>交互回答:</p>
+<ul>
+<li>Where to log in? → <strong>GitHub.com</strong></li>
+<li>Preferred protocol? → <strong>HTTPS</strong></li>
+<li>Authenticate Git? → <strong>Yes</strong></li>
+<li>How? → <strong>Login with a web browser</strong></li>
+<li>记下 one-time code,粘到自动打开的 <code>https://github.com/login/device</code> 页面</li>
+</ul>
+<pre><code>gh auth status   # Logged in to github.com as ElevenZhou</code></pre>
+</div>
+
+<div class="step">
+<h3>克隆仓库到 C:\projects\crs2-deploy</h3>
+<pre><code>New-Item -ItemType Directory -Force -Path C:\projects | Out-Null
+Set-Location C:\projects
+gh repo clone ElevenZhou/crs2-deploy crs2-deploy
+Set-Location .\crs2-deploy
+Test-Path .\install.ps1     # True</code></pre>
+<div class="callout info"><span class="lab">路径</span> 路径必须是 <code>C:\projects\crs2-deploy</code>,这是 SOP 标准约定。</div>
+</div>
+
+<div class="step">
+<h3>拉 vendor(sub2api 源码 + docker-compose)</h3>
+<pre><code>pwsh -NoProfile -ExecutionPolicy Bypass -File .\scripts\fetch-core.ps1
+Test-Path .\vendor\CRS2.0\deploy\docker-compose.yml    # True</code></pre>
+<p class="outhint">vendor/CRS2.0/ 大约 50-80 MB,锁定在 tag <code>v0.1.126-baseline</code>。</p>
+</div>
+
+<div class="step">
+<h3>下载环境必备安装包</h3>
+<pre><code>pwsh -NoProfile -ExecutionPolicy Bypass -File .\Other\环境必备安装包\download-all.ps1</code></pre>
+<p class="outhint">共 ~632 MB(Docker Desktop ~620MB + nssm + frpc),哈希自动校验。失败时重跑,只重下失败的。</p>
+</div>
+
+</details>
+
+<details>
+<summary>B-2 · release zip(备选,网络差 / 离线交付)</summary>
+
+<div class="step">
+<h3>本机 build zip(没现成的话)</h3>
+<pre><code># 你的本机(非 N6)
+cd I:\Dev\CRS2.0配套
+.\scripts\fetch-core.ps1
+.\Other\环境必备安装包\download-all.ps1
+pwsh -File .\scripts\build-release.ps1 -DeployVersion v0.1.0 -CoreVersion v0.1.126-baseline
+# 产出 release\crs2-bundle-v0.1.0-core-v0.1.126-baseline.zip(629MB)</code></pre>
+</div>
+
+<div class="step">
+<h3>把 zip 送到 N6</h3>
+<table>
+<tr><th>方式</th><th>说明</th></tr>
+<tr><td>RDP 驱动器映射(推荐)</td><td>mstsc 未连接前 → 选项 → 本地资源 → 详细信息 → 驱动器 → 勾你 zip 所在盘 → 连接;N6 上"此电脑"看到映射盘 → 拖 zip 到 N6 <code>C:\projects\</code></td></tr>
+<tr><td>云盘 / IM</td><td>微云、阿里盘、WeChat 文件助手等。慢但简单</td></tr>
+<tr><td>OSS 临时直链</td><td>腾讯 COS / 阿里 OSS,N6 用 <code>Invoke-WebRequest</code> 拉</td></tr>
+</table>
+</div>
+
+<div class="step">
+<h3>校验 SHA256 + 解压</h3>
+<pre><code>Set-Location C:\projects
+(Get-FileHash crs2-bundle-v0.1.0-core-v0.1.126-baseline.zip -Algorithm SHA256).Hash
+# 应等于:6C2C21E2BA8B51CBD65FB825CFC360776A21C153261E66528F3D1458E6E1DCCA
+
+Expand-Archive .\crs2-bundle-v0.1.0-core-v0.1.126-baseline.zip -DestinationPath .\crs2-deploy
+Set-Location .\crs2-deploy
+pwsh -File .\Other\环境必备安装包\download-all.ps1 -VerifyOnly   # 三个 [OK]</code></pre>
+<div class="callout err"><span class="lab">不一致就重传</span> SHA256 不对,坚决不要将就 —— 后续装机一定崩。</div>
+</div>
+
+</details>
+</section>
+
+<section id="phase-c" class="phase">
+<h2>C. 解压 NSSM + frpc 二进制(2 分钟)</h2>
+
+<div class="step">
+<h3>解 NSSM</h3>
+<pre><code>Set-Location C:\projects\crs2-deploy
+Expand-Archive .\Other\环境必备安装包\nssm-2.24.zip -DestinationPath .\NSSM-tmp -Force
+Move-Item .\NSSM-tmp\nssm-2.24\win64\nssm.exe .\NSSM\nssm.exe -Force
+Remove-Item -Recurse -Force .\NSSM-tmp
+.\NSSM\nssm.exe version       # 2.24</code></pre>
+</div>
+
+<div class="step">
+<h3>解 frpc</h3>
+<pre><code>Expand-Archive .\Other\环境必备安装包\frp_0.68.1_windows_amd64.zip -DestinationPath .\FRP-tmp -Force
+Move-Item .\FRP-tmp\frp_0.68.1_windows_amd64\frpc.exe .\FRP\frpc.exe -Force
+Remove-Item -Recurse -Force .\FRP-tmp
+.\FRP\frpc.exe --version      # 0.68.1</code></pre>
+</div>
+</section>
+
+<section id="phase-d" class="phase">
+<h2>D. 装 Docker Desktop(20-30 分钟,含重启)</h2>
+
+<div class="step">
+<h3>静默安装</h3>
+<pre><code>Set-Location C:\projects\crs2-deploy
+Start-Process -FilePath .\Other\环境必备安装包\docker-desktop-installer.exe `
+  -ArgumentList 'install','--quiet','--accept-license' `
+  -Wait -NoNewWindow</code></pre>
+</div>
+
+<div class="step">
+<h3>重启 + RDP 重连</h3>
+<pre><code>Restart-Computer -Force</code></pre>
+</div>
+
+<div class="step">
+<h3>首次启动 Docker Desktop GUI(<strong>必须</strong>)</h3>
+<ul>
+<li>开始菜单 → <strong>Docker Desktop</strong> 双击</li>
+<li>接受协议(如有)</li>
+<li>等左下角变绿 "Engine running"(首次 1-2 分钟)</li>
+<li>Settings → General → 勾 "Start Docker Desktop when you sign in to your computer"</li>
+<li>关闭 Docker Desktop 窗口(后台继续跑)</li>
+</ul>
+<div class="callout warn"><span class="lab">注意</span> 首次必须点过一次 GUI,以后命令行才能用。这是 Docker Desktop 的限制,不是我们的。</div>
+</div>
+
+<div class="step">
+<h3>(可选)DockerHub 国内镜像加速</h3>
+<p>只在 <code>docker pull</code> 慢得离谱时才做。Docker Desktop → Settings → Docker Engine,JSON 加:</p>
+<pre><code>"registry-mirrors": [
+  "https://docker.mirrors.ustc.edu.cn",
+  "https://hub-mirror.c.163.com"
+]</code></pre>
+<p>Apply & Restart。</p>
+</div>
+
+<div class="step">
+<h3>验证</h3>
+<p>开<strong>新的</strong>管理员 PowerShell(让 docker 命令在 PATH 里):</p>
+<pre><code>docker version       # 显示 client + server 版本
+docker info          # 不报错
+docker ps            # 空列表(正常)</code></pre>
+</div>
+</section>
+
+<section id="phase-e" class="phase">
+<h2>E. 写 secrets.local.env(1 分钟)</h2>
+
+<div class="step">
+<h3>复制模板 → 完事</h3>
+<pre><code>Set-Location C:\projects\crs2-deploy
+Copy-Item .\secrets.local.env.example .\secrets.local.env</code></pre>
+<div class="callout ok"><span class="lab">已预填</span> 飞书 webhook 默认值已经预填(N6+ 统一)。<strong>不需要编辑,直接进下一步</strong>。</div>
+<p>如果想用其他飞书机器人,这时 <code>notepad .\secrets.local.env</code> 改 <code>LARK_WEBHOOK</code> 那行。一般 N6-N16 全用预填值。</p>
+</div>
+</section>
+
+<section id="phase-f" class="phase">
+<h2>F. 一键部署 install.ps1(5-15 分钟)</h2>
+
+<div class="step">
+<h3>把 NX 换成你的节点编号</h3>
+<pre><code>Set-Location C:\projects\crs2-deploy
+pwsh -NoProfile -ExecutionPolicy Bypass -File .\install.ps1 -NodeId <mark>N6</mark></code></pre>
+<div class="callout warn"><span class="lab">替换</span> 上面命令里 <code>N6</code> 改成你实际部署的节点编号(N7 / N8 / ...)。</div>
+</div>
+
+<div class="step">
+<h3>逐步观察输出</h3>
+<table>
+<tr><td>=== 0. 加载节点配置 ===</td><td>必须看到 <code>frpc_remote_port = 160XX (proxy: nX-sub2api)</code></td></tr>
+<tr><td>=== 1. 检查环境依赖 ===</td><td>跳过(手工装好了)</td></tr>
+<tr><td>=== 2. 准备 CRS2.0 本体 ===</td><td>vendor 已就位,跳过</td></tr>
+<tr><td>=== 3. 配置 FRP 客户端 ===</td><td>渲染 <code>FRP\frpc.toml</code></td></tr>
+<tr><td>=== 3.5 渲染 OPS runtime-config ===</td><td>渲染 <code>OPS\runtime-config.ps1</code></td></tr>
+<tr><td>=== 4. 注册 Windows 服务(NSSM)===</td><td>注册 <code>sub2api</code> + <code>frpc</code> 两个服务</td></tr>
+<tr><td>=== 5. 启服务 + 监控 ===</td><td><strong>首次会 <code>docker compose pull weishaw/sub2api</code>,3-5 分钟</strong></td></tr>
+<tr><td>=== 6. 上报部署完成 ===</td><td>飞书发"🆗 节点部署完成 — NX"绿卡 + 本地落档</td></tr>
+</table>
+<div class="expected">&gt;&gt;&gt; 节点 N6 部署完成 &lt;&lt;&lt;</div>
+<p>中途任何 throw → 完整输出截图,贴飞书 @维护者。</p>
+</div>
+</section>
+
+<section id="phase-g" class="phase">
+<h2>G. 节点本机验证(3 分钟)</h2>
+
+<div class="step">
+<h3>跑 OPS\status.ps1</h3>
+<pre><code>Set-Location C:\projects\crs2-deploy
+pwsh -NoProfile -ExecutionPolicy Bypass -File .\OPS\status.ps1</code></pre>
+<p>期望:</p>
+<div class="chips">
+<span class="chip ok">sub2api = Running</span>
+<span class="chip ok">frpc = Running</span>
+<span class="chip ok">端口 8080 LISTENING</span>
+<span class="chip ok">HTTP 200 from /health</span>
+</div>
+</div>
+
+<div class="step">
+<h3>看 frpc 日志</h3>
+<pre><code>Get-Content .\logs\frpc.out.log -Tail 30</code></pre>
+<p>必须看到:</p>
+<div class="expected">[I] login to server success
+[I] [n6-sub2api] start proxy success</div>
+<div class="callout err"><span class="lab">异常</span> 如果只有 login,没有 "start proxy success" → 端口被首尔占了或 token 错。看故障表 ↓</div>
+</div>
+</section>
+
+<section id="phase-h" class="phase">
+<h2>H. 首尔侧验证(2 分钟,在你的本机做)</h2>
+
+<div class="step">
+<h3>SSH 到首尔 curl health 端点</h3>
+<pre><code># 你的本机(不在 N6,在你办公主机)
+ssh -i "Y:\服务器管理\腾讯云-首尔-Ubunut-150.109.233.152\ShouerUbunutNewapi.pem" `
+    ubuntu@150.109.233.152 `
+    "sudo ss -ltn | grep 160<mark>06</mark> ; curl -s -o /dev/null -w '%{http_code}\n' http://127.0.0.1:160<mark>06</mark>/health"</code></pre>
+<div class="callout warn"><span class="lab">替换</span> 把上面两处 <code>06</code> 换成你节点编号(N7 → 07, N16 → 16)。</div>
+<p>期望:</p>
+<div class="expected">LISTEN 0 4096 *:16006 ...
+200</div>
+</div>
+</section>
+
+<section id="phase-i" class="phase">
+<h2>I. 接入 NewAPI(15 分钟)</h2>
+
+<div class="step">
+<h3>在 N6 上建 sub2api 专用 API key</h3>
+<ul>
+<li>N6 浏览器:<code>http://127.0.0.1:8080</code></li>
+<li>首次登录账密:<code>docker logs sub2api 2&gt;&amp;1 | Select-String -Pattern "admin"</code> 找 AUTO_SETUP 输出</li>
+<li>用户管理 → 新建 <code>newapi-relay</code> → 配模型权限 → 生成 API key,复制</li>
+</ul>
+</div>
+
+<div class="step">
+<h3>在首尔 NewAPI 后台加 channel</h3>
+<table>
+<tr><th>字段</th><th>值</th></tr>
+<tr><td>名称</td><td><code>N6-api6-sub2api</code>(换成你的)</td></tr>
+<tr><td>类型</td><td>Anthropic</td></tr>
+<tr><td>Base URL</td><td><code>http://127.0.0.1:16006</code>(换成你的端口)</td></tr>
+<tr><td>密钥</td><td>上一步在 N6 上拿到的 key</td></tr>
+<tr><td>模型</td><td>跟 sub2api 那边开了的清单一致(<code>claude-sonnet-4-x</code>, <code>claude-opus-4-x</code> 等)</td></tr>
+<tr><td>分组</td><td><code>home-nodes</code></td></tr>
+<tr><td>自动禁用</td><td>开</td></tr>
+</table>
+<p>保存 → 点测试 → 必须 200。</p>
+</div>
+
+<div class="step">
+<h3>端到端 smoke test</h3>
+<p>用 NewAPI 测试用户 key 发条 <code>claude-sonnet-4-x</code> 的 ping;NewAPI 日志页能看到路由到 <code>NX-apiX-sub2api</code>;sub2api admin 那边也能看到调用。</p>
+</div>
+</section>
+
+<section id="phase-j" class="phase">
+<h2>J. 收尾(5 分钟)</h2>
+
+<div class="step">
+<h3>记录到节点部署总表</h3>
+<p>在<strong>你的本机</strong>(crs2-deploy 仓):</p>
+<pre><code>cd I:\Dev\CRS2.0配套
+# 编辑 central\节点部署总表.md,加一行:N6 / 主人 / hostname / 部署日期 / key 指纹前 8 位 / ISP
+git add . ; git commit -m "docs: NX 上线记录" ; git push</code></pre>
+</div>
+
+<div class="step">
+<h3>提醒节点同学</h3>
+<ul>
+<li>机器别关机 / 睡眠 —— 关了就掉 frp,飞书会报警</li>
+<li>如果家里要停电或换机,提前告诉中心</li>
+<li>不要手动改 <code>C:\projects\crs2-deploy</code> 里的脚本 —— 后续升级会冲突</li>
+</ul>
+</div>
+</section>
+
+<section id="verify">
+<h2>完成标志</h2>
+<p>5 项全打勾 = NX 真正上线:</p>
+<div class="card">
+<div class="check"><input type="checkbox" id="ck1"><label for="ck1"><code>OPS\status.ps1</code> 全绿(两服务 Running + health 200)</label></div>
+<div class="check"><input type="checkbox" id="ck2"><label for="ck2">首尔 SSH 验 <code>curl http://127.0.0.1:160XX/health</code> → 200</label></div>
+<div class="check"><input type="checkbox" id="ck3"><label for="ck3">飞书"🆗 节点部署完成 — NX"卡片到了</label></div>
+<div class="check"><input type="checkbox" id="ck4"><label for="ck4">NewAPI <code>NX-apiX-sub2api</code> channel 测试通过</label></div>
+<div class="check"><input type="checkbox" id="ck5"><label for="ck5">smoke test 走通(NewAPI → NX → sub2api → 200)</label></div>
+</div>
+</section>
+
+<section id="troubleshoot">
+<h2>故障速查</h2>
+<table>
+<thead><tr><th>症状</th><th>第一步</th></tr></thead>
+<tbody>
+<tr><td>BIOS 虚拟化关</td><td>联系现场进 BIOS 开 VT-x / AMD-V,远程做不了</td></tr>
+<tr><td><code>winget</code> 找不到包</td><td>Win11 23H2+ 自带;旧版需要更新 App Installer 或装 winget MSIX</td></tr>
+<tr><td><code>gh auth login</code> 浏览器没自动开</td><td>手动浏览器开 <code>https://github.com/login/device</code> 粘 code</td></tr>
+<tr><td><code>gh repo clone</code> 401/403</td><td><code>gh auth status</code> 看是不是 ElevenZhou 账号</td></tr>
+<tr><td><code>fetch-core.ps1</code> 卡 git clone</td><td>GitHub 网络慢,挂代理 / 重试</td></tr>
+<tr><td>Docker Desktop 卡 starting</td><td><code>wsl --update</code>;Docker Desktop → Troubleshoot → Reset to factory defaults</td></tr>
+<tr><td><code>docker compose pull</code> 超时</td><td>看 §D 配国内镜像</td></tr>
+<tr><td>install.ps1 中途崩</td><td>整段输出截图 → 飞书 @维护者</td></tr>
+<tr><td>服务 Running 但 health 不通</td><td><code>docker compose -f vendor\CRS2.0\deploy\docker-compose.yml logs --tail 50</code></td></tr>
+<tr><td>frpc auth fail</td><td><code>FRP\frpc.toml</code> 第 12 行 token 跟 <code>FRP\frpc节点配置指南含密码.md</code> 比对</td></tr>
+<tr><td>frpc port already used</td><td>首尔已经有人占了 160XX,联系维护者查 frps 日志</td></tr>
+<tr><td>飞书没收到卡片</td><td>看 <code>secrets.local.env</code> webhook 完整;直接在 N6 跑 <code>. .\OPS\feishu\send-feishu.ps1; Send-FeishuAlert -Title test -Text test</code></td></tr>
+</tbody>
+</table>
+<p>超过 10 分钟解不开 → 把以下三样发飞书:</p>
+<ol>
+<li><code>.\OPS\status.ps1</code> 完整输出</li>
+<li><code>.\logs\crs.err.log</code> 末 20 行</li>
+<li><code>.\logs\frpc.err.log</code> 末 20 行</li>
+</ol>
+</section>
+
+<section id="for-ai" class="ai-banner">
+<h2>给 AI 的说明(如果你是 AI 在读这个页面)</h2>
+<p>你被分配的任务:<strong>把这台 Windows 机器部署成 CRS2.0 节点 NX</strong>。你需要:</p>
+<ol>
+<li><strong>识别节点编号</strong> NX:从用户那里问,或者从环境变量 <code>NODE_ID</code> 读。<strong>所有命令里的 <code>N6</code> / <code>16006</code> / <code>api6</code> 都需要按 NX 替换</strong>(规则:remotePort = 16000 + 节点编号)</li>
+<li><strong>按 P → A → B → C → D → E → F → G → H → I → J 顺序执行</strong>。不要跳步</li>
+<li><strong>每步都验证</strong>:运行命令后,对照本文档的"期望输出"。不符合就停,把错误汇报给用户,不要硬重试</li>
+<li><strong>破坏性操作前先告知用户</strong>:重启、改 Windows 服务、装包、改防火墙</li>
+<li><strong>遇到 BIOS 虚拟化关闭</strong>:这是你<strong>做不了</strong>的,告诉用户联系现场同学</li>
+<li><strong>不要修改</strong>:<code>nodes.toml</code>(中心维护)、<code>FRP/frpc节点配置指南含密码.md</code> 里的 token、<code>OPS/</code> 里的脚本本体</li>
+<li><strong>不要泄露</strong>:<code>secrets.local.env</code> 内容、SSH 私钥、API key 到任何聊天 / 截图 / 公开页面</li>
+<li><strong>不要操作首尔服务器</strong> —— 那是中心运维的事</li>
+<li><strong>完成判断</strong>:本文档 <a href="#verify">完成标志</a> 5 项全打勾,缺一不可</li>
+</ol>
+<p>关键事实(你需要内化):</p>
+<ul>
+<li>工作目录写死 <code>C:\projects\crs2-deploy</code></li>
+<li>用 PowerShell 7(<code>pwsh</code>),不是 5.1(后者对中文注释的 .ps1 解析有坑)</li>
+<li>sub2api 走 Docker Compose,本地 <code>127.0.0.1:8080</code>,健康端点 <code>/health</code></li>
+<li>frps 是 <code>150.109.233.152:7000</code>,token 已明文写在仓库内</li>
+<li>飞书 webhook 已预填在 <code>secrets.local.env.example</code>,不用单独配</li>
+<li>所有节点差异化配置在根目录 <code>nodes.toml</code>,你只用读不用改</li>
+</ul>
+</section>
+
+<footer>
+crs2-deploy · <a href="https://github.com/ElevenZhou/crs2-deploy">github.com/ElevenZhou/crs2-deploy</a>(private)
+&nbsp;|&nbsp; 相关资源:<a href="../central/NewAPI接入指南.md">NewAPI 接入指南</a> · <a href="../central/N6上线工作清单.md">N6 上线工作清单</a> · <a href="../central/N6部署执行步骤.md">N6 部署执行步骤(md)</a>
+</footer>
+
+</main>
+</div>
+
+<script>
+// 代码块加 copy 按钮
+document.querySelectorAll('pre').forEach(pre=>{
+  const btn=document.createElement('button');
+  btn.className='copy';btn.textContent='copy';
+  btn.onclick=()=>{
+    const txt=pre.querySelector('code')?.innerText||pre.innerText;
+    navigator.clipboard.writeText(txt).then(()=>{
+      btn.textContent='copied';btn.classList.add('copied');
+      setTimeout(()=>{btn.textContent='copy';btn.classList.remove('copied')},1500);
+    });
+  };
+  pre.appendChild(btn);
+});
+
+// 侧栏 active 跟随滚动
+const links=document.querySelectorAll('nav.side a');
+const sections=[...links].map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+const setActive=()=>{
+  const y=window.scrollY+120;
+  let cur=sections[0];
+  sections.forEach(s=>{if(s.offsetTop<=y)cur=s});
+  links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur.id));
+};
+window.addEventListener('scroll',setActive);setActive();
+
+// 完成清单存 localStorage
+document.querySelectorAll('.check input').forEach(cb=>{
+  const k='crs2-deploy-check-'+cb.id;
+  cb.checked=localStorage.getItem(k)==='1';
+  cb.onchange=()=>localStorage.setItem(k,cb.checked?'1':'0');
+});
+</script>
+</body>
+</html>

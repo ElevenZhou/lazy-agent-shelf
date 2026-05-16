@@ -5,8 +5,8 @@ items:
     stage: building
     status: active
     risk_level: medium
-    summary: 从跨工具 Agent 货架升级为 AI 网站、工具、Agent、Skill、工作流、环境套件、项目和个人工作台的 AI 使用枢纽。
-    next_action: 完成个人工作台数据结构、页面展示和 Agent 更新技能。
+    summary: 从跨工具 Agent 货架升级为 AI 网站、工具、Agent、Skill、工作流、环境套件、项目、入门指南和个人工作台的 AI 使用枢纽。
+    next_action: 继续完善入门指南栏目，把新人 AI 工作指南与工具选择、环境套件和提交入口串联起来。
     owner_note: 当前主项目，适合先作为个人工作台的样板项目。
     related_agents:
       - frontend-builder
@@ -87,3 +87,70 @@ items:
       local_doc: I:\Dev\项目管理清单.md
     updated_at: 2026-05-15
     last_modified_at: 2026-05-15
+  - id: post-wechat-moments-skill
+    name: 发图文朋友圈 Skill
+    type: skill
+    stage: testing
+    status: active
+    risk_level: low
+    summary: 将“发朋友圈/发图文朋友圈”的临时创作流程沉淀为 Codex Skill，支持提炼表达目标、撰写自然朋友圈文案、判断配图数量，并结合本地作图流程生成可发布配图。
+    next_action: 在更多真实朋友圈发布任务中继续使用，观察是否需要增加固定模板、行业风格库或自动封面排版脚本。
+    owner_note: 已创建为本地 Codex Skill，可用“我要发个朋友圈”“帮我发图文朋友圈”“写朋友圈文案再配图”等表达触发。
+    related_agents:
+      - codex
+    related_workflows:
+      - content-creation
+      - local-image-generation
+    links:
+      local_skill: C:\Users\AprilWu\.codex\skills\post-wechat-moments
+      example_assets: I:\Dev\微信运营\朋友圈-算力合作
+    updated_at: 2026-05-15
+    last_modified_at: 2026-05-15
+
+  - id: crs-n6-launch-console
+    name: N6 首发节点上线台
+    type: guide
+    stage: building
+    status: active
+    risk_level: medium
+    summary: 将 CRS2.0 N6 首个家庭节点上线所需的中心清单、RDP 实操步骤、节点 AI 自动化提示词和 HTML 节点部署指南发布到飞流AI枢纽，作为 N7-N16 复用 SOP 的样板页面。
+    next_action: N6 实际上线后补充复盘、真实卡点和 N7-N16 批量上线清单。
+    owner_note: 这是偏内部运维的发布页；公开前需要再次确认 webhook、token、key 指纹等敏感信息没有写入文档。
+    related_agents:
+      - devops-deployer
+      - repo-onboarding-guide
+    related_workflows:
+      - submit-to-flaios
+    links:
+      local_page: http://127.0.0.1:5173/?tab=crsN6
+      worklist: docs/guides/n6-launch-worklist.md
+      runbook: docs/guides/n6-deployment-runbook.md
+      ai_prompt: docs/guides/n6-ai-deploy-prompt.md
+      html_guide: docs/guides/crs2-node-deploy-index.html
+      html_page: public/crs2-node-deploy-index.html
+    updated_at: 2026-05-16
+    last_modified_at: 2026-05-16
+
+  - id: crs-node-one-click-deploy
+    name: CRS2.0 节点机一键部署台
+    type: guide
+    stage: launched
+    status: active
+    risk_level: medium
+    summary: 面向 N7-N20 节点机的工作台页面，集中提供轻量在线包 / 完整离线包下载、GitHub 仓库、一键安装步骤、AI 安装提示词和 NewAPI / frp 端口映射。
+    next_action: 让 N7 节点优先按轻量在线包执行，网络或依赖下载失败时切完整离线包兜底；收集卡点后继续回填页面和 SOP。
+    owner_note: 页面避免写入真实 token、webhook、API key；只保留公开下载链接、标准命令和端口规则。
+    related_agents:
+      - devops-deployer
+      - repo-onboarding-guide
+    related_workflows:
+      - submit-to-flaios
+    links:
+      local_page: http://127.0.0.1:5173/?tab=crsDeploy
+      release: https://github.com/ElevenZhou/crs2-deploy/releases/tag/v0.1.1
+      download_full: https://github.com/ElevenZhou/crs2-deploy/releases/download/v0.1.1/crs2-bundle-v0.1.1-core-v0.1.126-baseline.zip
+      download_lite: https://github.com/ElevenZhou/crs2-deploy/releases/download/v0.1.1/crs2-bundle-v0.1.1-core-v0.1.126-baseline-lite.zip
+      repo: https://github.com/ElevenZhou/crs2-deploy
+      source_repo: I:\Dev\CRS2.0配套
+    updated_at: 2026-05-17
+    last_modified_at: 2026-05-17

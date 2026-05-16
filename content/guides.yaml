@@ -1,0 +1,81 @@
+items:
+  - id: newcomer-ai-work-guide
+    type: guide
+    name: 新人开始用 AI 工作指南
+    category: ai/learning-news
+    tags: [beginner-friendly, ai-workstation, local-agent, codex, trae, workbuddy, laozhou-s]
+    one_liner: 帮新人判断什么时候用云端聊天、什么时候切换到 Codex / Trae / WorkBuddy 这类本地 Agent。
+    best_for:
+      - 新人 AI 工具 onboarding
+      - 团队统一 AI 使用口径
+      - 判断云端机器人和本地 Agent 的边界
+      - 让 AI 参与本地文件、项目和文档工作
+    not_good_for:
+      - 只需要一次性闲聊的问题
+      - 没有本地上下文的泛知识问答
+      - 绕过权限读取本地文件或局域网资源
+    rating: S
+    owner_note: 核心建议是“不要只和 AI 聊天，要尽早让 AI 进入真实工作目录”。云端机器人适合轻量问答，本地复杂任务优先 Codex，其次 Trae / Trae Solo 和 WorkBuddy。
+    doc_path: docs/guides/newcomer-ai-work-guide.md
+    related_agents:
+      - repo-onboarding-guide
+    related_skills:
+      - submit-results-to-workbench
+    related_workflows:
+      - personal-ai-workstation-bootstrap
+      - submit-to-flaios
+    status: draft
+
+  - id: crs-n6-launch-console
+    type: guide
+    name: CRS N6 首发节点上线台
+    category: engineering/devops
+    tags: [crs, n6, deployment, frp, newapi, windows-node, runbook]
+    one_liner: 把 CRS N6 首个家庭节点的上线清单、RDP 部署步骤、节点 AI 自动化提示词和 HTML 节点部署指南整理到一个标签页控制台。
+    best_for:
+      - CRS N6 首发节点上线
+      - N7-N16 节点部署 SOP 复用
+      - 中心维护者与节点操作者协作
+      - 把人工部署步骤交给本机 AI 执行
+    not_good_for:
+      - 不属于 CRS2.0 节点体系的通用服务器部署
+      - 未确认飞书 webhook、frp token、NewAPI key 的生产发布
+      - 需要隐藏全部私有运维细节的公开分发
+    rating: A
+    owner_note: 项目名定为“N6 首发节点上线台”，页面内用标签承载清单、实操 runbook、AI 自动化提示词和 HTML 总览指南；N6 跑通后可沉淀为 N7-N16 的批量上线模板。
+    doc_path: docs/guides/n6-launch-worklist.md
+    related_agents:
+      - devops-deployer
+      - repo-onboarding-guide
+    related_skills:
+      - submit-results-to-workbench
+    related_workflows:
+      - submit-to-flaios
+    status: draft
+
+  - id: crs-node-one-click-deploy
+    type: guide
+    name: CRS2.0 节点机一键部署台
+    category: engineering/devops
+    tags: [crs, node-deploy, windows-node, one-click, release, frp, newapi, ai-runbook, laozhou-s]
+    one_liner: 给 N7-N20 节点机看的单页部署入口，集中提供 GitHub、Release 下载、一键安装、AI 安装提示词和 NewAPI 端口映射。
+    best_for:
+      - N7-N20 节点机照网页完成部署
+      - 节点操作者不熟悉 PowerShell 但能双击安装
+      - 把部署任务交给本机 AI 助手执行
+      - 中心侧按端口和域名快速接入 NewAPI
+    not_good_for:
+      - 非 Windows 节点机
+      - 不属于 CRS2.0 的通用服务器部署
+      - 需要公开隐藏全部内部运维域名的场景
+    rating: S
+    owner_note: 这是 N6 跑通后的通用部署页，核心路径是按节点网络选择 v0.1.1 轻量在线包或完整离线包、解压到 C:\projects\crs2-deploy、双击启动部署-管理员.cmd、输入 N7/N8 等节点编号；NewAPI Docker 内访问必须用 http://172.17.0.1:160XX。
+    doc_path: packages/website/src/App.jsx
+    related_agents:
+      - devops-deployer
+      - repo-onboarding-guide
+    related_skills:
+      - submit-results-to-workbench
+    related_workflows:
+      - submit-to-flaios
+    status: draft

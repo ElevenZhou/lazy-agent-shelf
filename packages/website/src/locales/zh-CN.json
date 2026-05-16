@@ -28,11 +28,13 @@
     "aiTools": "常用工具",
     "workflows": "工作流",
     "workbench": "个人工作台",
+    "crsN6": "N6上线台",
     "setupKits": "环境套件",
     "projects": "项目集市",
     "submit": "提交入口",
     "ccSwitch": "CC Switch",
-    "finance": "常用金融"
+    "finance": "常用金融",
+    "crsDeploy": "节点部署台"
   },
   "searchPlaceholder": "搜索智能体、工作流、使用场景...",
   "targetPlatform": "目标平台",
@@ -62,6 +64,23 @@
     "meta": "智能体构建",
     "ops": "运营自动化",
     "product": "产品"
+  },
+  "release": {
+    "label": "当前版本",
+    "name": "节点部署台版本",
+    "body": "本版加入 CRS2.0 节点机一键部署台、N6 上线文档页和工作台项目详情入口。",
+    "date": "发布日期"
+  },
+  "crsN6": {
+    "signal": "CRS NODE OPS",
+    "title": "CRS N6 首发节点上线台",
+    "body": "项目名：N6 首发节点上线台。把中心维护者清单、RDP 实操步骤、节点 AI 自动化提示词和 HTML 节点部署指南放进同一个页面，用标签切换，方便上线当天按角色推进。",
+    "meta": [
+      "N6 是首个家庭节点样板",
+      "N7-N16 后续复用这套 SOP",
+      "部署、验证、复盘同页追踪"
+    ],
+    "sourceLabel": "来源"
   },
   "usage": {
     "signal": "这些智能体在哪里运行",
@@ -812,6 +831,14 @@
       "horizon": "周期",
       "updated": "最新",
       "modified": "上次修改"
+    },
+    "detail": {
+      "signal": "项目详情",
+      "open": "查看详情",
+      "opened": "正在查看",
+      "agents": "关联 Agent",
+      "workflows": "关联工作流",
+      "links": "相关链接"
     }
   },
   "ccSwitch": {
@@ -895,5 +922,10 @@
     ],
     "noteTitle": "使用提醒",
     "noteBody": "金融和公司合规入口涉及账户、付款、报税和公司资料，请确认网址后再登录；不要在公开页面保存真实账号、密码、验证码或客户隐私信息。"
+  },
+  "crsDeploy": {
+    "signal": "CRS NODE DEPLOY",
+    "title": "CRS2.0 节点机一键部署台",
+    "body": "给 N7-N20 节点机看的单页说明：下载 release、解压、双击一键安装、重启自动恢复、最后按端口接入 NewAPI。"
   }
 }

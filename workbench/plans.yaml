@@ -40,3 +40,23 @@ items:
       - 不自动读取密钥、不提交其他项目源码，只更新管理清单。
     updated_at: 2026-05-15
     last_modified_at: 2026-05-15
+  - id: post-wechat-moments-iteration
+    horizon: short
+    status: active
+    title: 发图文朋友圈 Skill 迭代
+    goals:
+      - 收集 3-5 次真实朋友圈发布样例，补充合作邀约、能力展示、轻转化和记录分享模板。
+      - 评估是否加入固定图片卡片排版脚本，减少每次手动生成中文图文卡的成本。
+      - 与本地图像生成 Skill 联动，形成“文案 + 方图 + 图片顺序”的稳定发布工作流。
+    updated_at: 2026-05-15
+    last_modified_at: 2026-05-15
+  - id: newcomer-ai-onboarding-guides
+    horizon: short
+    status: active
+    title: 新人 AI 工作入门指南体系
+    goals:
+      - 把新人 AI 工作指南接入入门指南栏目。
+      - 继续补充 Codex / Trae / WorkBuddy 的具体上手路径和示例提问。
+      - 把有效经验沉淀为可复用的工作流、记忆或 Skill。
+    updated_at: 2026-05-15
+    last_modified_at: 2026-05-15

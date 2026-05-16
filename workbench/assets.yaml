@@ -46,3 +46,62 @@ items:
       - flaios-hub
     updated_at: 2026-05-15
     last_modified_at: 2026-05-15
+  - id: post-wechat-moments-local-skill
+    name: 发图文朋友圈本地 Skill
+    type: skill
+    status: active
+    summary: 本地 Codex Skill，用于把粗略想法快速转成可发布的朋友圈文案与配图方案，适合项目宣传、资源合作、能力展示和轻转化场景。
+    related_projects:
+      - post-wechat-moments-skill
+      - flaios-hub
+    updated_at: 2026-05-15
+    last_modified_at: 2026-05-15
+  - id: newcomer-ai-work-guide
+    name: 新人开始用 AI 工作指南
+    type: guide
+    status: draft
+    summary: 面向新人说明云端机器人、本地 Agent、Codex、Trae、WorkBuddy、豆包和飞书机器人的使用边界与推荐顺序。
+    related_projects:
+      - flaios-hub
+      - personal-ai-workstation
+    links:
+      doc: docs/guides/newcomer-ai-work-guide.md
+      catalog: content/guides.yaml
+    updated_at: 2026-05-15
+    last_modified_at: 2026-05-15
+
+  - id: crs-n6-launch-console-docs
+    name: N6 首发节点上线台文档组
+    type: guide
+    status: draft
+    summary: CRS N6 上线 Markdown 文档和 HTML 节点部署指南已复制到 docs/guides，并在网站 N6 上线台标签页内统一切换查看。
+    related_projects:
+      - crs-n6-launch-console
+      - flaios-hub
+    links:
+      page: http://127.0.0.1:5173/?tab=crsN6
+      worklist: docs/guides/n6-launch-worklist.md
+      runbook: docs/guides/n6-deployment-runbook.md
+      ai_prompt: docs/guides/n6-ai-deploy-prompt.md
+      html_guide: docs/guides/crs2-node-deploy-index.html
+      html_page: public/crs2-node-deploy-index.html
+      source_repo: I:\Dev\CRS2.0配套
+    updated_at: 2026-05-16
+    last_modified_at: 2026-05-16
+
+  - id: crs-node-one-click-deploy-page
+    name: CRS2.0 节点机一键部署台页面
+    type: guide
+    status: active
+    summary: 工作台内的节点机部署页面，面向节点操作者展示轻量在线包 / 完整离线包下载地址、GitHub 链接、双击安装路径、AI 安装提示词和 NewAPI Docker bridge 映射。
+    related_projects:
+      - crs-node-one-click-deploy
+      - flaios-hub
+    links:
+      page: http://127.0.0.1:5173/?tab=crsDeploy
+      release: https://github.com/ElevenZhou/crs2-deploy/releases/tag/v0.1.1
+      download_full: https://github.com/ElevenZhou/crs2-deploy/releases/download/v0.1.1/crs2-bundle-v0.1.1-core-v0.1.126-baseline.zip
+      download_lite: https://github.com/ElevenZhou/crs2-deploy/releases/download/v0.1.1/crs2-bundle-v0.1.1-core-v0.1.126-baseline-lite.zip
+      github: https://github.com/ElevenZhou/crs2-deploy
+    updated_at: 2026-05-17
+    last_modified_at: 2026-05-17

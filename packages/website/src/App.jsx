@@ -4,6 +4,9 @@ import catalog from './catalog.json';
 import hubCatalog from './hub-catalog.json';
 import en from './locales/en.json';
 import zhCN from './locales/zh-CN.json';
+import n6AiDeployPrompt from '../../../docs/guides/n6-ai-deploy-prompt.md?raw';
+import n6DeploymentRunbook from '../../../docs/guides/n6-deployment-runbook.md?raw';
+import n6LaunchWorklist from '../../../docs/guides/n6-launch-worklist.md?raw';
 import './styles.css';
 
 const locales = { en, 'zh-CN': zhCN };
@@ -22,6 +25,11 @@ const agents = catalog.agents.map(agent => ({
 const collections = catalog.collections || [];
 const hubByType = hubCatalog.by_type || {};
 const targets = ['codex', 'claude', 'cursor', 'opencode', 'vscode', 'trae', 'generic', 'all'];
+const release = {
+  version: 'v0.1.2',
+  code: 'N7',
+  date: '2026-05-17'
+};
 const platformCommands = {
   codex: 'lazy-agent-shelf install code-reviewer --target codex --out ~/.codex/skills',
   claude: 'lazy-agent-shelf install-collection code-quality-pack --target claude --out .',
@@ -38,7 +46,37 @@ const platformTitles = {
   vscode: 'VSCode Copilot',
   trae: 'Trae'
 };
-const tabs = ['browse', 'directory', 'aiStarter', 'aiTools', 'workflows', 'workbench', 'setupKits', 'ccSwitch', 'finance', 'projects', 'submit'];
+const tabs = ['browse', 'directory', 'aiStarter', 'aiTools', 'workflows', 'workbench', 'crsDeploy', 'crsN6', 'setupKits', 'ccSwitch', 'finance', 'projects', 'submit'];
+const n6Docs = [
+  {
+    id: 'worklist',
+    title: '上线工作清单',
+    kicker: '中心维护者',
+    source: 'central/N6上线工作清单.md',
+    content: n6LaunchWorklist
+  },
+  {
+    id: 'runbook',
+    title: '部署执行步骤',
+    kicker: 'RDP 实操',
+    source: 'central/N6部署执行步骤.md',
+    content: n6DeploymentRunbook
+  },
+  {
+    id: 'prompt',
+    title: 'AI 自动化提示词',
+    kicker: '节点 AI',
+    source: 'Other/AI自动化部署的提示词.md',
+    content: n6AiDeployPrompt
+  },
+  {
+    id: 'htmlGuide',
+    title: '节点部署指南',
+    kicker: 'HTML 总览',
+    source: 'DOC/index.html',
+    publicPath: 'crs2-node-deploy-index.html'
+  }
+];
 
 function getInitialTab() {
   if (typeof window === 'undefined') return 'browse';
@@ -223,14 +261,28 @@ function App() {
     {activeTab === 'aiTools' && <AIToolsChannel labels={text} items={hubByType.tool || []} />}
     {activeTab === 'workflows' && <WorkflowsChannel labels={text} items={hubByType.workflow || []} />}
     {activeTab === 'workbench' && <WorkbenchChannel labels={text} workbench={hubCatalog.workbench} />}
+    {activeTab === 'crsDeploy' && <CrsNodeDeployChannel labels={text} copied={copied} onCopy={copyCommand} />}
+    {activeTab === 'crsN6' && <CrsN6Channel labels={text} />}
     {activeTab === 'setupKits' && <SetupKitsChannel labels={text} items={hubCatalog.setup_kits || hubByType.setup_kit || []} copied={copied} onCopy={copyCommand} />}
     {activeTab === 'ccSwitch' && <CCSwitchGuide labels={text} copied={copied} onCopy={copyCommand} />}
     {activeTab === 'finance' && <FinanceChannel labels={text} />}
     {activeTab === 'projects' && <ProjectsChannel labels={text} items={hubByType.project || []} />}
     {activeTab === 'submit' && <SubmitChannel copied={copied} onCopy={copyCommand} labels={text} />}
     {selectedAgent && <AgentModal agent={selectedAgent} onClose={() => setSelectedAgent(null)} target={target} copied={copied} onCopy={copyCommand} labels={text} />}
+    <SiteFooter labels={text} release={release} />
     <ScrollJumps />
   </main>;
+}
+
+function SiteFooter({ labels, release }) {
+  return <footer className="site-footer">
+    <div>
+      <span>{labels.release.label}</span>
+      <strong>{release.version} · {release.code} · {labels.release.name}</strong>
+    </div>
+    <p>{labels.release.body}</p>
+    <code>{labels.release.date}: {release.date}</code>
+  </footer>;
 }
 
 function ScrollJumps() {
@@ -619,6 +671,9 @@ function WorkbenchChannel({ labels, workbench }) {
   const wb = workbench || { summary: {}, projects: [], risks: [], plans: [], progress: [], assets: [], relations: [] };
   const summary = wb.summary || {};
   const text = labels.workbench;
+  const projects = wb.projects || [];
+  const [selectedProjectId, setSelectedProjectId] = useState(projects[0]?.id || '');
+  const selectedProject = projects.find(project => project.id === selectedProjectId) || projects[0];
   const TimeMeta = ({ item }) => {
     const updated = item.updated_at || item.date;
     const modified = item.last_modified_at;
@@ -627,6 +682,24 @@ function WorkbenchChannel({ labels, workbench }) {
       {updated && <span>{text.fields.updated}: {updated}</span>}
       {modified && <span>{text.fields.modified}: {modified}</span>}
     </small>;
+  };
+  const DetailList = ({ title, items }) => {
+    if (!items?.length) return null;
+    return <div className="workbench-detail-block">
+      <strong>{title}</strong>
+      <ul>{items.map(item => <li key={item}>{item}</li>)}</ul>
+    </div>;
+  };
+  const LinkList = ({ links }) => {
+    const entries = Object.entries(links || {});
+    if (!entries.length) return null;
+    return <div className="workbench-detail-block">
+      <strong>{text.detail.links}</strong>
+      <ul>{entries.map(([name, url]) => <li key={name}>
+        <span>{name}</span>
+        {String(url).startsWith('http') ? <a href={url} target="_blank" rel="noreferrer">{url}</a> : <code>{url}</code>}
+      </li>)}</ul>
+    </div>;
   };
   const stats = [
     [text.summaryLabels.projects, summary.projects || 0],
@@ -648,13 +721,38 @@ function WorkbenchChannel({ labels, workbench }) {
     <div className="workbench-layout">
       <section className="workbench-panel workbench-projects">
         <h3>{text.sections.projects}</h3>
-        {(wb.projects || []).map(project => <article className="workbench-project" key={project.id}>
+        {projects.map(project => <button
+          type="button"
+          className={`workbench-project ${selectedProject?.id === project.id ? 'active' : ''}`}
+          key={project.id}
+          onClick={() => setSelectedProjectId(project.id)}
+          aria-pressed={selectedProject?.id === project.id}
+        >
           <div className="card-top"><span>{project.status}</span><code>{project.stage}</code></div>
           <h4>{project.name}</h4>
           <p>{project.summary}</p>
           <div className="targets"><em>{text.fields.risk}: {project.risk_level}</em><em>{text.fields.next}: {project.next_action}</em></div>
           <TimeMeta item={project} />
-        </article>)}
+          <span className="workbench-open">{selectedProject?.id === project.id ? text.detail.opened : text.detail.open}</span>
+        </button>)}
+        {selectedProject && <article className="workbench-project-detail">
+          <span className="signal">{text.detail.signal}</span>
+          <h3>{selectedProject.name}</h3>
+          <p>{selectedProject.owner_note || selectedProject.summary}</p>
+          <div className="workbench-detail-grid">
+            <div><span>{text.fields.status}</span><strong>{selectedProject.status}</strong></div>
+            <div><span>{text.fields.stage}</span><strong>{selectedProject.stage}</strong></div>
+            <div><span>{text.fields.risk}</span><strong>{selectedProject.risk_level}</strong></div>
+          </div>
+          <div className="workbench-detail-block">
+            <strong>{text.fields.next}</strong>
+            <p>{selectedProject.next_action}</p>
+          </div>
+          <DetailList title={text.detail.agents} items={selectedProject.related_agents || []} />
+          <DetailList title={text.detail.workflows} items={selectedProject.related_workflows || []} />
+          <LinkList links={selectedProject.links} />
+          <TimeMeta item={selectedProject} />
+        </article>}
       </section>
       <section className="workbench-panel">
         <h3>{text.sections.risks}</h3>
@@ -703,6 +801,292 @@ function WorkbenchChannel({ labels, workbench }) {
       </section>
     </div>
   </section>;
+}
+
+
+function CrsNodeDeployChannel({ labels, copied, onCopy }) {
+  const text = labels.crsDeploy || {};
+  const fullDownloadUrl = 'https://github.com/ElevenZhou/crs2-deploy/releases/download/v0.1.1/crs2-bundle-v0.1.1-core-v0.1.126-baseline.zip';
+  const fullShaUrl = 'https://github.com/ElevenZhou/crs2-deploy/releases/download/v0.1.1/crs2-bundle-v0.1.1-core-v0.1.126-baseline.zip.sha256';
+  const liteDownloadUrl = 'https://github.com/ElevenZhou/crs2-deploy/releases/download/v0.1.1/crs2-bundle-v0.1.1-core-v0.1.126-baseline-lite.zip';
+  const liteShaUrl = 'https://github.com/ElevenZhou/crs2-deploy/releases/download/v0.1.1/crs2-bundle-v0.1.1-core-v0.1.126-baseline-lite.zip.sha256';
+  const repoUrl = 'https://github.com/ElevenZhou/crs2-deploy';
+  const releaseUrl = 'https://github.com/ElevenZhou/crs2-deploy/releases/tag/v0.1.1';
+  const commands = [
+    {
+      label: '解压后进入目录',
+      body: '如果节点机已经拿到 release zip，就解压到标准目录后进入。',
+      command: 'cd C:\\projects\\crs2-deploy'
+    },
+    {
+      label: '管理员一键部署',
+      body: '推荐双击启动部署-管理员.cmd；如果用命令行，就在管理员 PowerShell 里执行。',
+      command: '.\\bootstrap.ps1 -NodeId N7 -AutoResume'
+    },
+    {
+      label: '部署状态检查',
+      body: '部署完成后在节点机执行，确认 Docker 服务、frpc 服务和 health 都正常。',
+      command: 'pwsh -File .\\OPS\\status.ps1'
+    },
+    {
+      label: '首尔宿主机验证',
+      body: 'N7 对应 16007；N8 对应 16008。这个命令在首尔服务器上跑。',
+      command: 'curl -i http://127.0.0.1:16007/health'
+    }
+  ];
+  const aiPrompt = `你是 CRS2.0 节点机部署助手。\n\n目标：把这台 Windows 节点机部署成 sub2api 节点，通过 frp 反连首尔服务器。\n\n下载包选择：\n- 环境已有或能联网下载依赖：优先轻量在线包 crs2-bundle-v0.1.1-core-v0.1.126-baseline-lite.zip。\n- 网络差或想一次带齐依赖：使用完整离线包 crs2-bundle-v0.1.1-core-v0.1.126-baseline.zip。\n\n节点编号：N7  # 按实际替换，例如 N8 / N9\n标准目录：C:\\projects\\crs2-deploy\n\n请按下面顺序执行：\n1. 确认 release zip 已解压到 C:\\projects\\crs2-deploy，且存在 启动部署-管理员.cmd、bootstrap.ps1、install.ps1。\n2. 如果不是管理员 PowerShell，提醒用户双击 启动部署-管理员.cmd 并确认 UAC。\n3. 优先运行：.\\bootstrap.ps1 -NodeId N7 -AutoResume\n4. 如需重启，提醒用户重启后登录 Windows，脚本会自动继续；如果没继续，就再次双击 启动部署-管理员.cmd。\n5. 完成后运行：pwsh -File .\\OPS\\status.ps1\n6. 把节点编号、远端端口、health 状态、frpc 日志最后 20 行汇报给用户。\n\n不要做的事：\n- 不要提交 secrets.local.env。\n- 不要修改 nodes.toml，除非中心明确要求。\n- 不要手工 docker run，优先使用仓库脚本。`;
+  const nodeRows = ['N6','N7','N8','N9','N10','N11','N12','N13','N14','N15','N16','N17','N18','N19','N20'].map(id => {
+    const n = Number(id.replace('N', ''));
+    return { id, port: 16000 + n, subdomain: `n${n}`, channel: `${id}-n${n}-sub2api`, domain: `https://n${n}.api.flaios.com` };
+  });
+  return <section className="channel-page crs-deploy-page">
+    <div className="channel-hero crs-deploy-hero">
+      <span className="signal">{text.signal || 'CRS NODE DEPLOY'}</span>
+      <h2>{text.title || 'CRS2.0 节点机一键部署台'}</h2>
+      <p>{text.body || '给 N7-N20 节点机看的单页说明：下载 release、解压、双击一键安装、重启自动恢复、最后按端口接入 NewAPI。'}</p>
+      <div className="crs-deploy-actions">
+        <a href={liteDownloadUrl} target="_blank" rel="noreferrer">下载轻量在线包</a>
+        <a href={fullDownloadUrl} target="_blank" rel="noreferrer">下载完整离线包</a>
+        <a href={releaseUrl} target="_blank" rel="noreferrer">查看 Release</a>
+        <a href={repoUrl} target="_blank" rel="noreferrer">GitHub 仓库</a>
+      </div>
+    </div>
+
+    <div className="crs-deploy-grid">
+      <article className="crs-deploy-card span-2">
+        <span className="signal">01 / Download</span>
+        <h3>节点机只要拿到这个包</h3>
+        <p>当前推荐版本是 <strong>v0.1.1</strong>。现在同一个 Release 提供两种包：轻量在线包适合环境已有或网络可用的节点，完整离线包适合小白节点或网络不稳定节点。</p>
+        <div className="crs-package-grid">
+          <div className="crs-package-card recommended">
+            <span>推荐 / 快速下载</span>
+            <strong>轻量在线包 · 约 6.9 MB</strong>
+            <p>不含 Docker Desktop / NSSM / frpc 实物安装包，保留 <code>download-all.ps1</code> 和 <code>MANIFEST.toml</code>，缺依赖时自动从官方地址补齐。</p>
+            <a href={liteDownloadUrl} target="_blank" rel="noreferrer">下载 lite.zip</a>
+            <a href={liteShaUrl} target="_blank" rel="noreferrer">lite SHA256</a>
+            <pre><code>A8C9A5C53C90EA50E323FECF8BDB57F7F0A4AC1743225C6EFC33FE13CBFDCBD7</code></pre>
+          </div>
+          <div className="crs-package-card">
+            <span>离线 / 兜底</span>
+            <strong>完整离线包 · 约 659 MB</strong>
+            <p>内含 Docker Desktop / NSSM / frpc 实物安装包，节点机不依赖现场下载这些大文件，更稳但下载更慢。</p>
+            <a href={fullDownloadUrl} target="_blank" rel="noreferrer">下载 full.zip</a>
+            <a href={fullShaUrl} target="_blank" rel="noreferrer">full SHA256</a>
+            <pre><code>06F3EE1F36DF1B6A91A24F07187E85823A2CC32E4B03842E7FD39BBEAD835C51</code></pre>
+          </div>
+        </div>
+        <div className="crs-link-list">
+          <a href={releaseUrl} target="_blank" rel="noreferrer">Release v0.1.1：两种包都在这里</a>
+          <a href={repoUrl} target="_blank" rel="noreferrer">https://github.com/ElevenZhou/crs2-deploy</a>
+        </div>
+      </article>
+
+      <article className="crs-deploy-card">
+        <span className="signal">02 / One Click</span>
+        <h3>最短安装步骤</h3>
+        <ol>
+          <li>在节点机下载 zip：优先轻量在线包；网络差或要离线兜底时下载完整离线包。</li>
+          <li>解压到 <code>C:\projects\crs2-deploy</code>。</li>
+          <li>双击 <code>启动部署-管理员.cmd</code>。</li>
+          <li>弹 UAC 后点允许，输入节点编号，例如 <code>N7</code>。</li>
+          <li>如果提示重启，重启并登录 Windows；脚本会自动继续。</li>
+        </ol>
+      </article>
+
+      <article className="crs-deploy-card">
+        <span className="signal">03 / Rules</span>
+        <h3>节点编号规则</h3>
+        <p>端口固定按 <code>16000 + 节点数字</code> 计算。N7 就是 <code>16007</code>，N20 就是 <code>16020</code>。</p>
+        <p>域名采用 <code>n7.api.flaios.com</code> 这种方式；NewAPI channel 名称采用 <code>N7-n7-sub2api</code>。</p>
+      </article>
+    </div>
+
+    <section className="crs-deploy-card">
+      <div className="crs-section-head">
+        <div>
+          <span className="signal">Copy Commands</span>
+          <h3>需要复制的命令</h3>
+        </div>
+        <p>能双击就双击；命令行主要给 AI 或远程协助时使用。</p>
+      </div>
+      <div className="crs-command-grid">
+        {commands.map(item => <div className="crs-command" key={item.label}>
+          <strong>{item.label}</strong>
+          <p>{item.body}</p>
+          <pre><code>{item.command}</code></pre>
+          <button type="button" onClick={() => onCopy(item.command)}>{copied === item.command ? labels.copied : labels.copy}</button>
+        </div>)}
+      </div>
+    </section>
+
+    <section className="crs-deploy-card">
+      <div className="crs-section-head">
+        <div>
+          <span className="signal">AI Prompt</span>
+          <h3>发给节点机 AI 的安装提示词</h3>
+        </div>
+        <button type="button" onClick={() => onCopy(aiPrompt)}>{copied === aiPrompt ? labels.copied : labels.copy}</button>
+      </div>
+      <pre className="crs-ai-prompt"><code>{aiPrompt}</code></pre>
+    </section>
+
+    <section className="crs-deploy-card">
+      <div className="crs-section-head">
+        <div>
+          <span className="signal">NewAPI Mapping</span>
+          <h3>首尔 / NewAPI 接入映射</h3>
+        </div>
+        <p>NewAPI 在 Docker 里，所以 channel Base URL 必须用 <code>172.17.0.1</code>；首尔宿主机手工 curl 才用 <code>127.0.0.1</code>。</p>
+      </div>
+      <div className="crs-table-wrap">
+        <table className="crs-deploy-table">
+          <thead><tr><th>节点</th><th>端口</th><th>域名</th><th>NewAPI channel</th><th>NewAPI Base URL</th><th>首尔宿主机验证</th></tr></thead>
+          <tbody>{nodeRows.map(row => <tr key={row.id}>
+            <td>{row.id}</td>
+            <td>{row.port}</td>
+            <td>{row.domain}</td>
+            <td>{row.channel}</td>
+            <td><code>http://172.17.0.1:{row.port}</code></td>
+            <td><code>http://127.0.0.1:{row.port}/health</code></td>
+          </tr>)}</tbody>
+        </table>
+      </div>
+    </section>
+  </section>;
+}
+
+function CrsN6Channel({ labels }) {
+  const [activeDocId, setActiveDocId] = useState(n6Docs[0].id);
+  const activeDoc = n6Docs.find(doc => doc.id === activeDocId) || n6Docs[0];
+  const text = labels.crsN6 || {
+    signal: 'CRS NODE OPS',
+    title: 'CRS N6 首发节点上线台',
+    body: '把 N6 上线清单、RDP 执行步骤和节点 AI 自动化提示词收拢到一个可操作页面。',
+    meta: ['N6 是首个家庭节点样板', 'N7-N16 后续复用这套 SOP', '部署、验证、复盘同页追踪'],
+    sourceLabel: '来源'
+  };
+  return <section className="channel-page crs-n6-page">
+    <div className="channel-hero crs-n6-hero">
+      <span className="signal">{text.signal}</span>
+      <h2>{text.title}</h2>
+      <p>{text.body}</p>
+      <div className="crs-n6-meta">
+        {text.meta.map(item => <em key={item}>{item}</em>)}
+      </div>
+    </div>
+    <div className="crs-n6-shell">
+      <aside className="crs-n6-tabs" aria-label="N6 文档标签">
+        {n6Docs.map(doc => <button className={doc.id === activeDoc.id ? 'active' : ''} key={doc.id} onClick={() => setActiveDocId(doc.id)}>
+          <span>{doc.kicker}</span>
+          <strong>{doc.title}</strong>
+          <small>{doc.source}</small>
+        </button>)}
+      </aside>
+      <article className="crs-n6-doc">
+        <div className="crs-n6-doc-head">
+          <div>
+            <span className="signal">{activeDoc.kicker}</span>
+            <h3>{activeDoc.title}</h3>
+          </div>
+          <code>{text.sourceLabel}: {activeDoc.source}</code>
+        </div>
+        {activeDoc.publicPath
+          ? <iframe className="crs-n6-frame" title={activeDoc.title} src={`${import.meta.env.BASE_URL}${activeDoc.publicPath}`} />
+          : <MarkdownDocument content={activeDoc.content} />}
+      </article>
+    </div>
+  </section>;
+}
+
+function MarkdownDocument({ content }) {
+  const blocks = useMemo(() => toMarkdownBlocks(content), [content]);
+  return <div className="markdown-doc">
+    {blocks.map((block, index) => {
+      if (block.type === 'code') return <pre className="markdown-code" key={index}><code>{block.value}</code></pre>;
+      if (block.type === 'hr') return <hr key={index} />;
+      if (block.type === 'heading') {
+        const Heading = `h${Math.min(block.level + 2, 6)}`;
+        return <Heading key={index}>{block.value}</Heading>;
+      }
+      if (block.type === 'quote') return <blockquote key={index}>{block.value}</blockquote>;
+      if (block.type === 'list') return <ul key={index}>{block.items.map(item => <li key={item}>{formatInlineMarkdown(item)}</li>)}</ul>;
+      if (block.type === 'table') return <pre className="markdown-table" key={index}>{block.value}</pre>;
+      return <p key={index}>{formatInlineMarkdown(block.value)}</p>;
+    })}
+  </div>;
+}
+
+function toMarkdownBlocks(content) {
+  const lines = content.replace(/\r\n/g, '\n').split('\n');
+  const blocks = [];
+  for (let i = 0; i < lines.length; i += 1) {
+    const line = lines[i];
+    if (!line.trim()) continue;
+    if (line.startsWith('```')) {
+      const fence = [];
+      i += 1;
+      while (i < lines.length && !lines[i].startsWith('```')) {
+        fence.push(lines[i]);
+        i += 1;
+      }
+      blocks.push({ type: 'code', value: fence.join('\n') });
+      continue;
+    }
+    if (/^---+$/.test(line.trim())) {
+      blocks.push({ type: 'hr' });
+      continue;
+    }
+    const heading = /^(#{1,6})\s+(.+)$/.exec(line);
+    if (heading) {
+      blocks.push({ type: 'heading', level: heading[1].length, value: heading[2] });
+      continue;
+    }
+    if (line.startsWith('>')) {
+      const quote = [line.replace(/^>\s?/, '')];
+      while (i + 1 < lines.length && lines[i + 1].startsWith('>')) {
+        i += 1;
+        quote.push(lines[i].replace(/^>\s?/, ''));
+      }
+      blocks.push({ type: 'quote', value: quote.join(' ') });
+      continue;
+    }
+    if (/^\s*[-*]\s+/.test(line)) {
+      const items = [line.replace(/^\s*[-*]\s+/, '')];
+      while (i + 1 < lines.length && /^\s*[-*]\s+/.test(lines[i + 1])) {
+        i += 1;
+        items.push(lines[i].replace(/^\s*[-*]\s+/, ''));
+      }
+      blocks.push({ type: 'list', items });
+      continue;
+    }
+    if (line.includes('|') && i + 1 < lines.length && /^\s*\|?\s*:?-{3,}/.test(lines[i + 1])) {
+      const table = [line, lines[i + 1]];
+      i += 2;
+      while (i < lines.length && lines[i].includes('|') && lines[i].trim()) {
+        table.push(lines[i]);
+        i += 1;
+      }
+      i -= 1;
+      blocks.push({ type: 'table', value: table.join('\n') });
+      continue;
+    }
+    const paragraph = [line];
+    while (i + 1 < lines.length && lines[i + 1].trim() && !/^(#{1,6})\s+/.test(lines[i + 1]) && !/^\s*[-*]\s+/.test(lines[i + 1]) && !lines[i + 1].startsWith('```') && !lines[i + 1].startsWith('>')) {
+      i += 1;
+      paragraph.push(lines[i]);
+    }
+    blocks.push({ type: 'paragraph', value: paragraph.join(' ') });
+  }
+  return blocks;
+}
+
+function formatInlineMarkdown(text) {
+  const parts = text.split(/(`[^`]+`|\*\*[^*]+\*\*)/g).filter(Boolean);
+  return parts.map((part, index) => {
+    if (part.startsWith('`') && part.endsWith('`')) return <code key={index}>{part.slice(1, -1)}</code>;
+    if (part.startsWith('**') && part.endsWith('**')) return <strong key={index}>{part.slice(2, -2)}</strong>;
+    return part;
+  });
 }
 
 function SetupKitDetails({ kit, labels }) {

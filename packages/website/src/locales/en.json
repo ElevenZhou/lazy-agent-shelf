@@ -28,11 +28,13 @@
     "aiTools": "Tools",
     "workflows": "Workflows",
     "workbench": "Workbench",
+    "crsN6": "N6 Launch",
     "setupKits": "Setup Kits",
     "projects": "Projects",
     "submit": "Submit",
     "ccSwitch": "CC Switch",
-    "finance": "Finance"
+    "finance": "Finance",
+    "crsDeploy": "Node Deploy"
   },
   "searchPlaceholder": "Search agents, workflows, use cases...",
   "targetPlatform": "Target platform",
@@ -62,6 +64,23 @@
     "meta": "Meta",
     "ops": "Ops",
     "product": "Product"
+  },
+  "release": {
+    "label": "Current version",
+    "name": "Node Deploy Release",
+    "body": "This release adds the CRS2.0 node one-click deploy page, N6 launch document console, and clickable workbench project details.",
+    "date": "Release date"
+  },
+  "crsN6": {
+    "signal": "CRS NODE OPS",
+    "title": "CRS N6 Launch Console",
+    "body": "Project name: N6 Launch Console. The page keeps the central checklist, RDP runbook, node-side AI deployment prompt, and HTML node deployment guide together as document tabs.",
+    "meta": [
+      "N6 is the first home-node template",
+      "N7-N16 can reuse this SOP",
+      "Deployment, verification, and review stay on one page"
+    ],
+    "sourceLabel": "Source"
   },
   "usage": {
     "signal": "where these agents run",
@@ -812,6 +831,14 @@
       "horizon": "Horizon",
       "updated": "Updated",
       "modified": "Last modified"
+    },
+    "detail": {
+      "signal": "Project detail",
+      "open": "View details",
+      "opened": "Viewing",
+      "agents": "Related agents",
+      "workflows": "Related workflows",
+      "links": "Links"
     }
   },
   "ccSwitch": {
@@ -895,5 +922,10 @@
     ],
     "noteTitle": "Usage note",
     "noteBody": "Finance and company-compliance links involve accounts, payments, tax, and company records. Verify the URL before logging in, and never publish real credentials, OTPs, or customer-private data here."
+  },
+  "crsDeploy": {
+    "signal": "CRS NODE DEPLOY",
+    "title": "CRS2.0 Node One-Click Deploy",
+    "body": "A single-page runbook for N7-N20 node machines: download the release, unzip, double-click installer, auto-resume after reboot, then map ports into NewAPI."
   }
 }

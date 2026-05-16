@@ -1,9 +1,10 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-15T04:01:52.217Z",
-  "item_count": 13,
+  "generated_at": "2026-05-16T20:15:20.012Z",
+  "item_count": 16,
   "types": [
     "ai_website",
+    "guide",
     "memory",
     "project",
     "setup_kit",
@@ -89,6 +90,134 @@
       ],
       "status": "draft",
       "source_file": "content/ai-websites.yaml"
+    },
+    {
+      "id": "crs-n6-launch-console",
+      "type": "guide",
+      "name": "CRS N6 首发节点上线台",
+      "category": "engineering/devops",
+      "tags": [
+        "crs",
+        "n6",
+        "deployment",
+        "frp",
+        "newapi",
+        "windows-node",
+        "runbook"
+      ],
+      "one_liner": "把 CRS N6 首个家庭节点的上线清单、RDP 部署步骤、节点 AI 自动化提示词和 HTML 节点部署指南整理到一个标签页控制台。",
+      "best_for": [
+        "CRS N6 首发节点上线",
+        "N7-N16 节点部署 SOP 复用",
+        "中心维护者与节点操作者协作",
+        "把人工部署步骤交给本机 AI 执行"
+      ],
+      "not_good_for": [
+        "不属于 CRS2.0 节点体系的通用服务器部署",
+        "未确认飞书 webhook、frp token、NewAPI key 的生产发布",
+        "需要隐藏全部私有运维细节的公开分发"
+      ],
+      "rating": "A",
+      "owner_note": "项目名定为“N6 首发节点上线台”，页面内用标签承载清单、实操 runbook、AI 自动化提示词和 HTML 总览指南；N6 跑通后可沉淀为 N7-N16 的批量上线模板。",
+      "doc_path": "docs/guides/n6-launch-worklist.md",
+      "related_agents": [
+        "devops-deployer",
+        "repo-onboarding-guide"
+      ],
+      "related_skills": [
+        "submit-results-to-workbench"
+      ],
+      "related_workflows": [
+        "submit-to-flaios"
+      ],
+      "status": "draft",
+      "source_file": "content/guides.yaml"
+    },
+    {
+      "id": "crs-node-one-click-deploy",
+      "type": "guide",
+      "name": "CRS2.0 节点机一键部署台",
+      "category": "engineering/devops",
+      "tags": [
+        "crs",
+        "node-deploy",
+        "windows-node",
+        "one-click",
+        "release",
+        "frp",
+        "newapi",
+        "ai-runbook",
+        "laozhou-s"
+      ],
+      "one_liner": "给 N7-N20 节点机看的单页部署入口，集中提供 GitHub、Release 下载、一键安装、AI 安装提示词和 NewAPI 端口映射。",
+      "best_for": [
+        "N7-N20 节点机照网页完成部署",
+        "节点操作者不熟悉 PowerShell 但能双击安装",
+        "把部署任务交给本机 AI 助手执行",
+        "中心侧按端口和域名快速接入 NewAPI"
+      ],
+      "not_good_for": [
+        "非 Windows 节点机",
+        "不属于 CRS2.0 的通用服务器部署",
+        "需要公开隐藏全部内部运维域名的场景"
+      ],
+      "rating": "S",
+      "owner_note": "这是 N6 跑通后的通用部署页，核心路径是按节点网络选择 v0.1.1 轻量在线包或完整离线包、解压到 C:\\projects\\crs2-deploy、双击启动部署-管理员.cmd、输入 N7/N8 等节点编号；NewAPI Docker 内访问必须用 http://172.17.0.1:160XX。",
+      "doc_path": "packages/website/src/App.jsx",
+      "related_agents": [
+        "devops-deployer",
+        "repo-onboarding-guide"
+      ],
+      "related_skills": [
+        "submit-results-to-workbench"
+      ],
+      "related_workflows": [
+        "submit-to-flaios"
+      ],
+      "status": "draft",
+      "source_file": "content/guides.yaml"
+    },
+    {
+      "id": "newcomer-ai-work-guide",
+      "type": "guide",
+      "name": "新人开始用 AI 工作指南",
+      "category": "ai/learning-news",
+      "tags": [
+        "beginner-friendly",
+        "ai-workstation",
+        "local-agent",
+        "codex",
+        "trae",
+        "workbuddy",
+        "laozhou-s"
+      ],
+      "one_liner": "帮新人判断什么时候用云端聊天、什么时候切换到 Codex / Trae / WorkBuddy 这类本地 Agent。",
+      "best_for": [
+        "新人 AI 工具 onboarding",
+        "团队统一 AI 使用口径",
+        "判断云端机器人和本地 Agent 的边界",
+        "让 AI 参与本地文件、项目和文档工作"
+      ],
+      "not_good_for": [
+        "只需要一次性闲聊的问题",
+        "没有本地上下文的泛知识问答",
+        "绕过权限读取本地文件或局域网资源"
+      ],
+      "rating": "S",
+      "owner_note": "核心建议是“不要只和 AI 聊天，要尽早让 AI 进入真实工作目录”。云端机器人适合轻量问答，本地复杂任务优先 Codex，其次 Trae / Trae Solo 和 WorkBuddy。",
+      "doc_path": "docs/guides/newcomer-ai-work-guide.md",
+      "related_agents": [
+        "repo-onboarding-guide"
+      ],
+      "related_skills": [
+        "submit-results-to-workbench"
+      ],
+      "related_workflows": [
+        "personal-ai-workstation-bootstrap",
+        "submit-to-flaios"
+      ],
+      "status": "draft",
+      "source_file": "content/guides.yaml"
     },
     {
       "id": "laozhou-content-rule",
@@ -1987,6 +2116,136 @@
         ],
         "status": "draft",
         "source_file": "content/ai-websites.yaml"
+      }
+    ],
+    "guide": [
+      {
+        "id": "crs-n6-launch-console",
+        "type": "guide",
+        "name": "CRS N6 首发节点上线台",
+        "category": "engineering/devops",
+        "tags": [
+          "crs",
+          "n6",
+          "deployment",
+          "frp",
+          "newapi",
+          "windows-node",
+          "runbook"
+        ],
+        "one_liner": "把 CRS N6 首个家庭节点的上线清单、RDP 部署步骤、节点 AI 自动化提示词和 HTML 节点部署指南整理到一个标签页控制台。",
+        "best_for": [
+          "CRS N6 首发节点上线",
+          "N7-N16 节点部署 SOP 复用",
+          "中心维护者与节点操作者协作",
+          "把人工部署步骤交给本机 AI 执行"
+        ],
+        "not_good_for": [
+          "不属于 CRS2.0 节点体系的通用服务器部署",
+          "未确认飞书 webhook、frp token、NewAPI key 的生产发布",
+          "需要隐藏全部私有运维细节的公开分发"
+        ],
+        "rating": "A",
+        "owner_note": "项目名定为“N6 首发节点上线台”，页面内用标签承载清单、实操 runbook、AI 自动化提示词和 HTML 总览指南；N6 跑通后可沉淀为 N7-N16 的批量上线模板。",
+        "doc_path": "docs/guides/n6-launch-worklist.md",
+        "related_agents": [
+          "devops-deployer",
+          "repo-onboarding-guide"
+        ],
+        "related_skills": [
+          "submit-results-to-workbench"
+        ],
+        "related_workflows": [
+          "submit-to-flaios"
+        ],
+        "status": "draft",
+        "source_file": "content/guides.yaml"
+      },
+      {
+        "id": "crs-node-one-click-deploy",
+        "type": "guide",
+        "name": "CRS2.0 节点机一键部署台",
+        "category": "engineering/devops",
+        "tags": [
+          "crs",
+          "node-deploy",
+          "windows-node",
+          "one-click",
+          "release",
+          "frp",
+          "newapi",
+          "ai-runbook",
+          "laozhou-s"
+        ],
+        "one_liner": "给 N7-N20 节点机看的单页部署入口，集中提供 GitHub、Release 下载、一键安装、AI 安装提示词和 NewAPI 端口映射。",
+        "best_for": [
+          "N7-N20 节点机照网页完成部署",
+          "节点操作者不熟悉 PowerShell 但能双击安装",
+          "把部署任务交给本机 AI 助手执行",
+          "中心侧按端口和域名快速接入 NewAPI"
+        ],
+        "not_good_for": [
+          "非 Windows 节点机",
+          "不属于 CRS2.0 的通用服务器部署",
+          "需要公开隐藏全部内部运维域名的场景"
+        ],
+        "rating": "S",
+        "owner_note": "这是 N6 跑通后的通用部署页，核心路径是按节点网络选择 v0.1.1 轻量在线包或完整离线包、解压到 C:\\projects\\crs2-deploy、双击启动部署-管理员.cmd、输入 N7/N8 等节点编号；NewAPI Docker 内访问必须用 http://172.17.0.1:160XX。",
+        "doc_path": "packages/website/src/App.jsx",
+        "related_agents": [
+          "devops-deployer",
+          "repo-onboarding-guide"
+        ],
+        "related_skills": [
+          "submit-results-to-workbench"
+        ],
+        "related_workflows": [
+          "submit-to-flaios"
+        ],
+        "status": "draft",
+        "source_file": "content/guides.yaml"
+      },
+      {
+        "id": "newcomer-ai-work-guide",
+        "type": "guide",
+        "name": "新人开始用 AI 工作指南",
+        "category": "ai/learning-news",
+        "tags": [
+          "beginner-friendly",
+          "ai-workstation",
+          "local-agent",
+          "codex",
+          "trae",
+          "workbuddy",
+          "laozhou-s"
+        ],
+        "one_liner": "帮新人判断什么时候用云端聊天、什么时候切换到 Codex / Trae / WorkBuddy 这类本地 Agent。",
+        "best_for": [
+          "新人 AI 工具 onboarding",
+          "团队统一 AI 使用口径",
+          "判断云端机器人和本地 Agent 的边界",
+          "让 AI 参与本地文件、项目和文档工作"
+        ],
+        "not_good_for": [
+          "只需要一次性闲聊的问题",
+          "没有本地上下文的泛知识问答",
+          "绕过权限读取本地文件或局域网资源"
+        ],
+        "rating": "S",
+        "owner_note": "核心建议是“不要只和 AI 聊天，要尽早让 AI 进入真实工作目录”。云端机器人适合轻量问答，本地复杂任务优先 Codex，其次 Trae / Trae Solo 和 WorkBuddy。",
+        "doc_path": "docs/guides/newcomer-ai-work-guide.md",
+        "related_agents": [
+          "repo-onboarding-guide"
+        ],
+        "related_skills": [
+          "submit-results-to-workbench"
+        ],
+        "related_workflows": [
+          "personal-ai-workstation-bootstrap",
+          "submit-to-flaios"
+        ],
+        "status": "draft",
+        "source_file": "content/guides.yaml"
       }
     ],
     "memory": [
@@ -5271,7 +5530,7 @@
       "id": "personal-master-os",
       "name": "个人工作台",
       "version": "0.1.0",
-      "updated_at": "2026-05-15",
+      "updated_at": "2026-05-16",
       "positioning": "个人资产、项目状态、关系、进展、风险和计划的结构化状态层，供 Agent 读取、更新和展示。",
       "principles": [
         "只呈现情况，不直接管理或编辑真实项目文件。",
@@ -5287,15 +5546,15 @@
         "risks",
         "plans"
       ],
-      "last_modified_at": "2026-05-15"
+      "last_modified_at": "2026-05-16"
     },
     "summary": {
-      "projects": 5,
-      "active_projects": 5,
+      "projects": 8,
+      "active_projects": 8,
       "high_risks": 1,
-      "active_plans": 4,
-      "recent_progress": 6,
-      "assets": 5,
+      "active_plans": 6,
+      "recent_progress": 11,
+      "assets": 9,
       "relations": 2
     },
     "projects": [
@@ -5306,8 +5565,8 @@
         "stage": "building",
         "status": "active",
         "risk_level": "medium",
-        "summary": "从跨工具 Agent 货架升级为 AI 网站、工具、Agent、Skill、工作流、环境套件、项目和个人工作台的 AI 使用枢纽。",
-        "next_action": "完成个人工作台数据结构、页面展示和 Agent 更新技能。",
+        "summary": "从跨工具 Agent 货架升级为 AI 网站、工具、Agent、Skill、工作流、环境套件、项目、入门指南和个人工作台的 AI 使用枢纽。",
+        "next_action": "继续完善入门指南栏目，把新人 AI 工作指南与工具选择、环境套件和提交入口串联起来。",
         "owner_note": "当前主项目，适合先作为个人工作台的样板项目。",
         "related_agents": [
           "frontend-builder",
@@ -5409,6 +5668,86 @@
         },
         "updated_at": "2026-05-15",
         "last_modified_at": "2026-05-15"
+      },
+      {
+        "id": "post-wechat-moments-skill",
+        "name": "发图文朋友圈 Skill",
+        "type": "skill",
+        "stage": "testing",
+        "status": "active",
+        "risk_level": "low",
+        "summary": "将“发朋友圈/发图文朋友圈”的临时创作流程沉淀为 Codex Skill，支持提炼表达目标、撰写自然朋友圈文案、判断配图数量，并结合本地作图流程生成可发布配图。",
+        "next_action": "在更多真实朋友圈发布任务中继续使用，观察是否需要增加固定模板、行业风格库或自动封面排版脚本。",
+        "owner_note": "已创建为本地 Codex Skill，可用“我要发个朋友圈”“帮我发图文朋友圈”“写朋友圈文案再配图”等表达触发。",
+        "related_agents": [
+          "codex"
+        ],
+        "related_workflows": [
+          "content-creation",
+          "local-image-generation"
+        ],
+        "links": {
+          "local_skill": "C:\\Users\\AprilWu\\.codex\\skills\\post-wechat-moments",
+          "example_assets": "I:\\Dev\\微信运营\\朋友圈-算力合作"
+        },
+        "updated_at": "2026-05-15",
+        "last_modified_at": "2026-05-15"
+      },
+      {
+        "id": "crs-n6-launch-console",
+        "name": "N6 首发节点上线台",
+        "type": "guide",
+        "stage": "building",
+        "status": "active",
+        "risk_level": "medium",
+        "summary": "将 CRS2.0 N6 首个家庭节点上线所需的中心清单、RDP 实操步骤、节点 AI 自动化提示词和 HTML 节点部署指南发布到飞流AI枢纽，作为 N7-N16 复用 SOP 的样板页面。",
+        "next_action": "N6 实际上线后补充复盘、真实卡点和 N7-N16 批量上线清单。",
+        "owner_note": "这是偏内部运维的发布页；公开前需要再次确认 webhook、token、key 指纹等敏感信息没有写入文档。",
+        "related_agents": [
+          "devops-deployer",
+          "repo-onboarding-guide"
+        ],
+        "related_workflows": [
+          "submit-to-flaios"
+        ],
+        "links": {
+          "local_page": "http://127.0.0.1:5173/?tab=crsN6",
+          "worklist": "docs/guides/n6-launch-worklist.md",
+          "runbook": "docs/guides/n6-deployment-runbook.md",
+          "ai_prompt": "docs/guides/n6-ai-deploy-prompt.md",
+          "html_guide": "docs/guides/crs2-node-deploy-index.html",
+          "html_page": "public/crs2-node-deploy-index.html"
+        },
+        "updated_at": "2026-05-16",
+        "last_modified_at": "2026-05-16"
+      },
+      {
+        "id": "crs-node-one-click-deploy",
+        "name": "CRS2.0 节点机一键部署台",
+        "type": "guide",
+        "stage": "launched",
+        "status": "active",
+        "risk_level": "medium",
+        "summary": "面向 N7-N20 节点机的工作台页面，集中提供轻量在线包 / 完整离线包下载、GitHub 仓库、一键安装步骤、AI 安装提示词和 NewAPI / frp 端口映射。",
+        "next_action": "让 N7 节点优先按轻量在线包执行，网络或依赖下载失败时切完整离线包兜底；收集卡点后继续回填页面和 SOP。",
+        "owner_note": "页面避免写入真实 token、webhook、API key；只保留公开下载链接、标准命令和端口规则。",
+        "related_agents": [
+          "devops-deployer",
+          "repo-onboarding-guide"
+        ],
+        "related_workflows": [
+          "submit-to-flaios"
+        ],
+        "links": {
+          "local_page": "http://127.0.0.1:5173/?tab=crsDeploy",
+          "release": "https://github.com/ElevenZhou/crs2-deploy/releases/tag/v0.1.1",
+          "download_full": "https://github.com/ElevenZhou/crs2-deploy/releases/download/v0.1.1/crs2-bundle-v0.1.1-core-v0.1.126-baseline.zip",
+          "download_lite": "https://github.com/ElevenZhou/crs2-deploy/releases/download/v0.1.1/crs2-bundle-v0.1.1-core-v0.1.126-baseline-lite.zip",
+          "repo": "https://github.com/ElevenZhou/crs2-deploy",
+          "source_repo": "I:\\Dev\\CRS2.0配套"
+        },
+        "updated_at": "2026-05-17",
+        "last_modified_at": "2026-05-17"
       }
     ],
     "assets": [
@@ -5473,6 +5812,78 @@
         ],
         "updated_at": "2026-05-15",
         "last_modified_at": "2026-05-15"
+      },
+      {
+        "id": "post-wechat-moments-local-skill",
+        "name": "发图文朋友圈本地 Skill",
+        "type": "skill",
+        "status": "active",
+        "summary": "本地 Codex Skill，用于把粗略想法快速转成可发布的朋友圈文案与配图方案，适合项目宣传、资源合作、能力展示和轻转化场景。",
+        "related_projects": [
+          "post-wechat-moments-skill",
+          "flaios-hub"
+        ],
+        "updated_at": "2026-05-15",
+        "last_modified_at": "2026-05-15"
+      },
+      {
+        "id": "newcomer-ai-work-guide",
+        "name": "新人开始用 AI 工作指南",
+        "type": "guide",
+        "status": "draft",
+        "summary": "面向新人说明云端机器人、本地 Agent、Codex、Trae、WorkBuddy、豆包和飞书机器人的使用边界与推荐顺序。",
+        "related_projects": [
+          "flaios-hub",
+          "personal-ai-workstation"
+        ],
+        "links": {
+          "doc": "docs/guides/newcomer-ai-work-guide.md",
+          "catalog": "content/guides.yaml"
+        },
+        "updated_at": "2026-05-15",
+        "last_modified_at": "2026-05-15"
+      },
+      {
+        "id": "crs-n6-launch-console-docs",
+        "name": "N6 首发节点上线台文档组",
+        "type": "guide",
+        "status": "draft",
+        "summary": "CRS N6 上线 Markdown 文档和 HTML 节点部署指南已复制到 docs/guides，并在网站 N6 上线台标签页内统一切换查看。",
+        "related_projects": [
+          "crs-n6-launch-console",
+          "flaios-hub"
+        ],
+        "links": {
+          "page": "http://127.0.0.1:5173/?tab=crsN6",
+          "worklist": "docs/guides/n6-launch-worklist.md",
+          "runbook": "docs/guides/n6-deployment-runbook.md",
+          "ai_prompt": "docs/guides/n6-ai-deploy-prompt.md",
+          "html_guide": "docs/guides/crs2-node-deploy-index.html",
+          "html_page": "public/crs2-node-deploy-index.html",
+          "source_repo": "I:\\Dev\\CRS2.0配套"
+        },
+        "updated_at": "2026-05-16",
+        "last_modified_at": "2026-05-16"
+      },
+      {
+        "id": "crs-node-one-click-deploy-page",
+        "name": "CRS2.0 节点机一键部署台页面",
+        "type": "guide",
+        "status": "active",
+        "summary": "工作台内的节点机部署页面，面向节点操作者展示轻量在线包 / 完整离线包下载地址、GitHub 链接、双击安装路径、AI 安装提示词和 NewAPI Docker bridge 映射。",
+        "related_projects": [
+          "crs-node-one-click-deploy",
+          "flaios-hub"
+        ],
+        "links": {
+          "page": "http://127.0.0.1:5173/?tab=crsDeploy",
+          "release": "https://github.com/ElevenZhou/crs2-deploy/releases/tag/v0.1.1",
+          "download_full": "https://github.com/ElevenZhou/crs2-deploy/releases/download/v0.1.1/crs2-bundle-v0.1.1-core-v0.1.126-baseline.zip",
+          "download_lite": "https://github.com/ElevenZhou/crs2-deploy/releases/download/v0.1.1/crs2-bundle-v0.1.1-core-v0.1.126-baseline-lite.zip",
+          "github": "https://github.com/ElevenZhou/crs2-deploy"
+        },
+        "updated_at": "2026-05-17",
+        "last_modified_at": "2026-05-17"
       }
     ],
     "relations": [
@@ -5555,6 +5966,51 @@
         "summary": "已在 I:\\Dev\\项目管理清单.md 创建 Dev 工作区项目管理清单，纳入 38 个项目/目录，包含近 14 天活跃项目、Git 需要关注项目和全量项目概况。",
         "updated_at": "2026-05-15",
         "last_modified_at": "2026-05-15"
+      },
+      {
+        "id": "post-wechat-moments-skill-created",
+        "date": "2026-05-15",
+        "project": "post-wechat-moments-skill",
+        "status": "done",
+        "summary": "已创建“发图文朋友圈”Codex Skill，封装朋友圈图文发布流程，包括受众和目的判断、自然中文文案、图片数量建议、配图方向和质量检查，并通过 quick_validate.py 校验。",
+        "updated_at": "2026-05-15",
+        "last_modified_at": "2026-05-15"
+      },
+      {
+        "id": "newcomer-ai-work-guide-created",
+        "date": "2026-05-15",
+        "project": "flaios-hub",
+        "status": "done",
+        "summary": "已将“新人使用 AI 工作”的经验整理为入门指南，明确云端机器人与本地 Agent 的边界、推荐工具顺序、使用前检查、先分析再执行的流程和升级求助规则，并以 draft 状态提交到飞流AI枢纽内容库。",
+        "updated_at": "2026-05-15",
+        "last_modified_at": "2026-05-15"
+      },
+      {
+        "id": "crs-n6-launch-console-published",
+        "date": "2026-05-16",
+        "project": "crs-n6-launch-console",
+        "status": "done",
+        "summary": "已将 N6 上线工作清单、N6 部署执行步骤、AI 自动化部署提示词和 HTML 节点部署指南整理为“N6 首发节点上线台”，在飞流AI枢纽新增标签页控制台并登记到个人工作台。",
+        "updated_at": "2026-05-16",
+        "last_modified_at": "2026-05-16"
+      },
+      {
+        "id": "crs-node-one-click-deploy-page-published",
+        "date": "2026-05-17",
+        "project": "crs-node-one-click-deploy",
+        "status": "done",
+        "summary": "已新增“CRS2.0 节点机一键部署台”工作台页面，节点机可直接按页面下载 release、解压、双击管理员启动器、复制 AI 安装提示词，并按 172.17.0.1:160XX 规则配置 NewAPI。",
+        "updated_at": "2026-05-17",
+        "last_modified_at": "2026-05-17"
+      },
+      {
+        "id": "crs-node-release-lite-package-added",
+        "date": "2026-05-17",
+        "project": "crs-node-one-click-deploy",
+        "status": "done",
+        "summary": "已把 v0.1.1 轻量在线包同步到节点机一键部署台，页面现在同时展示约 6.9 MB 的 lite 包和约 659 MB 的完整离线包，并说明适用场景与 SHA256。",
+        "updated_at": "2026-05-17",
+        "last_modified_at": "2026-05-17"
       }
     ],
     "risks": [
@@ -5648,6 +6104,32 @@
           "每周刷新 I:\\Dev\\项目管理清单.md。",
           "关注近 14 天活跃项目、Git dirty 项目和涉及 .env/服务器/支付的敏感目录。",
           "不自动读取密钥、不提交其他项目源码，只更新管理清单。"
+        ],
+        "updated_at": "2026-05-15",
+        "last_modified_at": "2026-05-15"
+      },
+      {
+        "id": "post-wechat-moments-iteration",
+        "horizon": "short",
+        "status": "active",
+        "title": "发图文朋友圈 Skill 迭代",
+        "goals": [
+          "收集 3-5 次真实朋友圈发布样例，补充合作邀约、能力展示、轻转化和记录分享模板。",
+          "评估是否加入固定图片卡片排版脚本，减少每次手动生成中文图文卡的成本。",
+          "与本地图像生成 Skill 联动，形成“文案 + 方图 + 图片顺序”的稳定发布工作流。"
+        ],
+        "updated_at": "2026-05-15",
+        "last_modified_at": "2026-05-15"
+      },
+      {
+        "id": "newcomer-ai-onboarding-guides",
+        "horizon": "short",
+        "status": "active",
+        "title": "新人 AI 工作入门指南体系",
+        "goals": [
+          "把新人 AI 工作指南接入入门指南栏目。",
+          "继续补充 Codex / Trae / WorkBuddy 的具体上手路径和示例提问。",
+          "把有效经验沉淀为可复用的工作流、记忆或 Skill。"
         ],
         "updated_at": "2026-05-15",
         "last_modified_at": "2026-05-15"

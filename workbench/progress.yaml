@@ -24,23 +24,58 @@ items:
     date: 2026-05-15
     project: local-image-generator-skill
     status: done
-    summary: 已创建本地图像生成工具与 Codex Skill，默认使用 gpt-image-2，生成图片时同步保存 output 图片和 prompts
-      提示词，并验证可复制到当前项目 public/images/hero.png。
+    summary: 已创建本地图像生成工具与 Codex Skill，默认使用 gpt-image-2，生成图片时同步保存 output 图片和 prompts 提示词，并验证可复制到当前项目 public/images/hero.png。
     updated_at: 2026-05-15
     last_modified_at: 2026-05-15
   - id: submit-results-to-workbench-skill-created
     date: 2026-05-15
     project: submit-results-to-workbench-skill
     status: done
-    summary: 已创建“提交成果到工作台”Codex Skill，封装跨项目提交成果到个人工作台的流程，默认目标为 I:\Dev\通用性agent开发，并通过
-      quick_validate.py 校验。
+    summary: 已创建“提交成果到工作台”Codex Skill，封装跨项目提交成果到个人工作台的流程，默认目标为 I:\Dev\通用性agent开发，并通过 quick_validate.py 校验。
     updated_at: 2026-05-15
     last_modified_at: 2026-05-15
   - id: dev-workspace-inventory-created
     date: 2026-05-15
     project: dev-workspace-inventory
     status: done
-    summary: 已在 I:\Dev\项目管理清单.md 创建 Dev 工作区项目管理清单，纳入 38 个项目/目录，包含近 14 天活跃项目、Git
-      需要关注项目和全量项目概况。
+    summary: 已在 I:\Dev\项目管理清单.md 创建 Dev 工作区项目管理清单，纳入 38 个项目/目录，包含近 14 天活跃项目、Git 需要关注项目和全量项目概况。
     updated_at: 2026-05-15
     last_modified_at: 2026-05-15
+  - id: post-wechat-moments-skill-created
+    date: 2026-05-15
+    project: post-wechat-moments-skill
+    status: done
+    summary: 已创建“发图文朋友圈”Codex Skill，封装朋友圈图文发布流程，包括受众和目的判断、自然中文文案、图片数量建议、配图方向和质量检查，并通过 quick_validate.py 校验。
+    updated_at: 2026-05-15
+    last_modified_at: 2026-05-15
+  - id: newcomer-ai-work-guide-created
+    date: 2026-05-15
+    project: flaios-hub
+    status: done
+    summary: 已将“新人使用 AI 工作”的经验整理为入门指南，明确云端机器人与本地 Agent 的边界、推荐工具顺序、使用前检查、先分析再执行的流程和升级求助规则，并以 draft 状态提交到飞流AI枢纽内容库。
+    updated_at: 2026-05-15
+    last_modified_at: 2026-05-15
+
+  - id: crs-n6-launch-console-published
+    date: 2026-05-16
+    project: crs-n6-launch-console
+    status: done
+    summary: 已将 N6 上线工作清单、N6 部署执行步骤、AI 自动化部署提示词和 HTML 节点部署指南整理为“N6 首发节点上线台”，在飞流AI枢纽新增标签页控制台并登记到个人工作台。
+    updated_at: 2026-05-16
+    last_modified_at: 2026-05-16
+
+  - id: crs-node-one-click-deploy-page-published
+    date: 2026-05-17
+    project: crs-node-one-click-deploy
+    status: done
+    summary: 已新增“CRS2.0 节点机一键部署台”工作台页面，节点机可直接按页面下载 release、解压、双击管理员启动器、复制 AI 安装提示词，并按 172.17.0.1:160XX 规则配置 NewAPI。
+    updated_at: 2026-05-17
+    last_modified_at: 2026-05-17
+
+  - id: crs-node-release-lite-package-added
+    date: 2026-05-17
+    project: crs-node-one-click-deploy
+    status: done
+    summary: 已把 v0.1.1 轻量在线包同步到节点机一键部署台，页面现在同时展示约 6.9 MB 的 lite 包和约 659 MB 的完整离线包，并说明适用场景与 SHA256。
+    updated_at: 2026-05-17
+    last_modified_at: 2026-05-17
