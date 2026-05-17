@@ -137,9 +137,9 @@ items:
     stage: launched
     status: active
     risk_level: medium
-    summary: 面向 N3-N20 节点机的工作台页面，集中提供公开 release 下载、轻量在线包 / 完整离线包、一键安装步骤、AI 安装提示词、N6/N7 部署详情和 NewAPI / frp 端口映射。
-    next_action: 让 N3/N8 后续优先按公开轻量在线包执行，网络或依赖下载失败时切完整离线包兜底；N7 待完成首尔宿主机验证、NewAPI channel 和 smoke test。
-    owner_note: 页面避免写入真实 token、webhook、API key；公开页面只展示下载链接、标准命令、端口规则和不含密码的节点进展摘要。
+    summary: 面向 N5 重部署和 N7-N20 节点机的工作台页面，集中提供 N5 macOS claude-relay-service 重部署指引、公开 release 下载、轻量在线包 / 完整离线包、一键安装步骤、AI 安装提示词、N6/N7 部署详情和 NewAPI / frp 端口映射。
+    next_action: 让 N5 节点按 macOS 专用提示词重部署 claude-relay-service；N7/N8 后续优先按公开轻量在线包执行，网络或依赖下载失败时切完整离线包兜底。
+    owner_note: 页面避免写入真实 token、webhook、API key；N5 只展示 macOS 重部署口径和安全边界，真实 .env、init.json、frpc token 从私密库或本机生成。
     related_agents:
       - devops-deployer
       - repo-onboarding-guide

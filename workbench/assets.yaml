@@ -93,7 +93,7 @@ items:
     name: CRS2.0 节点机一键部署台页面
     type: guide
     status: active
-    summary: 工作台内的节点机部署页面，面向节点操作者展示公开 release 下载、轻量在线包 / 完整离线包、双击安装路径、AI 安装提示词、N6/N7 部署详情和 NewAPI Docker bridge 映射。
+    summary: 工作台内的节点机部署页面，面向节点操作者展示 N5 macOS 重部署说明、公开 release 下载、轻量在线包 / 完整离线包、双击安装路径、AI 安装提示词、N6/N7 部署详情和 NewAPI Docker bridge 映射。
     related_projects:
       - crs-node-one-click-deploy
       - flaios-hub
@@ -118,5 +118,20 @@ items:
       page: http://127.0.0.1:5173/?tab=crsDeploy
       source_report: I:\Dev\CRS2.0配套\DOC\N7-deployment-report.html
       source_table: I:\Dev\CRS2.0配套\central\节点部署总表.md
+    updated_at: 2026-05-17
+    last_modified_at: 2026-05-17
+
+
+  - id: crs-n5-redeploy-runbook-page
+    name: N5 macOS 重部署指引页
+    type: guide
+    status: active
+    summary: 节点部署台新增 N5 专用页签，说明 N5 是 macOS + claude-relay-service + Redis + frpc + launchd 的旧节点重部署，不使用 Windows sub2api 一键包；页面包含安全版 AI 提示词、固定端口和验证口径。
+    related_projects:
+      - crs-node-one-click-deploy
+      - flaios-hub
+    links:
+      page: http://127.0.0.1:5173/?tab=crsDeploy
+      source_docs: I:\Dev\CRS2.0配套\central\CRS1.0知识库\secrets-backup\N5
     updated_at: 2026-05-17
     last_modified_at: 2026-05-17

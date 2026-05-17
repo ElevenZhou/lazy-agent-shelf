@@ -26,8 +26,8 @@ const collections = catalog.collections || [];
 const hubByType = hubCatalog.by_type || {};
 const targets = ['codex', 'claude', 'cursor', 'opencode', 'vscode', 'trae', 'generic', 'all'];
 const release = {
-  version: 'v0.1.2',
-  code: 'N6/N7',
+  version: 'v0.1.3',
+  code: 'N5/N6/N7',
   date: '2026-05-17'
 };
 const platformCommands = {
@@ -806,7 +806,7 @@ function WorkbenchChannel({ labels, workbench }) {
 
 function CrsNodeDeployChannel({ labels, copied, onCopy }) {
   const text = labels.crsDeploy || {};
-  const [activeNodeId, setActiveNodeId] = useState('N7');
+  const [activeNodeId, setActiveNodeId] = useState('N5');
   const fullDownloadUrl = 'https://github.com/ElevenZhou/crs2-deploy-public/releases/download/v0.1.1/crs2-bundle-v0.1.1-core-v0.1.126-baseline.zip';
   const fullShaUrl = 'https://github.com/ElevenZhou/crs2-deploy-public/releases/download/v0.1.1/crs2-bundle-v0.1.1-core-v0.1.126-baseline.zip.sha256';
   const liteDownloadUrl = 'https://github.com/ElevenZhou/crs2-deploy-public/releases/download/v0.1.1/crs2-bundle-v0.1.1-core-v0.1.126-baseline-lite.zip';
@@ -814,6 +814,46 @@ function CrsNodeDeployChannel({ labels, copied, onCopy }) {
   const repoUrl = 'https://github.com/ElevenZhou/crs2-deploy-public';
   const releaseUrl = 'https://github.com/ElevenZhou/crs2-deploy-public/releases/tag/v0.1.1';
   const nodeDetails = [
+    {
+      id: 'N5',
+      title: 'N5 macOS 重部署节点',
+      status: '待重部署，旧 claude-relay-service 节点',
+      statusTone: 'warn',
+      host: 'N5 macOS',
+      domain: 'https://api5.yumiai.art',
+      port: 13004,
+      core: 'claude-relay-service + Redis 7.2.7',
+      deployedAt: '准备重部署',
+      operator: 'N5 本机 AI / 节点操作者',
+      localIp: 'macOS 本机',
+      source: 'central/CRS1.0知识库/secrets-backup/N5',
+      summary: 'N5 是 macOS 旧节点重部署，运行 claude-relay-service，通过 frpc yumiai-5 反连 60 机器 remotePort 13004；不要使用 N6/N7 的 Windows sub2api 一键包。',
+      addresses: [
+        '公网入口: https://api5.yumiai.art',
+        'N5 本机服务: http://127.0.0.1:3001/health',
+        'N5 本机后台: http://127.0.0.1:3001/admin-next/',
+        '60 机器 Caddy 回环: http://127.0.0.1:13004',
+        'frpc proxy: yumiai-5 -> local 127.0.0.1:3001 -> remote 13004'
+      ],
+      done: [
+        '历史部署资料已归档在 secrets-backup/N5，包含 README、部署指南、runbook 和 checklist',
+        '固定域名 api5.yumiai.art、frpc proxy yumiai-5、remotePort 13004、本机端口 3001',
+        '目录规范固定为 ~/claude-relay-stack，避免 macOS 隐私目录影响 LaunchAgent 后台访问',
+        '运行形态明确为 launchd 用户级服务：art.yumiai.redis、art.yumiai.claude-relay-service、art.yumiai.frpc'
+      ],
+      pending: [
+        'N5 本机拉取 claude-workspace 与 secrets-backup，并按私密 N5 文档执行重部署',
+        '生成 N5 独立 .env 和 data/init.json，不复制 N3/N4 的密钥或初始化文件',
+        '编译或安装本机 Redis 7.2.7，确认 127.0.0.1:6380 PING 返回 PONG',
+        '手动验证 http://127.0.0.1:3001/health 后再配置 launchd',
+        '公网验证 https://api5.yumiai.art/health；13004 不对公网直连开放'
+      ],
+      lessons: [
+        'N5 只操作 N5 本机，不操作 60 机器 Caddy、DNS、frps 或防火墙',
+        'frpc.toml 中 token 从私密记录获取，公开工作台不展示真实 token',
+        'macOS 优先使用用户级 LaunchAgent；除非明确需要无人登录开机自启，否则不切 root LaunchDaemon'
+      ]
+    },
     {
       id: 'N6',
       title: 'N6 首发节点',
@@ -883,6 +923,12 @@ function CrsNodeDeployChannel({ labels, copied, onCopy }) {
     }
   ];
   const activeNode = nodeDetails.find(node => node.id === activeNodeId) || nodeDetails[0];
+  const activeNodeAddresses = activeNode.addresses || [
+    activeNode.domain,
+    `NewAPI Base URL: http://172.17.0.1:${activeNode.port}`,
+    `首尔宿主机验证: http://127.0.0.1:${activeNode.port}/health`,
+    '节点本机: http://127.0.0.1:8080/health'
+  ];
   const commands = [
     {
       label: '解压后进入目录',
@@ -906,6 +952,35 @@ function CrsNodeDeployChannel({ labels, copied, onCopy }) {
     }
   ];
   const aiPrompt = `你是 CRS2.0 节点机部署助手。\n\n目标：把这台 Windows 节点机部署成 sub2api 节点，通过 frp 反连首尔服务器。\n\n下载包选择：\n- 环境已有或能联网下载依赖：优先轻量在线包 crs2-bundle-v0.1.1-core-v0.1.126-baseline-lite.zip。\n- 网络差或想一次带齐依赖：使用完整离线包 crs2-bundle-v0.1.1-core-v0.1.126-baseline.zip。\n\n节点编号：N7  # 按实际替换，例如 N8 / N9\n标准目录：C:\\projects\\crs2-deploy\n\n请按下面顺序执行：\n1. 确认 release zip 已解压到 C:\\projects\\crs2-deploy，且存在 启动部署-管理员.cmd、bootstrap.ps1、install.ps1。\n2. 如果不是管理员 PowerShell，提醒用户双击 启动部署-管理员.cmd 并确认 UAC。\n3. 优先运行：.\\bootstrap.ps1 -NodeId N7 -AutoResume\n4. 如需重启，提醒用户重启后登录 Windows，脚本会自动继续；如果没继续，就再次双击 启动部署-管理员.cmd。\n5. 完成后运行：pwsh -File .\\OPS\\status.ps1\n6. 把节点编号、远端端口、health 状态、frpc 日志最后 20 行汇报给用户。\n\n不要做的事：\n- 不要提交 secrets.local.env。\n- 不要修改 nodes.toml，除非中心明确要求。\n- 不要手工 docker run，优先使用仓库脚本。`;
+  const n5AiPrompt = `你现在在 N5 macOS 机器上，请按私密库里的 N5 部署文档重新部署 claude-relay-service。
+
+目标参数：
+- 本机部署根目录：~/claude-relay-stack
+- 服务目录：~/claude-relay-stack/claude-workspace/claude-relay-service
+- 私密文档目录：~/claude-relay-stack/secrets-backup/N5
+- 本机服务：http://127.0.0.1:3001
+- Redis：127.0.0.1:6380
+- frpc proxy name：yumiai-5
+- remotePort：13004
+- 公网域名：https://api5.yumiai.art
+- 服务化：launchd LaunchAgent
+
+请按这个顺序执行：
+1. 检查 macOS 架构、Node、npm、Git、Xcode Command Line Tools、Homebrew。
+2. 在 ~/claude-relay-stack 下拉取 claude-workspace 和 secrets-backup。
+3. 阅读 secrets-backup/N5/README.md、01-deployment-guide.md、02-ops-runbook.md、03-checklist.md。
+4. 安装 claude-relay-service 依赖并构建 web/admin-spa。
+5. 生成 N5 独立 .env 和 data/init.json，不复制 N3/N4 的密钥。
+6. 准备 Redis 7.2.7，验证 redis-cli -h 127.0.0.1 -p 6380 ping 返回 PONG。
+7. 配置正确架构的 frpc.toml，proxy name 用 yumiai-5，localPort 3001，remotePort 13004，token 从私密记录获取。
+8. 先手动启动服务并验证 http://127.0.0.1:3001/health，再配置 art.yumiai.redis、art.yumiai.claude-relay-service、art.yumiai.frpc 三个 LaunchAgent。
+9. 最后验证 https://api5.yumiai.art/health，并汇报本机 health、frpc 日志和 launchctl 状态。
+
+禁止事项：
+- 不要操作 60 机器，不要改 Caddy、DNS、frps 或防火墙。
+- 不要开放 13004 公网直连。
+- 不要把 .env、data/init.json、frpc token、飞书 webhook 提交到公开仓库。
+- 不要使用 N6/N7 的 Windows sub2api 一键部署包。`;
   const nodeRows = ['N6','N7','N8','N9','N10','N11','N12','N13','N14','N15','N16','N17','N18','N19','N20'].map(id => {
     const n = Number(id.replace('N', ''));
     return { id, port: 16000 + n, subdomain: `n${n}`, channel: `${id}-n${n}-sub2api`, domain: `https://n${n}.api.flaios.com` };
@@ -914,7 +989,7 @@ function CrsNodeDeployChannel({ labels, copied, onCopy }) {
     <div className="channel-hero crs-deploy-hero">
       <span className="signal">{text.signal || 'CRS NODE DEPLOY'}</span>
       <h2>{text.title || 'CRS2.0 节点机一键部署台'}</h2>
-      <p>{text.body || '给 N7-N20 节点机看的单页说明：下载 release、解压、双击一键安装、重启自动恢复、最后按端口接入 NewAPI。'}</p>
+      <p>{text.body || '给 N5 重部署和 N7-N20 节点机看的单页说明：下载 release、解压、双击一键安装、重启自动恢复、最后按端口接入 NewAPI。'}</p>
       <div className="crs-deploy-actions">
         <a href={liteDownloadUrl} target="_blank" rel="noreferrer">下载轻量在线包</a>
         <a href={fullDownloadUrl} target="_blank" rel="noreferrer">下载完整离线包</a>
@@ -976,9 +1051,9 @@ function CrsNodeDeployChannel({ labels, copied, onCopy }) {
       <div className="crs-section-head">
         <div>
           <span className="signal">Node Records</span>
-          <h3>N6 / N7 部署详情</h3>
+          <h3>N5 / N6 / N7 部署详情</h3>
         </div>
-        <p>每个节点单独记录上线状态、验证口径、NewAPI 待办和部署中沉淀的规范。</p>
+        <p>每个节点单独记录上线状态、验证口径、接入待办和部署中沉淀的规范；N5 是 macOS 旧节点重部署，和 Windows 一键包分开执行。</p>
       </div>
       <div className="crs-node-tabs" role="tablist" aria-label="节点部署详情">
         {nodeDetails.map(node => <button type="button" role="tab" aria-selected={activeNode.id === node.id} className={activeNode.id === node.id ? 'active' : ''} key={node.id} onClick={() => setActiveNodeId(node.id)}>
@@ -1005,10 +1080,7 @@ function CrsNodeDeployChannel({ labels, copied, onCopy }) {
           <div><span>操作者</span><strong>{activeNode.operator}</strong></div>
         </div>
         <div className="crs-node-addresses">
-          <code>{activeNode.domain}</code>
-          <code>NewAPI Base URL: http://172.17.0.1:{activeNode.port}</code>
-          <code>首尔宿主机验证: http://127.0.0.1:{activeNode.port}/health</code>
-          <code>节点本机: http://127.0.0.1:8080/health</code>
+          {activeNodeAddresses.map(item => <code key={item}>{item}</code>)}
         </div>
         <div className="crs-node-lists">
           <div>
@@ -1025,6 +1097,23 @@ function CrsNodeDeployChannel({ labels, copied, onCopy }) {
           </div>
         </div>
       </article>
+    </section>
+
+    <section className="crs-deploy-card">
+      <div className="crs-section-head">
+        <div>
+          <span className="signal">N5 macOS Redeploy</span>
+          <h3>N5 节点重部署专用说明</h3>
+        </div>
+        <button type="button" onClick={() => onCopy(n5AiPrompt)}>{copied === n5AiPrompt ? labels.copied : labels.copy}</button>
+      </div>
+      <p>N5 走 macOS + claude-relay-service + Redis + frpc + launchd，不走 CRS2.0 Windows sub2api release 包。公开页只放操作口径，真实 token、webhook、.env 和 init.json 从私密库或本机生成。</p>
+      <div className="crs-command-grid">
+        <div className="crs-command"><strong>部署根目录</strong><p>所有运行文件统一放这里，避免 macOS 隐私目录拦截后台服务。</p><pre><code>~/claude-relay-stack</code></pre></div>
+        <div className="crs-command"><strong>本机验证</strong><p>先手动跑通本地服务，再交给 launchd 托管。</p><pre><code>curl -i http://127.0.0.1:3001/health</code></pre></div>
+        <div className="crs-command"><strong>公网验证</strong><p>60 机器已负责 Caddy / DNS / frps 时，N5 只验证最终入口。</p><pre><code>curl -i https://api5.yumiai.art/health</code></pre></div>
+      </div>
+      <pre className="crs-ai-prompt"><code>{n5AiPrompt}</code></pre>
     </section>
 
     <section className="crs-deploy-card">
