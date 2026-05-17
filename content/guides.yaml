@@ -58,7 +58,7 @@ items:
     name: CRS2.0 节点机一键部署台
     category: engineering/devops
     tags: [crs, node-deploy, windows-node, one-click, release, frp, newapi, ai-runbook, laozhou-s]
-    one_liner: 给 N7-N20 节点机看的单页部署入口，集中提供 GitHub、Release 下载、一键安装、AI 安装提示词和 NewAPI 端口映射。
+    one_liner: 给 N3-N20 节点机看的单页部署入口，集中提供公开 Release 下载、一键安装、AI 安装提示词、N6/N7 部署详情和 NewAPI 端口映射。
     best_for:
       - N7-N20 节点机照网页完成部署
       - 节点操作者不熟悉 PowerShell 但能双击安装
@@ -69,7 +69,7 @@ items:
       - 不属于 CRS2.0 的通用服务器部署
       - 需要公开隐藏全部内部运维域名的场景
     rating: S
-    owner_note: 这是 N6 跑通后的通用部署页，核心路径是按节点网络选择 v0.1.1 轻量在线包或完整离线包、解压到 C:\projects\crs2-deploy、双击启动部署-管理员.cmd、输入 N7/N8 等节点编号；NewAPI Docker 内访问必须用 http://172.17.0.1:160XX。
+    owner_note: 这是 N6 跑通后的通用部署页，核心路径是从公开下载仓库选择 v0.1.1 轻量在线包或完整离线包、解压到 C:\projects\crs2-deploy、双击启动部署-管理员.cmd、输入 N3/N7/N8 等节点编号；页面已记录 N6/N7 进展，NewAPI Docker 内访问必须用 http://172.17.0.1:160XX。
     doc_path: packages/website/src/App.jsx
     related_agents:
       - devops-deployer

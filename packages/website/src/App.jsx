@@ -27,7 +27,7 @@ const hubByType = hubCatalog.by_type || {};
 const targets = ['codex', 'claude', 'cursor', 'opencode', 'vscode', 'trae', 'generic', 'all'];
 const release = {
   version: 'v0.1.2',
-  code: 'N7',
+  code: 'N6/N7',
   date: '2026-05-17'
 };
 const platformCommands = {
@@ -806,12 +806,83 @@ function WorkbenchChannel({ labels, workbench }) {
 
 function CrsNodeDeployChannel({ labels, copied, onCopy }) {
   const text = labels.crsDeploy || {};
-  const fullDownloadUrl = 'https://github.com/ElevenZhou/crs2-deploy/releases/download/v0.1.1/crs2-bundle-v0.1.1-core-v0.1.126-baseline.zip';
-  const fullShaUrl = 'https://github.com/ElevenZhou/crs2-deploy/releases/download/v0.1.1/crs2-bundle-v0.1.1-core-v0.1.126-baseline.zip.sha256';
-  const liteDownloadUrl = 'https://github.com/ElevenZhou/crs2-deploy/releases/download/v0.1.1/crs2-bundle-v0.1.1-core-v0.1.126-baseline-lite.zip';
-  const liteShaUrl = 'https://github.com/ElevenZhou/crs2-deploy/releases/download/v0.1.1/crs2-bundle-v0.1.1-core-v0.1.126-baseline-lite.zip.sha256';
-  const repoUrl = 'https://github.com/ElevenZhou/crs2-deploy';
-  const releaseUrl = 'https://github.com/ElevenZhou/crs2-deploy/releases/tag/v0.1.1';
+  const [activeNodeId, setActiveNodeId] = useState('N7');
+  const fullDownloadUrl = 'https://github.com/ElevenZhou/crs2-deploy-public/releases/download/v0.1.1/crs2-bundle-v0.1.1-core-v0.1.126-baseline.zip';
+  const fullShaUrl = 'https://github.com/ElevenZhou/crs2-deploy-public/releases/download/v0.1.1/crs2-bundle-v0.1.1-core-v0.1.126-baseline.zip.sha256';
+  const liteDownloadUrl = 'https://github.com/ElevenZhou/crs2-deploy-public/releases/download/v0.1.1/crs2-bundle-v0.1.1-core-v0.1.126-baseline-lite.zip';
+  const liteShaUrl = 'https://github.com/ElevenZhou/crs2-deploy-public/releases/download/v0.1.1/crs2-bundle-v0.1.1-core-v0.1.126-baseline-lite.zip.sha256';
+  const repoUrl = 'https://github.com/ElevenZhou/crs2-deploy-public';
+  const releaseUrl = 'https://github.com/ElevenZhou/crs2-deploy-public/releases/tag/v0.1.1';
+  const nodeDetails = [
+    {
+      id: 'N6',
+      title: 'N6 首发节点',
+      status: '已上线，NewAPI 待接入',
+      statusTone: 'warn',
+      host: 'n6',
+      domain: 'https://n6.api.flaios.com',
+      port: 16006,
+      core: 'v0.1.126-baseline',
+      deployedAt: '2026-05-16 03:55',
+      operator: 'Erik',
+      localIp: '192.168.100.92',
+      source: 'central/节点部署总表.md · N6 详情',
+      summary: '第一台 CRS2.0 家庭节点，用来验证 FRP、NSSM、Docker Compose、NewAPI 地址口径和文档流程。',
+      done: [
+        'GitHub 私仓与 crs2-core baseline 建立完成',
+        'release bundle 首版打包完成',
+        'install.ps1 注册 sub2api / frpc 两个 NSSM 服务',
+        'frps 16006 端口预留，n6.api.flaios.com 已规划',
+        '沉淀 N6 上线清单、RDP 步骤和节点 AI 提示词'
+      ],
+      pending: [
+        '首尔宿主机 curl http://127.0.0.1:16006/health 复核',
+        '节点侧创建 newapi-relay 专用 key 并回传指纹',
+        'NewAPI 添加 N6-n6-sub2api channel，Base URL 用 http://172.17.0.1:16006',
+        '端到端 smoke test 后补齐联系人 / ISP / key 指纹'
+      ],
+      lessons: [
+        'NewAPI 在 Docker 容器里，channel Base URL 不能写 127.0.0.1',
+        '首尔宿主机手工验证用 127.0.0.1:16006/health',
+        'N6 暴露的问题已反哺到 N7 一键 bootstrap 流程'
+      ]
+    },
+    {
+      id: 'N7',
+      title: 'N7 一键部署验证节点',
+      status: '已上线，FRP 已连通，NewAPI 待接入',
+      statusTone: 'ok',
+      host: 'n7',
+      domain: 'https://n7.api.flaios.com',
+      port: 16007,
+      core: 'v0.1.126-baseline',
+      deployedAt: '2026-05-17 05:01',
+      operator: 'maxhub',
+      localIp: '192.168.31.121',
+      source: 'DOC/N7-deployment-report.html · central/节点部署总表.md',
+      summary: 'N7 跑通了外层 UAC + ASCII inner 启动器 + bootstrap 自动恢复链路，sub2api、frpc、postgres、redis 均健康。',
+      done: [
+        '启动部署-管理员.cmd 改为外层 UAC + launch-bootstrap-admin-inner.cmd，解决闪退 / 中文文件名乱码',
+        '部署仓自有 ps1/md/toml/tpl 统一 UTF-8 with BOM，cmd/bat 保持 ASCII-only',
+        'bootstrap.ps1 完成 install.ps1，自动恢复任务已删除，后续开机不会重复安装',
+        'Docker 容器 3/3 healthy，本地 http://127.0.0.1:8080/health 返回 200',
+        'frpc login to server success，n7-sub2api start proxy success',
+        '飞书部署完成卡片已补发，包含节点信息和初始管理员信息'
+      ],
+      pending: [
+        '首尔宿主机 curl http://127.0.0.1:16007/health 复核',
+        'N7 节点创建 newapi-relay 专用 key 并回传指纹',
+        'NewAPI 添加 N7-n7-sub2api channel，Base URL 用 http://172.17.0.1:16007',
+        '端到端 smoke test，确认 NewAPI 日志路由到 N7 channel'
+      ],
+      lessons: [
+        '8080 被 com.docker.backend / wslrelay 监听是正常映射，不是端口冲突',
+        'frpc.exe --version 改用 Start-Process 重定向捕获，避开 StandardOutputEncoding 控制台错误',
+        'FRP 目录和 frpc.exe 加 Defender 排除，同时添加 Windows 防火墙 frpc 出站允许规则'
+      ]
+    }
+  ];
+  const activeNode = nodeDetails.find(node => node.id === activeNodeId) || nodeDetails[0];
   const commands = [
     {
       label: '解压后进入目录',
@@ -847,8 +918,8 @@ function CrsNodeDeployChannel({ labels, copied, onCopy }) {
       <div className="crs-deploy-actions">
         <a href={liteDownloadUrl} target="_blank" rel="noreferrer">下载轻量在线包</a>
         <a href={fullDownloadUrl} target="_blank" rel="noreferrer">下载完整离线包</a>
-        <a href={releaseUrl} target="_blank" rel="noreferrer">查看 Release</a>
-        <a href={repoUrl} target="_blank" rel="noreferrer">GitHub 仓库</a>
+        <a href={releaseUrl} target="_blank" rel="noreferrer">查看公开 Release</a>
+        <a href={repoUrl} target="_blank" rel="noreferrer">公开下载仓库</a>
       </div>
     </div>
 
@@ -856,7 +927,7 @@ function CrsNodeDeployChannel({ labels, copied, onCopy }) {
       <article className="crs-deploy-card span-2">
         <span className="signal">01 / Download</span>
         <h3>节点机只要拿到这个包</h3>
-        <p>当前推荐版本是 <strong>v0.1.1</strong>。现在同一个 Release 提供两种包：轻量在线包适合环境已有或网络可用的节点，完整离线包适合小白节点或网络不稳定节点。</p>
+        <p>当前推荐版本是 <strong>v0.1.1</strong>。公开下载仓库只放 release 包，不放内部源码、FRP token、飞书 webhook 和节点表；N3/N7 这类节点可以直接访问。</p>
         <div className="crs-package-grid">
           <div className="crs-package-card recommended">
             <span>推荐 / 快速下载</span>
@@ -877,7 +948,7 @@ function CrsNodeDeployChannel({ labels, copied, onCopy }) {
         </div>
         <div className="crs-link-list">
           <a href={releaseUrl} target="_blank" rel="noreferrer">Release v0.1.1：两种包都在这里</a>
-          <a href={repoUrl} target="_blank" rel="noreferrer">https://github.com/ElevenZhou/crs2-deploy</a>
+          <a href={repoUrl} target="_blank" rel="noreferrer">https://github.com/ElevenZhou/crs2-deploy-public</a>
         </div>
       </article>
 
@@ -900,6 +971,61 @@ function CrsNodeDeployChannel({ labels, copied, onCopy }) {
         <p>域名采用 <code>n7.api.flaios.com</code> 这种方式；NewAPI channel 名称采用 <code>N7-n7-sub2api</code>。</p>
       </article>
     </div>
+
+    <section className="crs-deploy-card">
+      <div className="crs-section-head">
+        <div>
+          <span className="signal">Node Records</span>
+          <h3>N6 / N7 部署详情</h3>
+        </div>
+        <p>每个节点单独记录上线状态、验证口径、NewAPI 待办和部署中沉淀的规范。</p>
+      </div>
+      <div className="crs-node-tabs" role="tablist" aria-label="节点部署详情">
+        {nodeDetails.map(node => <button type="button" role="tab" aria-selected={activeNode.id === node.id} className={activeNode.id === node.id ? 'active' : ''} key={node.id} onClick={() => setActiveNodeId(node.id)}>
+          <span>{node.id}</span>
+          <strong>{node.title}</strong>
+          <em>{node.status}</em>
+        </button>)}
+      </div>
+      <article className="crs-node-detail">
+        <div className="crs-node-head">
+          <div>
+            <span className="signal">{activeNode.source}</span>
+            <h4>{activeNode.title}</h4>
+            <p>{activeNode.summary}</p>
+          </div>
+          <b className={`crs-node-status ${activeNode.statusTone}`}>{activeNode.status}</b>
+        </div>
+        <div className="crs-node-facts">
+          <div><span>节点</span><strong>{activeNode.id}</strong></div>
+          <div><span>主机名</span><strong>{activeNode.host}</strong></div>
+          <div><span>frp 端口</span><strong>{activeNode.port}</strong></div>
+          <div><span>core</span><strong>{activeNode.core}</strong></div>
+          <div><span>部署时间</span><strong>{activeNode.deployedAt}</strong></div>
+          <div><span>操作者</span><strong>{activeNode.operator}</strong></div>
+        </div>
+        <div className="crs-node-addresses">
+          <code>{activeNode.domain}</code>
+          <code>NewAPI Base URL: http://172.17.0.1:{activeNode.port}</code>
+          <code>首尔宿主机验证: http://127.0.0.1:{activeNode.port}/health</code>
+          <code>节点本机: http://127.0.0.1:8080/health</code>
+        </div>
+        <div className="crs-node-lists">
+          <div>
+            <h5>已完成</h5>
+            <ul>{activeNode.done.map(item => <li key={item}>{item}</li>)}</ul>
+          </div>
+          <div>
+            <h5>待接入</h5>
+            <ul>{activeNode.pending.map(item => <li key={item}>{item}</li>)}</ul>
+          </div>
+          <div>
+            <h5>规范沉淀</h5>
+            <ul>{activeNode.lessons.map(item => <li key={item}>{item}</li>)}</ul>
+          </div>
+        </div>
+      </article>
+    </section>
 
     <section className="crs-deploy-card">
       <div className="crs-section-head">

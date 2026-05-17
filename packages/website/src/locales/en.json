@@ -68,7 +68,7 @@
   "release": {
     "label": "Current version",
     "name": "Node Deploy Release",
-    "body": "This release adds the CRS2.0 node one-click deploy page, N6 launch document console, and clickable workbench project details.",
+    "body": "This release syncs N7 deployment progress, adds N6/N7 node detail tabs, and switches downloads to the public release repository.",
     "date": "Release date"
   },
   "crsN6": {
@@ -926,6 +926,6 @@
   "crsDeploy": {
     "signal": "CRS NODE DEPLOY",
     "title": "CRS2.0 Node One-Click Deploy",
-    "body": "A single-page runbook for N7-N20 node machines: download the release, unzip, double-click installer, auto-resume after reboot, then map ports into NewAPI."
+    "body": "A single-page runbook for N3-N20 nodes: public release downloads, one-click install, N6/N7 deployment records, auto-resume, and NewAPI mapping."
   }
 }

@@ -137,9 +137,9 @@ items:
     stage: launched
     status: active
     risk_level: medium
-    summary: 面向 N7-N20 节点机的工作台页面，集中提供轻量在线包 / 完整离线包下载、GitHub 仓库、一键安装步骤、AI 安装提示词和 NewAPI / frp 端口映射。
-    next_action: 让 N7 节点优先按轻量在线包执行，网络或依赖下载失败时切完整离线包兜底；收集卡点后继续回填页面和 SOP。
-    owner_note: 页面避免写入真实 token、webhook、API key；只保留公开下载链接、标准命令和端口规则。
+    summary: 面向 N3-N20 节点机的工作台页面，集中提供公开 release 下载、轻量在线包 / 完整离线包、一键安装步骤、AI 安装提示词、N6/N7 部署详情和 NewAPI / frp 端口映射。
+    next_action: 让 N3/N8 后续优先按公开轻量在线包执行，网络或依赖下载失败时切完整离线包兜底；N7 待完成首尔宿主机验证、NewAPI channel 和 smoke test。
+    owner_note: 页面避免写入真实 token、webhook、API key；公开页面只展示下载链接、标准命令、端口规则和不含密码的节点进展摘要。
     related_agents:
       - devops-deployer
       - repo-onboarding-guide
@@ -147,10 +147,10 @@ items:
       - submit-to-flaios
     links:
       local_page: http://127.0.0.1:5173/?tab=crsDeploy
-      release: https://github.com/ElevenZhou/crs2-deploy/releases/tag/v0.1.1
-      download_full: https://github.com/ElevenZhou/crs2-deploy/releases/download/v0.1.1/crs2-bundle-v0.1.1-core-v0.1.126-baseline.zip
-      download_lite: https://github.com/ElevenZhou/crs2-deploy/releases/download/v0.1.1/crs2-bundle-v0.1.1-core-v0.1.126-baseline-lite.zip
-      repo: https://github.com/ElevenZhou/crs2-deploy
+      release: https://github.com/ElevenZhou/crs2-deploy-public/releases/tag/v0.1.1
+      download_full: https://github.com/ElevenZhou/crs2-deploy-public/releases/download/v0.1.1/crs2-bundle-v0.1.1-core-v0.1.126-baseline.zip
+      download_lite: https://github.com/ElevenZhou/crs2-deploy-public/releases/download/v0.1.1/crs2-bundle-v0.1.1-core-v0.1.126-baseline-lite.zip
+      repo: https://github.com/ElevenZhou/crs2-deploy-public
       source_repo: I:\Dev\CRS2.0配套
     updated_at: 2026-05-17
     last_modified_at: 2026-05-17

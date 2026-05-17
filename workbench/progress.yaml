@@ -79,3 +79,11 @@ items:
     summary: 已把 v0.1.1 轻量在线包同步到节点机一键部署台，页面现在同时展示约 6.9 MB 的 lite 包和约 659 MB 的完整离线包，并说明适用场景与 SHA256。
     updated_at: 2026-05-17
     last_modified_at: 2026-05-17
+
+  - id: crs-n7-deployment-progress-synced
+    date: 2026-05-17
+    project: crs-node-one-click-deploy
+    status: done
+    summary: 已同步最新 git 中的 N7 部署记录：05:01 完成一键 bootstrap，sub2api/frpc Running，FRP n7-sub2api proxy success；节点部署台新增 N6/N7 多页签，并更新到底部 v0.1.2 · N6/N7 版本标识。
+    updated_at: 2026-05-17
+    last_modified_at: 2026-05-17
