@@ -13,6 +13,13 @@ items:
     summary: setup CLI 已支持 list/show/export/script/agent，export 默认生成公开分享包。
     updated_at: 2026-05-13
     last_modified_at: 2026-05-15
+  - id: recent-chrome-site-shortcuts-published
+    date: 2026-05-25
+    project: recent-chrome-site-shortcuts
+    status: done
+    summary: 已从本机 Chrome History 副本统计最近三天高频访问域名，过滤本地/内网/广告统计域名，按访问次数整理为可点击的工作台快捷入口，并让工作台资产卡支持展示 links。
+    updated_at: 2026-05-25
+    last_modified_at: 2026-05-25
   - id: personal-workbench-start
     date: 2026-05-13
     project: flaios-hub
@@ -95,6 +102,14 @@ items:
     summary: 已在首尔服务器发布 https://flaios.com/node-monitor/ 节点监控控制台：30 分钟自动采集、手动立即采集、国家节点/其他节点归类、网络拓扑图、地区概览、搜索筛选、分页和滚动加载均已上线并通过公网 200 OK 验证。
     updated_at: 2026-05-17
     last_modified_at: 2026-05-17
+
+  - id: crs2-cluster-management-submitted-to-workbench
+    date: 2026-05-25
+    project: crs2-cluster-management
+    status: done
+    summary: 已阅读 CRS2.0 集群管理工作区 README、docs 索引、AI handoff、节点清单和救援脚本说明，确认 Claude 已将工程整理为可交接的运维项目，并把当前工程状态、文档入口、多语言节点接入包和后续整理重点登记到个人工作台。
+    updated_at: 2026-05-25
+    last_modified_at: 2026-05-25
 
   - id: youyou-cs2-analysis-submitted-to-workbench
     date: 2026-05-25

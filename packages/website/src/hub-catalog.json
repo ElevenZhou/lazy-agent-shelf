@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-24T18:54:14.564Z",
+  "generated_at": "2026-05-24T19:39:34.438Z",
   "item_count": 16,
   "types": [
     "ai_website",
@@ -5549,12 +5549,12 @@
       "last_modified_at": "2026-05-25"
     },
     "summary": {
-      "projects": 12,
-      "active_projects": 12,
-      "high_risks": 3,
-      "active_plans": 10,
-      "recent_progress": 16,
-      "assets": 13,
+      "projects": 14,
+      "active_projects": 14,
+      "high_risks": 4,
+      "active_plans": 11,
+      "recent_progress": 18,
+      "assets": 16,
       "relations": 2
     },
     "projects": [
@@ -5604,7 +5604,42 @@
           "path": "setup-kits/personal-ai-workstation"
         },
         "updated_at": "2026-05-13",
-        "last_modified_at": "2026-05-15"
+        "last_modified_at": "2026-05-25"
+      },
+      {
+        "id": "recent-chrome-site-shortcuts",
+        "name": "Chrome 最近三天常用网站入口",
+        "type": "dashboard",
+        "stage": "operating",
+        "status": "active",
+        "risk_level": "medium",
+        "summary": "从本机 Chrome History 汇总最近三天访问较多的公开域名，整理成域名级快捷入口；只保留主页链接和访问次数，不写具体路径、query、账号页或本地内网地址。",
+        "next_action": "定期按需刷新；如果后续要公开发布或推送到远端，先人工复核是否包含后台、支付、账号或客户相关敏感域名。",
+        "owner_note": "数据窗口为 2026-05-22 03:29 至 2026-05-25 03:29；来源是本机 Chrome Default/Profile 1 历史副本，已过滤 localhost、内网 IP、chrome/file 协议和常见广告/统计/CDN 域名。",
+        "related_agents": [
+          "codex"
+        ],
+        "related_workflows": [
+          "personal-ai-workstation-bootstrap"
+        ],
+        "links": {
+          "01 api.yumiai.art (133)": "https://api.yumiai.art/",
+          "02 ecnuknde55rf.feishu.cn (28)": "https://ecnuknde55rf.feishu.cn/",
+          "03 flaios.com (25)": "https://flaios.com/",
+          "04 api.aabao.vip (19)": "https://api.aabao.vip/",
+          "05 coinglass.com (10)": "https://coinglass.com/",
+          "06 merchant.vccvip.top (10)": "https://merchant.vccvip.top/",
+          "07 github.com (8)": "https://github.com/",
+          "08 hardcore.yumiai.art (5)": "https://hardcore.yumiai.art/",
+          "09 salt.flaios.com (5)": "https://salt.flaios.com/",
+          "10 agents.flaios.com (4)": "https://agents.flaios.com/",
+          "11 n06-cli.api.flaios.com (2)": "https://n06-cli.api.flaios.com/",
+          "12 n9.api.flaios.com (2)": "https://n9.api.flaios.com/",
+          "13 api.aabao.top (1)": "https://api.aabao.top/",
+          "14 security.feishu.cn (1)": "https://security.feishu.cn/"
+        },
+        "updated_at": "2026-05-25",
+        "last_modified_at": "2026-05-25"
       },
       {
         "id": "local-image-generator-skill",
@@ -5779,6 +5814,38 @@
         "last_modified_at": "2026-05-17"
       },
       {
+        "id": "crs2-cluster-management",
+        "name": "CRS2.0 集群管理工作区",
+        "type": "project",
+        "stage": "operating",
+        "status": "active",
+        "risk_level": "high",
+        "summary": "家庭 Windows/macOS 节点的 CRS3.0 集群管理工程，已由 Claude 整理为 README + docs SSOT + AI handoff + 节点全生命周期工序卡 + 救援脚本体系；当前按 15 minions、crs-app/cli/旧栈互斥编排、Netdata/Kuma/飞书监控和 GitHub release bundle 分发来维护。",
+        "next_action": "先统一 README 与 docs/README、00-OVERVIEW 的状态口径，再继续推进 N06/N09 Netdata/Kuma 补齐、游离部署招安和救援脚本 cluster-check 扩展。",
+        "owner_note": "高敏运维项目；工作台只记录不含凭据的状态和路径，真实 token、webhook、API key 与节点 admin 密码只看本地 gitignored RUNBOOK。",
+        "related_agents": [
+          "claude",
+          "codex",
+          "devops-deployer"
+        ],
+        "related_workflows": [
+          "submit-to-flaios",
+          "node-monitoring",
+          "seoul-node-onboarding"
+        ],
+        "links": {
+          "local_repo": "I:\\Dev\\CRS2.0集群管理",
+          "readme": "I:\\Dev\\CRS2.0集群管理\\README.md",
+          "docs_index": "I:\\Dev\\CRS2.0集群管理\\docs\\README.md",
+          "ai_handoff": "I:\\Dev\\CRS2.0集群管理\\docs\\04-AI-HANDOFF.md",
+          "node_lifecycle": "I:\\Dev\\CRS2.0集群管理\\docs\\08-NODE-FULL-LIFECYCLE.md",
+          "node_onboard": "I:\\Dev\\CRS2.0集群管理\\CRS3.0\\monitoring\\node-onboard",
+          "rescue_scripts": "I:\\Dev\\CRS2.0集群管理\\救援脚本"
+        },
+        "updated_at": "2026-05-25",
+        "last_modified_at": "2026-05-25"
+      },
+      {
         "id": "youyou-cs2-digital-assets-analysis",
         "name": "悠悠有品综合分析",
         "type": "project",
@@ -5896,12 +5963,41 @@
         "name": "个人 AI 工作站套件",
         "type": "setup_kit",
         "status": "building",
-        "summary": "可分享、可导出、可交给 Agent 的电脑初始化资产。",
+        "summary": "可分享、可导出、可交给 Agent 的电脑初始化资产；已追加本机 Chrome 最近三天高频网站的域名级快捷入口，供个人工作台点击进入。",
         "related_projects": [
           "personal-ai-workstation"
         ],
         "updated_at": "2026-05-13",
-        "last_modified_at": "2026-05-15"
+        "last_modified_at": "2026-05-25"
+      },
+      {
+        "id": "recent-chrome-site-shortcuts-2026-05-25",
+        "name": "Chrome 最近三天高频网站快捷清单",
+        "type": "website_shortcut_list",
+        "status": "active",
+        "summary": "2026-05-22 03:29 至 2026-05-25 03:29 的 Chrome 访问历史域名级汇总；按访问次数排序，保留主页链接，不包含具体浏览路径、query、账号页或内网地址。",
+        "related_projects": [
+          "recent-chrome-site-shortcuts",
+          "personal-ai-workstation"
+        ],
+        "links": {
+          "01 api.yumiai.art (133)": "https://api.yumiai.art/",
+          "02 ecnuknde55rf.feishu.cn (28)": "https://ecnuknde55rf.feishu.cn/",
+          "03 flaios.com (25)": "https://flaios.com/",
+          "04 api.aabao.vip (19)": "https://api.aabao.vip/",
+          "05 coinglass.com (10)": "https://coinglass.com/",
+          "06 merchant.vccvip.top (10)": "https://merchant.vccvip.top/",
+          "07 github.com (8)": "https://github.com/",
+          "08 hardcore.yumiai.art (5)": "https://hardcore.yumiai.art/",
+          "09 salt.flaios.com (5)": "https://salt.flaios.com/",
+          "10 agents.flaios.com (4)": "https://agents.flaios.com/",
+          "11 n06-cli.api.flaios.com (2)": "https://n06-cli.api.flaios.com/",
+          "12 n9.api.flaios.com (2)": "https://n9.api.flaios.com/",
+          "13 api.aabao.top (1)": "https://api.aabao.top/",
+          "14 security.feishu.cn (1)": "https://security.feishu.cn/"
+        },
+        "updated_at": "2026-05-25",
+        "last_modified_at": "2026-05-25"
       },
       {
         "id": "submit-results-to-workbench-local-skill",
@@ -6020,6 +6116,46 @@
         "last_modified_at": "2026-05-17"
       },
       {
+        "id": "crs2-cluster-management-docset",
+        "name": "CRS2.0 集群管理文档与交接包",
+        "type": "document_set",
+        "status": "active",
+        "summary": "包含根 README、docs/ AI handoff、节点/端口清单、运维 cookbook、节点全生命周期工序卡、服务凭据索引和监控文档，用于让 Claude/Codex 接手 CRS3.0 集群管理工作。",
+        "related_projects": [
+          "crs2-cluster-management",
+          "flaios-hub"
+        ],
+        "links": {
+          "readme": "I:\\Dev\\CRS2.0集群管理\\README.md",
+          "docs_index": "I:\\Dev\\CRS2.0集群管理\\docs\\README.md",
+          "overview": "I:\\Dev\\CRS2.0集群管理\\docs\\00-OVERVIEW.md",
+          "nodes_ports": "I:\\Dev\\CRS2.0集群管理\\docs\\02-NODES-AND-PORTS.md",
+          "ai_handoff": "I:\\Dev\\CRS2.0集群管理\\docs\\04-AI-HANDOFF.md",
+          "full_lifecycle": "I:\\Dev\\CRS2.0集群管理\\docs\\08-NODE-FULL-LIFECYCLE.md"
+        },
+        "updated_at": "2026-05-25",
+        "last_modified_at": "2026-05-25"
+      },
+      {
+        "id": "crs3-node-onboard-localized-packages",
+        "name": "CRS3.0 多语言节点接入包",
+        "type": "deployment_package",
+        "status": "active",
+        "summary": "CRS3.0 node-onboard 目录已整理为中文、英文、越南文和 macOS 包，包含对应语言指南、启动器和 Salt minion 接入脚本，面向节点操作者双击接入。",
+        "related_projects": [
+          "crs2-cluster-management"
+        ],
+        "links": {
+          "root": "I:\\Dev\\CRS2.0集群管理\\CRS3.0\\monitoring\\node-onboard",
+          "zh": "I:\\Dev\\CRS2.0集群管理\\CRS3.0\\monitoring\\node-onboard\\节点部署-中文",
+          "en": "I:\\Dev\\CRS2.0集群管理\\CRS3.0\\monitoring\\node-onboard\\Node Deployment-English",
+          "vi": "I:\\Dev\\CRS2.0集群管理\\CRS3.0\\monitoring\\node-onboard\\Triển khai node-Tiếng Việt",
+          "macos": "I:\\Dev\\CRS2.0集群管理\\CRS3.0\\monitoring\\node-onboard\\节点部署-macOS"
+        },
+        "updated_at": "2026-05-25",
+        "last_modified_at": "2026-05-25"
+      },
+      {
         "id": "youyou-cs2-analysis-docset",
         "name": "悠悠有品 CS2 数字资产研究文档组",
         "type": "document_set",
@@ -6121,6 +6257,15 @@
         "last_modified_at": "2026-05-15"
       },
       {
+        "id": "recent-chrome-site-shortcuts-published",
+        "date": "2026-05-25",
+        "project": "recent-chrome-site-shortcuts",
+        "status": "done",
+        "summary": "已从本机 Chrome History 副本统计最近三天高频访问域名，过滤本地/内网/广告统计域名，按访问次数整理为可点击的工作台快捷入口，并让工作台资产卡支持展示 links。",
+        "updated_at": "2026-05-25",
+        "last_modified_at": "2026-05-25"
+      },
+      {
         "id": "personal-workbench-start",
         "date": "2026-05-13",
         "project": "flaios-hub",
@@ -6220,6 +6365,15 @@
         "last_modified_at": "2026-05-17"
       },
       {
+        "id": "crs2-cluster-management-submitted-to-workbench",
+        "date": "2026-05-25",
+        "project": "crs2-cluster-management",
+        "status": "done",
+        "summary": "已阅读 CRS2.0 集群管理工作区 README、docs 索引、AI handoff、节点清单和救援脚本说明，确认 Claude 已将工程整理为可交接的运维项目，并把当前工程状态、文档入口、多语言节点接入包和后续整理重点登记到个人工作台。",
+        "updated_at": "2026-05-25",
+        "last_modified_at": "2026-05-25"
+      },
+      {
         "id": "youyou-cs2-analysis-submitted-to-workbench",
         "date": "2026-05-25",
         "project": "youyou-cs2-digital-assets-analysis",
@@ -6253,13 +6407,14 @@
         "name": "浏览器历史隐私泄露",
         "risk_level": "high",
         "status": "active",
-        "summary": "websites.yaml/websites.csv 来自浏览器历史，可能包含后台、内网、账号、API、支付等敏感域名。",
-        "mitigation": "默认只导出 websites.public.csv；完整 websites.csv 仅允许 --include-private 私有备份。",
+        "summary": "websites.yaml/websites.csv 和临时 Chrome 高频网站清单都可能来自浏览器历史，可能包含后台、内网、账号、API、支付等敏感域名。",
+        "mitigation": "默认只导出公开过滤后的域名级入口，不写具体路径、query、账号页或本地内网地址；完整历史和含敏感域名的清单仅允许私有备份或人工确认后使用。",
         "related_projects": [
-          "personal-ai-workstation"
+          "personal-ai-workstation",
+          "recent-chrome-site-shortcuts"
         ],
-        "updated_at": "2026-05-13",
-        "last_modified_at": "2026-05-15"
+        "updated_at": "2026-05-25",
+        "last_modified_at": "2026-05-25"
       },
       {
         "id": "workbench-overreach",
@@ -6299,6 +6454,32 @@
         ],
         "updated_at": "2026-05-17",
         "last_modified_at": "2026-05-17"
+      },
+      {
+        "id": "crs2-cluster-docs-drift",
+        "name": "CRS2.0 集群管理文档口径漂移",
+        "risk_level": "medium",
+        "status": "active",
+        "summary": "根 README 已更新到 2026-05-25、15 minions 和救援脚本体系，但 docs/README 与 00-OVERVIEW 仍保留 2026-05-20/21 的旧节点统计和“顶层 README 是历史快照”等表述，后续 AI 接手时可能读到互相矛盾的状态。",
+        "mitigation": "把根 README、docs/README、00-OVERVIEW、02-NODES-AND-PORTS 的 fleet 数量、业务栈分类、基线版本和救援脚本状态统一；后续状态变更同步更新入口文档。",
+        "related_projects": [
+          "crs2-cluster-management"
+        ],
+        "updated_at": "2026-05-25",
+        "last_modified_at": "2026-05-25"
+      },
+      {
+        "id": "crs2-cluster-sensitive-ops-boundary",
+        "name": "CRS2.0 集群管理高敏运维边界",
+        "risk_level": "high",
+        "status": "active",
+        "summary": "该工程涉及 Salt master、首尔 Caddy/NewAPI、节点凭据、飞书 webhook、API key、frp token 和真实节点管理；误提交 RUNBOOK、receipt、secrets 或直接重启共享 Caddy 都可能造成凭据泄露或服务闪断。",
+        "mitigation": "真实凭据只保留在 gitignored RUNBOOK 和节点本地 receipt；工作台与公开文档只记录路径和无密摘要；共享服务重启、删 key、改 frps token、force push 等动作必须先确认。",
+        "related_projects": [
+          "crs2-cluster-management"
+        ],
+        "updated_at": "2026-05-25",
+        "last_modified_at": "2026-05-25"
       },
       {
         "id": "youyou-cs2-compliance-boundaries",
@@ -6433,6 +6614,20 @@
         ],
         "updated_at": "2026-05-17",
         "last_modified_at": "2026-05-17"
+      },
+      {
+        "id": "crs2-cluster-management-doc-sync",
+        "horizon": "short",
+        "status": "active",
+        "title": "CRS2.0 集群管理文档同步与巡检",
+        "goals": [
+          "统一根 README、docs/README、00-OVERVIEW 和 02-NODES-AND-PORTS 的 2026-05-25 状态口径。",
+          "补齐 N06/N09 的 Netdata 与 Kuma 状态，并用 cluster-check 对账 pillar、installed、running 三方状态。",
+          "规划 N03/N07/SG01 游离部署招安路径，先记录现状和风险，再逐台标准化。",
+          "扩展救援脚本与 cluster-check 的 crs-app 检查能力，减少人工读节点 receipt 的成本。"
+        ],
+        "updated_at": "2026-05-25",
+        "last_modified_at": "2026-05-25"
       },
       {
         "id": "youyou-cs2-prd-breakdown",

@@ -3,12 +3,13 @@ items:
     name: 浏览器历史隐私泄露
     risk_level: high
     status: active
-    summary: websites.yaml/websites.csv 来自浏览器历史，可能包含后台、内网、账号、API、支付等敏感域名。
-    mitigation: 默认只导出 websites.public.csv；完整 websites.csv 仅允许 --include-private 私有备份。
+    summary: websites.yaml/websites.csv 和临时 Chrome 高频网站清单都可能来自浏览器历史，可能包含后台、内网、账号、API、支付等敏感域名。
+    mitigation: 默认只导出公开过滤后的域名级入口，不写具体路径、query、账号页或本地内网地址；完整历史和含敏感域名的清单仅允许私有备份或人工确认后使用。
     related_projects:
       - personal-ai-workstation
-    updated_at: 2026-05-13
-    last_modified_at: 2026-05-15
+      - recent-chrome-site-shortcuts
+    updated_at: 2026-05-25
+    last_modified_at: 2026-05-25
   - id: workbench-overreach
     name: 工作台范围膨胀
     risk_level: medium
@@ -41,6 +42,28 @@ items:
       - seoul-node-monitor-console
     updated_at: 2026-05-17
     last_modified_at: 2026-05-17
+
+  - id: crs2-cluster-docs-drift
+    name: CRS2.0 集群管理文档口径漂移
+    risk_level: medium
+    status: active
+    summary: 根 README 已更新到 2026-05-25、15 minions 和救援脚本体系，但 docs/README 与 00-OVERVIEW 仍保留 2026-05-20/21 的旧节点统计和“顶层 README 是历史快照”等表述，后续 AI 接手时可能读到互相矛盾的状态。
+    mitigation: 把根 README、docs/README、00-OVERVIEW、02-NODES-AND-PORTS 的 fleet 数量、业务栈分类、基线版本和救援脚本状态统一；后续状态变更同步更新入口文档。
+    related_projects:
+      - crs2-cluster-management
+    updated_at: 2026-05-25
+    last_modified_at: 2026-05-25
+
+  - id: crs2-cluster-sensitive-ops-boundary
+    name: CRS2.0 集群管理高敏运维边界
+    risk_level: high
+    status: active
+    summary: 该工程涉及 Salt master、首尔 Caddy/NewAPI、节点凭据、飞书 webhook、API key、frp token 和真实节点管理；误提交 RUNBOOK、receipt、secrets 或直接重启共享 Caddy 都可能造成凭据泄露或服务闪断。
+    mitigation: 真实凭据只保留在 gitignored RUNBOOK 和节点本地 receipt；工作台与公开文档只记录路径和无密摘要；共享服务重启、删 key、改 frps token、force push 等动作必须先确认。
+    related_projects:
+      - crs2-cluster-management
+    updated_at: 2026-05-25
+    last_modified_at: 2026-05-25
 
   - id: youyou-cs2-compliance-boundaries
     name: 悠悠有品虚拟资产与预测市场边界

@@ -21,11 +21,36 @@ items:
     name: 个人 AI 工作站套件
     type: setup_kit
     status: building
-    summary: 可分享、可导出、可交给 Agent 的电脑初始化资产。
+    summary: 可分享、可导出、可交给 Agent 的电脑初始化资产；已追加本机 Chrome 最近三天高频网站的域名级快捷入口，供个人工作台点击进入。
     related_projects:
       - personal-ai-workstation
     updated_at: 2026-05-13
-    last_modified_at: 2026-05-15
+    last_modified_at: 2026-05-25
+  - id: recent-chrome-site-shortcuts-2026-05-25
+    name: Chrome 最近三天高频网站快捷清单
+    type: website_shortcut_list
+    status: active
+    summary: 2026-05-22 03:29 至 2026-05-25 03:29 的 Chrome 访问历史域名级汇总；按访问次数排序，保留主页链接，不包含具体浏览路径、query、账号页或内网地址。
+    related_projects:
+      - recent-chrome-site-shortcuts
+      - personal-ai-workstation
+    links:
+      "01 api.yumiai.art (133)": https://api.yumiai.art/
+      "02 ecnuknde55rf.feishu.cn (28)": https://ecnuknde55rf.feishu.cn/
+      "03 flaios.com (25)": https://flaios.com/
+      "04 api.aabao.vip (19)": https://api.aabao.vip/
+      "05 coinglass.com (10)": https://coinglass.com/
+      "06 merchant.vccvip.top (10)": https://merchant.vccvip.top/
+      "07 github.com (8)": https://github.com/
+      "08 hardcore.yumiai.art (5)": https://hardcore.yumiai.art/
+      "09 salt.flaios.com (5)": https://salt.flaios.com/
+      "10 agents.flaios.com (4)": https://agents.flaios.com/
+      "11 n06-cli.api.flaios.com (2)": https://n06-cli.api.flaios.com/
+      "12 n9.api.flaios.com (2)": https://n9.api.flaios.com/
+      "13 api.aabao.top (1)": https://api.aabao.top/
+      "14 security.feishu.cn (1)": https://security.feishu.cn/
+    updated_at: 2026-05-25
+    last_modified_at: 2026-05-25
   - id: submit-results-to-workbench-local-skill
     name: 提交成果到工作台本地 Skill
     type: skill
@@ -120,6 +145,40 @@ items:
       source_table: I:\Dev\CRS2.0配套\central\节点部署总表.md
     updated_at: 2026-05-17
     last_modified_at: 2026-05-17
+
+  - id: crs2-cluster-management-docset
+    name: CRS2.0 集群管理文档与交接包
+    type: document_set
+    status: active
+    summary: 包含根 README、docs/ AI handoff、节点/端口清单、运维 cookbook、节点全生命周期工序卡、服务凭据索引和监控文档，用于让 Claude/Codex 接手 CRS3.0 集群管理工作。
+    related_projects:
+      - crs2-cluster-management
+      - flaios-hub
+    links:
+      readme: I:\Dev\CRS2.0集群管理\README.md
+      docs_index: I:\Dev\CRS2.0集群管理\docs\README.md
+      overview: I:\Dev\CRS2.0集群管理\docs\00-OVERVIEW.md
+      nodes_ports: I:\Dev\CRS2.0集群管理\docs\02-NODES-AND-PORTS.md
+      ai_handoff: I:\Dev\CRS2.0集群管理\docs\04-AI-HANDOFF.md
+      full_lifecycle: I:\Dev\CRS2.0集群管理\docs\08-NODE-FULL-LIFECYCLE.md
+    updated_at: 2026-05-25
+    last_modified_at: 2026-05-25
+
+  - id: crs3-node-onboard-localized-packages
+    name: CRS3.0 多语言节点接入包
+    type: deployment_package
+    status: active
+    summary: CRS3.0 node-onboard 目录已整理为中文、英文、越南文和 macOS 包，包含对应语言指南、启动器和 Salt minion 接入脚本，面向节点操作者双击接入。
+    related_projects:
+      - crs2-cluster-management
+    links:
+      root: I:\Dev\CRS2.0集群管理\CRS3.0\monitoring\node-onboard
+      zh: I:\Dev\CRS2.0集群管理\CRS3.0\monitoring\node-onboard\节点部署-中文
+      en: I:\Dev\CRS2.0集群管理\CRS3.0\monitoring\node-onboard\Node Deployment-English
+      vi: I:\Dev\CRS2.0集群管理\CRS3.0\monitoring\node-onboard\Triển khai node-Tiếng Việt
+      macos: I:\Dev\CRS2.0集群管理\CRS3.0\monitoring\node-onboard\节点部署-macOS
+    updated_at: 2026-05-25
+    last_modified_at: 2026-05-25
 
   - id: youyou-cs2-analysis-docset
     name: 悠悠有品 CS2 数字资产研究文档组

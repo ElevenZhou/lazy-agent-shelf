@@ -787,6 +787,7 @@ function WorkbenchChannel({ labels, workbench }) {
           <strong>{asset.name}</strong>
           <p>{asset.summary}</p>
           <em>{asset.type} · {asset.status}</em>
+          <LinkList links={asset.links} />
           <TimeMeta item={asset} />
         </article>)}
       </section>

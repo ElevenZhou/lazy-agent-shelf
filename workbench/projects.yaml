@@ -36,7 +36,37 @@ items:
     links:
       path: setup-kits/personal-ai-workstation
     updated_at: 2026-05-13
-    last_modified_at: 2026-05-15
+    last_modified_at: 2026-05-25
+  - id: recent-chrome-site-shortcuts
+    name: Chrome 最近三天常用网站入口
+    type: dashboard
+    stage: operating
+    status: active
+    risk_level: medium
+    summary: 从本机 Chrome History 汇总最近三天访问较多的公开域名，整理成域名级快捷入口；只保留主页链接和访问次数，不写具体路径、query、账号页或本地内网地址。
+    next_action: 定期按需刷新；如果后续要公开发布或推送到远端，先人工复核是否包含后台、支付、账号或客户相关敏感域名。
+    owner_note: 数据窗口为 2026-05-22 03:29 至 2026-05-25 03:29；来源是本机 Chrome Default/Profile 1 历史副本，已过滤 localhost、内网 IP、chrome/file 协议和常见广告/统计/CDN 域名。
+    related_agents:
+      - codex
+    related_workflows:
+      - personal-ai-workstation-bootstrap
+    links:
+      "01 api.yumiai.art (133)": https://api.yumiai.art/
+      "02 ecnuknde55rf.feishu.cn (28)": https://ecnuknde55rf.feishu.cn/
+      "03 flaios.com (25)": https://flaios.com/
+      "04 api.aabao.vip (19)": https://api.aabao.vip/
+      "05 coinglass.com (10)": https://coinglass.com/
+      "06 merchant.vccvip.top (10)": https://merchant.vccvip.top/
+      "07 github.com (8)": https://github.com/
+      "08 hardcore.yumiai.art (5)": https://hardcore.yumiai.art/
+      "09 salt.flaios.com (5)": https://salt.flaios.com/
+      "10 agents.flaios.com (4)": https://agents.flaios.com/
+      "11 n06-cli.api.flaios.com (2)": https://n06-cli.api.flaios.com/
+      "12 n9.api.flaios.com (2)": https://n9.api.flaios.com/
+      "13 api.aabao.top (1)": https://api.aabao.top/
+      "14 security.feishu.cn (1)": https://security.feishu.cn/
+    updated_at: 2026-05-25
+    last_modified_at: 2026-05-25
   - id: local-image-generator-skill
     name: 本地图像生成 Skill
     type: skill
@@ -179,6 +209,34 @@ items:
       local_management_repo: Y:\服务器管理\腾讯云-首尔-Ubunut-150.109.233.152
     updated_at: 2026-05-17
     last_modified_at: 2026-05-17
+
+  - id: crs2-cluster-management
+    name: CRS2.0 集群管理工作区
+    type: project
+    stage: operating
+    status: active
+    risk_level: high
+    summary: 家庭 Windows/macOS 节点的 CRS3.0 集群管理工程，已由 Claude 整理为 README + docs SSOT + AI handoff + 节点全生命周期工序卡 + 救援脚本体系；当前按 15 minions、crs-app/cli/旧栈互斥编排、Netdata/Kuma/飞书监控和 GitHub release bundle 分发来维护。
+    next_action: 先统一 README 与 docs/README、00-OVERVIEW 的状态口径，再继续推进 N06/N09 Netdata/Kuma 补齐、游离部署招安和救援脚本 cluster-check 扩展。
+    owner_note: 高敏运维项目；工作台只记录不含凭据的状态和路径，真实 token、webhook、API key 与节点 admin 密码只看本地 gitignored RUNBOOK。
+    related_agents:
+      - claude
+      - codex
+      - devops-deployer
+    related_workflows:
+      - submit-to-flaios
+      - node-monitoring
+      - seoul-node-onboarding
+    links:
+      local_repo: I:\Dev\CRS2.0集群管理
+      readme: I:\Dev\CRS2.0集群管理\README.md
+      docs_index: I:\Dev\CRS2.0集群管理\docs\README.md
+      ai_handoff: I:\Dev\CRS2.0集群管理\docs\04-AI-HANDOFF.md
+      node_lifecycle: I:\Dev\CRS2.0集群管理\docs\08-NODE-FULL-LIFECYCLE.md
+      node_onboard: I:\Dev\CRS2.0集群管理\CRS3.0\monitoring\node-onboard
+      rescue_scripts: I:\Dev\CRS2.0集群管理\救援脚本
+    updated_at: 2026-05-25
+    last_modified_at: 2026-05-25
 
   - id: youyou-cs2-digital-assets-analysis
     name: 悠悠有品综合分析

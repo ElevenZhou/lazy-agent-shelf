@@ -73,6 +73,18 @@ items:
     updated_at: 2026-05-17
     last_modified_at: 2026-05-17
 
+  - id: crs2-cluster-management-doc-sync
+    horizon: short
+    status: active
+    title: CRS2.0 集群管理文档同步与巡检
+    goals:
+      - 统一根 README、docs/README、00-OVERVIEW 和 02-NODES-AND-PORTS 的 2026-05-25 状态口径。
+      - 补齐 N06/N09 的 Netdata 与 Kuma 状态，并用 cluster-check 对账 pillar、installed、running 三方状态。
+      - 规划 N03/N07/SG01 游离部署招安路径，先记录现状和风险，再逐台标准化。
+      - 扩展救援脚本与 cluster-check 的 crs-app 检查能力，减少人工读节点 receipt 的成本。
+    updated_at: 2026-05-25
+    last_modified_at: 2026-05-25
+
   - id: youyou-cs2-prd-breakdown
     horizon: short
     status: active
