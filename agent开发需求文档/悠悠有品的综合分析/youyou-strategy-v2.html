@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>悠悠有品方向选择 v2.0 — 租赁 + AI 双引擎</title>
+  <style>
+    :root{
+      --ink:#f5ead6; --muted:#bdb7a5; --bg:#0d110d; --paper:#171d16;
+      --panel:#101610; --panel2:#23291f; --orange:#ff9b2f; --orange2:#ffbf63; --khaki:#d9c5a0;
+      --line:#3c4438; --shadow:0 26px 70px rgba(0,0,0,.38);
+      --green:#7dd071; --red:#ef6b5e; --blue:#6db5ff; --yellow:#ffd06b;
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;background:radial-gradient(circle at 80px 240px,rgba(255,155,47,.13),transparent 260px),linear-gradient(135deg,#0a0d0b,#151b14 46%,#241a10);color:var(--ink);font-family:"Noto Sans SC","Microsoft YaHei",system-ui,sans-serif;line-height:1.7}
+    body:before{content:"";position:fixed;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:44px 44px;mask-image:linear-gradient(#000,transparent 90%);opacity:.8;z-index:0}
+    .shell{max-width:1180px;margin:auto;padding:0 24px;position:relative;z-index:1}
+    .hero{position:relative;overflow:hidden;background:radial-gradient(circle at 82% 18%,rgba(255,155,47,.32),transparent 34%),linear-gradient(135deg,#090d0a,#172019 58%,#2a2115);color:#f5ead6;padding:68px 0 52px;border-bottom:1px solid #384035}
+    .hero:after{content:"";position:absolute;right:5%;bottom:4%;width:220px;height:220px;border-radius:50%;border:3px solid rgba(255,155,47,.26);box-shadow:0 0 0 48px rgba(255,155,47,.05), inset 0 0 0 72px rgba(255,255,255,.025)}
+    .eyebrow{letter-spacing:.28em;color:var(--orange);font-weight:900;font-size:13px;text-transform:uppercase}
+    .ver{display:inline-block;margin-left:14px;background:var(--orange);color:#151a14;padding:4px 12px;border-radius:4px;font-size:13px;font-weight:900;letter-spacing:.1em}
+    .hero h1{max-width:960px;margin:16px 0 18px;font-size:clamp(38px,5.4vw,68px);line-height:1.08;letter-spacing:-.05em;text-shadow:0 8px 28px rgba(0,0,0,.32)}
+    .hero p{max-width:900px;color:#d6cbb7;font-size:21px}
+    .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;margin-top:38px;align-items:stretch}
+    .hero-card{background:rgba(16,22,16,.82);border:1px solid #3c4438;backdrop-filter:blur(12px);border-radius:18px;padding:28px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+    .hero-card:before{content:"";position:absolute;left:0;top:0;right:0;height:6px;background:linear-gradient(90deg,var(--orange),transparent)}
+    .hero-card strong{color:var(--orange2)}
+    .hero-card h2{margin:0 0 12px;font-size:24px}
+    .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+    .chip{border:1px solid rgba(255,155,47,.38);border-radius:4px;padding:7px 12px;color:#f5ead6;background:#23291f;font-size:13px;letter-spacing:.04em}
+    section{padding:54px 0;position:relative;z-index:1}
+    .section-title{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:28px;flex-wrap:wrap}
+    .section-title h2{font-size:38px;line-height:1.14;margin:0;letter-spacing:-.04em;color:#f5ead6}
+    .section-title p{max-width:560px;margin:0;color:var(--muted)}
+    .section-num{font:900 16px Consolas,monospace;color:var(--orange);letter-spacing:.18em}
+
+    .baseline{background:#171d16;border:1px solid var(--line);border-radius:18px;padding:28px;box-shadow:var(--shadow)}
+    .baseline ol{margin:0;padding-left:24px;color:#d4cdb8}
+    .baseline li{margin:10px 0}
+    .baseline li b{color:var(--orange2)}
+
+    .supplements{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .sup{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+    .sup:before{content:"";position:absolute;left:0;top:0;width:5px;height:100%;background:var(--orange)}
+    .sup .tag{display:inline-block;background:#23291f;color:var(--orange2);padding:5px 11px;border-radius:4px;font-size:12px;font-weight:900;letter-spacing:.06em;margin-bottom:12px}
+    .sup h3{margin:0 0 12px;font-size:22px;color:#f5ead6;line-height:1.3}
+    .sup p{margin:8px 0;color:#c9c1ad;font-size:15px}
+    .sup .kicker{color:var(--orange2);font-weight:700}
+    .sup.wide{grid-column:1/-1}
+
+    .tier{margin-bottom:32px}
+    .tier-head{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+    .tier-dot{width:14px;height:14px;border-radius:50%;flex-shrink:0}
+    .tier-dot.g{background:var(--green);box-shadow:0 0 18px var(--green)}
+    .tier-dot.y{background:var(--yellow);box-shadow:0 0 18px var(--yellow)}
+    .tier-dot.b{background:var(--blue);box-shadow:0 0 18px var(--blue)}
+    .tier-dot.r{background:var(--red);box-shadow:0 0 18px var(--red)}
+    .tier h3{margin:0;font-size:24px;color:#f5ead6}
+    .tier .when{color:var(--muted);font-size:14px;margin-left:auto}
+    .dirs{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .dir{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+    .dir.hot{border-color:var(--orange);background:linear-gradient(145deg,#1c1a13,#2a1f0e)}
+    .dir.hot:after{content:"主推";position:absolute;right:-30px;top:14px;background:var(--orange);color:#151a14;padding:4px 38px;font-size:12px;font-weight:900;transform:rotate(40deg);letter-spacing:.1em}
+    .dir-h{display:flex;align-items:baseline;gap:10px;margin-bottom:14px}
+    .dir-code{font:900 28px Consolas,monospace;color:var(--orange);line-height:1}
+    .dir h4{margin:0;font-size:20px;color:#f5ead6;line-height:1.3}
+    .dir .meta{display:grid;grid-template-columns:repeat(2,1fr);gap:8px 14px;margin:14px 0;font-size:13px}
+    .dir .meta div{color:#c9c1ad}
+    .dir .meta b{color:var(--orange2);display:block;font-size:11px;letter-spacing:.08em;margin-bottom:2px;font-weight:900}
+    .dir .biz{background:rgba(255,155,47,.08);border-left:3px solid var(--orange);padding:10px 14px;border-radius:0 8px 8px 0;color:#d6cbb7;font-size:14px;margin-top:8px}
+    .dir.no{opacity:.86;border-color:#4b2117}
+    .dir.no:after{content:"不做";background:var(--red);color:#fff}
+
+    .matrix{width:100%;border-collapse:separate;border-spacing:0;overflow:hidden;border-radius:18px;box-shadow:var(--shadow);background:#171d16;border:1px solid var(--line);font-size:15px}
+    .matrix th,.matrix td{text-align:left;padding:16px 18px;border-bottom:1px solid var(--line);vertical-align:top}
+    .matrix th{background:#23291f;color:#ffbf63;font-size:14px;letter-spacing:.04em}
+    .matrix tr:last-child td{border-bottom:0}
+    .matrix td:first-child{color:var(--orange2);font-weight:700;width:18%}
+    .badge{display:inline-block;border-radius:4px;padding:4px 9px;font-size:12px;font-weight:900;margin-right:4px}
+    .b-old{background:#3b3528;color:#ffd287}
+    .b-new{background:var(--orange);color:#151a14}
+
+    .narrative{background:linear-gradient(135deg,#1c1812,#2d2515);border:1px solid var(--orange);border-radius:20px;padding:36px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+    .narrative:before{content:"”";position:absolute;left:14px;top:-20px;font:900 160px Georgia,serif;color:rgba(255,155,47,.13);line-height:1}
+    .narrative blockquote{margin:0;font-size:22px;line-height:1.5;color:#f5ead6;font-weight:600}
+    .narrative blockquote b{color:var(--orange2)}
+
+    .timetable{width:100%;border-collapse:separate;border-spacing:0;margin-top:24px;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow)}
+    .timetable th,.timetable td{padding:18px;text-align:left;border-bottom:1px solid var(--line);background:#171d16}
+    .timetable th{background:#23291f;color:#ffbf63;font-size:14px}
+    .timetable td:first-child{font-weight:900;color:var(--orange);font-family:Consolas,monospace}
+    .timetable .main{color:var(--orange2);font-weight:700}
+    .timetable tr:last-child td{border-bottom:0}
+
+    .roadmap{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .step{background:#171d16;border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:var(--shadow);position:relative}
+    .step b{display:block;color:var(--orange);font:900 28px Consolas,monospace;margin-bottom:6px}
+    .step h4{margin:0 0 8px;font-size:17px;color:#f5ead6;line-height:1.3}
+    .step p{margin:0;color:var(--muted);font-size:13px;line-height:1.55}
+
+    .footer{padding:42px 0 70px;color:#a9a390;text-align:center;font-size:14px}
+    .footer a{color:var(--orange)}
+    .nav{position:sticky;top:0;background:rgba(13,17,13,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);z-index:10;padding:10px 0}
+    .nav-inner{display:flex;gap:6px;flex-wrap:wrap;font-size:13px}
+    .nav a{color:#c9c1ad;text-decoration:none;padding:6px 12px;border-radius:6px;transition:.2s}
+    .nav a:hover{background:#23291f;color:var(--orange2)}
+
+    .theme-switch{position:fixed;right:22px;top:18px;z-index:20;display:flex;gap:8px;align-items:center;background:rgba(10,13,11,.78);border:1px solid #3c4438;border-radius:999px;padding:8px;box-shadow:0 12px 36px rgba(0,0,0,.28);backdrop-filter:blur(12px)}
+    .theme-switch button{appearance:none;border:0;border-radius:999px;padding:8px 14px;font-weight:900;color:#f5ead6;background:transparent;cursor:pointer;font-family:inherit;font-size:13px}
+    .theme-switch button.active{background:#ff9b2f;color:#151a14}
+    .theme-switch span{color:#a9a390;font-size:12px;padding-left:6px}
+
+    body.light{--ink:#13221c;--muted:#56665e;--paper:#fffaf0;--line:#d6c5a6;--shadow:0 18px 45px rgba(76,55,26,.12);background:linear-gradient(135deg,#fff8eb,#f1e2c7 52%,#dce9df);color:#13221c}
+    body.light:before{opacity:.28;background-image:linear-gradient(rgba(19,34,28,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(19,34,28,.12) 1px,transparent 1px)}
+    body.light .hero{background:radial-gradient(circle at 85% 16%,rgba(255,155,47,.22),transparent 32%),linear-gradient(135deg,#fff7e7,#ead6ae 58%,#d6e4d9);color:#13221c;border-bottom-color:#d6c5a6}
+    body.light .hero h1,body.light .section-title h2,body.light .sup h3,body.light .dir h4,body.light .step h4,body.light .tier h3{color:#13221c;text-shadow:none}
+    body.light .hero p,body.light .sup p,body.light .step p,body.light .section-title p,body.light .dir .meta div{color:#56665e}
+    body.light .hero-card,body.light .sup,body.light .dir,body.light .step,body.light .baseline,body.light .matrix,body.light .timetable th,body.light .timetable td{background:#fffaf0;border-color:#d6c5a6;color:#13221c}
+    body.light .baseline ol,body.light .dir .biz{color:#3a4a42}
+    body.light .matrix th,body.light .timetable th{background:#ead6ae;color:#3a2a18}
+    body.light .dir.hot{background:linear-gradient(145deg,#fff4dc,#ffe2af)}
+    body.light .narrative{background:linear-gradient(135deg,#fff4dc,#ffe2af);color:#13221c}
+    body.light .narrative blockquote{color:#13221c}
+    body.light .narrative blockquote b{color:#a85e0a}
+    body.light .chip{background:#fff3d8;color:#13221c;border-color:#ddaa58}
+    body.light .nav{background:rgba(255,250,240,.88);border-color:#d6c5a6}
+    body.light .nav a{color:#3a4a42}
+    body.light .nav a:hover{background:#ead6ae;color:#13221c}
+    body.light .theme-switch{background:rgba(255,250,240,.88);border-color:#d6c5a6}
+    body.light .theme-switch button{color:#13221c}
+    body.light .theme-switch button.active{background:#13221c;color:#fff8eb}
+
+    @media print{.theme-switch,.nav{display:none}body{background:#fff!important;color:#111!important}body:before,.hero:before,.hero:after{display:none!important}.hero{background:#fff!important;color:#111!important;border-bottom:1px solid #ccc;padding:30px 0!important}*{color:#111!important;text-shadow:none!important}.hero-card,.sup,.dir,.step,.matrix,.baseline,.timetable th,.timetable td,.narrative{background:#fff!important;border:1px solid #ccc!important;box-shadow:none!important}section{padding:24px 0!important;break-inside:avoid}}
+    @media (max-width:900px){.hero-grid,.supplements,.dirs,.roadmap{grid-template-columns:1fr}.section-title{display:block}.section-title h2{font-size:30px}.matrix,.timetable{font-size:13px}.matrix th,.matrix td,.timetable th,.timetable td{padding:12px}.hero{padding-top:46px}.tier .when{display:none}}
+  </style>
+</head>
+<body>
+  <div class="theme-switch" aria-label="主题切换">
+    <span>显示模式</span>
+    <button type="button" data-theme="dark" class="active">CS 暗色</button>
+    <button type="button" data-theme="light">明亮/打印</button>
+  </div>
+
+  <header class="hero">
+    <div class="shell">
+      <div class="eyebrow">Youyou Strategy <span class="ver">v2.0</span></div>
+      <h1>从"游戏数字资产平台"到"租赁 + AI"双引擎。</h1>
+      <p>v1 把方向画清楚了，v2 要做的是收敛：哪些是真壁垒、哪些是同质化竞争、最大风险是什么、今年的人和钱该压在哪几格。</p>
+      <div class="hero-grid">
+        <div class="hero-card">
+          <h2>v2 的核心调整</h2>
+          <p>主战场从"资产管理 + 租赁 + B2B 三层"收敛到 <strong>租赁 + AI 双引擎</strong>。AI 从后台 Agent 升级为 <strong>C 端产品 + B 端 API</strong>。B2B 从长期主线降级为 <strong>长期备选</strong>。</p>
+          <div class="chips">
+            <span class="chip">租赁 + 风控</span>
+            <span class="chip">AI 估价 / 鉴定</span>
+            <span class="chip">高端鉴定担保</span>
+            <span class="chip">海外 SaaS 备选</span>
+          </div>
+        </div>
+        <div class="hero-card">
+          <h2>v2 新识别的最大风险</h2>
+          <p>不是合规、不是 Polymarket、不是 BUFF——而是 <strong>Valve 自己下场</strong>。所有方向都要先过一道过滤器：<strong>Steam Market 自己会不会做？</strong>会的话，不押重注。</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="nav">
+    <div class="shell nav-inner">
+      <a href="#baseline">v1 共识边界</a>
+      <a href="#supplements">v2 补充判断</a>
+      <a href="#tiers">方向重排</a>
+      <a href="#narrative">双引擎叙事</a>
+      <a href="#diff">v1 → v2 差异</a>
+      <a href="#next">下一步 PRD</a>
+    </div>
+  </nav>
+
+  <section id="baseline">
+    <div class="shell">
+      <div class="section-num">/ 01</div>
+      <div class="section-title">
+        <h2>v1 已经定下来的边界</h2>
+        <p>四份分析的共识，v2 照单全收，不再讨论。</p>
+      </div>
+      <div class="baseline">
+        <ol>
+          <li><b>不碰金融化</b>：真钱合约、杠杆、可提现预测市场、皮肤竞猜、饰品下注，全部不做。</li>
+          <li><b>不做"游戏杂货铺"</b>：先深耕 CS2，相似品类只筛选可转移、可反复交易、可自动交付的资产。账号 / 金币 / 代练 / 代充 / 绑定装备不做。</li>
+          <li><b>不打补贴战</b>：补贴换来的留存不形成壁垒。</li>
+          <li><b>Polymarket 只能当数据因子</b>：不能做下注入口、不能给受限地区导流。</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="supplements">
+    <div class="shell">
+      <div class="section-num">/ 02</div>
+      <div class="section-title">
+        <h2>v1 没说透的 5 个补充判断</h2>
+        <p>这 5 条是 v2 的增量，也是方向重排的依据。</p>
+      </div>
+      <div class="supplements">
+        <article class="sup">
+          <span class="tag">补充 01 · 真风险</span>
+          <h3>最大单点风险是 Valve，不是合规、不是 BUFF</h3>
+          <p><span class="kicker">v1 只用一句话提到</span> "Steam Market 在补 float/pattern 筛选可能吃掉标准化交易"。这其实是平台估值的天花板。</p>
+          <p>Valve 历史上有过收紧 Trade Hold 的先例；Steam Market 自带 5% 抽成 + 信用背书，标准化交易这块第三方<strong>永远赢不了</strong>。</p>
+          <p><span class="kicker">v2 第一过滤器：</span>任何方向如果 Valve 自己也可能做，就不押重注。安全区是 Valve <strong>不愿意做</strong>的事——人民币入金、租赁、高端鉴定、大额 P2P 担保、中文社区。</p>
+        </article>
+
+        <article class="sup">
+          <span class="tag">补充 02 · 真对手</span>
+          <h3>真正的对手是 BUFF，不是 Polymarket</h3>
+          <p><span class="kicker">v1 花大量篇幅讨论 Polymarket 合规</span>，但日常竞争对手是 BUFF。BUFF 已有：行情指数、库存估值、租赁、社区。</p>
+          <p><span class="kicker">BUFF 弱点：</span>移动端体验、租赁履约链路、客服响应、高端鉴定专业度。</p>
+          <p><span class="kicker">悠悠优势：</span>移动端起家、租赁链路深、客服口碑。方向必须挑 BUFF 做不好的、不是它已经在做的。</p>
+        </article>
+
+        <article class="sup">
+          <span class="tag">补充 03 · 单元经济学</span>
+          <h3>租赁的单元经济学没人讨论</h3>
+          <p>增长分析给租赁 92 分（最高），但<strong>押金风险、损坏率、违约率、客服成本</strong>这些决定生死的数字一行都没有。</p>
+          <p>高端饰品出租 → 一旦走失/被换账号，单笔损失数千到数万。租赁本质是<strong>金融化租赁业务</strong>，参考体系是 Klook 设备租赁 + 共享充电宝押金风控，不是 SaaS。</p>
+          <p><span class="kicker">结论：</span>押注租赁，配套必须先上风控 Agent + 强 KYC + 黑名单。<strong>先建风控、再放量。</strong></p>
+        </article>
+
+        <article class="sup">
+          <span class="tag">补充 04 · AI 是产品</span>
+          <h3>AI / 大模型本身可以是产品，不只是后台</h3>
+          <p>v1 把 Agent 都当后台工具。但 LLM 多模态在 CS2 上有非对称机会：</p>
+          <p>· <strong>AI 估价 + 鉴定助手</strong>：上传截图自动识别 float / pattern / 印花组合，秒出估值。<br>
+          · <strong>AI 投资助理</strong>：基于库存做盈亏归因、调仓建议、风险提示。<br>
+          · <strong>AI 搭配师</strong>：基于预算 / 英雄 / 职业哥同款生成可买/可租套装。</p>
+          <p><span class="kicker">国内尚无对手做出像样产品，是 v1 完全漏掉的机会。</span></p>
+        </article>
+
+        <article class="sup wide">
+          <span class="tag">补充 05 · 海外窗口</span>
+          <h3>海外窗口被低估</h3>
+          <p>国内合规上限是死的。但海外（CSFloat / Skinport / DMarket）格局未定。<strong>中文团队做海外 CS2 工具型 SaaS</strong>（不碰托管资金、不做撮合）反而可能跑出来——卖订阅、卖数据 API、卖鉴定服务。不碰资金 → 合规风险大幅下降，现金流量级小但毛利高，是优质第二曲线。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="tiers">
+    <div class="shell">
+      <div class="section-num">/ 03</div>
+      <div class="section-title">
+        <h2>方向重排</h2>
+        <p>把贴合度 × 差异化 × 合规 × Valve 风险四个维度都过一遍后，v1 的方向矩阵这样调整。</p>
+      </div>
+
+      <div class="tier">
+        <div class="tier-head"><span class="tier-dot g"></span><h3>第一梯队 · 立即押注</h3><span class="when">0 – 6 个月见结果</span></div>
+        <div class="dirs">
+          <article class="dir hot">
+            <div class="dir-h"><span class="dir-code">A</span><h4>CS2 租赁 + 会员制 + 风控基础设施</h4></div>
+            <div class="meta">
+              <div><b>贴合度</b>96%（v1 最高）</div>
+              <div><b>差异化</b>BUFF 履约弱，真差异</div>
+              <div><b>Valve 风险</b>极低</div>
+              <div><b>合规</b>中（押金 + 实名 + 反洗钱）</div>
+            </div>
+            <p style="color:#c9c1ad;font-size:14px;margin:8px 0">关键前置：<strong style="color:var(--orange2)">租赁风控 Agent + KYC + 黑名单</strong>（v1 漏的）。</p>
+            <div class="biz">商业化：会员费 + 租赁差价 + 押金沉淀（经营性，非金融化）。</div>
+          </article>
+
+          <article class="dir hot">
+            <div class="dir-h"><span class="dir-code">B</span><h4>AI 估价 + AI 鉴定（C 端产品 + B 端 API）</h4></div>
+            <div class="meta">
+              <div><b>贴合度</b>高（嵌入买卖/库存）</div>
+              <div><b>差异化</b>国内无对手</div>
+              <div><b>Valve 风险</b>极低</div>
+              <div><b>合规</b>极低（不碰资金）</div>
+            </div>
+            <p style="color:#c9c1ad;font-size:14px;margin:8px 0">同时服务 C 端（悠悠 App 功能）和 B 端（卖给小平台 / 海外）。<strong style="color:var(--orange2)">v1 完全缺失</strong>。</p>
+            <div class="biz">收入：App 转化提升 + B 端 API 订阅 + 海外 SaaS。</div>
+          </article>
+        </div>
+      </div>
+
+      <div class="tier">
+        <div class="tier-head"><span class="tier-dot y"></span><h3>第二梯队 · 中期布局</h3><span class="when">3 – 12 个月</span></div>
+        <div class="dirs">
+          <article class="dir">
+            <div class="dir-h"><span class="dir-code">C</span><h4>CS2 资产管理（库存估值 + 盈亏 + 流动性评分）</h4></div>
+            <div class="meta">
+              <div><b>贴合度</b>高</div>
+              <div><b>差异化</b>与 BUFF 同质</div>
+              <div><b>独立做</b>意义不大</div>
+              <div><b>建议</b>作为 B 的载体</div>
+            </div>
+            <p style="color:#c9c1ad;font-size:14px;margin:8px 0">"知道你库存值多少 + 该不该卖 + 卖给谁"——以 B 的 AI 能力做出差异，不单独成线。</p>
+          </article>
+
+          <article class="dir">
+            <div class="dir-h"><span class="dir-code">D</span><h4>高端鉴定担保</h4></div>
+            <div class="meta">
+              <div><b>频次</b>低</div>
+              <div><b>利润</b>高</div>
+              <div><b>壁垒</b>厚（信任）</div>
+              <div><b>协同</b>A 的前置 + 与 B 共用图像模型</div>
+            </div>
+            <p style="color:#c9c1ad;font-size:14px;margin:8px 0">配套方向 B 的 AI 鉴定后，单件人工成本大幅下降。</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="tier">
+        <div class="tier-head"><span class="tier-dot b"></span><h3>第三梯队 · 长期备选</h3><span class="when">12+ 个月</span></div>
+        <div class="dirs">
+          <article class="dir">
+            <div class="dir-h"><span class="dir-code">E</span><h4>B2B 官方二级市场系统</h4></div>
+            <div class="meta">
+              <div><b>战略叙事</b>最性感</div>
+              <div><b>风险</b>强依赖 Valve 不动作</div>
+              <div><b>建议</b>讲故事，不实操</div>
+              <div><b>试点</b>Dota2 / Rust 小厂商 PoC</div>
+            </div>
+            <p style="color:#c9c1ad;font-size:14px;margin:8px 0">从 v1 的"长期主线"降级为"长期备选"——单点风险太集中。</p>
+          </article>
+
+          <article class="dir">
+            <div class="dir-h"><span class="dir-code">F</span><h4>海外 CS2 工具型 SaaS</h4></div>
+            <div class="meta">
+              <div><b>资源</b>小</div>
+              <div><b>合规</b>不碰资金</div>
+              <div><b>毛利</b>高</div>
+              <div><b>定位</b>第二曲线种子</div>
+            </div>
+            <p style="color:#c9c1ad;font-size:14px;margin:8px 0">用方向 B 的 AI 能力做海外版包装，规避国内政策风险。</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="tier">
+        <div class="tier-head"><span class="tier-dot r"></span><h3>明确不做</h3></div>
+        <div class="dirs">
+          <article class="dir no">
+            <div class="dir-h"><span class="dir-code">×</span><h4>金融化 / 下注 / 竞猜 / 补贴战 / 低频人工交付</h4></div>
+            <p style="color:#c9c1ad;font-size:14px;margin:8px 0">延续 v1 共识，不再讨论。真钱合约、杠杆、可提现预测市场、皮肤竞猜、饰品下注、代练 / 账号 / 金币 / 代充 / 绑定装备，全部不碰。</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="narrative">
+    <div class="shell">
+      <div class="section-num">/ 04</div>
+      <div class="section-title">
+        <h2>双引擎模型 · v2 的核心叙事</h2>
+        <p>把六个方向压缩成一句话。</p>
+      </div>
+      <div class="narrative">
+        <blockquote>
+          短期 <b>"租赁 + AI"</b> 双引擎驱动留存与差异化（A + B），中期靠 <b>"AI 资产管理 + 高端鉴定"</b> 扩护城河（C + D），长期讲 <b>"B2B + 海外工具"</b> 两个故事备选（E + F）。最大风险不是合规，是 <b>Valve 自己下场</b>。
+        </blockquote>
+      </div>
+
+      <table class="timetable">
+        <thead>
+          <tr><th>时间窗</th><th>主战场</th><th>次战场</th><th>备选</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>0 – 6 月</td><td class="main">A 租赁 + 风控</td><td class="main">B AI 估价 / 鉴定</td><td>—</td></tr>
+          <tr><td>6 – 12 月</td><td>A 放量</td><td>B 商业化（API）+ D 高端鉴定</td><td>C 作为 B 的载体</td></tr>
+          <tr><td>12+ 月</td><td>—</td><td>—</td><td>E B2B PoC、F 海外 SaaS</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="diff">
+    <div class="shell">
+      <div class="section-num">/ 05</div>
+      <div class="section-title">
+        <h2>v1 → v2 关键差异速查</h2>
+        <p>给读过 v1 的人快速理解 v2 改了什么。</p>
+      </div>
+      <table class="matrix">
+        <thead><tr><th>维度</th><th>v1 立场</th><th>v2 调整</th></tr></thead>
+        <tbody>
+          <tr><td>主战场</td><td><span class="badge b-old">v1</span>资产管理 + 租赁 + B2B 三层</td><td><span class="badge b-new">v2</span>租赁 + AI 双引擎</td></tr>
+          <tr><td>AI 的角色</td><td><span class="badge b-old">v1</span>后台 Agent 工具</td><td><span class="badge b-new">v2</span>C 端产品 + B 端 API</td></tr>
+          <tr><td>资产管理</td><td><span class="badge b-old">v1</span>独立方向</td><td><span class="badge b-new">v2</span>降级为 AI 方向的载体</td></tr>
+          <tr><td>B2B 二级市场</td><td><span class="badge b-old">v1</span>长期主线</td><td><span class="badge b-new">v2</span>长期备选，不押重注</td></tr>
+          <tr><td>最大风险</td><td><span class="badge b-old">v1</span>合规 / Polymarket</td><td><span class="badge b-new">v2</span>Valve 单点 + BUFF 同质化</td></tr>
+          <tr><td>海外</td><td><span class="badge b-old">v1</span>未提</td><td><span class="badge b-new">v2</span>工具型 SaaS 第二曲线</td></tr>
+          <tr><td>租赁前置</td><td><span class="badge b-old">v1</span>直接做套装</td><td><span class="badge b-new">v2</span>必须先建风控 Agent + KYC</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="next">
+    <div class="shell">
+      <div class="section-num">/ 06</div>
+      <div class="section-title">
+        <h2>下一步 · PRD 拆分顺序</h2>
+        <p>按依赖关系排序，前置先做。</p>
+      </div>
+      <div class="roadmap">
+        <div class="step"><b>01</b><h4>租赁风控 Agent + KYC 黑名单系统</h4><p>方向 A 的前置，最高优先级。先建风控、再放量。</p></div>
+        <div class="step"><b>02</b><h4>AI 估价 / 鉴定 MVP</h4><p>方向 B 起点。单模型试点 → API 化。</p></div>
+        <div class="step"><b>03</b><h4>租赁套装与会员</h4><p>方向 A 对外产品。风控就位后启动。</p></div>
+        <div class="step"><b>04</b><h4>AI 投资助理 / 搭配师</h4><p>方向 B 延伸。做成 App 高频入口。</p></div>
+        <div class="step"><b>05</b><h4>高端鉴定担保 SOP</h4><p>方向 D。与 B 共用图像模型。</p></div>
+        <div class="step"><b>06</b><h4>海外 SaaS 探索方案</h4><p>方向 F。小团队试点，不占主力。</p></div>
+        <div class="step"><b>07</b><h4>B2B 二级市场白皮书</h4><p>方向 E。对外叙事用，不实操。</p></div>
+        <div class="step"><b>—</b><h4>合规红线清单 / Polymarket 数据因子</h4><p>沿用 v1，不重做。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="shell">
+      <p>悠悠有品方向选择 v2.0 · 2026-05 · 在 v1 共识之上做方向收敛</p>
+      <p>本文不构成法律意见或投资建议。合规、跨境、虚拟资产、博彩、支付等问题需专业法务复核。</p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.theme-switch button').forEach(b=>{
+      b.addEventListener('click',()=>{
+        document.querySelectorAll('.theme-switch button').forEach(x=>x.classList.remove('active'));
+        b.classList.add('active');
+        document.body.classList.toggle('light',b.dataset.theme==='light');
+      });
+    });
+  </script>
+</body>
+</html>

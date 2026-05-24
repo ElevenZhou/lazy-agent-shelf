@@ -154,3 +154,103 @@ items:
       source_repo: I:\Dev\CRS2.0配套
     updated_at: 2026-05-17
     last_modified_at: 2026-05-17
+
+  - id: seoul-node-monitor-console
+    name: 首尔 FRP 节点监控控制台
+    type: project
+    stage: operating
+    status: active
+    risk_level: medium
+    summary: 部署在首尔服务器的只读节点监控台，用于观察各国家/测试节点的 FRP 在线、Caddy 配置、HTTPS/上游探测和 NewAPI Base URL 状态；页面已加入网络拓扑图、地区概览、搜索筛选、分页与滚动加载。
+    next_action: 评估是否给 /node-monitor/ 增加 Basic Auth 或 IP 限制，并继续在新国家节点上线时接入自动配置与监控展示。
+    owner_note: 当前页面公网可访问但只读；不暴露 token/API key，仍会展示节点规划、端口和在线状态，属于运维敏感信息。
+    related_agents:
+      - codex
+      - devops-deployer
+    related_workflows:
+      - seoul-node-onboarding
+      - node-monitoring
+    links:
+      public_url: https://flaios.com/node-monitor/
+      image_url: https://flaios.com/node-monitor/node-network-topology.png
+      server_static_dir: /opt/new-api/brand/node-monitor
+      collector: /opt/node-monitor/collector.py
+      api_service: /opt/node-monitor/api.py
+      local_management_repo: Y:\服务器管理\腾讯云-首尔-Ubunut-150.109.233.152
+    updated_at: 2026-05-17
+    last_modified_at: 2026-05-17
+
+  - id: youyou-cs2-digital-assets-analysis
+    name: 悠悠有品综合分析
+    type: project
+    stage: planning
+    status: active
+    risk_level: high
+    summary: 围绕悠悠有品与 CS2 饰品交易生态形成的综合研究材料，覆盖市场长期性、平台增长路径、CS2 资产管理、租赁会员、内容社区、B2B 交易系统和 Polymarket 结合边界。
+    next_action: 拆出 CS2 行情与库存 MVP PRD、租赁套装与会员 PRD、内容社区 MVP PRD、合规红线清单和 B2B 官方交易系统方案。
+    owner_note: 仅用于产品规划、商业分析、Agent 需求拆解和内部讨论，不构成法律意见或投资建议；涉及合规、跨境、虚拟资产、博彩、支付等问题必须由专业法务复核。
+    related_agents:
+      - market-research
+      - product-strategy
+      - compliance-review
+    related_workflows:
+      - submit-to-flaios
+      - product-research-to-prd
+    links:
+      local_path: agent开发需求文档/悠悠有品的综合分析
+      readme: agent开发需求文档/悠悠有品的综合分析/README.md
+      strategy_page: agent开发需求文档/悠悠有品的综合分析/youyou-strategy/index.html
+      growth_dashboard: agent开发需求文档/悠悠有品的综合分析/youyou-cs2-growth-analysis.html
+      compliance_page: agent开发需求文档/悠悠有品的综合分析/polymarket-youpin-compliance.html
+      market_report: agent开发需求文档/悠悠有品的综合分析/cs2_skins_market_report.html
+    updated_at: 2026-05-25
+    last_modified_at: 2026-05-25
+
+  - id: hardcore-series-short-drama-planning
+    name: 硬核系列短剧规划
+    type: project
+    stage: planning
+    status: active
+    risk_level: high
+    summary: “硬核系列”知识爽剧 IP 的内部规划材料，已完成系列立项书、首发母体《硬核穿越者》四部 240 集结构、第一部 60 集分集开发表和交互式看板。
+    next_action: 优先制作第 1 / 10 / 40 集三支样片，沉淀每集开发卡模板，并把 L1-L4 知识风险分级做成审核 Checklist。
+    owner_note: 内部规划文件，不对外融资、不作为对外宣发素材；危险知识必须按分级实操口径处理，L3/L4 内容需二次复核。
+    related_agents:
+      - short-drama-production-agent
+      - content-review
+      - production-planning
+    related_workflows:
+      - submit-to-flaios
+      - short-drama-development
+    links:
+      local_path: agent开发需求文档/硬核系列短剧规划
+      readme: agent开发需求文档/硬核系列短剧规划/README.md
+      dashboard: agent开发需求文档/硬核系列短剧规划/index.html
+      ip_plan: agent开发需求文档/硬核系列短剧规划/docs/ip-plan.md
+      traveler_plan: agent开发需求文档/硬核系列短剧规划/docs/traveler-plan.md
+    updated_at: 2026-05-25
+    last_modified_at: 2026-05-25
+
+  - id: short-drama-12-topic-options
+    name: 12 部短剧选题方案项目
+    type: project
+    stage: review
+    status: active
+    risk_level: medium
+    summary: 面向编剧团队评审的短剧选题清单，整理 6 大题材、12 部完整选题，并统一正式剧名、爆款引流长剧名、核心立意和核心主题字段。
+    next_action: 组织编剧团队按爽点强度、投流潜力、制作成本和合规风险四个维度打分，收敛 Top 3-5 进入扩写。
+    owner_note: 内部评审材料，不是成片剧本、分镜或对外宣发素材；金融、战争、出海等敏感题材扩写前需合规预筛。
+    related_agents:
+      - short-drama-production-agent
+      - content-strategy
+      - compliance-review
+    related_workflows:
+      - submit-to-flaios
+      - short-drama-topic-review
+    links:
+      local_path: agent开发需求文档/12部短剧选题方案项目
+      readme: agent开发需求文档/12部短剧选题方案项目/README.md
+      review_page: agent开发需求文档/12部短剧选题方案项目/index.html
+      latest_pdf: agent开发需求文档/12部短剧选题方案项目/12部短剧选题方案V2.pdf
+    updated_at: 2026-05-25
+    last_modified_at: 2026-05-25

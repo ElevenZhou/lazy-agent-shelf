@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-17T03:17:35.984Z",
+  "generated_at": "2026-05-24T18:54:14.564Z",
   "item_count": 16,
   "types": [
     "ai_website",
@@ -5530,7 +5530,7 @@
       "id": "personal-master-os",
       "name": "个人工作台",
       "version": "0.1.0",
-      "updated_at": "2026-05-16",
+      "updated_at": "2026-05-25",
       "positioning": "个人资产、项目状态、关系、进展、风险和计划的结构化状态层，供 Agent 读取、更新和展示。",
       "principles": [
         "只呈现情况，不直接管理或编辑真实项目文件。",
@@ -5546,15 +5546,15 @@
         "risks",
         "plans"
       ],
-      "last_modified_at": "2026-05-16"
+      "last_modified_at": "2026-05-25"
     },
     "summary": {
-      "projects": 8,
-      "active_projects": 8,
-      "high_risks": 1,
-      "active_plans": 6,
-      "recent_progress": 12,
-      "assets": 10,
+      "projects": 12,
+      "active_projects": 12,
+      "high_risks": 3,
+      "active_plans": 10,
+      "recent_progress": 16,
+      "assets": 13,
       "relations": 2
     },
     "projects": [
@@ -5748,6 +5748,122 @@
         },
         "updated_at": "2026-05-17",
         "last_modified_at": "2026-05-17"
+      },
+      {
+        "id": "seoul-node-monitor-console",
+        "name": "首尔 FRP 节点监控控制台",
+        "type": "project",
+        "stage": "operating",
+        "status": "active",
+        "risk_level": "medium",
+        "summary": "部署在首尔服务器的只读节点监控台，用于观察各国家/测试节点的 FRP 在线、Caddy 配置、HTTPS/上游探测和 NewAPI Base URL 状态；页面已加入网络拓扑图、地区概览、搜索筛选、分页与滚动加载。",
+        "next_action": "评估是否给 /node-monitor/ 增加 Basic Auth 或 IP 限制，并继续在新国家节点上线时接入自动配置与监控展示。",
+        "owner_note": "当前页面公网可访问但只读；不暴露 token/API key，仍会展示节点规划、端口和在线状态，属于运维敏感信息。",
+        "related_agents": [
+          "codex",
+          "devops-deployer"
+        ],
+        "related_workflows": [
+          "seoul-node-onboarding",
+          "node-monitoring"
+        ],
+        "links": {
+          "public_url": "https://flaios.com/node-monitor/",
+          "image_url": "https://flaios.com/node-monitor/node-network-topology.png",
+          "server_static_dir": "/opt/new-api/brand/node-monitor",
+          "collector": "/opt/node-monitor/collector.py",
+          "api_service": "/opt/node-monitor/api.py",
+          "local_management_repo": "Y:\\服务器管理\\腾讯云-首尔-Ubunut-150.109.233.152"
+        },
+        "updated_at": "2026-05-17",
+        "last_modified_at": "2026-05-17"
+      },
+      {
+        "id": "youyou-cs2-digital-assets-analysis",
+        "name": "悠悠有品综合分析",
+        "type": "project",
+        "stage": "planning",
+        "status": "active",
+        "risk_level": "high",
+        "summary": "围绕悠悠有品与 CS2 饰品交易生态形成的综合研究材料，覆盖市场长期性、平台增长路径、CS2 资产管理、租赁会员、内容社区、B2B 交易系统和 Polymarket 结合边界。",
+        "next_action": "拆出 CS2 行情与库存 MVP PRD、租赁套装与会员 PRD、内容社区 MVP PRD、合规红线清单和 B2B 官方交易系统方案。",
+        "owner_note": "仅用于产品规划、商业分析、Agent 需求拆解和内部讨论，不构成法律意见或投资建议；涉及合规、跨境、虚拟资产、博彩、支付等问题必须由专业法务复核。",
+        "related_agents": [
+          "market-research",
+          "product-strategy",
+          "compliance-review"
+        ],
+        "related_workflows": [
+          "submit-to-flaios",
+          "product-research-to-prd"
+        ],
+        "links": {
+          "local_path": "agent开发需求文档/悠悠有品的综合分析",
+          "readme": "agent开发需求文档/悠悠有品的综合分析/README.md",
+          "strategy_page": "agent开发需求文档/悠悠有品的综合分析/youyou-strategy/index.html",
+          "growth_dashboard": "agent开发需求文档/悠悠有品的综合分析/youyou-cs2-growth-analysis.html",
+          "compliance_page": "agent开发需求文档/悠悠有品的综合分析/polymarket-youpin-compliance.html",
+          "market_report": "agent开发需求文档/悠悠有品的综合分析/cs2_skins_market_report.html"
+        },
+        "updated_at": "2026-05-25",
+        "last_modified_at": "2026-05-25"
+      },
+      {
+        "id": "hardcore-series-short-drama-planning",
+        "name": "硬核系列短剧规划",
+        "type": "project",
+        "stage": "planning",
+        "status": "active",
+        "risk_level": "high",
+        "summary": "“硬核系列”知识爽剧 IP 的内部规划材料，已完成系列立项书、首发母体《硬核穿越者》四部 240 集结构、第一部 60 集分集开发表和交互式看板。",
+        "next_action": "优先制作第 1 / 10 / 40 集三支样片，沉淀每集开发卡模板，并把 L1-L4 知识风险分级做成审核 Checklist。",
+        "owner_note": "内部规划文件，不对外融资、不作为对外宣发素材；危险知识必须按分级实操口径处理，L3/L4 内容需二次复核。",
+        "related_agents": [
+          "short-drama-production-agent",
+          "content-review",
+          "production-planning"
+        ],
+        "related_workflows": [
+          "submit-to-flaios",
+          "short-drama-development"
+        ],
+        "links": {
+          "local_path": "agent开发需求文档/硬核系列短剧规划",
+          "readme": "agent开发需求文档/硬核系列短剧规划/README.md",
+          "dashboard": "agent开发需求文档/硬核系列短剧规划/index.html",
+          "ip_plan": "agent开发需求文档/硬核系列短剧规划/docs/ip-plan.md",
+          "traveler_plan": "agent开发需求文档/硬核系列短剧规划/docs/traveler-plan.md"
+        },
+        "updated_at": "2026-05-25",
+        "last_modified_at": "2026-05-25"
+      },
+      {
+        "id": "short-drama-12-topic-options",
+        "name": "12 部短剧选题方案项目",
+        "type": "project",
+        "stage": "review",
+        "status": "active",
+        "risk_level": "medium",
+        "summary": "面向编剧团队评审的短剧选题清单，整理 6 大题材、12 部完整选题，并统一正式剧名、爆款引流长剧名、核心立意和核心主题字段。",
+        "next_action": "组织编剧团队按爽点强度、投流潜力、制作成本和合规风险四个维度打分，收敛 Top 3-5 进入扩写。",
+        "owner_note": "内部评审材料，不是成片剧本、分镜或对外宣发素材；金融、战争、出海等敏感题材扩写前需合规预筛。",
+        "related_agents": [
+          "short-drama-production-agent",
+          "content-strategy",
+          "compliance-review"
+        ],
+        "related_workflows": [
+          "submit-to-flaios",
+          "short-drama-topic-review"
+        ],
+        "links": {
+          "local_path": "agent开发需求文档/12部短剧选题方案项目",
+          "readme": "agent开发需求文档/12部短剧选题方案项目/README.md",
+          "review_page": "agent开发需求文档/12部短剧选题方案项目/index.html",
+          "latest_pdf": "agent开发需求文档/12部短剧选题方案项目/12部短剧选题方案V2.pdf"
+        },
+        "updated_at": "2026-05-25",
+        "last_modified_at": "2026-05-25"
       }
     ],
     "assets": [
@@ -5902,6 +6018,61 @@
         },
         "updated_at": "2026-05-17",
         "last_modified_at": "2026-05-17"
+      },
+      {
+        "id": "youyou-cs2-analysis-docset",
+        "name": "悠悠有品 CS2 数字资产研究文档组",
+        "type": "document_set",
+        "status": "draft",
+        "summary": "包含 CS2 饰品市场研究、悠悠有品增长分析、长期战略提案、产品流程图、合规与 Polymarket 结合边界等材料。",
+        "related_projects": [
+          "youyou-cs2-digital-assets-analysis",
+          "flaios-hub"
+        ],
+        "links": {
+          "path": "agent开发需求文档/悠悠有品的综合分析",
+          "readme": "agent开发需求文档/悠悠有品的综合分析/README.md",
+          "report_pdf": "agent开发需求文档/悠悠有品的综合分析/cs2_skins_market_report_print.pdf"
+        },
+        "updated_at": "2026-05-25",
+        "last_modified_at": "2026-05-25"
+      },
+      {
+        "id": "hardcore-series-planning-docset",
+        "name": "硬核系列知识爽剧规划文档组",
+        "type": "document_set",
+        "status": "draft",
+        "summary": "包含硬核系列 IP 总规划、《硬核穿越者》专项规划、PDF 归档和交互式看板，适合制片、编剧、审核和 AI 短剧生产 Agent 共同使用。",
+        "related_projects": [
+          "hardcore-series-short-drama-planning",
+          "flaios-hub"
+        ],
+        "links": {
+          "path": "agent开发需求文档/硬核系列短剧规划",
+          "readme": "agent开发需求文档/硬核系列短剧规划/README.md",
+          "dashboard": "agent开发需求文档/硬核系列短剧规划/index.html"
+        },
+        "updated_at": "2026-05-25",
+        "last_modified_at": "2026-05-25"
+      },
+      {
+        "id": "short-drama-topic-options-docset",
+        "name": "12 部短剧选题评审文档组",
+        "type": "document_set",
+        "status": "draft",
+        "summary": "包含 12 部短剧选题的 HTML 评审页和 V2 定稿 PDF，支持题材锚点跳转、全文搜索、编剧评审和后续扩写筛选。",
+        "related_projects": [
+          "short-drama-12-topic-options",
+          "flaios-hub"
+        ],
+        "links": {
+          "path": "agent开发需求文档/12部短剧选题方案项目",
+          "readme": "agent开发需求文档/12部短剧选题方案项目/README.md",
+          "review_page": "agent开发需求文档/12部短剧选题方案项目/index.html",
+          "latest_pdf": "agent开发需求文档/12部短剧选题方案项目/12部短剧选题方案V2.pdf"
+        },
+        "updated_at": "2026-05-25",
+        "last_modified_at": "2026-05-25"
       }
     ],
     "relations": [
@@ -6038,6 +6209,42 @@
         "summary": "已同步最新 git 中的 N7 部署记录：05:01 完成一键 bootstrap，sub2api/frpc Running，FRP n7-sub2api proxy success；节点部署台新增 N6/N7 多页签，并更新到底部 v0.1.2 · N6/N7 版本标识。",
         "updated_at": "2026-05-17",
         "last_modified_at": "2026-05-17"
+      },
+      {
+        "id": "seoul-node-monitor-console-launched",
+        "date": "2026-05-17",
+        "project": "seoul-node-monitor-console",
+        "status": "done",
+        "summary": "已在首尔服务器发布 https://flaios.com/node-monitor/ 节点监控控制台：30 分钟自动采集、手动立即采集、国家节点/其他节点归类、网络拓扑图、地区概览、搜索筛选、分页和滚动加载均已上线并通过公网 200 OK 验证。",
+        "updated_at": "2026-05-17",
+        "last_modified_at": "2026-05-17"
+      },
+      {
+        "id": "youyou-cs2-analysis-submitted-to-workbench",
+        "date": "2026-05-25",
+        "project": "youyou-cs2-digital-assets-analysis",
+        "status": "done",
+        "summary": "已按 README 将悠悠有品综合分析登记到个人工作台，记录 CS2 饰品市场研究、增长分析、长期战略、合规边界和可拆分 Agent / PRD 模块。",
+        "updated_at": "2026-05-25",
+        "last_modified_at": "2026-05-25"
+      },
+      {
+        "id": "hardcore-series-planning-submitted-to-workbench",
+        "date": "2026-05-25",
+        "project": "hardcore-series-short-drama-planning",
+        "status": "done",
+        "summary": "已按 README 将硬核系列短剧规划登记到个人工作台，记录知识爽剧定位、《硬核穿越者》四部曲、第一部 60 集分集表、样片优先级和 L1-L4 风险分级。",
+        "updated_at": "2026-05-25",
+        "last_modified_at": "2026-05-25"
+      },
+      {
+        "id": "short-drama-topic-options-submitted-to-workbench",
+        "date": "2026-05-25",
+        "project": "short-drama-12-topic-options",
+        "status": "done",
+        "summary": "已按 README 将 12 部短剧选题方案项目登记到个人工作台，记录 6 大题材、12 部选题、标准字段、共同爽剧模型和下一步评审打分流程。",
+        "updated_at": "2026-05-25",
+        "last_modified_at": "2026-05-25"
       }
     ],
     "risks": [
@@ -6079,6 +6286,58 @@
         ],
         "updated_at": "2026-05-15",
         "last_modified_at": "2026-05-15"
+      },
+      {
+        "id": "seoul-node-monitor-public-exposure",
+        "name": "首尔节点监控台公网暴露",
+        "risk_level": "medium",
+        "status": "active",
+        "summary": "/node-monitor/ 当前公网可访问，虽为只读页面且不展示 token/API key，但会暴露节点规划、端口段、在线状态、Caddy 配置数量和部分域名/服务状态。",
+        "mitigation": "优先加 Basic Auth 或 IP 白名单；公开分享截图时打码端口、域名和在线状态；继续禁止在监控页、status.json 或前端脚本中写入密钥。",
+        "related_projects": [
+          "seoul-node-monitor-console"
+        ],
+        "updated_at": "2026-05-17",
+        "last_modified_at": "2026-05-17"
+      },
+      {
+        "id": "youyou-cs2-compliance-boundaries",
+        "name": "悠悠有品虚拟资产与预测市场边界",
+        "risk_level": "high",
+        "status": "active",
+        "summary": "悠悠有品方向涉及虚拟资产、跨境交易、支付、博彩化、预测市场和投资化表达，若误把数据因子做成下注、导流、杠杆或收益承诺，会触发高合规风险。",
+        "mitigation": "Polymarket 相关能力只作为外部情报因子和数据展示，不做真实金钱下注、饰品下注、可提现预测市场、受限地区导流或投资理财包装；所有方案需法务复核。",
+        "related_projects": [
+          "youyou-cs2-digital-assets-analysis"
+        ],
+        "updated_at": "2026-05-25",
+        "last_modified_at": "2026-05-25"
+      },
+      {
+        "id": "hardcore-series-dangerous-knowledge-boundaries",
+        "name": "硬核系列危险知识表达边界",
+        "risk_level": "high",
+        "status": "active",
+        "summary": "硬核系列会涉及火药、武器、危险化学、家庭可复现实验等高风险知识，若展示关键比例、参数或完整流程，可能造成安全与平台审核风险。",
+        "mitigation": "所有剧本立项前先做 L1-L4 风险分级；L2 只讲原理与场景，L3 只讲历史背景和剧情结果，L4 禁止进入剧本；中高风险内容必须二次复核。",
+        "related_projects": [
+          "hardcore-series-short-drama-planning"
+        ],
+        "updated_at": "2026-05-25",
+        "last_modified_at": "2026-05-25"
+      },
+      {
+        "id": "short-drama-topic-sensitive-review",
+        "name": "短剧选题敏感题材预筛",
+        "risk_level": "medium",
+        "status": "active",
+        "summary": "12 部选题中包含股市金融、战争乱世、出海逆袭等题材，后续扩写可能涉及保证收益、政治历史、国别敏感、广告法和未成年人保护等风险。",
+        "mitigation": "进入扩写前按题材建立法务红线清单；金融题材避免保证收益和荐股承诺，战争/乱世题材保持历史与价值观边界，出海题材避免国别刻板化和敏感政治表述。",
+        "related_projects": [
+          "short-drama-12-topic-options"
+        ],
+        "updated_at": "2026-05-25",
+        "last_modified_at": "2026-05-25"
       }
     ],
     "plans": [
@@ -6160,6 +6419,62 @@
         ],
         "updated_at": "2026-05-15",
         "last_modified_at": "2026-05-15"
+      },
+      {
+        "id": "seoul-node-monitor-hardening",
+        "horizon": "short",
+        "status": "active",
+        "title": "首尔节点监控台加固与迭代",
+        "goals": [
+          "给 https://flaios.com/node-monitor/ 增加 Basic Auth 或可信 IP 限制。",
+          "新国家节点上线后，通过 seoul-node-onboarding Skill 自动更新 Caddy 与监控展示。",
+          "继续优化节点列表的信息密度、异常优先级和地区健康概览。",
+          "保持只读原则，不在网页开放 Caddy/frps 配置修改能力。"
+        ],
+        "updated_at": "2026-05-17",
+        "last_modified_at": "2026-05-17"
+      },
+      {
+        "id": "youyou-cs2-prd-breakdown",
+        "horizon": "short",
+        "status": "active",
+        "title": "悠悠有品 CS2 产品化拆解",
+        "goals": [
+          "先拆 CS2 行情与库存 MVP PRD，覆盖首页、商品详情页、库存页、价格提醒和异动榜。",
+          "拆租赁套装与会员 PRD，明确套装生成、会员权益、押金规则和履约风控。",
+          "固化合规红线清单，避免下注、博彩、杠杆、收益承诺和受限地区导流。",
+          "中长期再评估 B2B 官方交易系统、交易 SDK、风控、分账和数据服务。"
+        ],
+        "updated_at": "2026-05-25",
+        "last_modified_at": "2026-05-25"
+      },
+      {
+        "id": "hardcore-series-sample-pipeline",
+        "horizon": "short",
+        "status": "active",
+        "title": "硬核系列样片与审核流水线",
+        "goals": [
+          "优先开发第 1 集、第 10 集、第 40 集三支样片，验证穿越开局、知识可视化和商业爽点。",
+          "将每集开发卡十字段整理成 Markdown、Base 或在线表单模板。",
+          "把 L1-L4 知识风险等级和中高风险表达边界做成开播前审核 Checklist。",
+          "第一部节奏跑通后，再启动第 61-120 集分集开发和衍生系列试探。"
+        ],
+        "updated_at": "2026-05-25",
+        "last_modified_at": "2026-05-25"
+      },
+      {
+        "id": "short-drama-topic-review-selection",
+        "horizon": "short",
+        "status": "active",
+        "title": "12 部短剧选题评审收敛",
+        "goals": [
+          "组织编剧团队用爽点强度、投流潜力、制作成本和合规风险四维打分。",
+          "从 12 部中选出 Top 3-5 进入剧本扩写和阶段目标设计。",
+          "为爆款引流长剧名扩展 3-5 个标题 A/B 变体，先做小流量测试。",
+          "对股市、金融、战争、乱世和出海题材做合规预筛。"
+        ],
+        "updated_at": "2026-05-25",
+        "last_modified_at": "2026-05-25"
       }
     ]
   }

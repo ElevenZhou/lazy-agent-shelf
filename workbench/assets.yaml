@@ -120,3 +120,49 @@ items:
       source_table: I:\Dev\CRS2.0配套\central\节点部署总表.md
     updated_at: 2026-05-17
     last_modified_at: 2026-05-17
+
+  - id: youyou-cs2-analysis-docset
+    name: 悠悠有品 CS2 数字资产研究文档组
+    type: document_set
+    status: draft
+    summary: 包含 CS2 饰品市场研究、悠悠有品增长分析、长期战略提案、产品流程图、合规与 Polymarket 结合边界等材料。
+    related_projects:
+      - youyou-cs2-digital-assets-analysis
+      - flaios-hub
+    links:
+      path: agent开发需求文档/悠悠有品的综合分析
+      readme: agent开发需求文档/悠悠有品的综合分析/README.md
+      report_pdf: agent开发需求文档/悠悠有品的综合分析/cs2_skins_market_report_print.pdf
+    updated_at: 2026-05-25
+    last_modified_at: 2026-05-25
+
+  - id: hardcore-series-planning-docset
+    name: 硬核系列知识爽剧规划文档组
+    type: document_set
+    status: draft
+    summary: 包含硬核系列 IP 总规划、《硬核穿越者》专项规划、PDF 归档和交互式看板，适合制片、编剧、审核和 AI 短剧生产 Agent 共同使用。
+    related_projects:
+      - hardcore-series-short-drama-planning
+      - flaios-hub
+    links:
+      path: agent开发需求文档/硬核系列短剧规划
+      readme: agent开发需求文档/硬核系列短剧规划/README.md
+      dashboard: agent开发需求文档/硬核系列短剧规划/index.html
+    updated_at: 2026-05-25
+    last_modified_at: 2026-05-25
+
+  - id: short-drama-topic-options-docset
+    name: 12 部短剧选题评审文档组
+    type: document_set
+    status: draft
+    summary: 包含 12 部短剧选题的 HTML 评审页和 V2 定稿 PDF，支持题材锚点跳转、全文搜索、编剧评审和后续扩写筛选。
+    related_projects:
+      - short-drama-12-topic-options
+      - flaios-hub
+    links:
+      path: agent开发需求文档/12部短剧选题方案项目
+      readme: agent开发需求文档/12部短剧选题方案项目/README.md
+      review_page: agent开发需求文档/12部短剧选题方案项目/index.html
+      latest_pdf: agent开发需求文档/12部短剧选题方案项目/12部短剧选题方案V2.pdf
+    updated_at: 2026-05-25
+    last_modified_at: 2026-05-25

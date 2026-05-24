@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>悠悠有品：从 CS2 饰品交易到游戏数字资产基础设施</title>
+  <style>
+    :root{
+      --ink:#f5ead6; --muted:#bdb7a5; --bg:#0d110d; --paper:#171d16;
+      --panel:#101610; --panel2:#23291f; --orange:#ff9b2f; --orange2:#ffbf63; --khaki:#d9c5a0;
+      --line:#3c4438; --shadow:0 26px 70px rgba(0,0,0,.38);
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;background:radial-gradient(circle at 80px 240px,rgba(255,155,47,.13),transparent 260px),linear-gradient(135deg,#0a0d0b,#151b14 46%,#241a10);color:var(--ink);font-family:"Noto Sans SC","Microsoft YaHei",system-ui,sans-serif;line-height:1.65}
+    body:before{content:"";position:fixed;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:44px 44px;mask-image:linear-gradient(#000,transparent 90%);opacity:.8}
+    .shell{max-width:1180px;margin:auto;padding:0 24px}.hero{position:relative;overflow:hidden;background:radial-gradient(circle at 82% 18%,rgba(255,155,47,.32),transparent 34%),linear-gradient(135deg,#090d0a,#172019 58%,#2a2115);color:#f5ead6;padding:68px 0 52px;border-bottom:1px solid #384035}
+    .hero:after{content:"";position:absolute;right:5%;bottom:4%;width:220px;height:220px;border-radius:50%;border:3px solid rgba(255,155,47,.26);box-shadow:0 0 0 48px rgba(255,155,47,.05), inset 0 0 0 72px rgba(255,255,255,.025)}
+    .hero:before{content:"";position:absolute;right:8%;top:115px;width:420px;height:135px;opacity:.13;border:8px solid #f5ead6;border-left-width:70px;transform:rotate(-13deg);clip-path:polygon(0 20%,72% 20%,78% 0,100% 0,100% 72%,82% 72%,76% 100%,0 100%)}
+    .eyebrow{letter-spacing:.28em;color:var(--orange);font-weight:900;font-size:13px;text-transform:uppercase}.hero h1{max-width:900px;margin:16px 0 18px;font-size:clamp(40px,6vw,78px);line-height:1.05;letter-spacing:-.06em;text-shadow:0 8px 28px rgba(0,0,0,.32)}.hero p{max-width:850px;color:#d6cbb7;font-size:21px}.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;margin-top:38px;align-items:stretch}.hero-card{background:rgba(16,22,16,.82);border:1px solid #3c4438;backdrop-filter:blur(12px);border-radius:18px;padding:28px;box-shadow:var(--shadow);position:relative;overflow:hidden}.hero-card:before{content:"";position:absolute;left:0;top:0;right:0;height:6px;background:linear-gradient(90deg,var(--orange),transparent)}
+    .hero-card strong{color:var(--orange2)}.hero-card h2{margin:0 0 12px;font-size:26px}.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}.chip{border:1px solid rgba(255,155,47,.38);border-radius:4px;padding:8px 13px;color:#f5ead6;background:#23291f;font-size:14px;text-transform:uppercase}
+    section{padding:62px 0}.section-title{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:24px}.section-title h2{font-size:42px;line-height:1.12;margin:0;letter-spacing:-.04em;color:#f5ead6}.section-title p{max-width:520px;margin:0;color:var(--muted)}
+    .visual{background:#0a0d0b;border-radius:20px;padding:12px;box-shadow:var(--shadow);overflow:hidden;border:1px solid #3c4438}.visual img{display:block;width:100%;height:auto;border-radius:12px}
+    .highlight{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.tile{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:var(--shadow);position:relative;overflow:hidden}.tile:after{content:"";position:absolute;right:-45px;bottom:-55px;width:150px;height:150px;border:2px solid rgba(255,155,47,.18);border-radius:50%}.tile.good{background:linear-gradient(145deg,#ffb24a,#f1d19a);border-color:#ff9b2f;color:#151a14}.tile .label{display:inline-flex;align-items:center;gap:8px;border-radius:4px;background:#151a14;color:#ffbf63;padding:7px 12px;font-weight:900;font-size:13px;letter-spacing:.08em}.tile h3{font-size:25px;margin:18px 0 10px;line-height:1.24;color:#f5ead6}.tile p{margin:0;color:#c9c1ad}.tile.good h3,.tile.good p{color:#151a14}.rank{position:absolute;right:20px;top:8px;font:900 72px Consolas,monospace;color:rgba(245,234,214,.07)}.tile.good .rank{color:rgba(21,26,20,.13)}
+    .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:var(--shadow)}.card h3{margin:0 0 10px;font-size:25px;color:#f5ead6}.card ul{margin:14px 0 0;padding-left:20px;color:#c9c1ad}.card li{margin:8px 0}.card.feature{background:#ff9b2f;color:#151a14;border-color:#ff9b2f}.card.feature ul,.card.feature p,.card.feature h3{color:#151a14}
+    .roadmap{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.step{background:#171d16;border:1px solid var(--line);border-radius:16px;padding:22px;min-height:250px;box-shadow:var(--shadow)}.step b{display:block;color:var(--orange);font:900 34px Consolas,monospace;margin-bottom:8px}.step h3{margin:0 0 12px;font-size:23px;color:#f5ead6}.step p{margin:0;color:var(--muted)}
+    .matrix{width:100%;border-collapse:separate;border-spacing:0;overflow:hidden;border-radius:18px;box-shadow:var(--shadow);background:#171d16;border:1px solid var(--line)}.matrix th,.matrix td{text-align:left;padding:18px 20px;border-bottom:1px solid var(--line);vertical-align:top}.matrix th{background:#23291f;color:#ffbf63}.matrix tr:last-child td{border-bottom:0}.badge{display:inline-block;border-radius:4px;padding:5px 10px;font-size:13px;font-weight:900}.yes{background:#ff9b2f;color:#151a14}.wait{background:#3b3528;color:#ffd287}.no{background:#4b2117;color:#ffb199}
+    .warning{background:linear-gradient(135deg,#17100b,#3a1f10);color:#fff2e7;border-radius:20px;padding:32px;box-shadow:var(--shadow);border:1px solid #85451f}.warning h2{margin:0 0 12px;color:#ff9b2f}.warning p{color:#f4d6c7;margin:0}.footer{padding:42px 0 70px;color:#a9a390}.footer a{color:var(--orange)}
+
+    .theme-switch{position:fixed;right:22px;top:18px;z-index:20;display:flex;gap:8px;align-items:center;background:rgba(10,13,11,.78);border:1px solid #3c4438;border-radius:999px;padding:8px;box-shadow:0 12px 36px rgba(0,0,0,.28);backdrop-filter:blur(12px)}
+    .theme-switch button{appearance:none;border:0;border-radius:999px;padding:9px 14px;font-weight:900;color:#f5ead6;background:transparent;cursor:pointer;font-family:inherit}.theme-switch button.active{background:#ff9b2f;color:#151a14}.theme-switch span{color:#a9a390;font-size:13px;padding-left:8px}
+    body.light-print{--ink:#13221c;--muted:#56665e;--bg:#f7efe3;--paper:#fffaf0;--panel:#fffaf0;--panel2:#f0dfc3;--line:#d6c5a6;--shadow:0 18px 45px rgba(76,55,26,.12);background:linear-gradient(135deg,#fff8eb,#f1e2c7 52%,#dce9df);color:#13221c}
+    body.light-print:before{opacity:.28;background-image:linear-gradient(rgba(19,34,28,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(19,34,28,.12) 1px,transparent 1px)}
+    body.light-print .hero{background:radial-gradient(circle at 85% 16%,rgba(255,155,47,.22),transparent 32%),linear-gradient(135deg,#fff7e7,#ead6ae 58%,#d6e4d9);color:#13221c;border-bottom-color:#d6c5a6}
+    body.light-print .hero h1,body.light-print .section-title h2,body.light-print .tile h3,body.light-print .card h3,body.light-print .step h3{color:#13221c;text-shadow:none}
+    body.light-print .hero p,body.light-print .tile p,body.light-print .card ul,body.light-print .step p,body.light-print .section-title p{color:#56665e}
+    body.light-print .hero-card,body.light-print .card,body.light-print .step,body.light-print .tile{background:rgba(255,250,240,.92);border-color:#d6c5a6;color:#13221c}.light-print .hero-card h2{color:#13221c}.light-print .chip{background:#fff3d8;color:#13221c;border-color:#ddaa58}.light-print .visual{background:#fff4df;border-color:#d6c5a6}.light-print .matrix{background:#fffaf0;border-color:#d6c5a6;color:#13221c}.light-print .matrix th{background:#ead6ae;color:#13221c}.light-print .matrix td{border-color:#d6c5a6}.light-print .warning{background:#fff1d9;color:#13221c;border-color:#d6c5a6}.light-print .warning h2,.light-print .warning p{color:#13221c}.light-print .theme-switch{background:rgba(255,250,240,.88);border-color:#d6c5a6}.light-print .theme-switch button{color:#13221c}.light-print .theme-switch button.active{background:#13221c;color:#fff8eb}.light-print .theme-switch span{color:#56665e}
+    @media print{.theme-switch{display:none}body{background:#fff!important;color:#111!important}body:before,.hero:before,.hero:after{display:none!important}.hero{background:#fff!important;color:#111!important;border-bottom:1px solid #ccc;padding:30px 0!important}.hero h1,.section-title h2,.tile h3,.card h3,.step h3{color:#111!important;text-shadow:none!important}.hero p,.section-title p,.tile p,.card ul,.step p,.matrix td{color:#333!important}.hero-card,.tile,.card,.step,.matrix,.warning,.visual{background:#fff!important;color:#111!important;border:1px solid #ccc!important;box-shadow:none!important}.chip,.tile .label,.badge{border:1px solid #999!important;background:#f4f4f4!important;color:#111!important}.visual{break-inside:avoid}.visual img{filter:none!important}.shell{max-width:none}.hero-grid,.highlight,.cards,.roadmap{break-inside:avoid}section{padding:28px 0!important}}
+    @media (max-width:900px){.hero-grid,.highlight,.cards,.roadmap{grid-template-columns:1fr}.section-title{display:block}.section-title h2{font-size:34px}.matrix{font-size:14px}.matrix th,.matrix td{padding:13px}.hero{padding-top:46px}}
+  </style>
+</head>
+<body>
+  <div class="theme-switch" aria-label="主题切换"><span>显示模式</span><button type="button" data-theme-btn="dark" class="active">CS 暗色</button><button type="button" data-theme-btn="light">明亮/打印</button></div>
+  <header class="hero">
+    <div class="shell">
+      <div class="eyebrow">Youyou Strategy Proposal</div>
+      <h1>悠悠有品下一步，不是扩成游戏杂货铺，而是做游戏数字资产平台。</h1>
+      <p>CS2 饰品的价值在于可转移、可反复交易、可定价、有收藏与投机心智。围绕这个基本盘做深，比盲目增加低频品类更能提升交易量和用户停留。</p>
+      <div class="hero-grid">
+        <div class="hero-card">
+          <h2>核心战略</h2>
+          <p><strong>先做深现有交易用户</strong>：行情、指数、库存估值、比价、价格提醒、交易策略；再筛选 Dota2、Rust、TF2 等相似资产品类；最终向游戏厂商输出官方交易系统。</p>
+          <div class="chips"><span class="chip">资产管理</span><span class="chip">交易决策</span><span class="chip">相似品类</span><span class="chip">B2B 交易系统</span></div>
+        </div>
+        <div class="hero-card">
+          <h2>不要急着做</h2>
+          <p>真钱合约、杠杆、可提现预测市场、赛事押注、低频人工交付的代练/账号交易，短期看热闹，长期容易带来合规和品牌风险。</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div class="shell">
+      <div class="visual"><img src="assets/youyou-strategy-map.svg" alt="悠悠有品战略地图" /></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="shell">
+      <div class="section-title"><h2>最值得做的 3 个方向</h2><p>判断标准不是“品类多不多”，而是能不能利用现有用户量、现有交易数据和现有风控能力，形成交易飞轮。</p></div>
+      <div class="highlight">
+        <article class="tile good"><div class="rank">1</div><span class="label">立刻做</span><h3>CS2 资产管理与交易决策平台</h3><p>在现有买卖链路上增加行情指数、库存估值、组合收益、价格提醒、平台比价、流动性评分和策略内容。目标是让用户每天打开，而不是只在买卖时打开。</p></article>
+        <article class="tile"><div class="rank">2</div><span class="label">筛选做</span><h3>相似游戏资产扩品类</h3><p>只扩可转移、可反复交易、可自动交付、有外部价格体系的品类。Dota2、Rust、TF2 可以优先评估；账号、金币、代充、绑定装备不适合作为主引擎。</p></article>
+        <article class="tile"><div class="rank">3</div><span class="label">长期做</span><h3>面向游戏公司的官方二级市场系统</h3><p>像“游戏版藏宝阁”，但更平台化：给游戏接入交易 SDK、担保结算、风控、价格发现、手续费分账和资产数据服务。</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="shell">
+      <div class="section-title"><h2>产品层面怎么做</h2><p>不要和现有产品割裂。最好的方式是把新能力嵌进悠悠有品的首页、商品详情页、库存页、订单页和用户中心。</p></div>
+      <div class="visual"><img src="assets/product-flow.svg" alt="交易前交易中交易后产品闭环" /></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="shell cards">
+      <article class="card feature"><h3>应该和现有产品强结合</h3><p>悠悠有品已有交易用户、交易心智和成交数据，这是新产品的最大冷启动优势。新产品不应该另做一个 App，而应该成为现有交易体验的“上层决策系统”。</p><ul><li>首页：增加“今日行情、异动榜、值得买、价差机会”。</li><li>商品详情：增加 K 线、成交深度、流动性、平台比价。</li><li>库存页：增加估值、盈亏、组合风险、价格提醒。</li><li>订单页：增加成本拆解、保价、止盈止损提醒。</li></ul></article>
+      <article class="card"><h3>商业化方式</h3><ul><li>交易佣金：更高频的决策入口反哺现货交易。</li><li>数据会员：高级行情、套利提醒、组合分析、API。</li><li>工具服务：保价服务、批量上架、自动提醒、高级订单。</li><li>B2B 收入：给游戏厂商提供交易系统、风控和分账服务。</li></ul></article>
+      <article class="card"><h3>内容和社区怎么做</h3><ul><li>“什么值得买”：预算买刀、贴纸专题、高流动性榜。</li><li>“哪里更便宜”：跨平台价格、手续费、汇率、冷却期综合计算。</li><li>“什么值得玩”：把游戏推荐与可交易资产、玩家经济结合。</li><li>交易观点社区：看多/看空、策略复盘、模拟组合排行榜。</li></ul></article>
+      <article class="card"><h3>B2B 官方交易系统流程</h3><ul><li>先找 1-2 个适合交易经济的中型游戏做试点。</li><li>提供库存确权、挂单撮合、担保交易、支付结算、分账。</li><li>游戏公司设置可交易范围、冷却期、税率、未成年限制。</li><li>悠悠有品提供市场运营、定价工具、反欺诈和客服仲裁。</li></ul></article>
+    </div>
+  </section>
+
+  <section>
+    <div class="shell">
+      <div class="section-title"><h2>执行路线图</h2><p>先低成本验证“留存和交易转化”，再扩品类，最后做 B 端平台化。</p></div>
+      <div class="roadmap">
+        <div class="step"><b>0-3</b><h3>行情与库存 MVP</h3><p>上线价格提醒、K 线、库存估值、愿望单、异动榜，验证用户停留和复访。</p></div>
+        <div class="step"><b>3-6</b><h3>交易决策闭环</h3><p>做平台比价、流动性评分、组合收益、策略内容，直接导向下单和上架。</p></div>
+        <div class="step"><b>6-12</b><h3>相似品类试点</h3><p>选择 1-2 个高匹配游戏资产，验证供给、交付、风控、成交深度。</p></div>
+        <div class="step"><b>12+</b><h3>官方交易系统</h3><p>向游戏厂商输出二级市场方案，形成 SaaS、SDK、分账和数据服务。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="shell">
+      <table class="matrix">
+        <thead><tr><th>方向</th><th>建议</th><th>原因</th></tr></thead>
+        <tbody>
+          <tr><td>行情、指数、库存估值、比价</td><td><span class="badge yes">值得做</span></td><td>贴合现有用户和交易数据，能提升留存、交易频次和客单决策效率。</td></tr>
+          <tr><td>更多可交易游戏资产</td><td><span class="badge yes">筛选做</span></td><td>只做可反复流通、有价格体系、交付自动化的品类，不追求 SKU 数量。</td></tr>
+          <tr><td>Eneba / MMOGA 式数字商品商城</td><td><span class="badge wait">补充做</span></td><td>可以消化流量，但更像游戏电商，渠道、黑卡、退款和地区限制风险较重。</td></tr>
+          <tr><td>代练、陪玩、账号、金币</td><td><span class="badge wait">谨慎补充</span></td><td>交付非标准化、客诉多、封号和擦边风险高，不适合作为核心增长引擎。</td></tr>
+          <tr><td>合约、杠杆、可提现预测市场</td><td><span class="badge no">不建议</span></td><td>容易金融化、赌博化，和未成年人、监管、舆情风险叠加。</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="shell warning">
+      <h2>最终定位</h2>
+      <p>悠悠有品可以从“CS2 饰品交易平台”升级为“游戏虚拟资产交易与定价平台”，再进一步成为“游戏数字资产流通基础设施”。短期做深 C 端交易决策，长期做 B 端官方二级市场。</p>
+    </div>
+  </section>
+
+  <footer class="footer"><div class="shell">本页面为本地策略稿，可继续扩展为路演页、产品 PRD 或投资人简报。</div></footer>
+
+  <script>
+    const themeButtons = document.querySelectorAll('[data-theme-btn]');
+    const applyTheme = (theme) => {
+      document.body.classList.toggle('light-print', theme === 'light');
+      themeButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.themeBtn === theme));
+      localStorage.setItem('youyou-theme', theme);
+    };
+    themeButtons.forEach(btn => btn.addEventListener('click', () => applyTheme(btn.dataset.themeBtn)));
+    applyTheme(localStorage.getItem('youyou-theme') || 'dark');
+  </script>
+</body>
+</html>

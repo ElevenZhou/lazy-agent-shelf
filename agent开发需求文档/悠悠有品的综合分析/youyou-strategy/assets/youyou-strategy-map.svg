@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="980" viewBox="0 0 1600 980">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a0d0b"/><stop offset="0.48" stop-color="#172019"/><stop offset="1" stop-color="#2a2115"/>
+    </linearGradient>
+    <radialGradient id="orange" cx="78%" cy="16%" r="60%"><stop offset="0" stop-color="#ff9b2f" stop-opacity=".32"/><stop offset="1" stop-color="#ff9b2f" stop-opacity="0"/></radialGradient>
+    <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse"><path d="M44 0H0V44" fill="none" stroke="#ffffff" stroke-opacity=".055" stroke-width="1"/></pattern>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="24" stdDeviation="22" flood-color="#000" flood-opacity=".35"/></filter>
+    <style>
+      .k{font:900 20px 'Noto Sans SC','Microsoft YaHei',sans-serif;fill:#ff9b2f;letter-spacing:5px}.title{font:900 56px 'Noto Sans SC','Microsoft YaHei',sans-serif;fill:#f5ead6;letter-spacing:-1px}.sub{font:500 25px 'Noto Sans SC','Microsoft YaHei',sans-serif;fill:#c9c1ad}.h{font:900 31px 'Noto Sans SC','Microsoft YaHei',sans-serif;fill:#f5ead6}.darkh{font:900 28px 'Noto Sans SC','Microsoft YaHei',sans-serif;fill:#121610}.body{font:500 22px 'Noto Sans SC','Microsoft YaHei',sans-serif;fill:#ded3bd}.dark{font:600 21px 'Noto Sans SC','Microsoft YaHei',sans-serif;fill:#1d221a}.small{font:500 19px 'Noto Sans SC','Microsoft YaHei',sans-serif;fill:#aaad9d}.tag{font:900 18px 'Noto Sans SC','Microsoft YaHei',sans-serif;fill:#121610;letter-spacing:2px}.mono{font:800 18px Consolas,monospace;fill:#ffba63}.line{stroke:#ff9b2f;stroke-width:3;stroke-dasharray:10 10;opacity:.72}
+    </style>
+  </defs>
+  <rect width="1600" height="980" fill="url(#bg)"/><rect width="1600" height="980" fill="url(#orange)"/><rect width="1600" height="980" fill="url(#grid)"/>
+  <g opacity=".13" stroke="#f5ead6" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round" transform="translate(985 210) rotate(-14)">
+    <path d="M0 92H250l45-40h235l30 40h80v58h-92l-32 48H290l-38-48H0z"/><path d="M110 92v-44h116v44M400 52v-34h70v34M526 150h110"/>
+  </g>
+  <g opacity=".32" stroke="#ff9b2f" stroke-width="3" fill="none" transform="translate(1336 690)"><circle r="92"/><circle r="34"/><path d="M-120 0H120M0-120V120"/></g>
+  <text x="86" y="96" class="k">CS ASSET STRATEGY</text>
+  <text x="86" y="168" class="title">从饰品交易，打成游戏资产交易系统</text>
+  <text x="88" y="218" class="sub">用 CS2 的价格数据、库存资产和交易心智，做出“每天都要看”的资产平台。</text>
+  <g filter="url(#shadow)">
+    <rect x="88" y="304" width="410" height="506" rx="28" fill="#101610" stroke="#384035" stroke-width="2"/>
+    <rect x="88" y="304" width="410" height="68" rx="28" fill="#23291f"/><text x="126" y="350" class="h">现有弹药</text>
+    <text x="126" y="418" class="body">CS2 饰品交易用户</text><text x="126" y="459" class="body">真实成交与价格数据</text><text x="126" y="500" class="body">担保、风控、支付能力</text><text x="126" y="541" class="body">高价值玩家与交易心智</text>
+    <line x1="126" y1="596" x2="456" y2="596" stroke="#3f473c"/>
+    <text x="126" y="652" class="h">打法判断</text><text x="126" y="702" class="body">先让老用户每天看行情，</text><text x="126" y="742" class="body">再让更多游戏接入交易。</text>
+  </g>
+  <path d="M500 555H610" class="line"/><path d="M596 537L626 555L596 573Z" fill="#ff9b2f"/>
+  <g filter="url(#shadow)">
+    <rect x="626" y="274" width="472" height="586" rx="34" fill="#ff9b2f"/>
+    <rect x="650" y="298" width="424" height="538" rx="25" fill="#f8e3bb"/>
+    <g transform="translate(704 350)"><path d="M0 0h240l28 28v28H0z" fill="#151a14"/><text x="23" y="36" class="mono">PRIORITY 01 / WORTH DOING</text></g>
+    <text x="704" y="454" class="darkh">CS2 资产管理 + 交易决策平台</text>
+    <text x="704" y="510" class="dark">把“买卖工具”升级成</text><text x="704" y="546" class="dark">“行情雷达 + 库存资产表 + 策略台”。</text>
+    <g><rect x="704" y="608" width="320" height="54" rx="8" fill="#151a14"/><text x="728" y="643" class="body">行情指数 / 价格提醒</text><rect x="704" y="682" width="320" height="54" rx="8" fill="#151a14"/><text x="728" y="717" class="body">库存估值 / 组合盈亏</text><rect x="704" y="756" width="320" height="54" rx="8" fill="#151a14"/><text x="728" y="791" class="body">平台比价 / 策略内容</text></g>
+  </g>
+  <path d="M1098 555H1192" class="line"/><path d="M1178 537L1208 555L1178 573Z" fill="#ff9b2f"/>
+  <g filter="url(#shadow)">
+    <rect x="1208" y="304" width="306" height="506" rx="28" fill="#101610" stroke="#384035" stroke-width="2"/>
+    <rect x="1208" y="304" width="306" height="68" rx="28" fill="#23291f"/><text x="1244" y="350" class="h">长期 Boss</text>
+    <text x="1244" y="418" class="body">官方二级市场系统</text><text x="1244" y="459" class="body">游戏内交易 SDK</text><text x="1244" y="500" class="body">风控、结算、分账</text><text x="1244" y="541" class="body">资产定价与数据服务</text>
+    <line x1="1244" y1="596" x2="1476" y2="596" stroke="#3f473c"/>
+    <text x="1244" y="652" class="h">像什么？</text><text x="1244" y="702" class="body">游戏版“藏宝阁”</text><text x="1244" y="742" class="body">但更平台化、SaaS 化</text>
+  </g>
+  <g filter="url(#shadow)"><rect x="166" y="884" width="1268" height="70" rx="10" fill="#151a14" stroke="#ff9b2f" stroke-width="2"/><text x="204" y="930" class="body">路线：先做深 CS2 交易决策 → 再筛选相似资产扩品类 → 最后向游戏公司输出官方交易系统。</text></g>
+</svg>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="760" viewBox="0 0 1600 760">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#101510"/><stop offset=".6" stop-color="#1b2118"/><stop offset="1" stop-color="#2b1e12"/></linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#fff" stroke-opacity=".05"/></pattern>
+    <filter id="soft" x="-15%" y="-15%" width="130%" height="130%"><feDropShadow dx="0" dy="16" stdDeviation="14" flood-color="#000" flood-opacity=".35"/></filter>
+    <style>.title{font:900 45px 'Noto Sans SC','Microsoft YaHei',sans-serif;fill:#f5ead6}.sub{font:500 24px 'Noto Sans SC','Microsoft YaHei',sans-serif;fill:#bdb7a5}.ct{font:900 27px 'Noto Sans SC','Microsoft YaHei',sans-serif;fill:#f5ead6}.txt{font:500 21px 'Noto Sans SC','Microsoft YaHei',sans-serif;fill:#d6cbb7}.dark{font:700 21px 'Noto Sans SC','Microsoft YaHei',sans-serif;fill:#171a13}.n{font:900 34px Consolas,monospace;fill:#ff9b2f}.orange{font:900 27px 'Noto Sans SC','Microsoft YaHei',sans-serif;fill:#151a14}</style>
+  </defs>
+  <rect width="1600" height="760" fill="url(#bg)"/><rect width="1600" height="760" fill="url(#grid)"/><circle cx="1390" cy="90" r="250" fill="#ff9b2f" opacity=".16"/><circle cx="130" cy="620" r="230" fill="#ff9b2f" opacity=".1"/>
+  <g opacity=".18" stroke="#f5ead6" stroke-width="3" fill="none" transform="translate(1360 520)"><circle r="94"/><circle r="34"/><path d="M-126 0H126M0-126V126"/></g>
+  <text x="86" y="86" class="title">产品流程：把交易链路改造成“战术回合”闭环</text><text x="88" y="130" class="sub">交易前发现机会，交易中判断价格，交易后沉淀库存和关系；每一环都接回悠悠有品现有交易场景。</text>
+  <g transform="translate(78 218)" filter="url(#soft)"><rect width="276" height="278" rx="16" fill="#171d16" stroke="#3c4438"/><rect width="276" height="58" rx="16" fill="#262b20"/><text x="24" y="39" class="n">01</text><text x="88" y="39" class="ct">发现机会</text><text x="26" y="105" class="txt">首页行情雷达</text><text x="26" y="143" class="txt">异动榜 / 价差榜</text><text x="26" y="181" class="txt">Major 与贴纸专题</text><text x="26" y="219" class="txt">预算买刀指南</text></g>
+  <path d="M374 357H448" stroke="#ff9b2f" stroke-width="4" stroke-dasharray="10 10"/><path d="M436 337L470 357L436 377Z" fill="#ff9b2f"/>
+  <g transform="translate(485 218)" filter="url(#soft)"><rect width="276" height="278" rx="16" fill="#171d16" stroke="#3c4438"/><rect width="276" height="58" rx="16" fill="#262b20"/><text x="24" y="39" class="n">02</text><text x="88" y="39" class="ct">判断价格</text><text x="26" y="105" class="txt">历史成交 K 线</text><text x="26" y="143" class="txt">流动性评分</text><text x="26" y="181" class="txt">手续费 / 冷却期</text><text x="26" y="219" class="txt">收藏与投机风险</text></g>
+  <path d="M781 357H855" stroke="#ff9b2f" stroke-width="4" stroke-dasharray="10 10"/><path d="M843 337L877 357L843 377Z" fill="#ff9b2f"/>
+  <g transform="translate(892 218)" filter="url(#soft)"><rect width="276" height="278" rx="16" fill="#171d16" stroke="#3c4438"/><rect width="276" height="58" rx="16" fill="#262b20"/><text x="24" y="39" class="n">03</text><text x="88" y="39" class="ct">完成交易</text><text x="26" y="105" class="txt">限价单 / 提醒触发</text><text x="26" y="143" class="txt">担保交易与风控</text><text x="26" y="181" class="txt">成本透明计算</text><text x="26" y="219" class="txt">保价与订单工具</text></g>
+  <path d="M1188 357H1262" stroke="#ff9b2f" stroke-width="4" stroke-dasharray="10 10"/><path d="M1250 337L1284 357L1250 377Z" fill="#ff9b2f"/>
+  <g transform="translate(1299 218)" filter="url(#soft)"><rect width="230" height="278" rx="16" fill="#ff9b2f"/><text x="26" y="54" class="orange">沉淀资产</text><text x="26" y="108" class="dark">库存估值</text><text x="26" y="146" class="dark">收益统计</text><text x="26" y="184" class="dark">玩家主页</text><text x="26" y="222" class="dark">数据会员转化</text></g>
+  <path d="M1380 518 C1220 655 430 650 220 518" fill="none" stroke="#ff9b2f" stroke-width="5" stroke-dasharray="13 13"/><path d="M229 542L190 500L250 505Z" fill="#ff9b2f"/>
+  <text x="386" y="690" class="sub">闭环结果：用户不只在买卖时打开平台，而是在看行情、管库存、找价差时持续停留。</text>
+</svg>

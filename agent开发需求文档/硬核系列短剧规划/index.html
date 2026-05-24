@@ -1,0 +1,1022 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>硬核系列知识爽剧IP规划看板</title>
+    <style>
+      :root {
+        --bg: #f7f8f4;
+        --panel: #ffffff;
+        --ink: #20221f;
+        --muted: #666b63;
+        --line: #d9ded2;
+        --teal: #157f79;
+        --teal-soft: #e6f3f1;
+        --red: #b43b2f;
+        --red-soft: #f8e8e5;
+        --gold: #b78118;
+        --gold-soft: #fff3d7;
+        --green: #3f7c3c;
+        --green-soft: #e9f3e6;
+        --blue: #386fa4;
+        --blue-soft: #e8f0f8;
+        --shadow: 0 18px 45px rgba(32, 34, 31, 0.08);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+          "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+        line-height: 1.55;
+      }
+
+      .app-shell {
+        min-height: 100vh;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        border-bottom: 1px solid var(--line);
+        background: rgba(247, 248, 244, 0.94);
+        backdrop-filter: blur(12px);
+      }
+
+      .topbar-inner {
+        width: min(1180px, calc(100vw - 32px));
+        margin: 0 auto;
+        padding: 18px 0 14px;
+      }
+
+      .brand-row {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 18px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 30px;
+        line-height: 1.15;
+        letter-spacing: 0;
+      }
+
+      .subtitle {
+        margin: 8px 0 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .status-pill {
+        flex: 0 0 auto;
+        border: 1px solid rgba(21, 127, 121, 0.28);
+        background: var(--teal-soft);
+        color: #075a55;
+        padding: 8px 12px;
+        border-radius: 999px;
+        font-size: 13px;
+        font-weight: 700;
+        white-space: nowrap;
+      }
+
+      .tabs {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        margin-top: 18px;
+        padding: 5px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #edf0e8;
+      }
+
+      .tab-button {
+        min-height: 44px;
+        border: 0;
+        border-radius: 6px;
+        background: transparent;
+        color: var(--muted);
+        font: inherit;
+        font-weight: 800;
+        cursor: pointer;
+      }
+
+      .tab-button[aria-selected="true"] {
+        background: var(--panel);
+        color: var(--ink);
+        box-shadow: 0 6px 18px rgba(32, 34, 31, 0.08);
+      }
+
+      main {
+        width: min(1180px, calc(100vw - 32px));
+        margin: 0 auto;
+        padding: 26px 0 58px;
+      }
+
+      .tab-panel {
+        display: none;
+      }
+
+      .tab-panel.active {
+        display: block;
+      }
+
+      .intro {
+        display: grid;
+        grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+        gap: 18px;
+        align-items: stretch;
+      }
+
+      .lead-panel,
+      .principle-panel,
+      .section,
+      .card,
+      .table-wrap,
+      .mini-card {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+      }
+
+      .lead-panel {
+        padding: 26px;
+      }
+
+      .eyebrow {
+        margin: 0 0 10px;
+        color: var(--teal);
+        font-size: 13px;
+        font-weight: 900;
+      }
+
+      h2 {
+        margin: 0;
+        font-size: 25px;
+        line-height: 1.25;
+        letter-spacing: 0;
+      }
+
+      h3 {
+        margin: 0 0 12px;
+        font-size: 20px;
+        line-height: 1.25;
+        letter-spacing: 0;
+      }
+
+      h4 {
+        margin: 0 0 8px;
+        font-size: 16px;
+        letter-spacing: 0;
+      }
+
+      p {
+        margin: 10px 0 0;
+      }
+
+      .lead {
+        color: var(--muted);
+        font-size: 16px;
+      }
+
+      .motto {
+        margin-top: 20px;
+        padding: 16px;
+        border-left: 4px solid var(--red);
+        background: var(--red-soft);
+        font-weight: 900;
+      }
+
+      .principle-panel {
+        padding: 22px;
+      }
+
+      .principle-list {
+        display: grid;
+        gap: 10px;
+        margin-top: 16px;
+      }
+
+      .principle-item {
+        padding: 12px 14px;
+        border-radius: 8px;
+        background: #f5f6f2;
+        border: 1px solid var(--line);
+        font-weight: 800;
+      }
+
+      .section {
+        margin-top: 18px;
+        padding: 24px;
+      }
+
+      .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 18px;
+      }
+
+      .grid-4 {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 18px;
+      }
+
+      .card,
+      .mini-card {
+        padding: 18px;
+        box-shadow: none;
+      }
+
+      .card p,
+      .mini-card p {
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        min-height: 24px;
+        padding: 3px 8px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 900;
+        color: #075a55;
+        background: var(--teal-soft);
+      }
+
+      .tag.red {
+        color: #8e241a;
+        background: var(--red-soft);
+      }
+
+      .tag.gold {
+        color: #80570a;
+        background: var(--gold-soft);
+      }
+
+      .tag.green {
+        color: #2c612a;
+        background: var(--green-soft);
+      }
+
+      .tag.blue {
+        color: #245177;
+        background: var(--blue-soft);
+      }
+
+      .flow {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .flow-step {
+        position: relative;
+        min-height: 92px;
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fbfcf8;
+      }
+
+      .flow-step strong {
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      .flow-step span {
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .table-wrap {
+        overflow-x: auto;
+        margin-top: 16px;
+        box-shadow: none;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 720px;
+      }
+
+      th,
+      td {
+        padding: 13px 14px;
+        border-bottom: 1px solid var(--line);
+        text-align: left;
+        vertical-align: top;
+      }
+
+      th {
+        background: #f0f3eb;
+        font-size: 13px;
+        color: #3d433c;
+      }
+
+      td {
+        font-size: 14px;
+      }
+
+      tr:last-child td {
+        border-bottom: 0;
+      }
+
+      .timeline {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 18px;
+      }
+
+      .timeline-item {
+        position: relative;
+        padding: 18px;
+        border-radius: 8px;
+        border: 1px solid var(--line);
+        background: var(--panel);
+      }
+
+      .timeline-item::before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 5px;
+        border-radius: 999px;
+        margin-bottom: 14px;
+        background: var(--teal);
+      }
+
+      .timeline-item:nth-child(2)::before {
+        background: var(--gold);
+      }
+
+      .timeline-item:nth-child(3)::before {
+        background: var(--blue);
+      }
+
+      .timeline-item:nth-child(4)::before {
+        background: var(--red);
+      }
+
+      .episode-map {
+        display: grid;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .episode-block {
+        min-height: 150px;
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fbfcf8;
+      }
+
+      .episode-block .num {
+        display: block;
+        color: var(--red);
+        font-size: 13px;
+        font-weight: 900;
+        margin-bottom: 8px;
+      }
+
+      .episode-block p {
+        font-size: 13px;
+      }
+
+      ul {
+        margin: 12px 0 0;
+        padding-left: 18px;
+      }
+
+      li {
+        margin: 6px 0;
+      }
+
+      .callout {
+        margin-top: 18px;
+        padding: 16px;
+        border: 1px solid rgba(180, 59, 47, 0.25);
+        border-radius: 8px;
+        background: var(--red-soft);
+      }
+
+      .callout strong {
+        color: #8e241a;
+      }
+
+      .footer-note {
+        margin-top: 18px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .download-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .download-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 40px;
+        padding: 9px 14px;
+        border: 1px solid rgba(21, 127, 121, 0.28);
+        border-radius: 8px;
+        background: var(--teal);
+        color: #fff;
+        font-size: 14px;
+        font-weight: 900;
+        text-decoration: none;
+      }
+
+      .download-link.secondary {
+        background: var(--panel);
+        color: var(--teal);
+      }
+
+      .doc-viewer {
+        margin-top: 18px;
+        padding: 24px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+        box-shadow: var(--shadow);
+      }
+
+      .doc-viewer h1,
+      .doc-viewer h2,
+      .doc-viewer h3,
+      .doc-viewer h4 {
+        margin: 22px 0 10px;
+        line-height: 1.28;
+      }
+
+      .doc-viewer h1 {
+        font-size: 25px;
+      }
+
+      .doc-viewer h2 {
+        padding-top: 18px;
+        border-top: 1px solid var(--line);
+        font-size: 22px;
+      }
+
+      .doc-viewer h3 {
+        font-size: 18px;
+      }
+
+      .doc-viewer p {
+        color: #3d433c;
+      }
+
+      .doc-viewer blockquote {
+        margin: 14px 0;
+        padding: 12px 14px;
+        border-left: 4px solid var(--teal);
+        background: var(--teal-soft);
+        font-weight: 800;
+      }
+
+      .doc-viewer table {
+        min-width: 760px;
+      }
+
+      .doc-table-scroll {
+        overflow-x: auto;
+        margin: 14px 0;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+      }
+
+      .doc-loading {
+        color: var(--muted);
+      }
+
+      @media (max-width: 920px) {
+        .intro,
+        .grid-3,
+        .grid-4,
+        .flow,
+        .timeline,
+        .episode-map {
+          grid-template-columns: 1fr;
+        }
+
+        .brand-row {
+          display: block;
+        }
+
+        .status-pill {
+          display: inline-flex;
+          margin-top: 12px;
+        }
+
+        h1 {
+          font-size: 24px;
+        }
+
+        h2 {
+          font-size: 21px;
+        }
+
+        .topbar-inner,
+        main {
+          width: min(100vw - 22px, 1180px);
+        }
+
+        .tabs {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="topbar-inner">
+          <div class="brand-row">
+            <div>
+              <h1>硬核系列知识爽剧IP规划看板</h1>
+              <p class="subtitle">内部立项与内容生产指引 · 两个标签页快速查看总规划和首发项目</p>
+            </div>
+            <div class="status-pill">V1.1 内部版 · 2026-05-25</div>
+          </div>
+          <nav class="tabs" aria-label="规划标签页">
+            <button class="tab-button" type="button" role="tab" aria-selected="true" aria-controls="tab-ip" id="tab-ip-button">
+              系列IP总规划
+            </button>
+            <button class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="tab-traveler" id="tab-traveler-button">
+              硬核穿越者四部曲
+            </button>
+          </nav>
+        </div>
+      </header>
+
+      <main>
+        <section class="tab-panel active" id="tab-ip" role="tabpanel" aria-labelledby="tab-ip-button">
+          <div class="intro">
+            <article class="lead-panel">
+              <p class="eyebrow">总定位</p>
+              <h2>国内首个“爽剧为壳、知识为核”的AI短剧IP矩阵</h2>
+              <p class="lead">
+                用AI短剧的生产效率、竖屏短剧的追更节奏，把真实知识包装成一个个危机破局场景。
+                用户不是来看课堂，而是看主角用知识赢、用流程赢、用组织赢。
+              </p>
+              <div class="motto">看剧不白看，每集学到一个具体场景里的真本事。</div>
+            </article>
+
+            <aside class="principle-panel">
+              <p class="eyebrow">统一创作口径</p>
+              <div class="principle-list">
+                <div class="principle-item">知识负责破局</div>
+                <div class="principle-item">情感负责留人</div>
+                <div class="principle-item">关系负责追更</div>
+                <div class="principle-item">AI负责规模化</div>
+              </div>
+            </aside>
+          </div>
+
+          <section class="section">
+            <p class="eyebrow">内容模型</p>
+            <h3>三条线同时推进，避免变成单纯讲课</h3>
+            <div class="grid-3">
+              <article class="card">
+                <span class="tag">知识线</span>
+                <h4>每集一个具体知识点</h4>
+                <p>生活、经营、安全手工要具体呈现材料、工具、步骤、成败判断和常见错误。</p>
+              </article>
+              <article class="card">
+                <span class="tag red">情感线</span>
+                <h4>让用户关心人物命运</h4>
+                <p>爱情、友情、师徒、误会、守护、共同成长，要推动角色选择和关系变化。</p>
+              </article>
+              <article class="card">
+                <span class="tag gold">权力线</span>
+                <h4>放大冲突和长期追更</h4>
+                <p>商帮嫉妒、官府试探、旧贵族压制、新势力结盟，让每次破局改变利益格局。</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="section">
+            <p class="eyebrow">分级实操</p>
+            <h3>能安全学的就具体教，明显危险的只服务剧情</h3>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>等级</th>
+                    <th>内容类型</th>
+                    <th>成片表达</th>
+                    <th>示例</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>L1 低风险</strong></td>
+                    <td>日常生活、经营、低风险手工</td>
+                    <td>具体拍材料、工具、步骤、判断标准</td>
+                    <td>饮水过滤、账本、抄纸、排版、防潮、防伪、地图</td>
+                  </tr>
+                  <tr>
+                    <td><strong>L2 中风险</strong></td>
+                    <td>安全边界内的工艺</td>
+                    <td>拍安全版实操和关键观察点，避开危险参数</td>
+                    <td>制皂、香膏、花露、食品加工、专业工坊场景</td>
+                  </tr>
+                  <tr>
+                    <td><strong>L3 高风险</strong></td>
+                    <td>危险技术与敏感工艺</td>
+                    <td>只讲历史、组织、后勤、事故警示和伦理</td>
+                    <td>火药、枪械、炸药、危险化学、高压设备</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="section">
+            <p class="eyebrow">首批IP矩阵</p>
+            <h3>一套模板，复制到多个知识领域</h3>
+            <div class="grid-4">
+              <article class="card">
+                <span class="tag red">首发</span>
+                <h4>《硬核穿越者》</h4>
+                <p>北宋穿越，现代知识降维破局，从破庙求生到重塑秩序。</p>
+              </article>
+              <article class="card">
+                <span class="tag gold">变现快</span>
+                <h4>《硬核厨神》</h4>
+                <p>食品科学与餐厅逆袭，适合调料、厨具、食材、电商和课程。</p>
+              </article>
+              <article class="card">
+                <span class="tag blue">用户大</span>
+                <h4>《硬核英语》</h4>
+                <p>海外生存压力驱动语言学习，适合单词卡、口语课和训练营。</p>
+              </article>
+              <article class="card">
+                <span class="tag green">高价值</span>
+                <h4>《硬核程序员》</h4>
+                <p>职场技术逆袭，适合AI编程工具、课程、训练营和招聘广告。</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="doc-viewer">
+            <p class="eyebrow">详细文档全文</p>
+            <h3>V1.1《硬核系列知识爽剧IP整体规划》</h3>
+            <div class="download-row">
+              <a class="download-link" href="docs/ip-plan.pdf" download>下载 PDF 存档</a>
+              <a class="download-link secondary" href="docs/ip-plan.md" download>下载 Markdown 原文</a>
+            </div>
+            <div class="doc-loading" data-doc="docs/ip-plan.md">正在加载详细文档...</div>
+          </section>
+        </section>
+
+        <section class="tab-panel" id="tab-traveler" role="tabpanel" aria-labelledby="tab-traveler-button">
+          <div class="intro">
+            <article class="lead-panel">
+              <p class="eyebrow">首发母体IP</p>
+              <h2>《硬核穿越者》四部240集：从破庙求生到天下新局</h2>
+              <p class="lead">
+                林默穿越到北宋景祐三年，没有系统，没有无限物资，只有现代基础知识和一册残缺的《民用工业手册》。
+                他不是背答案的人，而是知道方向、能试错、会组织、能把流程复制出去的人。
+              </p>
+              <div class="motto">如果真的穿越了，至少知道先从水、火、卫生、账本和工具开始。</div>
+            </article>
+
+            <aside class="principle-panel">
+              <p class="eyebrow">主角破局公式</p>
+              <div class="principle-list">
+                <div class="principle-item">观察问题</div>
+                <div class="principle-item">找到本质</div>
+                <div class="principle-item">低成本试验</div>
+                <div class="principle-item">建立标准并复制</div>
+              </div>
+            </aside>
+          </div>
+
+          <section class="section">
+            <p class="eyebrow">四部曲总览</p>
+            <h3>每60集一个成长阶段，每部结尾打开更大的世界</h3>
+            <div class="timeline">
+              <article class="timeline-item">
+                <span class="tag">1-60集</span>
+                <h4>第一部：生存与立业</h4>
+                <p>破庙秀才到县城新贵。知识资产：卫生、照明、造纸、印刷、账本、商品化。</p>
+              </article>
+              <article class="timeline-item">
+                <span class="tag gold">61-120集</span>
+                <h4>第二部：信息与工程</h4>
+                <p>县城商人到朝廷技术顾问。知识资产：香料、指南、地图、测量、后勤、边防工程。</p>
+              </article>
+              <article class="timeline-item">
+                <span class="tag blue">121-180集</span>
+                <h4>第三部：工业基础</h4>
+                <p>作坊主到区域工业组织者。知识资产：能源、材料、标准件、机械、道路、水利。</p>
+              </article>
+              <article class="timeline-item">
+                <span class="tag red">181-240集</span>
+                <h4>第四部：天下新局</h4>
+                <p>技术组织者到新秩序设计者。知识资产：通信、教育、公共卫生、金融、交通、治理。</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="section">
+            <p class="eyebrow">第一部60集结构</p>
+            <h3>先把低风险实操、短剧节奏和人物关系跑通</h3>
+            <div class="episode-map">
+              <article class="episode-block">
+                <span class="num">第1-10集</span>
+                <h4>破庙求生</h4>
+                <p>解决水、卫生、清洁、盐、照明。林默从快饿死的破落秀才，变成能拿出新东西的人。</p>
+              </article>
+              <article class="episode-block">
+                <span class="num">第11-20集</span>
+                <h4>第一件商品</h4>
+                <p>蜡烛、灯芯、包装、定价、账本、押金。王娘子加入，第一次形成门店和客户。</p>
+              </article>
+              <article class="episode-block">
+                <span class="num">第21-30集</span>
+                <h4>纸坊起势</h4>
+                <p>原料、打浆、抄纸、晾晒、质检。张铁匠加入，工具和工艺开始升级。</p>
+              </article>
+              <article class="episode-block">
+                <span class="num">第31-40集</span>
+                <h4>印书破局</h4>
+                <p>活字、雕版、排版、校对。沈账房加入，作坊从手艺变成生意。</p>
+              </article>
+              <article class="episode-block">
+                <span class="num">第41-50集</span>
+                <h4>商品矩阵</h4>
+                <p>糖、香料、包装、成本、供应链。海商登场，外部世界和高毛利商品线打开。</p>
+              </article>
+              <article class="episode-block">
+                <span class="num">第51-60集</span>
+                <h4>作坊成型</h4>
+                <p>防伪、账册、合规、限量、分店、信用。县令介入，主角进入官商关系网。</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="section">
+            <p class="eyebrow">第一部关键关系</p>
+            <h3>知识破局背后，要有人受益、有人嫉妒、有人重新站队</h3>
+            <div class="grid-4">
+              <article class="mini-card">
+                <span class="tag red">王娘子</span>
+                <h4>爱情与合伙线</h4>
+                <p>从怀疑林默到看见他的价值，负责女客市场、门店和口碑。</p>
+              </article>
+              <article class="mini-card">
+                <span class="tag gold">张铁匠</span>
+                <h4>友情与工匠线</h4>
+                <p>从不服现代思路到并肩试错，承担工具、模具和作坊升级。</p>
+              </article>
+              <article class="mini-card">
+                <span class="tag blue">沈账房</span>
+                <h4>经营与制度线</h4>
+                <p>用账本、成本、分红和供应链，把手艺变成组织。</p>
+              </article>
+              <article class="mini-card">
+                <span class="tag green">周纸商</span>
+                <h4>嫉妒与旧利益线</h4>
+                <p>代表旧行会和垄断利益，不只是坏，而是害怕新秩序。</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="section">
+            <p class="eyebrow">可实操样板</p>
+            <h3>安全知识要拍到“观众看完基本懂”</h3>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>内容</th>
+                    <th>具体拍法</th>
+                    <th>剧情爽点</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>抄纸</strong></td>
+                    <td>纸浆搅匀、竹帘平入水、轻晃铺匀、稳定提帘、编号晾晒。</td>
+                    <td>纸商嘲笑他不会做纸，三天后书生排队买练字纸。</td>
+                  </tr>
+                  <tr>
+                    <td><strong>账本</strong></td>
+                    <td>赊账、押金、签押、交付验收、损耗记录，用一页账管住客户和工人。</td>
+                    <td>县令要查封作坊，林默用完整账册证明纳税和雇工价值。</td>
+                  </tr>
+                  <tr>
+                    <td><strong>香膏/花露</strong></td>
+                    <td>水蒸气带走花香、遇冷凝成花露；油脂吸香、蜂蜡定型、小盒密封。</td>
+                    <td>东京贵人争抢新香，女客市场打开，王娘子成为关键合伙人。</td>
+                  </tr>
+                  <tr>
+                    <td><strong>地图/罗盘</strong></td>
+                    <td>方向标定、路线记录、比例意识、风险点标注，不做神秘化表达。</td>
+                    <td>海商发现林默能让船队少走冤枉路，第二部外部世界打开。</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="callout">
+              <strong>高风险边界：</strong>火药、枪械、炸药、危险化学、高压设备等只讲历史、组织、后勤、事故警示和技术伦理，不做教程。
+            </div>
+          </section>
+
+          <section class="doc-viewer">
+            <p class="eyebrow">详细文档全文</p>
+            <h3>《硬核穿越者》四部曲聚焦规划定稿版</h3>
+            <div class="download-row">
+              <a class="download-link" href="docs/traveler-plan.pdf" download>下载 PDF 存档</a>
+              <a class="download-link secondary" href="docs/traveler-plan.md" download>下载 Markdown 原文</a>
+            </div>
+            <div class="doc-loading" data-doc="docs/traveler-plan.md">正在加载详细文档...</div>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      const buttons = Array.from(document.querySelectorAll(".tab-button"));
+      const panels = Array.from(document.querySelectorAll(".tab-panel"));
+
+      function activateTab(button) {
+        buttons.forEach((item) => {
+          item.setAttribute("aria-selected", String(item === button));
+        });
+
+        panels.forEach((panel) => {
+          panel.classList.toggle("active", panel.id === button.getAttribute("aria-controls"));
+        });
+      }
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => activateTab(button));
+      });
+
+      function escapeHtml(value) {
+        return value
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;");
+      }
+
+      function inlineMarkdown(value) {
+        return escapeHtml(value)
+          .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+          .replace(/`([^`]+)`/g, "<code>$1</code>");
+      }
+
+      function flushList(buffer, ordered) {
+        if (!buffer.length) return "";
+        const tag = ordered ? "ol" : "ul";
+        const items = buffer.map((item) => `<li>${inlineMarkdown(item)}</li>`).join("");
+        buffer.length = 0;
+        return `<${tag}>${items}</${tag}>`;
+      }
+
+      function renderTable(lines) {
+        const rows = lines
+          .filter((line) => !/^\|\s*-+/.test(line))
+          .map((line) =>
+            line
+              .trim()
+              .replace(/^\|/, "")
+              .replace(/\|$/, "")
+              .split("|")
+              .map((cell) => cell.trim()),
+          );
+
+        if (!rows.length) return "";
+        const head = rows[0].map((cell) => `<th>${inlineMarkdown(cell)}</th>`).join("");
+        const body = rows
+          .slice(1)
+          .map((row) => `<tr>${row.map((cell) => `<td>${inlineMarkdown(cell)}</td>`).join("")}</tr>`)
+          .join("");
+        return `<div class="doc-table-scroll"><table><thead><tr>${head}</tr></thead><tbody>${body}</tbody></table></div>`;
+      }
+
+      function renderMarkdown(markdown) {
+        const lines = markdown.replace(/\r\n/g, "\n").split("\n");
+        let html = "";
+        const list = [];
+        let listOrdered = false;
+        let table = [];
+
+        const flushTable = () => {
+          if (table.length) {
+            html += renderTable(table);
+            table = [];
+          }
+        };
+
+        lines.forEach((line) => {
+          const trimmed = line.trim();
+
+          if (trimmed.startsWith("|") && trimmed.endsWith("|")) {
+            html += flushList(list, listOrdered);
+            table.push(trimmed);
+            return;
+          }
+
+          flushTable();
+
+          if (!trimmed) {
+            html += flushList(list, listOrdered);
+            return;
+          }
+
+          const orderedMatch = trimmed.match(/^\d+\.\s+(.*)$/);
+          const unorderedMatch = trimmed.match(/^-\s+(.*)$/);
+
+          if (orderedMatch) {
+            if (!listOrdered) html += flushList(list, listOrdered);
+            listOrdered = true;
+            list.push(orderedMatch[1]);
+            return;
+          }
+
+          if (unorderedMatch) {
+            if (listOrdered) html += flushList(list, listOrdered);
+            listOrdered = false;
+            list.push(unorderedMatch[1]);
+            return;
+          }
+
+          html += flushList(list, listOrdered);
+
+          if (trimmed === "---") {
+            html += "<hr />";
+            return;
+          }
+
+          if (trimmed.startsWith(">")) {
+            html += `<blockquote>${inlineMarkdown(trimmed.replace(/^>\s?/, ""))}</blockquote>`;
+            return;
+          }
+
+          const heading = trimmed.match(/^(#{1,4})\s+(.*)$/);
+          if (heading) {
+            const level = heading[1].length;
+            html += `<h${level}>${inlineMarkdown(heading[2])}</h${level}>`;
+            return;
+          }
+
+          html += `<p>${inlineMarkdown(trimmed)}</p>`;
+        });
+
+        flushTable();
+        html += flushList(list, listOrdered);
+        return html;
+      }
+
+      async function loadDocs() {
+        const containers = Array.from(document.querySelectorAll("[data-doc]"));
+        await Promise.all(
+          containers.map(async (container) => {
+            try {
+              const response = await fetch(container.dataset.doc);
+              if (!response.ok) throw new Error(`HTTP ${response.status}`);
+              const markdown = await response.text();
+              container.classList.remove("doc-loading");
+              container.innerHTML = renderMarkdown(markdown);
+            } catch (error) {
+              container.innerHTML = `详细文档加载失败。部署后可访问：<a href="${container.dataset.doc}">${container.dataset.doc}</a>`;
+            }
+          }),
+        );
+      }
+
+      loadDocs();
+    </script>
+  </body>
+</html>

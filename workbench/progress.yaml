@@ -87,3 +87,35 @@ items:
     summary: 已同步最新 git 中的 N7 部署记录：05:01 完成一键 bootstrap，sub2api/frpc Running，FRP n7-sub2api proxy success；节点部署台新增 N6/N7 多页签，并更新到底部 v0.1.2 · N6/N7 版本标识。
     updated_at: 2026-05-17
     last_modified_at: 2026-05-17
+
+  - id: seoul-node-monitor-console-launched
+    date: 2026-05-17
+    project: seoul-node-monitor-console
+    status: done
+    summary: 已在首尔服务器发布 https://flaios.com/node-monitor/ 节点监控控制台：30 分钟自动采集、手动立即采集、国家节点/其他节点归类、网络拓扑图、地区概览、搜索筛选、分页和滚动加载均已上线并通过公网 200 OK 验证。
+    updated_at: 2026-05-17
+    last_modified_at: 2026-05-17
+
+  - id: youyou-cs2-analysis-submitted-to-workbench
+    date: 2026-05-25
+    project: youyou-cs2-digital-assets-analysis
+    status: done
+    summary: 已按 README 将悠悠有品综合分析登记到个人工作台，记录 CS2 饰品市场研究、增长分析、长期战略、合规边界和可拆分 Agent / PRD 模块。
+    updated_at: 2026-05-25
+    last_modified_at: 2026-05-25
+
+  - id: hardcore-series-planning-submitted-to-workbench
+    date: 2026-05-25
+    project: hardcore-series-short-drama-planning
+    status: done
+    summary: 已按 README 将硬核系列短剧规划登记到个人工作台，记录知识爽剧定位、《硬核穿越者》四部曲、第一部 60 集分集表、样片优先级和 L1-L4 风险分级。
+    updated_at: 2026-05-25
+    last_modified_at: 2026-05-25
+
+  - id: short-drama-topic-options-submitted-to-workbench
+    date: 2026-05-25
+    project: short-drama-12-topic-options
+    status: done
+    summary: 已按 README 将 12 部短剧选题方案项目登记到个人工作台，记录 6 大题材、12 部选题、标准字段、共同爽剧模型和下一步评审打分流程。
+    updated_at: 2026-05-25
+    last_modified_at: 2026-05-25

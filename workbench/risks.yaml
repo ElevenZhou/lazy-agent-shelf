@@ -30,3 +30,47 @@ items:
       - local-image-generator-skill
     updated_at: 2026-05-15
     last_modified_at: 2026-05-15
+
+  - id: seoul-node-monitor-public-exposure
+    name: 首尔节点监控台公网暴露
+    risk_level: medium
+    status: active
+    summary: /node-monitor/ 当前公网可访问，虽为只读页面且不展示 token/API key，但会暴露节点规划、端口段、在线状态、Caddy 配置数量和部分域名/服务状态。
+    mitigation: 优先加 Basic Auth 或 IP 白名单；公开分享截图时打码端口、域名和在线状态；继续禁止在监控页、status.json 或前端脚本中写入密钥。
+    related_projects:
+      - seoul-node-monitor-console
+    updated_at: 2026-05-17
+    last_modified_at: 2026-05-17
+
+  - id: youyou-cs2-compliance-boundaries
+    name: 悠悠有品虚拟资产与预测市场边界
+    risk_level: high
+    status: active
+    summary: 悠悠有品方向涉及虚拟资产、跨境交易、支付、博彩化、预测市场和投资化表达，若误把数据因子做成下注、导流、杠杆或收益承诺，会触发高合规风险。
+    mitigation: Polymarket 相关能力只作为外部情报因子和数据展示，不做真实金钱下注、饰品下注、可提现预测市场、受限地区导流或投资理财包装；所有方案需法务复核。
+    related_projects:
+      - youyou-cs2-digital-assets-analysis
+    updated_at: 2026-05-25
+    last_modified_at: 2026-05-25
+
+  - id: hardcore-series-dangerous-knowledge-boundaries
+    name: 硬核系列危险知识表达边界
+    risk_level: high
+    status: active
+    summary: 硬核系列会涉及火药、武器、危险化学、家庭可复现实验等高风险知识，若展示关键比例、参数或完整流程，可能造成安全与平台审核风险。
+    mitigation: 所有剧本立项前先做 L1-L4 风险分级；L2 只讲原理与场景，L3 只讲历史背景和剧情结果，L4 禁止进入剧本；中高风险内容必须二次复核。
+    related_projects:
+      - hardcore-series-short-drama-planning
+    updated_at: 2026-05-25
+    last_modified_at: 2026-05-25
+
+  - id: short-drama-topic-sensitive-review
+    name: 短剧选题敏感题材预筛
+    risk_level: medium
+    status: active
+    summary: 12 部选题中包含股市金融、战争乱世、出海逆袭等题材，后续扩写可能涉及保证收益、政治历史、国别敏感、广告法和未成年人保护等风险。
+    mitigation: 进入扩写前按题材建立法务红线清单；金融题材避免保证收益和荐股承诺，战争/乱世题材保持历史与价值观边界，出海题材避免国别刻板化和敏感政治表述。
+    related_projects:
+      - short-drama-12-topic-options
+    updated_at: 2026-05-25
+    last_modified_at: 2026-05-25

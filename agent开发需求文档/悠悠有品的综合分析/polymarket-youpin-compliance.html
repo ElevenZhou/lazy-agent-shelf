@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Polymarket 全球合规与悠悠有品结合方案</title>
+  <style>
+    :root {
+      --ink: #17201a;
+      --muted: #637067;
+      --paper: #f6f0df;
+      --paper-2: #fffaf0;
+      --line: rgba(23, 32, 26, 0.14);
+      --green: #0f6b4d;
+      --lime: #b6d85c;
+      --amber: #e5a936;
+      --red: #bd4b3f;
+      --blue: #2b6f9e;
+      --shadow: 0 24px 70px rgba(23, 32, 26, 0.14);
+      --radius: 26px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Iowan Old Style", "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, serif;
+      background:
+        radial-gradient(circle at 10% 8%, rgba(182, 216, 92, 0.55), transparent 28rem),
+        radial-gradient(circle at 90% 0%, rgba(229, 169, 54, 0.35), transparent 24rem),
+        linear-gradient(135deg, #f8f2df 0%, #efe5c9 46%, #e9dcc2 100%);
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(23,32,26,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(23,32,26,0.035) 1px, transparent 1px);
+      background-size: 28px 28px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.85), transparent 78%);
+    }
+
+    a { color: var(--green); text-decoration-thickness: 0.08em; text-underline-offset: 0.18em; }
+
+    .page {
+      width: min(1180px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 32px 0 56px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 36px;
+      padding: clamp(30px, 6vw, 76px);
+      background:
+        linear-gradient(118deg, rgba(255,250,240,0.94), rgba(250,244,224,0.72)),
+        radial-gradient(circle at 80% 18%, rgba(15,107,77,0.18), transparent 28rem);
+      box-shadow: var(--shadow);
+      isolation: isolate;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -90px;
+      top: -110px;
+      width: 330px;
+      height: 330px;
+      border: 32px solid rgba(15, 107, 77, 0.12);
+      border-radius: 50%;
+      z-index: -1;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      padding: 8px 13px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 250, 240, 0.7);
+      color: var(--green);
+      font: 700 13px/1.1 "Trebuchet MS", "Microsoft YaHei", sans-serif;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--lime);
+      box-shadow: 0 0 0 6px rgba(182, 216, 92, 0.25);
+    }
+
+    h1 {
+      margin: 22px 0 18px;
+      max-width: 920px;
+      font-size: clamp(38px, 7vw, 82px);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+    }
+
+    .lead {
+      max-width: 780px;
+      color: #354138;
+      font-size: clamp(18px, 2.1vw, 24px);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .pill {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(23, 32, 26, 0.07);
+      color: #263128;
+      font: 700 14px/1.1 "Trebuchet MS", "Microsoft YaHei", sans-serif;
+    }
+
+    nav {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin: 24px 0;
+    }
+
+    nav a {
+      display: block;
+      padding: 16px 18px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: rgba(255, 250, 240, 0.62);
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 800;
+      box-shadow: 0 12px 28px rgba(23,32,26,0.07);
+      transition: transform .2s ease, background .2s ease;
+    }
+
+    nav a:hover { transform: translateY(-3px); background: rgba(255, 250, 240, 0.92); }
+
+    section {
+      margin-top: 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 250, 240, 0.78);
+      box-shadow: 0 18px 45px rgba(23,32,26,0.08);
+      overflow: hidden;
+    }
+
+    .section-head {
+      padding: 28px 30px 16px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(90deg, rgba(15,107,77,0.08), rgba(229,169,54,0.08));
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(26px, 3.4vw, 44px);
+      letter-spacing: -0.04em;
+      line-height: 1.08;
+    }
+
+    .section-head p, .note p { color: var(--muted); margin: 10px 0 0; line-height: 1.7; }
+
+    .content { padding: 26px 30px 30px; }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.38);
+    }
+
+    .card h3 { margin: 0 0 10px; font-size: 22px; letter-spacing: -0.02em; }
+    .card p, li { color: #3d4b42; line-height: 1.72; }
+    .card p { margin: 0; }
+    ul { margin: 0; padding-left: 1.2em; }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+      font: 800 13px/1 "Trebuchet MS", "Microsoft YaHei", sans-serif;
+    }
+    .status::before { content: ""; width: 8px; height: 8px; border-radius: 50%; }
+    .low { background: rgba(15,107,77,0.12); color: var(--green); }
+    .low::before { background: var(--green); }
+    .mid { background: rgba(229,169,54,0.16); color: #8a5d09; }
+    .mid::before { background: var(--amber); }
+    .high { background: rgba(189,75,63,0.13); color: var(--red); }
+    .high::before { background: var(--red); }
+    .data { background: rgba(43,111,158,0.12); color: var(--blue); }
+    .data::before { background: var(--blue); }
+
+    .table-wrap { overflow-x: auto; border-radius: 20px; border: 1px solid var(--line); }
+    table { width: 100%; min-width: 850px; border-collapse: collapse; background: rgba(255,255,255,0.34); }
+    th, td { padding: 16px 18px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { color: var(--green); font: 900 14px/1.2 "Trebuchet MS", "Microsoft YaHei", sans-serif; letter-spacing: .05em; text-transform: uppercase; }
+    tr:last-child td { border-bottom: 0; }
+
+    .flow {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr;
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    .arrow {
+      display: grid;
+      place-items: center;
+      color: var(--green);
+      font-size: 28px;
+      font-weight: 900;
+    }
+
+    .quote {
+      padding: 26px 30px;
+      background: #17201a;
+      color: #fff7df;
+      border-radius: 26px;
+      font-size: clamp(22px, 3vw, 34px);
+      line-height: 1.45;
+      letter-spacing: -0.035em;
+    }
+
+    .quote small {
+      display: block;
+      margin-top: 12px;
+      color: rgba(255,247,223,0.68);
+      font-size: 15px;
+      letter-spacing: 0;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 14px;
+      counter-reset: step;
+    }
+
+    .step {
+      position: relative;
+      display: grid;
+      grid-template-columns: 54px 1fr;
+      gap: 16px;
+      align-items: start;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: rgba(255,255,255,0.34);
+    }
+
+    .step::before {
+      counter-increment: step;
+      content: counter(step);
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 16px;
+      background: var(--green);
+      color: white;
+      font: 900 20px/1 "Trebuchet MS", sans-serif;
+    }
+
+    .step h3 { margin: 0 0 5px; font-size: 21px; }
+    .step p { margin: 0; color: #3d4b42; line-height: 1.72; }
+
+    .sources {
+      display: grid;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .footer {
+      margin-top: 22px;
+      padding: 18px 4px 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 860px) {
+      .page { width: min(100% - 24px, 1180px); padding-top: 16px; }
+      nav, .grid-3 { grid-template-columns: 1fr; }
+      .hero, section { border-radius: 24px; }
+      .content, .section-head { padding-left: 20px; padding-right: 20px; }
+      .flow { grid-template-columns: 1fr; }
+      .arrow { transform: rotate(90deg); padding: 2px; }
+      h1 { letter-spacing: -0.04em; }
+    }
+
+    @media print {
+      body { background: #fff; }
+      body::before, nav { display: none; }
+      .page { width: 100%; padding: 0; }
+      .hero, section { box-shadow: none; break-inside: avoid; background: #fff; }
+      a { color: #000; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div class="eyebrow">合规分析 / 商业结合方案</div>
+      <h1>Polymarket 全球合规与悠悠有品结合机会</h1>
+      <p class="lead">Polymarket 不是“全球都合法”，而是通过地域限制、链上非托管、P2P 订单簿与美国独立受监管入口，服务大量非受限地区用户。与悠悠有品结合时，最稳妥的价值点是把预测市场价格变成 CS2 饰品行情的情报因子。</p>
+      <div class="hero-meta">
+        <span class="pill">整理日期：2026-05-25</span>
+        <span class="pill">重点：合规边界 + 数据产品</span>
+        <span class="pill">结论：不建议直接导流下注</span>
+      </div>
+    </header>
+
+    <nav aria-label="目录">
+      <a href="#compliance">全球合规地图</a>
+      <a href="#why">为什么能服务全球</a>
+      <a href="#youpin">与悠悠有品结合</a>
+      <a href="#roadmap">落地路线</a>
+    </nav>
+
+    <section id="compliance">
+      <div class="section-head">
+        <h2>一、全球合规情况</h2>
+        <p>核心判断：可访问不等于明确合法。Polymarket 通过限制高风险国家/地区，把业务留在相对可操作的市场。</p>
+      </div>
+      <div class="content">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>区域 / 国家</th>
+                <th>当前状态</th>
+                <th>主要监管风险</th>
+                <th>对悠悠有品的启示</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>美国</td>
+                <td>国际站受限；Polymarket US 通过 QCX LLC 走 CFTC 监管路径。Polymarket 曾在 2022 年因未注册事件合约被 CFTC 处罚。</td>
+                <td>商品衍生品、二元期权、州博彩法、KYC/AML、市场操纵。</td>
+                <td>美国用户必须走合规入口，不能用国际站绕行。</td>
+              </tr>
+              <tr>
+                <td>英国、法国、德国、意大利、比利时、波兰</td>
+                <td>官方限制或 close-only。</td>
+                <td>远程博彩、金融衍生品、消费者保护。</td>
+                <td>不要面向这些地区做交易导流。</td>
+              </tr>
+              <tr>
+                <td>澳大利亚、日本、新加坡、泰国、台湾</td>
+                <td>官方限制；台湾、新加坡、泰国为 close-only，用户可平仓但不可开新仓。</td>
+                <td>博彩、金融合约、虚拟资产与支付合规。</td>
+                <td>台湾用户不应被引导参与新交易。</td>
+              </tr>
+              <tr>
+                <td>制裁 / 高风险国家</td>
+                <td>俄罗斯、伊朗、朝鲜、叙利亚、古巴、白俄罗斯等被限制。</td>
+                <td>OFAC 与国际制裁、AML、恐怖融资风险。</td>
+                <td>国际产品需要制裁名单筛查。</td>
+              </tr>
+              <tr>
+                <td>中国大陆</td>
+                <td>不等于开放合规；大陆对虚拟货币交易、跨境支付、博彩竞猜均高度敏感。</td>
+                <td>博彩、虚拟货币交易、非法经营、跨境支付。</td>
+                <td>建议只做数据展示和资讯，不做真实金钱交易入口。</td>
+              </tr>
+              <tr>
+                <td>拉美、非洲、亚洲其他地区</td>
+                <td>很多地区未出现在限制名单中，技术上可服务。</td>
+                <td>当地后续可能按博彩、证券、衍生品或虚拟资产监管。</td>
+                <td>国际版工具可优先从非受限市场测试。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="why">
+      <div class="section-head">
+        <h2>二、Polymarket 为什么能服务很多全球用户</h2>
+        <p>它的能力来自产品结构与法律结构的组合，而不是在每个国家都拿到了牌照。</p>
+      </div>
+      <div class="content grid-3">
+        <article class="card">
+          <span class="status data">产品结构</span>
+          <h3>P2P 订单簿</h3>
+          <p>用户与用户之间交易事件结果份额，平台不是传统意义上的庄家，价格由供需形成，因此概率本身也成为可消费的数据。</p>
+        </article>
+        <article class="card">
+          <span class="status data">结算结构</span>
+          <h3>链上与非托管</h3>
+          <p>使用稳定币抵押和智能合约结算，降低传统平台托管资金的责任，但不消除博彩、衍生品与反洗钱监管。</p>
+        </article>
+        <article class="card">
+          <span class="status mid">法律结构</span>
+          <h3>地域限制</h3>
+          <p>通过 IP、居住地、条款与限制名单排除美国国际站用户、台湾、新加坡、英国、法国、日本等高风险地区。</p>
+        </article>
+        <article class="card">
+          <span class="status mid">美国路径</span>
+          <h3>独立受监管入口</h3>
+          <p>美国市场通过 Polymarket US / QCX LLC 的 CFTC 监管路径处理，国际站与美国站在法律和运营上分离。</p>
+        </article>
+        <article class="card">
+          <span class="status low">传播优势</span>
+          <h3>概率即内容</h3>
+          <p>预测市场价格天然适合媒体引用、交易员观察、研究者建模，因此即使用户不交易，也可能消费其概率数据。</p>
+        </article>
+        <article class="card">
+          <span class="status high">关键边界</span>
+          <h3>禁止绕过限制</h3>
+          <p>官方明确禁止使用 VPN 或其他方式规避地域限制。任何合作都不应向受限地区提供开户、入金或交易教程。</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="youpin">
+      <div class="section-head">
+        <h2>三、Polymarket × 悠悠有品：怎么结合并产生效益</h2>
+        <p>最佳结合点不是“让饰品用户去下注”，而是把 Polymarket 的市场概率变成 CS2 饰品交易、库存和内容运营的领先指标。</p>
+      </div>
+      <div class="content">
+        <div class="quote">
+          把预测市场当成“事件雷达”，把悠悠有品当成“饰品价格与流动性市场”。两者结合后，价值来自提前理解行情，而不是博彩抽水。
+          <small>推荐方向：CS2 饰品预测情报系统</small>
+        </div>
+        <div style="height:18px"></div>
+        <div class="flow">
+          <article class="card">
+            <span class="status data">数据输入</span>
+            <h3>悠悠有品行情</h3>
+            <p>饰品价格、成交量、挂单深度、租赁价格、库存变化、热门品类。</p>
+          </article>
+          <div class="arrow">→</div>
+          <article class="card">
+            <span class="status data">概率输入</span>
+            <h3>Polymarket 信号</h3>
+            <p>CS2 赛事、战队胜率、Major 结果、Valve 政策、宏观事件的隐含概率。</p>
+          </article>
+          <div class="arrow">→</div>
+          <article class="card">
+            <span class="status low">商业输出</span>
+            <h3>交易与运营收益</h3>
+            <p>库存建议、定价建议、风控提醒、专题内容、商家订阅、API 收费。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>四、三种合作模式</h2>
+        <p>按合规风险从低到高排序，建议先从低风险的数据产品开始。</p>
+      </div>
+      <div class="content grid-3">
+        <article class="card">
+          <span class="status low">低风险 / 推荐</span>
+          <h3>数据与情报层</h3>
+          <ul>
+            <li>CS2 饰品价格预测看板</li>
+            <li>Polymarket 概率变化监控</li>
+            <li>战队贴纸、纪念包、箱子行情联动</li>
+            <li>通过 SaaS、API、商家会员变现</li>
+          </ul>
+        </article>
+        <article class="card">
+          <span class="status mid">中风险 / 可控</span>
+          <h3>内容与增长层</h3>
+          <ul>
+            <li>赛事概率栏目：市场怎么看这场比赛</li>
+            <li>饰品行情事件日历</li>
+            <li>KOL 报告与自动化内容</li>
+            <li>不提供交易入口，不做开户教程</li>
+          </ul>
+        </article>
+        <article class="card">
+          <span class="status high">高风险 / 谨慎</span>
+          <h3>国际交易工具层</h3>
+          <ul>
+            <li>仅面向非受限国家的独立国际站</li>
+            <li>需要地域限制、KYC、AML 与法律审查</li>
+            <li>不得面向中国大陆、台湾等地区导流</li>
+            <li>不应把饰品余额直接接入下注</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="roadmap">
+      <div class="section-head">
+        <h2>五、落地路线</h2>
+        <p>先做可解释、可收费、低合规压力的数据产品，再考虑国际化扩展。</p>
+      </div>
+      <div class="content timeline">
+        <div class="step">
+          <div>
+            <h3>第一阶段：数据看板</h3>
+            <p>接入悠悠有品行情、Steam/Valve 事件、电竞赛程与 Polymarket 概率数据，输出饰品热度、价格偏离、流动性风险。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div>
+            <h3>第二阶段：内容产品</h3>
+            <p>生成“今日 CS2 饰品与赛事概率报告”，服务站内运营、KOL、商家广告与玩家教育。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div>
+            <h3>第三阶段：商家订阅</h3>
+            <p>提供库存建议、租赁定价建议、战队贴纸风险提醒、API 调用，形成稳定 SaaS 收入。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div>
+            <h3>第四阶段：国际版工具</h3>
+            <p>面向非受限国家做英文版数据工具；如涉及交易导流，必须配置地域限制、KYC/AML、风险披露与律师审查。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>六、不建议做什么</h2>
+      </div>
+      <div class="content grid-3">
+        <article class="card">
+          <span class="status high">禁止方向</span>
+          <h3>饰品或余额下注</h3>
+          <p>不要把悠悠有品余额、微信/支付宝资金、CS2 饰品资产直接接入 Polymarket 或任何预测交易结算。</p>
+        </article>
+        <article class="card">
+          <span class="status high">禁止方向</span>
+          <h3>受限地区导流</h3>
+          <p>不要向中国大陆、台湾、新加坡、泰国等高风险或受限地区用户提供开户、入金、VPN 绕过教程。</p>
+        </article>
+        <article class="card">
+          <span class="status high">禁止方向</span>
+          <h3>皮肤竞猜博彩</h3>
+          <p>不要设计“用皮肤押比赛结果”的真实金钱玩法，这会叠加皮肤博彩、虚拟资产与支付合规风险。</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>参考来源</h2>
+        <p>以下为公开信息来源，正式业务落地仍需逐地区法律意见。</p>
+      </div>
+      <div class="content sources">
+        <div>Polymarket Geographic Restrictions：<a href="https://help.polymarket.com/en/articles/13364163-geographic-restrictions">https://help.polymarket.com/en/articles/13364163-geographic-restrictions</a></div>
+        <div>Polymarket Terms of Use：<a href="https://polymarket.com/tos">https://polymarket.com/tos</a></div>
+        <div>CFTC 2022 Polymarket enforcement release：<a href="https://www.cftc.gov/PressRoom/PressReleases/8478-22">https://www.cftc.gov/PressRoom/PressReleases/8478-22</a></div>
+        <div>Polymarket 101 documentation：<a href="https://docs.polymarket.com/polymarket-101">https://docs.polymarket.com/polymarket-101</a></div>
+      </div>
+    </section>
+
+    <p class="footer">免责声明：本文为商业与产品策略分析，不构成法律、投资、博彩或合规意见。涉及预测市场、虚拟资产、跨境支付、游戏饰品交易的业务，应在目标司法辖区完成法律审查。</p>
+  </main>
+</body>
+</html>

@@ -60,3 +60,51 @@ items:
       - 把有效经验沉淀为可复用的工作流、记忆或 Skill。
     updated_at: 2026-05-15
     last_modified_at: 2026-05-15
+
+  - id: seoul-node-monitor-hardening
+    horizon: short
+    status: active
+    title: 首尔节点监控台加固与迭代
+    goals:
+      - 给 https://flaios.com/node-monitor/ 增加 Basic Auth 或可信 IP 限制。
+      - 新国家节点上线后，通过 seoul-node-onboarding Skill 自动更新 Caddy 与监控展示。
+      - 继续优化节点列表的信息密度、异常优先级和地区健康概览。
+      - 保持只读原则，不在网页开放 Caddy/frps 配置修改能力。
+    updated_at: 2026-05-17
+    last_modified_at: 2026-05-17
+
+  - id: youyou-cs2-prd-breakdown
+    horizon: short
+    status: active
+    title: 悠悠有品 CS2 产品化拆解
+    goals:
+      - 先拆 CS2 行情与库存 MVP PRD，覆盖首页、商品详情页、库存页、价格提醒和异动榜。
+      - 拆租赁套装与会员 PRD，明确套装生成、会员权益、押金规则和履约风控。
+      - 固化合规红线清单，避免下注、博彩、杠杆、收益承诺和受限地区导流。
+      - 中长期再评估 B2B 官方交易系统、交易 SDK、风控、分账和数据服务。
+    updated_at: 2026-05-25
+    last_modified_at: 2026-05-25
+
+  - id: hardcore-series-sample-pipeline
+    horizon: short
+    status: active
+    title: 硬核系列样片与审核流水线
+    goals:
+      - 优先开发第 1 集、第 10 集、第 40 集三支样片，验证穿越开局、知识可视化和商业爽点。
+      - 将每集开发卡十字段整理成 Markdown、Base 或在线表单模板。
+      - 把 L1-L4 知识风险等级和中高风险表达边界做成开播前审核 Checklist。
+      - 第一部节奏跑通后，再启动第 61-120 集分集开发和衍生系列试探。
+    updated_at: 2026-05-25
+    last_modified_at: 2026-05-25
+
+  - id: short-drama-topic-review-selection
+    horizon: short
+    status: active
+    title: 12 部短剧选题评审收敛
+    goals:
+      - 组织编剧团队用爽点强度、投流潜力、制作成本和合规风险四维打分。
+      - 从 12 部中选出 Top 3-5 进入剧本扩写和阶段目标设计。
+      - 为爆款引流长剧名扩展 3-5 个标题 A/B 变体，先做小流量测试。
+      - 对股市、金融、战争、乱世和出海题材做合规预筛。
+    updated_at: 2026-05-25
+    last_modified_at: 2026-05-25
