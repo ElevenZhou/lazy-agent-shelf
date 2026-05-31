@@ -10,6 +10,17 @@ items:
       - recent-chrome-site-shortcuts
     updated_at: 2026-05-25
     last_modified_at: 2026-05-25
+
+  - id: t0-signal-analysis-dashboard-sensitive-data
+    name: T0 信号分析策略数据外泄
+    risk_level: medium
+    status: active
+    summary: 看板包含股票信号、机会收益、趋势环境和策略有效性分析，用户已确认无需脱敏并可直接公开上线。
+    mitigation: 已按用户确认发布完整看板；后续如新增更敏感字段、账户信息、成交明细或未公开策略参数，再单独评估是否拆分公开版和内部版。
+    related_projects:
+      - t0-signal-analysis
+    updated_at: 2026-05-31
+    last_modified_at: 2026-05-31
   - id: workbench-overreach
     name: 工作台范围膨胀
     risk_level: medium

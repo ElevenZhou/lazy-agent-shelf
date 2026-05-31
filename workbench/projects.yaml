@@ -67,6 +67,31 @@ items:
       "14 security.feishu.cn (1)": https://security.feishu.cn/
     updated_at: 2026-05-25
     last_modified_at: 2026-05-25
+
+  - id: t0-signal-analysis
+    name: T0 信号分析看板
+    type: dashboard
+    stage: testing
+    status: active
+    risk_level: medium
+    summary: 基于飞书多维表格信号记录与本地股票 5 分钟数据，分析 D0/D3/D5 净机会、成功率、有效率、评级分布、13 日线环境、短期趋势和做多/做空差异的本地 HTML 看板。
+    next_action: 继续用多维表格回写字段和看板交叉验证信号质量；后续如更新信号数据，重新生成 HTML 后同步覆盖线上静态页面。
+    owner_note: 当前入口是工作台静态页面和线上静态页面，可直接点击打开完整交互式 HTML；数据口径为净机会收益率=最大机会收益率-0.13% 交易成本，成功=净机会大于 0，有效=净机会不低于 0.50%。
+    related_agents:
+      - codex
+    related_workflows:
+      - submit-to-flaios
+      - signal-analysis
+    links:
+      dashboard: https://agents.flaios.com/workbench-assets/t0-signal-analysis-dashboard.html
+      flaios_subpath: https://flaios.com/lazy-agent-shelf/workbench-assets/t0-signal-analysis-dashboard.html
+      github_pages: https://elevenzhou.github.io/lazy-agent-shelf/workbench-assets/t0-signal-analysis-dashboard.html
+      local_preview: http://127.0.0.1:5173/workbench-assets/t0-signal-analysis-dashboard.html
+      source_html: I:\Dev\Strategies\T0-SemiAuto\信号分析\outputs\signal_analysis_dashboard.html
+      snapshot_html: I:\Dev\Strategies\T0-SemiAuto\信号分析\outputs\versions\signal_analysis_dashboard_20260531_daily-layer.html
+      source_repo: I:\Dev\Strategies\T0-SemiAuto
+    updated_at: 2026-05-31
+    last_modified_at: 2026-05-31
   - id: local-image-generator-skill
     name: 本地图像生成 Skill
     type: skill

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-05-24T19:39:34.438Z",
+  "generated_at": "2026-05-31T05:30:32.447Z",
   "item_count": 16,
   "types": [
     "ai_website",
@@ -5530,7 +5530,7 @@
       "id": "personal-master-os",
       "name": "个人工作台",
       "version": "0.1.0",
-      "updated_at": "2026-05-25",
+      "updated_at": "2026-05-31",
       "positioning": "个人资产、项目状态、关系、进展、风险和计划的结构化状态层，供 Agent 读取、更新和展示。",
       "principles": [
         "只呈现情况，不直接管理或编辑真实项目文件。",
@@ -5546,15 +5546,15 @@
         "risks",
         "plans"
       ],
-      "last_modified_at": "2026-05-25"
+      "last_modified_at": "2026-05-31"
     },
     "summary": {
-      "projects": 14,
-      "active_projects": 14,
+      "projects": 15,
+      "active_projects": 15,
       "high_risks": 4,
       "active_plans": 11,
-      "recent_progress": 18,
-      "assets": 16,
+      "recent_progress": 19,
+      "assets": 17,
       "relations": 2
     },
     "projects": [
@@ -5640,6 +5640,35 @@
         },
         "updated_at": "2026-05-25",
         "last_modified_at": "2026-05-25"
+      },
+      {
+        "id": "t0-signal-analysis",
+        "name": "T0 信号分析看板",
+        "type": "dashboard",
+        "stage": "testing",
+        "status": "active",
+        "risk_level": "medium",
+        "summary": "基于飞书多维表格信号记录与本地股票 5 分钟数据，分析 D0/D3/D5 净机会、成功率、有效率、评级分布、13 日线环境、短期趋势和做多/做空差异的本地 HTML 看板。",
+        "next_action": "继续用多维表格回写字段和看板交叉验证信号质量；后续如更新信号数据，重新生成 HTML 后同步覆盖线上静态页面。",
+        "owner_note": "当前入口是工作台静态页面和线上静态页面，可直接点击打开完整交互式 HTML；数据口径为净机会收益率=最大机会收益率-0.13% 交易成本，成功=净机会大于 0，有效=净机会不低于 0.50%。",
+        "related_agents": [
+          "codex"
+        ],
+        "related_workflows": [
+          "submit-to-flaios",
+          "signal-analysis"
+        ],
+        "links": {
+          "dashboard": "https://agents.flaios.com/workbench-assets/t0-signal-analysis-dashboard.html",
+          "flaios_subpath": "https://flaios.com/lazy-agent-shelf/workbench-assets/t0-signal-analysis-dashboard.html",
+          "github_pages": "https://elevenzhou.github.io/lazy-agent-shelf/workbench-assets/t0-signal-analysis-dashboard.html",
+          "local_preview": "http://127.0.0.1:5173/workbench-assets/t0-signal-analysis-dashboard.html",
+          "source_html": "I:\\Dev\\Strategies\\T0-SemiAuto\\信号分析\\outputs\\signal_analysis_dashboard.html",
+          "snapshot_html": "I:\\Dev\\Strategies\\T0-SemiAuto\\信号分析\\outputs\\versions\\signal_analysis_dashboard_20260531_daily-layer.html",
+          "source_repo": "I:\\Dev\\Strategies\\T0-SemiAuto"
+        },
+        "updated_at": "2026-05-31",
+        "last_modified_at": "2026-05-31"
       },
       {
         "id": "local-image-generator-skill",
@@ -6000,6 +6029,27 @@
         "last_modified_at": "2026-05-25"
       },
       {
+        "id": "t0-signal-analysis-dashboard-html",
+        "name": "T0 信号分析 HTML 看板",
+        "type": "dashboard",
+        "status": "active",
+        "summary": "单文件交互式 HTML 看板，展示信号 D0/D3/D5 净机会、评级分布、日线环境、短期趋势、方向对比和三维组合分析；已复制到工作台网站 public 目录，可从工作台直接点击查看。",
+        "related_projects": [
+          "t0-signal-analysis",
+          "flaios-hub"
+        ],
+        "links": {
+          "open_dashboard": "https://agents.flaios.com/workbench-assets/t0-signal-analysis-dashboard.html",
+          "flaios_subpath": "https://flaios.com/lazy-agent-shelf/workbench-assets/t0-signal-analysis-dashboard.html",
+          "github_pages": "https://elevenzhou.github.io/lazy-agent-shelf/workbench-assets/t0-signal-analysis-dashboard.html",
+          "local_preview": "http://127.0.0.1:5173/workbench-assets/t0-signal-analysis-dashboard.html",
+          "public_static_file": "I:\\Dev\\通用性agent开发\\packages\\website\\public\\workbench-assets\\t0-signal-analysis-dashboard.html",
+          "source_html": "I:\\Dev\\Strategies\\T0-SemiAuto\\信号分析\\outputs\\signal_analysis_dashboard.html"
+        },
+        "updated_at": "2026-05-31",
+        "last_modified_at": "2026-05-31"
+      },
+      {
         "id": "submit-results-to-workbench-local-skill",
         "name": "提交成果到工作台本地 Skill",
         "type": "skill",
@@ -6266,6 +6316,15 @@
         "last_modified_at": "2026-05-25"
       },
       {
+        "id": "t0-signal-analysis-dashboard-submitted-to-workbench",
+        "date": "2026-05-31",
+        "project": "t0-signal-analysis",
+        "status": "done",
+        "summary": "已将 T0 信号分析 HTML 看板复制到工作台网站静态目录，并登记为可点击资产；工作台记录使用线上绝对链接，方便公网直接查看完整页面。",
+        "updated_at": "2026-05-31",
+        "last_modified_at": "2026-05-31"
+      },
+      {
         "id": "personal-workbench-start",
         "date": "2026-05-13",
         "project": "flaios-hub",
@@ -6415,6 +6474,19 @@
         ],
         "updated_at": "2026-05-25",
         "last_modified_at": "2026-05-25"
+      },
+      {
+        "id": "t0-signal-analysis-dashboard-sensitive-data",
+        "name": "T0 信号分析策略数据外泄",
+        "risk_level": "medium",
+        "status": "active",
+        "summary": "看板包含股票信号、机会收益、趋势环境和策略有效性分析，用户已确认无需脱敏并可直接公开上线。",
+        "mitigation": "已按用户确认发布完整看板；后续如新增更敏感字段、账户信息、成交明细或未公开策略参数，再单独评估是否拆分公开版和内部版。",
+        "related_projects": [
+          "t0-signal-analysis"
+        ],
+        "updated_at": "2026-05-31",
+        "last_modified_at": "2026-05-31"
       },
       {
         "id": "workbench-overreach",

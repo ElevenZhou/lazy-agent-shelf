@@ -20,6 +20,14 @@ items:
     summary: 已从本机 Chrome History 副本统计最近三天高频访问域名，过滤本地/内网/广告统计域名，按访问次数整理为可点击的工作台快捷入口，并让工作台资产卡支持展示 links。
     updated_at: 2026-05-25
     last_modified_at: 2026-05-25
+
+  - id: t0-signal-analysis-dashboard-submitted-to-workbench
+    date: 2026-05-31
+    project: t0-signal-analysis
+    status: done
+    summary: 已将 T0 信号分析 HTML 看板复制到工作台网站静态目录，并登记为可点击资产；工作台记录使用线上绝对链接，方便公网直接查看完整页面。
+    updated_at: 2026-05-31
+    last_modified_at: 2026-05-31
   - id: personal-workbench-start
     date: 2026-05-13
     project: flaios-hub

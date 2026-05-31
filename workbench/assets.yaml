@@ -51,6 +51,24 @@ items:
       "14 security.feishu.cn (1)": https://security.feishu.cn/
     updated_at: 2026-05-25
     last_modified_at: 2026-05-25
+
+  - id: t0-signal-analysis-dashboard-html
+    name: T0 信号分析 HTML 看板
+    type: dashboard
+    status: active
+    summary: 单文件交互式 HTML 看板，展示信号 D0/D3/D5 净机会、评级分布、日线环境、短期趋势、方向对比和三维组合分析；已复制到工作台网站 public 目录，可从工作台直接点击查看。
+    related_projects:
+      - t0-signal-analysis
+      - flaios-hub
+    links:
+      open_dashboard: https://agents.flaios.com/workbench-assets/t0-signal-analysis-dashboard.html
+      flaios_subpath: https://flaios.com/lazy-agent-shelf/workbench-assets/t0-signal-analysis-dashboard.html
+      github_pages: https://elevenzhou.github.io/lazy-agent-shelf/workbench-assets/t0-signal-analysis-dashboard.html
+      local_preview: http://127.0.0.1:5173/workbench-assets/t0-signal-analysis-dashboard.html
+      public_static_file: I:\Dev\通用性agent开发\packages\website\public\workbench-assets\t0-signal-analysis-dashboard.html
+      source_html: I:\Dev\Strategies\T0-SemiAuto\信号分析\outputs\signal_analysis_dashboard.html
+    updated_at: 2026-05-31
+    last_modified_at: 2026-05-31
   - id: submit-results-to-workbench-local-skill
     name: 提交成果到工作台本地 Skill
     type: skill
