@@ -31,32 +31,34 @@
     }
     .wrap { max-width: 1440px; margin: 0 auto; padding: 28px; }
     header {
-      min-height: 78vh;
       display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(360px, .85fr);
-      gap: 28px;
-      align-items: end;
+      grid-template-columns: minmax(0, 1fr) minmax(340px, 440px);
+      gap: 22px;
+      align-items: stretch;
       border-bottom: 1px solid var(--line);
-      padding-bottom: 28px;
+      padding: 18px 0 22px;
     }
     h1 {
-      margin: 0 0 18px;
+      margin: 0 0 12px;
       max-width: 980px;
-      font-size: clamp(44px, 8vw, 118px);
-      line-height: .92;
+      font-size: clamp(40px, 5.2vw, 74px);
+      line-height: 1.02;
       font-weight: 700;
     }
-    .subtitle { max-width: 760px; color: var(--muted); font-size: 18px; line-height: 1.75; }
+    .subtitle { max-width: 860px; color: var(--muted); font-size: 16px; line-height: 1.65; margin: 0 0 12px; }
     .stamp {
-      width: min(100%, 520px);
+      width: 100%;
       border: 1px solid var(--ink);
       background: rgba(255,250,241,.72);
       box-shadow: var(--shadow);
-      padding: 22px;
-      justify-self: end;
+      padding: 18px;
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
     .stamp-title { font-size: 14px; color: var(--muted); text-transform: uppercase; }
-    .big-number { font-size: clamp(62px, 9vw, 128px); line-height: 1; font-weight: 700; color: var(--green); margin: 12px 0; }
+    .big-number { font-size: clamp(58px, 7vw, 92px); line-height: 1; font-weight: 700; color: var(--green); margin: 8px 0; }
     .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 18px; margin-top: 22px; }
     section { margin-top: 36px; }
     .panel {
